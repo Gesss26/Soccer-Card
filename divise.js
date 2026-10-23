@@ -3,6 +3,7 @@
    Aggiornato a ottobre 2026 — formazioni tipo di ogni squadra
    + viso "Classico" + carnagione per giocatore
    + braccia sopra i pantaloncini, corpo arrotondato
+   + gambe snodabili: coscia + polpaccio/piede (ginocchio)
    ============================================================ */
 
 var SQUADRE = {
@@ -176,10 +177,7 @@ var ROSE = {
    pelle = colore base, ombra = tono più scuro per guance/naso
    ============================================================ */
 var CARNAGIONI = {
-  // Tono chiaro (default)
   'default':            { pelle: '#fcd7b6', ombra: '#e0b090' },
-
-  // Tono olivastro / mediterraneo
   'mancini':            { pelle: '#e8b88a', ombra: '#c99a6e' },
   'cristante':          { pelle: '#e8b88a', ombra: '#c99a6e' },
   'politano':           { pelle: '#e8b88a', ombra: '#c99a6e' },
@@ -189,18 +187,14 @@ var CARNAGIONI = {
   'zoslini':            { pelle: '#e8b88a', ombra: '#c99a6e' },
   'maldini':            { pelle: '#e8b88a', ombra: '#c99a6e' },
   'pessina':            { pelle: '#e8b88a', ombra: '#c99a6e' },
-
-  // Tono abbronzato / latino
   'dybala':             { pelle: '#d9a070', ombra: '#b8804f' },
   'lautaro':            { pelle: '#d9a070', ombra: '#b8804f' },
   'messi':              { pelle: '#e8b88a', ombra: '#c99a6e' },
-  'kolo muani':         { pelle: '#5a3a24', ombra: '#3e2616' }, // scuro
+  'kolo muani':         { pelle: '#5a3a24', ombra: '#3e2616' },
   'hernandez':          { pelle: '#d9a070', ombra: '#b8804f' },
   'pulisic':            { pelle: '#f0c8a0', ombra: '#d4a878' },
   'mckennie':           { pelle: '#f0c8a0', ombra: '#d4a878' },
   'weah':               { pelle: '#5a3a24', ombra: '#3e2616' },
-
-  // Tono scuro (africano / afroamericano)
   'kessié':             { pelle: '#5a3a24', ombra: '#3e2616' },
   'kessie':             { pelle: '#5a3a24', ombra: '#3e2616' },
   'ederson':            { pelle: '#6b4a30', ombra: '#4a3020' },
@@ -538,9 +532,7 @@ var CARNAGIONI = {
 function carnagionePer(nome) {
   if (!nome) return CARNAGIONI['default'];
   var n = nome.toLowerCase().trim();
-  // match esatto prima
   if (CARNAGIONI[n]) return CARNAGIONI[n];
-  // poi match parziale: il cognome contenuto nel nome
   for (var k in CARNAGIONI) {
     if (k === 'default') continue;
     if (n.indexOf(k) !== -1) return CARNAGIONI[k];
@@ -549,11 +541,18 @@ function carnagionePer(nome) {
 }
 
 /* ============================================================
-   GENERA SVG GIOCATORE - VIS0 "CLASSICO"
-   Parametri:
-   - divisa: oggetto con maglia/pantaloncini/calzettoni/righe/colore2
-   - animazione: 'fermo' o altro
-   - nomeGiocatore: opzionale, per la carnagione
+   GENERA SVG GIOCATORE - VISO "CLASSICO"
+   Struttura con classi per animazioni:
+   - pg-testa        (perno 20,17)  testa intera
+   - pg-busto        (perno 20,36)  busto/maglia
+   - pg-braccio-sx   (perno 12,20)  braccio sinistro completo
+   - pg-braccio-dx   (perno 28,20)  braccio destro completo
+   - pg-gamba-sx     (perno 16,48)  COSCIA sinistra (ruota dall'anca)
+   - pg-gamba-sx-bassa (perno 16,52) POLPACCIO+PIEDE sx (ruota dal ginocchio)
+   - pg-gamba-dx     (perno 24,48)  COSCIA destra
+   - pg-gamba-dx-bassa (perno 24,52) POLPACCIO+PIEDE dx
+
+   viewBox: 0 0 40 60
    ============================================================ */
 function creaGiocatoreSVG(divisa, animazione, nomeGiocatore) {
   if (!divisa) divisa = { maglia: '#888888', pantaloncini: '#333333', calzettoni: '#888888' };
@@ -578,47 +577,28 @@ function creaGiocatoreSVG(divisa, animazione, nomeGiocatore) {
 
   var fillMaglia = (divisa.righe && divisa.colore2) ? 'url(#' + idPattern + ')' : divisa.maglia;
 
-  // ===== TESTA - VIS0 CLASSICO =====
-  svg += '<g class="pg-testa" style="transform-origin: 20px 17px;">';
-
-  // collo
+  // ===== TESTA =====
+  svg += '<g class="pg-testa" style="transform-origin: 20px 17px; transform-box: view-box;">';
   svg += '<path d="M 17.5 15 L 17.5 19 L 22.5 19 L 22.5 15 Z" fill="' + pelle + '" stroke="#333" stroke-width="0.5"/>';
-
-  // viso tondo
   svg += '<ellipse cx="20" cy="10" rx="7.5" ry="7.8" fill="' + pelle + '" stroke="#333" stroke-width="1"/>';
-
-  // capelli corti castani
   svg += '<path d="M 12.5 9 Q 12 2.8 20 2.8 Q 28 2.8 27.5 9 Q 26 6 23 5.5 Q 20 5 17 5.5 Q 14 6 12.5 9 Z" fill="#6b4a2b" stroke="#4a3020" stroke-width="0.5"/>';
   svg += '<path d="M 25 5.5 Q 27 6.5 27.3 9 Q 26.5 7.5 25 5.5 Z" fill="#6b4a2b" stroke="#4a3020" stroke-width="0.3"/>';
-
-  // orecchie
   svg += '<ellipse cx="12.5" cy="10.5" rx="1.3" ry="1.8" fill="' + pelle + '" stroke="#333" stroke-width="0.7"/>';
   svg += '<ellipse cx="27.5" cy="10.5" rx="1.3" ry="1.8" fill="' + pelle + '" stroke="#333" stroke-width="0.7"/>';
-
-  // occhi a puntino
   svg += '<circle cx="17" cy="10" r="1.1" fill="#1a1a1a"/>';
   svg += '<circle cx="23" cy="10" r="1.1" fill="#1a1a1a"/>';
   svg += '<circle cx="16.7" cy="9.7" r="0.3" fill="#fff"/>';
   svg += '<circle cx="22.7" cy="9.7" r="0.3" fill="#fff"/>';
-
-  // sopracciglia
   svg += '<path d="M 15 7.8 Q 17 7.3 18.5 7.8" fill="none" stroke="#4a3020" stroke-width="0.7" stroke-linecap="round"/>';
   svg += '<path d="M 21.5 7.8 Q 23 7.3 25 7.8" fill="none" stroke="#4a3020" stroke-width="0.7" stroke-linecap="round"/>';
-
-  // naso
   svg += '<path d="M 20 10.8 L 19.6 12.5 Q 20 12.8 20.4 12.5 Z" fill="' + ombra + '" opacity="0.7"/>';
-
-  // bocca sorridente
   svg += '<path d="M 17.5 13.8 Q 20 15.3 22.5 13.8" fill="none" stroke="#8a3b3b" stroke-width="0.8" stroke-linecap="round"/>';
-
-  // guance
   svg += '<ellipse cx="14.5" cy="12.5" rx="1" ry="0.5" fill="#f4a0a0" opacity="0.3"/>';
   svg += '<ellipse cx="25.5" cy="12.5" rx="1" ry="0.5" fill="#f4a0a0" opacity="0.3"/>';
-
   svg += '</g>';
 
-  // ===== BUSTO ARROTONDATO =====
-  svg += '<g class="pg-busto">';
+  // ===== BUSTO =====
+  svg += '<g class="pg-busto" style="transform-origin: 20px 36px; transform-box: view-box;">';
   svg += '<path d="M 12 20 Q 12 18 14 17.5 Q 20 16.5 26 17.5 Q 28 18 28 20 L 29 34 Q 29 37.5 26 37.8 Q 20 38.3 14 37.8 Q 11 37.5 11 34 Z" fill="' + fillMaglia + '" stroke="#222" stroke-width="1" stroke-linejoin="round"/>';
   svg += '<path d="M 16 17.5 Q 20 22.5 24 17.5" fill="none" stroke="#fff" stroke-width="1.1" stroke-linecap="round"/>';
   svg += '</g>';
@@ -626,30 +606,38 @@ function creaGiocatoreSVG(divisa, animazione, nomeGiocatore) {
   // ===== PANTALONCINI (disegnati PRIMA delle braccia) =====
   svg += '<path d="M 11.2 36.5 Q 20 39 28.8 36.5 L 28.4 43.5 Q 28.3 46 25.5 46 L 22.8 46 Q 21 46 20.5 44 Q 20 42.8 19.5 44 Q 19 46 17.2 46 L 14.5 46 Q 11.7 46 11.6 43.5 Z" fill="' + divisa.pantaloncini + '" stroke="#222" stroke-width="1" stroke-linejoin="round"/>';
 
-  // ===== BRACCIO SINISTRO (dopo i pantaloncini = sopra) =====
-  svg += '<g class="pg-braccio-sx" style="transform-origin: 12px 20px;">';
+  // ===== BRACCIO SINISTRO =====
+  svg += '<g class="pg-braccio-sx" style="transform-origin: 12px 20px; transform-box: view-box;">';
   svg += '<path d="M 12 19.5 Q 9 19.5 8.5 22 L 7.8 31 Q 7.6 34.5 10.5 35 Q 13.5 35.5 14 32 L 14.8 22.5 Q 15 20 12 19.5 Z" fill="' + fillMaglia + '" stroke="#222" stroke-width="1" stroke-linejoin="round"/>';
   svg += '<circle cx="11" cy="35.5" r="3.2" fill="' + pelle + '" stroke="#333" stroke-width="1"/>';
   svg += '</g>';
 
-  // ===== BRACCIO DESTRO (dopo i pantaloncini = sopra) =====
-  svg += '<g class="pg-braccio-dx" style="transform-origin: 28px 20px;">';
+  // ===== BRACCIO DESTRO =====
+  svg += '<g class="pg-braccio-dx" style="transform-origin: 28px 20px; transform-box: view-box;">';
   svg += '<path d="M 28 19.5 Q 31 19.5 31.5 22 L 32.2 31 Q 32.4 34.5 29.5 35 Q 26.5 35.5 26 32 L 25.2 22.5 Q 25 20 28 19.5 Z" fill="' + fillMaglia + '" stroke="#222" stroke-width="1" stroke-linejoin="round"/>';
   svg += '<circle cx="29" cy="35.5" r="3.2" fill="' + pelle + '" stroke="#333" stroke-width="1"/>';
   svg += '</g>';
 
-  // ===== GAMBA SINISTRA =====
-  svg += '<g class="pg-gamba-sx" style="transform-origin: 16px 48px;">';
-  svg += '<path d="M 14.2 45 Q 13.8 48 14 51 L 14.2 53.5 Q 14.3 55.5 16 55.5 Q 17.7 55.5 17.8 53.5 L 18 51 Q 18.2 48 17.8 45 Z" fill="' + pelle + '" stroke="#333" stroke-width="1" stroke-linejoin="round"/>';
-  svg += '<path d="M 13.8 54 Q 13.6 56 14 57.5 Q 16 58.3 18 57.5 Q 18.4 56 18.2 54 Z" fill="' + divisa.calzettoni + '" stroke="#222" stroke-width="1" stroke-linejoin="round"/>';
+  // ===== GAMBA SINISTRA (coscia + polpaccio/piede, snodabile al ginocchio) =====
+  svg += '<g class="pg-gamba-sx" style="transform-origin: 16px 48px; transform-box: view-box;">';
+  // Coscia (dal bacino al ginocchio a Y=52)
+  svg += '<path d="M 14.2 45 Q 13.8 48 14 51 L 14.2 52.5 Q 14.5 52.8 16 52.8 Q 17.5 52.8 17.8 52.5 L 18 51 Q 18.2 48 17.8 45 Z" fill="' + pelle + '" stroke="#333" stroke-width="1" stroke-linejoin="round"/>';
+  // Parte bassa annidata (polpaccio + calzettoni + scarpino), perno al ginocchio
+  svg += '<g class="pg-gamba-sx-bassa" style="transform-origin: 16px 52px; transform-box: view-box;">';
+  svg += '<path d="M 14.2 52.5 Q 13.8 54 14 57.5 Q 16 58.3 18 57.5 Q 18.4 54 18.2 52.5 Q 17.5 52.8 16 52.8 Q 14.5 52.8 14.2 52.5 Z" fill="' + divisa.calzettoni + '" stroke="#222" stroke-width="1" stroke-linejoin="round"/>';
   svg += '<path d="M 12.5 58.5 Q 12 60 14 60 L 18.5 60 Q 20 60 19.5 58.7 Q 18 58.2 16 58.3 Q 14 58.2 12.5 58.5 Z" fill="#111" stroke="#222" stroke-width="0.6" stroke-linejoin="round"/>';
   svg += '</g>';
+  svg += '</g>';
 
-  // ===== GAMBA DESTRA =====
-  svg += '<g class="pg-gamba-dx" style="transform-origin: 24px 48px;">';
-  svg += '<path d="M 22.2 45 Q 21.8 48 22 51 L 22.2 53.5 Q 22.3 55.5 24 55.5 Q 25.7 55.5 25.8 53.5 L 26 51 Q 26.2 48 25.8 45 Z" fill="' + pelle + '" stroke="#333" stroke-width="1" stroke-linejoin="round"/>';
-  svg += '<path d="M 21.8 54 Q 21.6 56 22 57.5 Q 24 58.3 26 57.5 Q 26.4 56 26.2 54 Z" fill="' + divisa.calzettoni + '" stroke="#222" stroke-width="1" stroke-linejoin="round"/>';
+  // ===== GAMBA DESTRA (coscia + polpaccio/piede, snodabile al ginocchio) =====
+  svg += '<g class="pg-gamba-dx" style="transform-origin: 24px 48px; transform-box: view-box;">';
+  // Coscia
+  svg += '<path d="M 22.2 45 Q 21.8 48 22 51 L 22.2 52.5 Q 22.5 52.8 24 52.8 Q 25.5 52.8 25.8 52.5 L 26 51 Q 26.2 48 25.8 45 Z" fill="' + pelle + '" stroke="#333" stroke-width="1" stroke-linejoin="round"/>';
+  // Parte bassa annidata
+  svg += '<g class="pg-gamba-dx-bassa" style="transform-origin: 24px 52px; transform-box: view-box;">';
+  svg += '<path d="M 22.2 52.5 Q 21.8 54 22 57.5 Q 24 58.3 26 57.5 Q 26.4 54 25.8 52.5 Q 25.5 52.8 24 52.8 Q 22.5 52.8 22.2 52.5 Z" fill="' + divisa.calzettoni + '" stroke="#222" stroke-width="1" stroke-linejoin="round"/>';
   svg += '<path d="M 20.5 58.5 Q 20 60 22 60 L 26.5 60 Q 28 60 27.5 58.7 Q 26 58.2 24 58.3 Q 22 58.2 20.5 58.5 Z" fill="#111" stroke="#222" stroke-width="0.6" stroke-linejoin="round"/>';
+  svg += '</g>';
   svg += '</g>';
 
   svg += '</svg>';

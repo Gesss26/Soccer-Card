@@ -1229,7 +1229,7 @@ var stato = {
 var selezioneCarte = [];
 var selezioneSost = { campo:null, panchina:null };
 var renderingCampoInCorso = false;
-var carteAttualmentePescando = [];   // per nascondere le nuove carte durante l'animazione
+var carteAttualmentePescando = [];
 
 /* ============================================================
    SALVATAGGIO AUTOMATICO
@@ -2026,8 +2026,6 @@ function animaPescaCarta(carta, callback) {
 
 /* ============================================================
    ANIMAZIONE PESCA 3 CARTE — in sequenza, ordinate per seme
-   Mostra 3 carte che partono dal mazzo e vanno a posizionarsi
-   ciascuna nella posizione corretta della mano ordinata.
    ============================================================ */
 function animaPescaCarte3(carte, callback) {
   if (!carte || carte.length === 0) { if (callback) callback(); return; }
@@ -2039,8 +2037,6 @@ function animaPescaCarte3(carte, callback) {
   var startX = rMazzo.left + rMazzo.width / 2 - 48;
   var startY = rMazzo.top + rMazzo.height / 2 - 69;
 
-  // Costruisci la mano completa (le carte già in mano + le nuove)
-  // per calcolare le posizioni finali ordinate
   var manoOrdinata = stato.mani.tu.slice().sort(function(a, b) {
     var sA = ORDINE_SEMI.indexOf(a.seme);
     var sB = ORDINE_SEMI.indexOf(b.seme);
@@ -2048,7 +2044,6 @@ function animaPescaCarte3(carte, callback) {
     return a.valore - b.valore;
   });
 
-  // Trova la posizione (indice) di ciascuna carta nuova nella mano ordinata
   var posizioniTarget = [];
   for (var i = 0; i < carte.length; i++) {
     for (var j = 0; j < manoOrdinata.length; j++) {
@@ -2070,7 +2065,6 @@ function animaPescaCarte3(carte, callback) {
 
   document.body.classList.add('pesca-in-corso');
 
-  // Aggiungi gli ID delle carte nuove alla lista "in pesca" per nasconderle nel pannello
   carteAttualmentePescando = carte.map(function(c){ return c.id; });
 
   var indiceCorrente = 0;
@@ -2146,7 +2140,6 @@ function valutaCombinazione3(carte, semeGuida) {
   var valoriOrdinati = valori.slice().sort(function(a,b){ return a - b; });
   var valoriConSemeOrdinati = valoriConSeme.slice().sort(function(a,b){ return a - b; });
   
-  // === TRIS ===
   if (n === 3 && valori[0] === valori[1] && valori[1] === valori[2]) {
     var valTris = valori[0];
     var valTrisConSeme = valoreCartaConSeme(carte[0], semeGuida);
@@ -2157,7 +2150,6 @@ function valutaCombinazione3(carte, semeGuida) {
     };
   }
   
-  // === SCALA ===
   if (n === 3 && valoriOrdinati[1] === valoriOrdinati[0]+1 && valoriOrdinati[2] === valoriOrdinati[1]+1) {
     var valAltaScala = valoriOrdinati[2];
     var cartaAltaScala = carte.filter(function(c){ return c.valore === valAltaScala; })[0];
@@ -2170,7 +2162,6 @@ function valutaCombinazione3(carte, semeGuida) {
     };
   }
   
-  // === COLORE ===
   if (n === 3 && semi[0] === semi[1] && semi[1] === semi[2]) {
     var valAltaColore = valoriConSemeOrdinati[2];
     var cartaAltaColore = carte.reduce(function(prev, cur){
@@ -2183,7 +2174,6 @@ function valutaCombinazione3(carte, semeGuida) {
     };
   }
   
-  // === COPPIA ===
   var valoreCoppia = null;
   for (var v in conteggi) {
     if (conteggi[v] >= 2) { valoreCoppia = parseInt(v); break; }
@@ -2198,7 +2188,6 @@ function valutaCombinazione3(carte, semeGuida) {
     };
   }
   
-  // === CARTA ALTA ===
   var cartaPiuAlta = carte.reduce(function(prev, cur){
     return valoreCartaConSeme(cur, semeGuida) > valoreCartaConSeme(prev, semeGuida) ? cur : prev;
   });
@@ -2264,7 +2253,6 @@ function avviaContrasto() {
   if (!gA) { var l2 = giocatoriInZona(dif, zona, false).filter(function(g){ return !g.portiere; }); gA = l2[0]; }
   if (gP) stato.giocatorePalla = gP.id;
 
-  // Salva snapshot PRIMA del riempimento per sapere quali sono le nuove
   var idsPrimaTU = stato.mani.tu.map(function(c){ return c.id; });
   riempiMano('tu');
   riempiMano('cpu');
@@ -2293,7 +2281,6 @@ function avviaContrasto() {
   
   if (carteNuoveTU.length > 0) {
     setTimeout(function() {
-      // Nascondi temporaneamente le nuove carte nel pannello
       carteAttualmentePescando = carteNuoveTU.map(function(c){ return c.id; });
       renderPannelloMano3();
       animaPescaCarte3(carteNuoveTU, function() {
@@ -2339,7 +2326,6 @@ function renderPannelloMano3() {
     (function(entry) {
       var carta = entry.carta;
       var idx = entry.idxOrig;
-      // Salta le carte attualmente in animazione
       if (carteAttualmentePescando.indexOf(carta.id) > -1) return;
       var el = creaCartaEl(carta);
       if (carta.seme === c.semeGuida) el.classList.add('seme-guidatore');
@@ -2548,7 +2534,7 @@ function cpuVuoleUsareContrastoSicuro(zona) {
 }
 
 /* ============================================================
-   RISOLUZIONE CONTRASTO
+   RISOLUZIONE CONTRASTO — tutte le occorrenze usano "vincitore"
    ============================================================ */
 function risolviContrastoLogica3(vincitore, c) {
   if (vincitore === 'pareggio') {
@@ -2617,23 +2603,23 @@ function risolviContrastoLogica3(vincitore, c) {
   stato.mano++;
   salvaPartita();
   
-  var dirVincente = direzionePerSquadra(vincente);
+  var dirVincente = direzionePerSquadra(vincitore);
   var zonaAttuale = c.zona;
   var zonaTiro = dirVincente > 0 ? 5 : 1;
   var isTiro = (zonaAttuale === zonaTiro);
   
   if (isTiro) {
-    stato.azioneTiroDaPalo = { zona:c.zona, giocatoreAtt:c.giocatorePoss, giocatoreDif:c.giocatoreAvv, meta:c.meta, attaccante:c.attaccante, difensore:c.difensore, possessore:vincente };
-    setTimeout(function() { apriSchermataTiro(vincente); }, 500);
+    stato.azioneTiroDaPalo = { zona:c.zona, giocatoreAtt:c.giocatorePoss, giocatoreDif:c.giocatoreAvv, meta:c.meta, attaccante:c.attaccante, difensore:c.difensore, possessore:vincitore };
+    setTimeout(function() { apriSchermataTiro(vincitore); }, 500);
     return;
   }
   
   var nz = zonaAttuale + dirVincente;
-  if (nz < 0 || nz > 6) { setTimeout(function() { apriSchermataTiro(vincente); }, 500); return; }
+  if (nz < 0 || nz > 6) { setTimeout(function() { apriSchermataTiro(vincitore); }, 500); return; }
   
-  var haRubato = (vincente === c.difensore);
-  var gVincitore = (vincente === c.attaccante) ? gP : gA;
-  var gPerdente = (vincente === c.attaccante) ? gA : gP;
+  var haRubato = (vincitore === c.difensore);
+  var gVincitore = (vincitore === c.attaccante) ? gP : gA;
+  var gPerdente = (vincitore === c.attaccante) ? gA : gP;
   
   if (haRubato && gVincitore && gPerdente) { suonaScivolata(); animaTackle(gVincitore, gPerdente); }
   
@@ -2642,11 +2628,11 @@ function risolviContrastoLogica3(vincitore, c) {
   
   var procediConAvanzamento = function(zFinale) {
     if (stato.partitaFinita) return;
-    var comp = giocatoriInZona(vincente, zFinale, false).filter(function(g){ return !g.portiere && !g.espulso; });
-    if (comp.length === 0) { setTimeout(function() { apriSchermataTiro(vincente); }, 500); return; }
+    var comp = giocatoriInZona(vincitore, zFinale, false).filter(function(g){ return !g.portiere && !g.espulso; });
+    if (comp.length === 0) { setTimeout(function() { apriSchermataTiro(vincitore); }, 500); return; }
     var sc = comp[Math.floor(Math.random()*comp.length)];
     var nm = (comp.indexOf(sc) === 0) ? 'sup' : 'inf';
-    stato.zonaPalla = zFinale; stato.possessore = vincente; stato.metaContesa = nm;
+    stato.zonaPalla = zFinale; stato.possessore = vincitore; stato.metaContesa = nm;
     stato.giocatorePalla = sc.id;
     aggiornaSottofondoPerZona(zFinale);
     var dPR = haRubato ? (DURATA_SCIVOLATA + DURATA_RITORNO) : 0;
@@ -2654,29 +2640,29 @@ function risolviContrastoLogica3(vincitore, c) {
       renderCampo(); renderHeader();
       setTimeout(function() {
         if (stato.partitaFinita) return;
-        if (!gVincitore) { stato.possessore = vincente; stato.giocatorePalla = sc.id; bloccaCoppiaContrasto(); setTimeout(avviaContrasto, 800); return; }
-        animaPallaInZona(gVincitore, sc, function() { if (stato.partitaFinita) return; stato.possessore = vincente; stato.giocatorePalla = sc.id; bloccaCoppiaContrasto(); salvaPartita(); setTimeout(avviaContrasto, 800); });
+        if (!gVincitore) { stato.possessore = vincitore; stato.giocatorePalla = sc.id; bloccaCoppiaContrasto(); setTimeout(avviaContrasto, 800); return; }
+        animaPallaInZona(gVincitore, sc, function() { if (stato.partitaFinita) return; stato.possessore = vincitore; stato.giocatorePalla = sc.id; bloccaCoppiaContrasto(); salvaPartita(); setTimeout(avviaContrasto, 800); });
       }, 100);
     }, dPR);
   };
   
-  if (vincente === 'tu' && (zonaAttuale === 2 || zonaAttuale === 4) && haBonus('tu', 'tiro-fuori-area')) {
+  if (vincitore === 'tu' && (zonaAttuale === 2 || zonaAttuale === 4) && haBonus('tu', 'tiro-fuori-area')) {
     chiediTiroFuoriArea(zonaAttuale, function(usa) {
       if (usa) {
         consumaBonus('tu', 'tiro-fuori-area');
         mostraBonusBanner('🏆 TU usi: 🚀 Tiro da Fuori Area!');
         renderBonusSlots();
-        animaPallaVersoPorta(vincente, function() { apriSchermataTiro(vincente); });
+        animaPallaVersoPorta(vincitore, function() { apriSchermataTiro(vincitore); });
       } else { procediConAvanzamento(nz); }
     });
     return;
   }
-  if (vincente === 'tu' && passaggioLungoValido && haBonus('tu', 'passaggio-lungo')) {
+  if (vincitore === 'tu' && passaggioLungoValido && haBonus('tu', 'passaggio-lungo')) {
     chiediPassaggioLungo(zonaAttuale, dirVincente, function(usa) {
       if (usa) { consumaBonus('tu', 'passaggio-lungo'); mostraBonusBanner('🏆 TU usi: 🎯 Passaggio Lungo!'); renderBonusSlots(); procediConAvanzamento(zLungo); }
       else { procediConAvanzamento(nz); }
     });
-  } else if (vincente === 'cpu' && passaggioLungoValido && haBonus('cpu', 'passaggio-lungo') && cpuVuoleUsarePassaggioLungo(zonaAttuale, dirVincente)) {
+  } else if (vincitore === 'cpu' && passaggioLungoValido && haBonus('cpu', 'passaggio-lungo') && cpuVuoleUsarePassaggioLungo(zonaAttuale, dirVincente)) {
     consumaBonus('cpu', 'passaggio-lungo');
     mostraBonusBanner('🤖 CPU usa: 🎯 Passaggio Lungo!');
     procediConAvanzamento(zLungo);

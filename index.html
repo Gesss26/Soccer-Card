@@ -234,7 +234,22 @@
   .carte-overlay { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 550; pointer-events: none; opacity: 0; transition: opacity 0.3s; }
   .carte-overlay.attivo { opacity: 1; pointer-events: auto; }
   .carte-overlay::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.35); pointer-events: none; }
-  .carte-overlay-inner { position: relative; background: rgba(10,15,30,0.95); border: 3px solid #ffd700; border-radius: 18px; padding: 16px 22px 18px; box-shadow: 0 12px 48px rgba(0,0,0,0.9); display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: min(96vw, 720px); margin: 0 12px; }
+  .carte-overlay-inner { 
+  position: relative; 
+  background: rgba(10,15,30,0.95); 
+  border: 3px solid #ffd700; 
+  border-radius: 18px; 
+  padding: 16px 22px 18px; 
+  box-shadow: 0 12px 48px rgba(0,0,0,0.9); 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 12px; 
+  /* Allinea la larghezza al banner dei mazzi (96%) */
+  width: 96%; 
+  max-width: 1100px; 
+  margin: 0 auto; 
+}
   .carte-overlay-titolo { font-size: 14px; color: #ffd700; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
   .carte-overlay-sottotitolo { font-size: 12px; color: #aaa; text-align: center; margin-top: -6px; }
   .carte-overlay-riga { display: flex; align-items: center; gap: 16px; flex-wrap: nowrap; justify-content: center; }
@@ -776,16 +791,16 @@ var SCENA_H = 900;
 var scalaCorrente = 1;
 
 var POSIZIONI_COPPIE = [
-  { x: 550,  y: 560, angolo: 180 },
-  { x: 530,  y: 700, angolo: 180 },
-  { x: 700,  y: 480, angolo: 180 },
-  { x: 660,  y: 780, angolo: 180 },
+  { x: 530,  y: 560, angolo: 180 },
+  { x: 510,  y: 700, angolo: 180 },
+  { x: 680,  y: 480, angolo: 180 },
+  { x: 640,  y: 780, angolo: 180 },
   { x: 800,  y: 560, angolo: 180 },
   { x: 800,  y: 700, angolo: 180 },
-  { x: 900,  y: 480, angolo: 180 },
+  { x: 920,  y: 480, angolo: 180 },
   { x: 930,  y: 780, angolo: 180 },
-  { x: 1060, y: 560, angolo: 180 },
-  { x: 1080, y: 700, angolo: 180 }
+  { x: 1080, y: 560, angolo: 180 },
+  { x: 1100, y: 700, angolo: 180 }
 ];
 
 var MAPPA_COPPIE = [

@@ -117,86 +117,199 @@
   .pedina.pg-in-calcio .pg-braccio-dx { animation: calciaBraccioDx 0.7s ease-out forwards; transform-origin: 34px 40px; transform-box: view-box; }
 
   /* ============================================================
-     SCIVOLATA — rifatta da zero
-     Una sola animazione sulla .pedina: traslazione + rotazione + 
-     abbassamento, con la gamba che si distende.
-     Il wrapper non si tocca: nome e info sotto restano fermi.
+     SCIVOLATA REALISTICA
+     - La pedina si sposta verso la palla
+     - Il busto si inclina dalla parte OPPOSTA alla palla (contrappeso)
+     - Il bacino ruota di 90° verso la palla
+     - Le gambe si distendono verso la palla
+     - Le braccia vanno verso il basso (appoggio a terra)
      ============================================================ */
+
+  /* Container pedina: traslazione verso la palla */
   .pedina.pg-in-scivolata-dx {
-    animation: scivolaDx 1.1s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
-    transform-origin: 50% 100%;
+    animation: traslaScivolataDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
     z-index: 25;
   }
   .pedina.pg-in-scivolata-sx {
-    animation: scivolaSx 1.1s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
-    transform-origin: 50% 100%;
+    animation: traslaScivolataSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
     z-index: 25;
   }
 
-  @keyframes scivolaDx {
-    0%   { transform: translate(0, 0)      rotate(0deg)    scaleY(1); }
-    15%  { transform: translate(4px, -2px) rotate(-8deg)   scaleY(1); }
-    40%  { transform: translate(22px, 6px) rotate(-62deg)  scaleY(0.92); }
-    60%  { transform: translate(26px, 8px) rotate(-72deg)  scaleY(0.9); }
-    80%  { transform: translate(22px, 6px) rotate(-60deg)  scaleY(0.92); }
-    100% { transform: translate(0, 0)      rotate(0deg)    scaleY(1); }
+  @keyframes traslaScivolataDx {
+    0%   { transform: translateX(0)   translateY(0); }
+    30%  { transform: translateX(6px) translateY(-3px); }
+    55%  { transform: translateX(18px) translateY(2px); }
+    80%  { transform: translateX(18px) translateY(2px); }
+    100% { transform: translateX(0)   translateY(0); }
   }
-  @keyframes scivolaSx {
-    0%   { transform: translate(0, 0)       rotate(0deg)   scaleY(1); }
-    15%  { transform: translate(-4px, -2px) rotate(8deg)   scaleY(1); }
-    40%  { transform: translate(-22px, 6px) rotate(62deg)  scaleY(0.92); }
-    60%  { transform: translate(-26px, 8px) rotate(72deg)  scaleY(0.9); }
-    80%  { transform: translate(-22px, 6px) rotate(60deg)  scaleY(0.92); }
-    100% { transform: translate(0, 0)       rotate(0deg)   scaleY(1); }
+  @keyframes traslaScivolataSx {
+    0%   { transform: translateX(0)    translateY(0); }
+    30%  { transform: translateX(-6px) translateY(-3px); }
+    55%  { transform: translateX(-18px) translateY(2px); }
+    80%  { transform: translateX(-18px) translateY(2px); }
+    100% { transform: translateX(0)    translateY(0); }
   }
 
-  /* Gamba distesa in avanti, coordinata con la rotazione del corpo */
+  /* Busto/torso: si inclina dalla parte OPPOSTA alla palla (30-40°) e si abbassa */
+  .pedina.pg-in-scivolata-dx .pg-busto {
+    animation: bustoScivolataDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
+    transform-origin: 25px 60px;
+    transform-box: view-box;
+  }
+  .pedina.pg-in-scivolata-sx .pg-busto {
+    animation: bustoScivolataSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
+    transform-origin: 25px 60px;
+    transform-box: view-box;
+  }
+  @keyframes bustoScivolataDx {
+    0%   { transform: rotate(0deg)   translateY(0); }
+    30%  { transform: rotate(20deg)  translateY(3px); }
+    55%  { transform: rotate(38deg)  translateY(8px); }
+    80%  { transform: rotate(38deg)  translateY(8px); }
+    100% { transform: rotate(0deg)   translateY(0); }
+  }
+  @keyframes bustoScivolataSx {
+    0%   { transform: rotate(0deg)    translateY(0); }
+    30%  { transform: rotate(-20deg)  translateY(3px); }
+    55%  { transform: rotate(-38deg)  translateY(8px); }
+    80%  { transform: rotate(-38deg)  translateY(8px); }
+    100% { transform: rotate(0deg)    translateY(0); }
+  }
+
+  /* Bacino: ruota di 90° verso la palla */
+  .pedina.pg-in-scivolata-dx .pg-bacino {
+    animation: bacinoScivolataDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
+    transform-origin: 25px 62px;
+    transform-box: view-box;
+  }
+  .pedina.pg-in-scivolata-sx .pg-bacino {
+    animation: bacinoScivolataSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
+    transform-origin: 25px 62px;
+    transform-box: view-box;
+  }
+  @keyframes bacinoScivolataDx {
+    0%   { transform: rotate(0deg); }
+    30%  { transform: rotate(30deg); }
+    55%  { transform: rotate(88deg); }
+    80%  { transform: rotate(88deg); }
+    100% { transform: rotate(0deg); }
+  }
+  @keyframes bacinoScivolataSx {
+    0%   { transform: rotate(0deg); }
+    30%  { transform: rotate(-30deg); }
+    55%  { transform: rotate(-88deg); }
+    80%  { transform: rotate(-88deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  /* Gamba verso la palla: si distende */
   .pedina.pg-in-scivolata-dx .pg-gamba-dx {
-    animation: gambaScivolataDx 1.1s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+    animation: gambaScivolataDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
     transform-origin: 30px 72px;
     transform-box: view-box;
   }
   .pedina.pg-in-scivolata-sx .pg-gamba-sx {
-    animation: gambaScivolataSx 1.1s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+    animation: gambaScivolataSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
     transform-origin: 20px 72px;
     transform-box: view-box;
   }
   @keyframes gambaScivolataDx {
     0%   { transform: rotate(0deg); }
-    40%  { transform: rotate(-80deg); }
-    60%  { transform: rotate(-90deg); }
-    80%  { transform: rotate(-80deg); }
+    30%  { transform: rotate(-55deg); }
+    55%  { transform: rotate(-85deg); }
+    80%  { transform: rotate(-85deg); }
     100% { transform: rotate(0deg); }
   }
   @keyframes gambaScivolataSx {
     0%   { transform: rotate(0deg); }
-    40%  { transform: rotate(80deg); }
-    60%  { transform: rotate(90deg); }
-    80%  { transform: rotate(80deg); }
+    30%  { transform: rotate(55deg); }
+    55%  { transform: rotate(85deg); }
+    80%  { transform: rotate(85deg); }
     100% { transform: rotate(0deg); }
   }
 
-  /* Braccio opposto: si allunga per equilibrare */
-  .pedina.pg-in-scivolata-dx .pg-braccio-sx {
-    animation: braccioScivolataSx 1.1s ease-out forwards;
+  /* Gamba opposta (quella di appoggio): piegata sotto il corpo */
+  .pedina.pg-in-scivolata-dx .pg-gamba-sx {
+    animation: gambaAppoggioDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
+    transform-origin: 20px 72px;
+    transform-box: view-box;
+  }
+  .pedina.pg-in-scivolata-sx .pg-gamba-dx {
+    animation: gambaAppoggioSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
+    transform-origin: 30px 72px;
+    transform-box: view-box;
+  }
+  @keyframes gambaAppoggioDx {
+    0%   { transform: rotate(0deg)   scaleY(1); }
+    55%  { transform: rotate(25deg)  scaleY(0.85); }
+    80%  { transform: rotate(25deg)  scaleY(0.85); }
+    100% { transform: rotate(0deg)   scaleY(1); }
+  }
+  @keyframes gambaAppoggioSx {
+    0%   { transform: rotate(0deg)    scaleY(1); }
+    55%  { transform: rotate(-25deg)  scaleY(0.85); }
+    80%  { transform: rotate(-25deg)  scaleY(0.85); }
+    100% { transform: rotate(0deg)    scaleY(1); }
+  }
+
+  /* Braccia: verso il basso per appoggiarsi */
+  .pedina.pg-in-scivolata-dx .pg-braccio-sx,
+  .pedina.pg-in-scivolata-sx .pg-braccio-sx {
     transform-origin: 16px 40px;
     transform-box: view-box;
   }
+  .pedina.pg-in-scivolata-dx .pg-braccio-dx,
   .pedina.pg-in-scivolata-sx .pg-braccio-dx {
-    animation: braccioScivolataDx 1.1s ease-out forwards;
     transform-origin: 34px 40px;
     transform-box: view-box;
   }
-  @keyframes braccioScivolataSx {
+  .pedina.pg-in-scivolata-dx .pg-braccio-sx {
+    animation: braccioBassoSx 1.1s ease-out forwards;
+  }
+  .pedina.pg-in-scivolata-dx .pg-braccio-dx {
+    animation: braccioBassoDx 1.1s ease-out forwards;
+  }
+  .pedina.pg-in-scivolata-sx .pg-braccio-sx {
+    animation: braccioBassoSx 1.1s ease-out forwards;
+  }
+  .pedina.pg-in-scivolata-sx .pg-braccio-dx {
+    animation: braccioBassoDx 1.1s ease-out forwards;
+  }
+  @keyframes braccioBassoSx {
     0%   { transform: rotate(0deg); }
-    40%  { transform: rotate(-40deg); }
-    80%  { transform: rotate(-40deg); }
+    40%  { transform: rotate(55deg); }
+    70%  { transform: rotate(55deg); }
     100% { transform: rotate(0deg); }
   }
-  @keyframes braccioScivolataDx {
+  @keyframes braccioBassoDx {
     0%   { transform: rotate(0deg); }
-    40%  { transform: rotate(40deg); }
-    80%  { transform: rotate(40deg); }
+    40%  { transform: rotate(-55deg); }
+    70%  { transform: rotate(-55deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  /* Testa: segue leggermente il corpo, sguardo verso la palla */
+  .pedina.pg-in-scivolata-dx .pg-testa,
+  .pedina.pg-in-scivolata-sx .pg-testa {
+    transform-origin: 25px 30px;
+    transform-box: view-box;
+  }
+  .pedina.pg-in-scivolata-dx .pg-testa {
+    animation: testaScivolataDx 1.1s ease-out forwards;
+  }
+  .pedina.pg-in-scivolata-sx .pg-testa {
+    animation: testaScivolataSx 1.1s ease-out forwards;
+  }
+  @keyframes testaScivolataDx {
+    0%   { transform: rotate(0deg); }
+    55%  { transform: rotate(-15deg); }
+    80%  { transform: rotate(-15deg); }
+    100% { transform: rotate(0deg); }
+  }
+  @keyframes testaScivolataSx {
+    0%   { transform: rotate(0deg); }
+    55%  { transform: rotate(15deg); }
+    80%  { transform: rotate(15deg); }
     100% { transform: rotate(0deg); }
   }
 
@@ -2319,7 +2432,12 @@ function animaPallaVersoPorta(squadra, cb) {
 }
 
 /* ============================================================
-   SCIVOLATA — rifatta da zero, semplice e pulita
+   SCIVOLATA REALISTICA
+   - La pedina si trasla verso la palla
+   - Il busto si inclina dalla parte OPPOSTA (contrappeso)
+   - Il bacino ruota di 90° verso la palla
+   - Le gambe si distendono verso la palla
+   - Le braccia vanno verso il basso (appoggio)
    ============================================================ */
 function animaScivolata(gVincitore, gPerdente) {
   var wrapperV = document.querySelector('[data-giocatore-id="' + gVincitore.id + '"]');
@@ -2327,7 +2445,7 @@ function animaScivolata(gVincitore, gPerdente) {
   var pedinaV = wrapperV.querySelector('.pedina');
   if (!pedinaV) return;
 
-  // Determina direzione: verso l'avversario
+  // Determina la direzione: verso l'avversario (se disponibile) o verso la palla
   var versoDestra = true;
   if (gPerdente) {
     var wrapperP = document.querySelector('[data-giocatore-id="' + gPerdente.id + '"]');
@@ -2338,19 +2456,23 @@ function animaScivolata(gVincitore, gPerdente) {
       var xP = rP.left + rP.width / 2;
       versoDestra = (xP >= xV);
     }
+  } else {
+    var posPalla = getPosizionePallaScena();
+    var scena = document.getElementById('scena');
+    var box = scena.getBoundingClientRect();
+    var rV2 = wrapperV.getBoundingClientRect();
+    var xV2 = (rV2.left + rV2.width / 2 - box.left) / scalaCorrente;
+    versoDestra = (posPalla.x >= xV2);
   }
 
-  // Pulizia classi precedenti
   pedinaV.classList.remove('pg-in-scivolata-dx', 'pg-in-scivolata-sx');
   void pedinaV.offsetWidth;
 
-  // Applica l'animazione
   pedinaV.classList.add(versoDestra ? 'pg-in-scivolata-dx' : 'pg-in-scivolata-sx');
 
-  // Rimuovi la classe alla fine
   setTimeout(function() {
     pedinaV.classList.remove('pg-in-scivolata-dx', 'pg-in-scivolata-sx');
-  }, DURATA_SCIVOLATA + 50);
+  }, DURATA_SCIVOLATA + 80);
 }
 
 /* ============================================================

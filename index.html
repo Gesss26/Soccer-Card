@@ -21,6 +21,8 @@
   @keyframes ruotaAnim { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(90deg); } }
   .avviso-ruota h2 { color: #ffd700; font-size: 24px; margin-bottom: 12px; letter-spacing: 2px; }
   .avviso-ruota p { color: #aaa; font-size: 14px; max-width: 300px; line-height: 1.5; }
+  
+  /* RUOTA IL DISPOSITIVO SOLO IN VERTICALE */
   @media (orientation: portrait) and (max-width: 900px) {
     .avviso-ruota { display: flex; }
     .app { display: none; }
@@ -41,7 +43,7 @@
   .btn-icona:hover:not(:disabled) { background: #4dabf7; color: #0f3460; }
   .btn-icona:disabled { opacity: 0.35; cursor: not-allowed; }
 
-  .area-gioco { position: relative; flex: 1; z-index: 5; overflow: hidden; transition: margin-top 0.3s ease, height 0.3s ease; }
+  .area-gioco { position: relative; flex: 1; z-index: 5; overflow: hidden; }
   .scena-wrapper { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; z-index: 6; }
   .scena { position: relative; width: 1600px; height: 900px; transform-origin: 0 0 !important; flex-shrink: 0; pointer-events: none; will-change: transform; }
   .scena > * { pointer-events: auto; }
@@ -422,90 +424,79 @@
   body.pesca-in-corso #azioni-container button { pointer-events: none; opacity: 0.5; }
 
   /* ============================================================
-     MODALITÀ A FASI (solo mobile/tablet)
+     MODALITÀ "MONITOR IN MINIATURA" (solo mobile/tablet)
+     Il telefono mostra la stessa schermata del PC, scalata.
      ============================================================ */
   @media (max-width: 1100px) and (max-height: 800px), (max-width: 900px) {
-    
-    /* Fase Azione (Scegli Carta) */
-    body.fase-azione .area-gioco {
-      display: none; /* Nasconde il campo per fare spazio */
+    html, body {
+      min-width: 1100px; /* Forza il layout desktop */
     }
-    body.fase-azione .banner-top {
+    .app {
+      min-height: 700px; /* Altezza minima per non comprimere */
+    }
+    /* I banner tornano ad essere quelli del PC */
+    body.fase-azione .banner-top,
+    body.fase-campo .banner-top {
       display: flex !important;
       position: fixed;
-      top: 44px;
-      left: 0;
-      right: 0;
-      width: 100%;
-      max-width: none;
-      height: 45vh; /* Metà superiore */
-      margin: 0;
-      border-radius: 0;
-      transform: none;
-      padding: 6px 10px;
-      overflow: hidden;
-      opacity: 1;
-      background: #0a0a15;
+      top: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 96%;
+      max-width: 1100px;
+      height: auto;
+      border-radius: 10px;
+      padding: 8px 12px 14px;
+      background: rgba(10,15,30,0.92);
     }
-    
-    /* Compattiamo il banner mazzi su mobile */
-    body.fase-azione .banner-top .riga-alta { gap: 8px; align-items: center; }
-    body.fase-azione .pila, body.fase-azione .pila-bonus { width: 64px; height: 92px; }
-    body.fase-azione .pila-carta, body.fase-azione .pila-bonus .pila-carta { width: 64px; height: 92px; }
-    body.fase-azione .pila-titolo, body.fase-azione .pila-bonus .pila-titolo { font-size: 8px; top: -12px; }
-    body.fase-azione .pila-count, body.fase-azione .pila-bonus .pila-count { font-size: 9px; bottom: -16px; padding: 1px 4px; }
-    body.fase-azione .bonus-tu-wrapper { padding: 2px 4px; }
-    body.fase-azione .bonus-label { font-size: 8px; }
-    body.fase-azione .bonus-slot { width: 64px; height: 92px; border-radius: 6px; }
-    body.fase-azione .bonus-slot .bonus-carta { font-size: 30px; }
-    body.fase-azione .bonus-slot .nome-bonus { display: none; }
-    body.fase-azione .bonus-slots { gap: 4px; }
-
-    /* L'overlay delle carte occupa il resto dello schermo */
-    body.fase-azione .carte-overlay {
+    body.fase-azione .area-gioco,
+    body.fase-campo .area-gioco {
+      display: block !important;
+      margin-top: 0 !important;
+      height: auto !important;
+      flex: 1;
+    }
+    body.fase-azione .carte-overlay,
+    body.fase-campo .carte-overlay {
       display: flex !important;
+      position: fixed;
+      inset: 0;
       opacity: 1 !important;
       pointer-events: auto !important;
-      position: fixed;
-      inset: auto 0 0 0;
-      top: calc(44px + 45vh);
-      height: calc(55vh - 44px);
-      background: #0a0a15;
-      border-top: 2px solid rgba(255,215,0,0.5);
-      padding: 4px;
+      background: rgba(0,0,0,0.4);
       align-items: center;
-      justify-content: flex-start;
-      overflow-y: auto;
+      justify-content: center;
     }
-    body.fase-azione .carte-overlay::before { display: none; }
-    body.fase-azione .carte-overlay-inner {
-      width: 100%;
-      max-width: none;
-      padding: 6px;
-      border-width: 2px;
-      gap: 6px;
-      margin: auto 0; /* Spinge il contenuto al centro verticale se c'è spazio */
+    body.fase-azione .carte-overlay-inner,
+    body.fase-campo .carte-overlay-inner {
+      width: 90%;
+      max-width: 1000px;
+      padding: 16px 22px 18px;
+      border-width: 3px;
+      gap: 12px;
     }
-    body.fase-azione .carte-overlay-titolo { font-size: 12px; }
-    body.fase-azione .carte-overlay-sottotitolo { display: none; }
-    body.fase-azione .carte-overlay-riga { gap: 8px; margin-top: 6px; }
-    
-    /* Carte più piccole per stare su schermi bassi */
-    body.fase-azione .seme-carta { width: 60px; height: 86px; }
-    body.fase-azione .seme-carta .seme-emoji { font-size: 36px; }
-    body.fase-azione .seme-carta-label { font-size: 8px; }
-    body.fase-azione .carte-overlay .carta { width: 60px; height: 86px; }
-    body.fase-azione .carte-overlay .carta .seme-centro { font-size: 34px; }
-    body.fase-azione .carte-overlay .carta .valore-alto, body.fase-azione .carte-overlay .carta .valore-basso { font-size: 14px; }
-    
-    /* Il bottone deve essere bello visibile */
-    body.fase-azione .carte-overlay-azioni button { padding: 12px 24px; font-size: 14px; width: 100%; max-width: 300px; margin: 0 auto; }
-    body.fase-azione .info-carte { font-size: 9px; padding: 2px 6px; margin-top: 4px; }
-
-    /* Fase Campo (Animazione) */
-    body.fase-campo .banner-top { display: none !important; }
-    body.fase-campo .carte-overlay { display: none !important; }
-    body.fase-campo .area-gioco { display: block; margin-top: 0; height: 100%; }
+    /* Ripristiniamo le dimensioni originali di carte, pile, testi, ecc. */
+    body.fase-azione .pila, body.fase-azione .pila-bonus { width: 96px; height: 138px; }
+    body.fase-azione .pila-carta, body.fase-azione .pila-bonus .pila-carta { width: 96px; height: 138px; }
+    body.fase-azione .pila-titolo, body.fase-azione .pila-bonus .pila-titolo { font-size: 10px; top: -18px; }
+    body.fase-azione .pila-count, body.fase-azione .pila-bonus .pila-count { font-size: 11px; bottom: -22px; padding: 2px 8px; }
+    body.fase-azione .bonus-tu-wrapper { padding: 6px 10px; gap: 4px; }
+    body.fase-azione .bonus-label { font-size: 10px; }
+    body.fase-azione .bonus-slot { width: 96px; height: 138px; border-radius: 8px; }
+    body.fase-azione .bonus-slot .bonus-carta { font-size: 46px; }
+    body.fase-azione .bonus-slot .nome-bonus { display: block; bottom: 12px; font-size: 9px; }
+    body.fase-azione .bonus-slots { gap: 8px; }
+    body.fase-azione .seme-carta { width: 96px; height: 138px; border-width: 4px; }
+    body.fase-azione .seme-carta .seme-emoji { font-size: 62px; }
+    body.fase-azione .seme-carta-label { font-size: 10px; }
+    body.fase-azione .carte-overlay .carta { width: 96px; height: 138px; }
+    body.fase-azione .carte-overlay .carta .seme-centro { font-size: 58px; }
+    body.fase-azione .carte-overlay .carta .valore-alto, body.fase-azione .carte-overlay .carta .valore-basso { font-size: 24px; }
+    body.fase-azione .carte-overlay-azioni button { padding: 10px 24px; font-size: 14px; width: auto; max-width: none; }
+    body.fase-azione .info-carte { font-size: 10px; padding: 3px 10px; margin-top: 0; }
+    body.fase-azione .carte-overlay-titolo { font-size: 14px; }
+    body.fase-azione .carte-overlay-sottotitolo { display: block; font-size: 12px; }
+    body.fase-azione .carte-overlay-riga { gap: 16px; margin-top: 0; }
   }
 </style>
 </head>
@@ -775,15 +766,11 @@ function loopZoom() {
     var h = wrapper.clientHeight;
     
     if (w > 0 && h > 0) {
-      // Calcola la scala per far entrare TUTTO (1600x900) nello schermo
       var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
-      
-      // Applica la scala e centra il campo
       zoomState.scalaCorrente = scalaFit;
       zoomState.offsetCorrenteX = (w - SCENA_W * scalaFit) / 2;
       zoomState.offsetCorrenteY = (h - SCENA_H * scalaFit) / 2;
       scalaCorrente = scalaFit;
-      
       applicaTransformScena();
     }
   }
@@ -800,7 +787,12 @@ function notificaInizioAnimazionePalla(pDa, pA, durataMs) {
 
 function adattaScena() { avviaLoopZoom(); }
 window.addEventListener('resize', adattaScena);
-window.addEventListener('orientationchange', function() { setTimeout(adattaScena, 250); });
+window.addEventListener('orientationchange', function() {
+  setTimeout(function() {
+    adattaScena();
+    if (typeof loopZoom === 'function') loopZoom();
+  }, 250);
+});
 
 /* ============================================================
    HELPER UI
@@ -809,11 +801,10 @@ function mostraBannerTop() { var p = document.getElementById('banner-top'); if (
 function nascondiBannerTop() { var p = document.getElementById('banner-top'); if (p) p.classList.add('nascosto'); }
 
 /* ============================================================
-   MODALITÀ A FASI (mobile/tablet)
+   "MONITOR IN MINIATURA" - Come un PC, ma rimpicciolito
    ============================================================ */
 function isMobileFasi() {
-  var w = window.innerWidth, h = window.innerHeight;
-  return (w <= 1100 && h <= 800) || (w <= 900);
+  return false; // Il telefono ora si comporta come il PC
 }
 
 var _faseTimeout = null;
@@ -825,10 +816,8 @@ function setFase(fase) {
   }
   document.body.classList.remove('fase-azione', 'fase-campo');
   if (fase) document.body.classList.add('fase-' + fase);
-  
   var ag = document.querySelector('.area-gioco');
   if (ag) { void ag.offsetHeight; }
-  
   setTimeout(function() { if (typeof adattaScena === 'function') adattaScena(); }, 30);
   setTimeout(function() { if (typeof adattaScena === 'function') adattaScena(); }, 200);
 }
@@ -846,12 +835,6 @@ function vaiAFaseCampo() {
   if (_faseTimeout) { clearTimeout(_faseTimeout); _faseTimeout = null; }
   setFase('campo');
 }
-
-window.addEventListener('resize', function() {
-  if (!isMobileFasi()) {
-    document.body.classList.remove('fase-azione', 'fase-campo');
-  }
-});
 
 function mostraCarteOverlay() { var o = document.getElementById('carte-overlay'); if (o) o.classList.add('attivo'); }
 function nascondiCarteOverlay() { var o = document.getElementById('carte-overlay'); if (o) o.classList.remove('attivo'); document.body.classList.remove('carte-in-gioco'); setTimeout(function() { if (typeof adattaScena === 'function') adattaScena(); }, 350); }
@@ -1532,6 +1515,7 @@ function apriImpostazioni() {
       '<button onclick="salvaSuGitHub()">☁️ Forza salvataggio ora</button>' +
       '<button onclick="caricaDaGitHub().then(function(ok){alert(ok?\'Caricato da GitHub!\':\'Nessun file trovato o errore\')})">⬇️ Forza caricamento ora</button>' +
       '<button class="primario" onclick="document.getElementById(\'file-input-upload-gh\').click()">☁️ Carica questo file su GitHub ora</button>' +
+      '<button class="primario" style="background:#16a34a;border-color:#fff" onclick="forzaModalitaPC()">🖥️ Forza adattamento a PC (mini)</button>' +
     '</div>' +
     '<input type="file" id="file-input-upload-gh" accept=".json,application/json" style="display:none" onchange="if(this.files[0]){caricaFileSuGitHubOra(this.files[0]);this.value=\'\';}">' +
     '<h3 style="color:#ffd700;margin:16px 0 8px;font-size:16px">🔊 Volume</h3>' +
@@ -1540,6 +1524,13 @@ function apriImpostazioni() {
     '<div class="volume-control"><label>🔔 Effetti</label><input type="range" min="0" max="100" value="' + Math.round(volumeEffetti*100) + '" oninput="cambiaVolume(\'effetti\',this.value)"><span class="vol-val" id="vol-effetti-val">' + Math.round(volumeEffetti*100) + '%</span></div>' +
     '<input type="file" id="file-input-campionato" accept=".json,application/json" style="display:none" onchange="gestisciFileCampionato(event)">';
 }
+
+function forzaModalitaPC() {
+  document.body.classList.add('forza-layout-pc');
+  adattaScena();
+  alert('Ora il gioco usa il layout PC. Se non funziona, ricarica la pagina.');
+}
+
 function apriIstruzioni() {
   document.getElementById('modale').classList.remove('nascosto');
   var html =
@@ -1676,7 +1667,7 @@ function renderCampo() {
   var portiereCPU_index = tuSin ? 1 : 0;
   var gPorTU = stato.giocatori.tu.filter(function(g){ return g.portiere && !g.espulso; })[0];
   var gPorCPU = stato.giocatori.cpu.filter(function(g){ return g.portiere && !g.espulso; })[0];
-  if (gPorTU) { var pp = POSIZIONI_PORTIERI[portiereTU_index]; var wrapPorTU = document.createElement('div'); wrapPorTU.className = 'pedina-wrapper tu portiere-render'; wrapPorTU.dataset.giocatoreId = gPorTU.id; wrapPORU.style.position = 'absolute'; wrapPORU.style.left = pp.x + 'px'; wrapPORU.style.top = pp.y + 'px'; wrapPORU.style.transform = 'translate(-50%, -50%)'; wrapPORU.style.zIndex = '10'; wrapPORU.style.display = 'flex'; wrapPORU.style.flexDirection = 'column'; wrapPORU.style.alignItems = 'center'; wrapPORU.appendChild(creaNomeGiocatore(gPorTU)); wrapPORU.appendChild(creaPedinaEl(gPorTU)); wrapPORU.appendChild(creaInfoSotto(gPorTU)); scena.appendChild(wrapPORU); }
+  if (gPorTU) { var pp = POSIZIONI_PORTIERI[portiereTU_index]; var wrapPorTU = document.createElement('div'); wrapPorTU.className = 'pedina-wrapper tu portiere-render'; wrapPorTU.dataset.giocatoreId = gPorTU.id; wrapPorTU.style.position = 'absolute'; wrapPorTU.style.left = pp.x + 'px'; wrapPorTU.style.top = pp.y + 'px'; wrapPorTU.style.transform = 'translate(-50%, -50%)'; wrapPorTU.style.zIndex = '10'; wrapPorTU.style.display = 'flex'; wrapPorTU.style.flexDirection = 'column'; wrapPorTU.style.alignItems = 'center'; wrapPorTU.appendChild(creaNomeGiocatore(gPorTU)); wrapPorTU.appendChild(creaPedinaEl(gPorTU)); wrapPorTU.appendChild(creaInfoSotto(gPorTU)); scena.appendChild(wrapPorTU); }
   if (gPorCPU) { var pp2 = POSIZIONI_PORTIERI[portiereCPU_index]; var wrapPorCPU = document.createElement('div'); wrapPorCPU.className = 'pedina-wrapper cpu portiere-render'; wrapPorCPU.dataset.giocatoreId = gPorCPU.id; wrapPorCPU.style.position = 'absolute'; wrapPorCPU.style.left = pp2.x + 'px'; wrapPorCPU.style.top = pp2.y + 'px'; wrapPorCPU.style.transform = 'translate(-50%, -50%)'; wrapPorCPU.style.zIndex = '10'; wrapPorCPU.style.display = 'flex'; wrapPorCPU.style.flexDirection = 'column'; wrapPorCPU.style.alignItems = 'center'; wrapPorCPU.appendChild(creaNomeGiocatore(gPorCPU)); wrapPorCPU.appendChild(creaPedinaEl(gPorCPU)); wrapPorCPU.appendChild(creaInfoSotto(gPorCPU)); scena.appendChild(wrapPorCPU); }
   if (!stato.pallaInAnimazione && stato.zonaPalla !== null && stato.possessore) {
     var idG = stato.giocatorePalla;

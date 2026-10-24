@@ -41,7 +41,7 @@
   .btn-icona:hover:not(:disabled) { background: #4dabf7; color: #0f3460; }
   .btn-icona:disabled { opacity: 0.35; cursor: not-allowed; }
 
-  .area-gioco { position: relative; flex: 1; z-index: 5; overflow: hidden; }
+  .area-gioco { position: relative; flex: 1; z-index: 5; overflow: hidden; transition: margin-top 0.3s ease, height 0.3s ease; }
   .scena-wrapper { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; z-index: 6; }
   .scena { position: relative; width: 1600px; height: 900px; transform-origin: 0 0 !important; flex-shrink: 0; pointer-events: none; will-change: transform; }
   .scena > * { pointer-events: auto; }
@@ -422,9 +422,21 @@
   body.pesca-in-corso #azioni-container button { pointer-events: none; opacity: 0.5; }
 
   /* ============================================================
-     MODALITÀ A FASI — solo mobile/tablet
+     MODALITÀ A FASI (solo mobile/tablet)
      ============================================================ */
   @media (max-width: 1100px) and (max-height: 800px), (max-width: 900px) {
+    /* Il campo si restringe nella metà bassa per non stare dietro i banner */
+    body.fase-azione .area-gioco {
+      margin-top: calc(50vh - 22px);
+      height: calc(50vh + 22px);
+      pointer-events: none;
+    }
+    body.fase-campo .area-gioco {
+      margin-top: 0;
+      height: 100%;
+      pointer-events: auto;
+    }
+
     body.fase-azione .banner-top {
       display: flex !important;
       position: fixed;
@@ -441,6 +453,7 @@
       overflow-y: auto;
       opacity: 1;
     }
+    
     body.fase-azione .carte-overlay {
       display: flex !important;
       opacity: 1 !important;
@@ -475,10 +488,9 @@
     body.fase-azione .carte-overlay .carta .valore-basso { font-size: 16px; }
     body.fase-azione .carte-overlay-azioni button { padding: 8px 14px; font-size: 12px; }
     body.fase-azione .info-carte { font-size: 9px; padding: 2px 6px; }
-    body.fase-azione .area-gioco { pointer-events: none; }
+    
     body.fase-campo .banner-top { display: none !important; }
     body.fase-campo .carte-overlay { display: none !important; }
-    body.fase-campo .area-gioco { pointer-events: auto; }
   }
 </style>
 </head>
@@ -732,35 +744,6 @@ var zoomState = {
   animDa: null, animA: null, animInizio: 0, animDurata: 0
 };
 
-function isMobileZoom() { return false; }
-
-function getPosizionePallaScena() {
-  if (zoomState.animDa && zoomState.animA && zoomState.animDurata > 0) {
-    var t = (performance.now() - zoomState.animInizio) / zoomState.animDurata;
-    if (t < 0) t = 0; if (t > 1) t = 1;
-    var e = t * t * (3 - 2 * t);
-    return { x: zoomState.animDa.x + (zoomState.animA.x - zoomState.animDa.x) * e, y: zoomState.animDa.y + (zoomState.animA.y - zoomState.animDa.y) * e };
-  }
-  if (stato.giocatorePalla) {
-    var wrapper = document.querySelector('[data-giocatore-id="' + stato.giocatorePalla + '"]');
-    if (wrapper) {
-      var scena = document.getElementById('scena');
-      var r = wrapper.getBoundingClientRect();
-      var box = scena.getBoundingClientRect();
-      return { x: (r.left + r.width / 2 - box.left) / scalaCorrente, y: (r.top + r.height / 2 - box.top) / scalaCorrente };
-    }
-  }
-  if (stato.zonaPalla !== null && stato.zonaPalla !== undefined) {
-    var meta = stato.metaContesa || 'inf';
-    var idx = -1;
-    for (var i = 0; i < MAPPA_COPPIE.length; i++) {
-      if (MAPPA_COPPIE[i].zona === stato.zonaPalla && MAPPA_COPPIE[i].meta === meta) { idx = i; break; }
-    }
-    if (idx >= 0) return { x: POSIZIONI_COPPIE[idx].x, y: POSIZIONI_COPPIE[idx].y };
-  }
-  return { x: SCENA_W / 2, y: SCENA_H / 2 };
-}
-
 function applicaTransformScena() {
   var scena = document.getElementById('scena');
   if (!scena) return;
@@ -771,14 +754,21 @@ function applicaTransformScena() {
 function loopZoom() {
   var scena = document.getElementById('scena');
   var wrapper = document.getElementById('scena-wrapper');
+  
   if (scena && wrapper) {
-    var w = wrapper.clientWidth, h = wrapper.clientHeight;
-    if (w && h) {
+    var w = wrapper.clientWidth;
+    var h = wrapper.clientHeight;
+    
+    if (w > 0 && h > 0) {
+      // Calcola la scala per far entrare TUTTO (1600x900) nello schermo
       var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
+      
+      // Applica la scala e centra il campo
       zoomState.scalaCorrente = scalaFit;
       zoomState.offsetCorrenteX = (w - SCENA_W * scalaFit) / 2;
       zoomState.offsetCorrenteY = (h - SCENA_H * scalaFit) / 2;
       scalaCorrente = scalaFit;
+      
       applicaTransformScena();
     }
   }
@@ -820,7 +810,12 @@ function setFase(fase) {
   }
   document.body.classList.remove('fase-azione', 'fase-campo');
   if (fase) document.body.classList.add('fase-' + fase);
-  setTimeout(function() { if (typeof adattaScena === 'function') adattaScena(); }, 50);
+  
+  var ag = document.querySelector('.area-gioco');
+  if (ag) { void ag.offsetHeight; }
+  
+  setTimeout(function() { if (typeof adattaScena === 'function') adattaScena(); }, 30);
+  setTimeout(function() { if (typeof adattaScena === 'function') adattaScena(); }, 200);
 }
 
 function tornaAFaseAzione() {

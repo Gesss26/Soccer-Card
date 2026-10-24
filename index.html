@@ -22,7 +22,6 @@
   .avviso-ruota h2 { color: #ffd700; font-size: 24px; margin-bottom: 12px; letter-spacing: 2px; }
   .avviso-ruota p { color: #aaa; font-size: 14px; max-width: 300px; line-height: 1.5; }
   
-  /* RUOTA IL DISPOSITIVO SOLO IN VERTICALE */
   @media (orientation: portrait) and (max-width: 900px) {
     .avviso-ruota { display: flex; }
     .app { display: none; }
@@ -424,79 +423,97 @@
   body.pesca-in-corso #azioni-container button { pointer-events: none; opacity: 0.5; }
 
   /* ============================================================
-     MODALITÀ "MONITOR IN MINIATURA" (solo mobile/tablet)
-     Il telefono mostra la stessa schermata del PC, scalata.
+     MODALITÀ A FASI (solo mobile/tablet)
      ============================================================ */
   @media (max-width: 1100px) and (max-height: 800px), (max-width: 900px) {
-    html, body {
-      min-width: 1100px; /* Forza il layout desktop */
+    /* Il campo si restringe nella metà bassa per non stare dietro i banner */
+    body.fase-azione .area-gioco {
+      margin-top: calc(50vh - 22px);
+      height: calc(50vh + 22px);
+      pointer-events: none;
     }
-    .app {
-      min-height: 700px; /* Altezza minima per non comprimere */
-    }
-    /* I banner tornano ad essere quelli del PC */
-    body.fase-azione .banner-top,
-    body.fase-campo .banner-top {
-      display: flex !important;
-      position: fixed;
-      top: 48px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 96%;
-      max-width: 1100px;
-      height: auto;
-      border-radius: 10px;
-      padding: 8px 12px 14px;
-      background: rgba(10,15,30,0.92);
-    }
-    body.fase-azione .area-gioco,
     body.fase-campo .area-gioco {
-      display: block !important;
-      margin-top: 0 !important;
-      height: auto !important;
-      flex: 1;
+      margin-top: 0;
+      height: 100%;
+      pointer-events: auto;
     }
-    body.fase-azione .carte-overlay,
-    body.fase-campo .carte-overlay {
+
+    body.fase-azione .banner-top {
       display: flex !important;
       position: fixed;
-      inset: 0;
+      top: 44px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: none;
+      height: calc(50vh - 22px);
+      margin: 0;
+      border-radius: 0;
+      transform: none;
+      padding: 6px 10px 10px;
+      overflow-y: auto;
+      opacity: 1;
+      background: #0a0a15; /* Sfondo scuro dietro il banner */
+    }
+
+    /* Compattiamo il banner mazzi su mobile */
+    body.fase-azione .banner-top .riga-alta { gap: 8px; align-items: center; }
+    body.fase-azione .pila, body.fase-azione .pila-bonus { width: 64px; height: 92px; }
+    body.fase-azione .pila-carta, body.fase-azione .pila-bonus .pila-carta { width: 64px; height: 92px; }
+    body.fase-azione .pila-titolo, body.fase-azione .pila-bonus .pila-titolo { font-size: 8px; top: -12px; }
+    body.fase-azione .pila-count, body.fase-azione .pila-bonus .pila-count { font-size: 9px; bottom: -16px; padding: 1px 4px; }
+    body.fase-azione .bonus-tu-wrapper { padding: 2px 4px; }
+    body.fase-azione .bonus-label { font-size: 8px; }
+    body.fase-azione .bonus-slot { width: 64px; height: 92px; border-radius: 6px; }
+    body.fase-azione .bonus-slot .bonus-carta { font-size: 30px; }
+    body.fase-azione .bonus-slot .nome-bonus { display: none; }
+    body.fase-azione .bonus-slots { gap: 4px; }
+
+    /* L'overlay delle carte occupa il resto dello schermo */
+    body.fase-azione .carte-overlay {
+      display: flex !important;
       opacity: 1 !important;
       pointer-events: auto !important;
-      background: rgba(0,0,0,0.4);
+      position: fixed;
+      inset: auto 0 0 0;
+      top: calc(44px + 50vh - 22px);
+      height: calc(50vh + 22px);
+      background: #0a0a15;
+      border-top: 2px solid rgba(255,215,0,0.5);
+      padding: 4px;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+      overflow-y: auto;
     }
-    body.fase-azione .carte-overlay-inner,
-    body.fase-campo .carte-overlay-inner {
-      width: 90%;
-      max-width: 1000px;
-      padding: 16px 22px 18px;
-      border-width: 3px;
-      gap: 12px;
+    body.fase-azione .carte-overlay::before { display: none; }
+    body.fase-azione .carte-overlay-inner {
+      width: 100%;
+      max-width: none;
+      padding: 6px;
+      border-width: 2px;
+      gap: 6px;
+      margin: auto 0; /* Spinge il contenuto al centro verticale se c'è spazio */
     }
-    /* Ripristiniamo le dimensioni originali di carte, pile, testi, ecc. */
-    body.fase-azione .pila, body.fase-azione .pila-bonus { width: 96px; height: 138px; }
-    body.fase-azione .pila-carta, body.fase-azione .pila-bonus .pila-carta { width: 96px; height: 138px; }
-    body.fase-azione .pila-titolo, body.fase-azione .pila-bonus .pila-titolo { font-size: 10px; top: -18px; }
-    body.fase-azione .pila-count, body.fase-azione .pila-bonus .pila-count { font-size: 11px; bottom: -22px; padding: 2px 8px; }
-    body.fase-azione .bonus-tu-wrapper { padding: 6px 10px; gap: 4px; }
-    body.fase-azione .bonus-label { font-size: 10px; }
-    body.fase-azione .bonus-slot { width: 96px; height: 138px; border-radius: 8px; }
-    body.fase-azione .bonus-slot .bonus-carta { font-size: 46px; }
-    body.fase-azione .bonus-slot .nome-bonus { display: block; bottom: 12px; font-size: 9px; }
-    body.fase-azione .bonus-slots { gap: 8px; }
-    body.fase-azione .seme-carta { width: 96px; height: 138px; border-width: 4px; }
-    body.fase-azione .seme-carta .seme-emoji { font-size: 62px; }
-    body.fase-azione .seme-carta-label { font-size: 10px; }
-    body.fase-azione .carte-overlay .carta { width: 96px; height: 138px; }
-    body.fase-azione .carte-overlay .carta .seme-centro { font-size: 58px; }
-    body.fase-azione .carte-overlay .carta .valore-alto, body.fase-azione .carte-overlay .carta .valore-basso { font-size: 24px; }
-    body.fase-azione .carte-overlay-azioni button { padding: 10px 24px; font-size: 14px; width: auto; max-width: none; }
-    body.fase-azione .info-carte { font-size: 10px; padding: 3px 10px; margin-top: 0; }
-    body.fase-azione .carte-overlay-titolo { font-size: 14px; }
-    body.fase-azione .carte-overlay-sottotitolo { display: block; font-size: 12px; }
-    body.fase-azione .carte-overlay-riga { gap: 16px; margin-top: 0; }
+    body.fase-azione .carte-overlay-titolo { font-size: 12px; }
+    body.fase-azione .carte-overlay-sottotitolo { display: none; }
+    body.fase-azione .carte-overlay-riga { gap: 8px; margin-top: 6px; }
+    
+    /* Carte più piccole per stare su schermi bassi */
+    body.fase-azione .seme-carta { width: 60px; height: 86px; }
+    body.fase-azione .seme-carta .seme-emoji { font-size: 36px; }
+    body.fase-azione .seme-carta-label { font-size: 8px; }
+    body.fase-azione .carte-overlay .carta { width: 60px; height: 86px; }
+    body.fase-azione .carte-overlay .carta .seme-centro { font-size: 34px; }
+    body.fase-azione .carte-overlay .carta .valore-alto, body.fase-azione .carte-overlay .carta .valore-basso { font-size: 14px; }
+    
+    /* Il bottone deve essere bello visibile */
+    body.fase-azione .carte-overlay-azioni button { padding: 12px 24px; font-size: 14px; width: 100%; max-width: 300px; margin: 0 auto; }
+    body.fase-azione .info-carte { font-size: 9px; padding: 2px 6px; margin-top: 4px; }
+
+    /* Fase Campo (Animazione) */
+    body.fase-campo .banner-top { display: none !important; }
+    body.fase-campo .carte-overlay { display: none !important; }
+    body.fase-campo .area-gioco { display: block; margin-top: 0; height: 100%; }
   }
 </style>
 </head>
@@ -750,6 +767,63 @@ var zoomState = {
   animDa: null, animA: null, animInizio: 0, animDurata: 0
 };
 
+// Attivo solo per la modalità a fasi su cellulare/tablet
+function isMobileZoom() {
+  return isMobileFasi();
+}
+
+function getPosizionePallaScena() {
+  if (zoomState.animDa && zoomState.animA && zoomState.animDurata > 0) {
+    var t = (performance.now() - zoomState.animInizio) / zoomState.animDurata;
+    if (t < 0) t = 0; if (t > 1) t = 1;
+    var e = t * t * (3 - 2 * t);
+    return { x: zoomState.animDa.x + (zoomState.animA.x - zoomState.animDa.x) * e, y: zoomState.animDa.y + (zoomState.animA.y - zoomState.animDa.y) * e };
+  }
+  if (stato.giocatorePalla) {
+    var wrapper = document.querySelector('[data-giocatore-id="' + stato.giocatorePalla + '"]');
+    if (wrapper) {
+      var scena = document.getElementById('scena');
+      var r = wrapper.getBoundingClientRect();
+      var box = scena.getBoundingClientRect();
+      return { x: (r.left + r.width / 2 - box.left) / scalaCorrente, y: (r.top + r.height / 2 - box.top) / scalaCorrente };
+    }
+  }
+  if (stato.zonaPalla !== null && stato.zonaPalla !== undefined) {
+    var meta = stato.metaContesa || 'inf';
+    var idx = -1;
+    for (var i = 0; i < MAPPA_COPPIE.length; i++) {
+      if (MAPPA_COPPIE[i].zona === stato.zonaPalla && MAPPA_COPPIE[i].meta === meta) { idx = i; break; }
+    }
+    if (idx >= 0) return { x: POSIZIONI_COPPIE[idx].x, y: POSIZIONI_COPPIE[idx].y };
+  }
+  return { x: SCENA_W / 2, y: SCENA_H / 2 };
+}
+
+function applicaZoomPalla(px, py) {
+  var scena = document.getElementById('scena');
+  var wrapper = document.getElementById('scena-wrapper');
+  if (!scena || !wrapper) return;
+  var w = wrapper.clientWidth, h = wrapper.clientHeight;
+  if (w === 0 || h === 0) return;
+  var scala = Math.min(w / zoomState.zoomW, h / zoomState.zoomH);
+  var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
+  if (scala < scalaFit) scala = scalaFit;
+  if (scala > scalaFit * 3.2) scala = scalaFit * 3.2;
+  var offsetX = w / 2 - px * scala;
+  var offsetY = h / 2 - py * scala;
+  var lS = SCENA_W * scala, aS = SCENA_H * scala;
+  if (lS <= w) offsetX = (w - lS) / 2; else { if (offsetX > 0) offsetX = 0; if (offsetX < w - lS) offsetX = w - lS; }
+  if (aS <= h) offsetY = (h - aS) / 2; else { if (offsetY > 0) offsetY = 0; if (offsetY < h - aS) offsetY = h - aS; }
+  zoomState.scalaTarget = scala; zoomState.offsetTargetX = offsetX; zoomState.offsetTargetY = offsetY;
+  if (!zoomState.attivo) {
+    zoomState.scalaCorrente = scala;
+    zoomState.offsetCorrenteX = offsetX;
+    zoomState.offsetCorrenteY = offsetY;
+    zoomState.attivo = true;
+    applicaTransformScena();
+  }
+}
+
 function applicaTransformScena() {
   var scena = document.getElementById('scena');
   if (!scena) return;
@@ -758,20 +832,28 @@ function applicaTransformScena() {
 }
 
 function loopZoom() {
-  var scena = document.getElementById('scena');
-  var wrapper = document.getElementById('scena-wrapper');
-  
-  if (scena && wrapper) {
-    var w = wrapper.clientWidth;
-    var h = wrapper.clientHeight;
-    
-    if (w > 0 && h > 0) {
-      var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
-      zoomState.scalaCorrente = scalaFit;
-      zoomState.offsetCorrenteX = (w - SCENA_W * scalaFit) / 2;
-      zoomState.offsetCorrenteY = (h - SCENA_H * scalaFit) / 2;
-      scalaCorrente = scalaFit;
-      applicaTransformScena();
+  if (isMobileZoom()) {
+    // ZOOM MOBILE: segue la palla
+    var p = getPosizionePallaScena();
+    applicaZoomPalla(p.x, p.y);
+    zoomState.scalaCorrente += (zoomState.scalaTarget - zoomState.scalaCorrente) * zoomState.smoothing;
+    zoomState.offsetCorrenteX += (zoomState.offsetTargetX - zoomState.offsetCorrenteX) * zoomState.smoothing;
+    zoomState.offsetCorrenteY += (zoomState.offsetTargetY - zoomState.offsetCorrenteY) * zoomState.smoothing;
+    applicaTransformScena();
+  } else {
+    // ZOOM DESKTOP (o "fit" classico)
+    var scena = document.getElementById('scena');
+    var wrapper = document.getElementById('scena-wrapper');
+    if (scena && wrapper) {
+      var w = wrapper.clientWidth, h = wrapper.clientHeight;
+      if (w && h) {
+        var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
+        zoomState.scalaCorrente = scalaFit;
+        zoomState.offsetCorrenteX = (w - SCENA_W * scalaFit) / 2;
+        zoomState.offsetCorrenteY = (h - SCENA_H * scalaFit) / 2;
+        scalaCorrente = scalaFit;
+        applicaTransformScena();
+      }
     }
   }
   zoomState.rafId = requestAnimationFrame(loopZoom);
@@ -787,12 +869,7 @@ function notificaInizioAnimazionePalla(pDa, pA, durataMs) {
 
 function adattaScena() { avviaLoopZoom(); }
 window.addEventListener('resize', adattaScena);
-window.addEventListener('orientationchange', function() {
-  setTimeout(function() {
-    adattaScena();
-    if (typeof loopZoom === 'function') loopZoom();
-  }, 250);
-});
+window.addEventListener('orientationchange', function() { setTimeout(adattaScena, 250); });
 
 /* ============================================================
    HELPER UI
@@ -801,10 +878,11 @@ function mostraBannerTop() { var p = document.getElementById('banner-top'); if (
 function nascondiBannerTop() { var p = document.getElementById('banner-top'); if (p) p.classList.add('nascosto'); }
 
 /* ============================================================
-   "MONITOR IN MINIATURA" - Come un PC, ma rimpicciolito
+   MODALITÀ A FASI (mobile/tablet)
    ============================================================ */
 function isMobileFasi() {
-  return false; // Il telefono ora si comporta come il PC
+  var w = window.innerWidth, h = window.innerHeight;
+  return (w <= 1100 && h <= 800) || (w <= 900);
 }
 
 var _faseTimeout = null;
@@ -816,8 +894,10 @@ function setFase(fase) {
   }
   document.body.classList.remove('fase-azione', 'fase-campo');
   if (fase) document.body.classList.add('fase-' + fase);
+  
   var ag = document.querySelector('.area-gioco');
   if (ag) { void ag.offsetHeight; }
+  
   setTimeout(function() { if (typeof adattaScena === 'function') adattaScena(); }, 30);
   setTimeout(function() { if (typeof adattaScena === 'function') adattaScena(); }, 200);
 }
@@ -835,6 +915,12 @@ function vaiAFaseCampo() {
   if (_faseTimeout) { clearTimeout(_faseTimeout); _faseTimeout = null; }
   setFase('campo');
 }
+
+window.addEventListener('resize', function() {
+  if (!isMobileFasi()) {
+    document.body.classList.remove('fase-azione', 'fase-campo');
+  }
+});
 
 function mostraCarteOverlay() { var o = document.getElementById('carte-overlay'); if (o) o.classList.add('attivo'); }
 function nascondiCarteOverlay() { var o = document.getElementById('carte-overlay'); if (o) o.classList.remove('attivo'); document.body.classList.remove('carte-in-gioco'); setTimeout(function() { if (typeof adattaScena === 'function') adattaScena(); }, 350); }
@@ -1515,7 +1601,6 @@ function apriImpostazioni() {
       '<button onclick="salvaSuGitHub()">☁️ Forza salvataggio ora</button>' +
       '<button onclick="caricaDaGitHub().then(function(ok){alert(ok?\'Caricato da GitHub!\':\'Nessun file trovato o errore\')})">⬇️ Forza caricamento ora</button>' +
       '<button class="primario" onclick="document.getElementById(\'file-input-upload-gh\').click()">☁️ Carica questo file su GitHub ora</button>' +
-      '<button class="primario" style="background:#16a34a;border-color:#fff" onclick="forzaModalitaPC()">🖥️ Forza adattamento a PC (mini)</button>' +
     '</div>' +
     '<input type="file" id="file-input-upload-gh" accept=".json,application/json" style="display:none" onchange="if(this.files[0]){caricaFileSuGitHubOra(this.files[0]);this.value=\'\';}">' +
     '<h3 style="color:#ffd700;margin:16px 0 8px;font-size:16px">🔊 Volume</h3>' +
@@ -1523,12 +1608,6 @@ function apriImpostazioni() {
     '<div class="volume-control"><label>👥 Tifosi</label><input type="range" min="0" max="100" value="' + Math.round(volumeTifosi*100) + '" oninput="cambiaVolume(\'tifosi\',this.value)"><span class="vol-val" id="vol-tifosi-val">' + Math.round(volumeTifosi*100) + '%</span></div>' +
     '<div class="volume-control"><label>🔔 Effetti</label><input type="range" min="0" max="100" value="' + Math.round(volumeEffetti*100) + '" oninput="cambiaVolume(\'effetti\',this.value)"><span class="vol-val" id="vol-effetti-val">' + Math.round(volumeEffetti*100) + '%</span></div>' +
     '<input type="file" id="file-input-campionato" accept=".json,application/json" style="display:none" onchange="gestisciFileCampionato(event)">';
-}
-
-function forzaModalitaPC() {
-  document.body.classList.add('forza-layout-pc');
-  adattaScena();
-  alert('Ora il gioco usa il layout PC. Se non funziona, ricarica la pagina.');
 }
 
 function apriIstruzioni() {

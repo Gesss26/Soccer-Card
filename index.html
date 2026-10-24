@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1280, initial-scale=0.3, maximum-scale=1.0, user-scalable=yes">
+<meta name="viewport" content="width=1600, initial-scale=0.25, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0a0a15">
@@ -11,7 +11,9 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
   html, body { height: 100%; font-family: 'Segoe UI', Tahoma, sans-serif; background: #0a0a15; color: #eee; overflow: hidden; user-select: none; }
-  .app { display: flex; flex-direction: column; height: 100vh; height: 100dvh; position: relative; }
+  body { display: flex; justify-content: center; align-items: flex-start; }
+
+  .app { display: flex; flex-direction: column; height: 100vh; height: 100dvh; position: relative; width: 100%; max-width: 1600px; }
 
   .stadio-sfondo { position: absolute; inset: 0; background: url('Stadio.jpg') center/cover no-repeat; z-index: 0; pointer-events: none; }
   .stadio-sfondo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,21,0.55) 0%, rgba(10,10,21,0.15) 30%, rgba(10,10,21,0.15) 70%, rgba(10,10,21,0.75) 100%); }
@@ -767,7 +769,6 @@ var zoomState = {
   animDa: null, animA: null, animInizio: 0, animDurata: 0
 };
 
-// Attivo solo per la modalità a fasi su cellulare/tablet
 function isMobileZoom() {
   return isMobileFasi();
 }

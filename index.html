@@ -471,7 +471,7 @@
     body.fase-azione .bonus-slot .nome-bonus { display: none; }
     body.fase-azione .bonus-slots { gap: 4px; }
 
-    /* L'overlay delle carte occupa il resto dello schermo */
+    /* L'overlay delle carte occupa il resto dello schermo, ingrandito */
     body.fase-azione .carte-overlay {
       display: flex !important;
       opacity: 1 !important;
@@ -491,31 +491,38 @@
     body.fase-azione .carte-overlay-inner {
       width: 100%;
       max-width: none;
-      padding: 6px;
+      padding: 8px;
       border-width: 2px;
-      gap: 6px;
+      gap: 8px;
       margin: auto 0; /* Spinge il contenuto al centro verticale se c'è spazio */
     }
-    body.fase-azione .carte-overlay-titolo { font-size: 12px; }
+    body.fase-azione .carte-overlay-titolo { font-size: 14px; }
     body.fase-azione .carte-overlay-sottotitolo { display: none; }
-    body.fase-azione .carte-overlay-riga { gap: 8px; margin-top: 6px; }
+    body.fase-azione .carte-overlay-riga { gap: 10px; margin-top: 8px; }
     
-    /* Carte più piccole per stare su schermi bassi */
-    body.fase-azione .seme-carta { width: 60px; height: 86px; }
-    body.fase-azione .seme-carta .seme-emoji { font-size: 36px; }
-    body.fase-azione .seme-carta-label { font-size: 8px; }
-    body.fase-azione .carte-overlay .carta { width: 60px; height: 86px; }
-    body.fase-azione .carte-overlay .carta .seme-centro { font-size: 34px; }
-    body.fase-azione .carte-overlay .carta .valore-alto, body.fase-azione .carte-overlay .carta .valore-basso { font-size: 14px; }
+    /* Carte ingrandite (circa il doppio) per stare su schermi bassi */
+    body.fase-azione .seme-carta { width: 120px; height: 172px; }
+    body.fase-azione .seme-carta .seme-emoji { font-size: 72px; }
+    body.fase-azione .seme-carta-label { font-size: 10px; }
+    body.fase-azione .carte-overlay .carta { width: 120px; height: 172px; }
+    body.fase-azione .carte-overlay .carta .seme-centro { font-size: 68px; }
+    body.fase-azione .carte-overlay .carta .valore-alto, body.fase-azione .carte-overlay .carta .valore-basso { font-size: 28px; }
     
     /* Il bottone deve essere bello visibile */
-    body.fase-azione .carte-overlay-azioni button { padding: 12px 24px; font-size: 14px; width: 100%; max-width: 300px; margin: 0 auto; }
-    body.fase-azione .info-carte { font-size: 9px; padding: 2px 6px; margin-top: 4px; }
+    body.fase-azione .carte-overlay-azioni button { padding: 14px 28px; font-size: 16px; width: 100%; max-width: 340px; margin: 0 auto; }
+    body.fase-azione .info-carte { font-size: 11px; padding: 3px 8px; margin-top: 6px; }
 
     /* Fase Campo (Animazione) */
     body.fase-campo .banner-top { display: none !important; }
     body.fase-campo .carte-overlay { display: none !important; }
     body.fase-campo .area-gioco { display: block; margin-top: 0; height: 100%; }
+
+    /* Palla più piccola su mobile */
+    .palla-centro { width: 9px; height: 9px; }
+    .palla-volante { width: 9px; height: 9px; }
+    .tiro-palla { width: 36px; height: 36px; border-width: 3px; }
+    .tiro-palla.iniziale { width: 56px; height: 56px; }
+    .tiro-palla.rigore { width: 42px; height: 42px; }
   }
 </style>
 </head>
@@ -759,13 +766,12 @@ var POSIZIONI_PORTIERI = [
 var DISTANZA_COPPIA_PX = 60;
 
 /* ============================================================
-   ZOOM DINAMICO
+   ZOOM FISSO X2 SULLA PALLA (mobile)
    ============================================================ */
 var zoomState = {
   attivo: false, scalaTarget: 1, scalaCorrente: 1,
   offsetTargetX: 0, offsetTargetY: 0, offsetCorrenteX: 0, offsetCorrenteY: 0,
-  zoomW: 900, zoomH: 500, smoothing: 0.12, rafId: null,
-  ultimaPallaX: SCENA_W / 2, ultimaPallaY: SCENA_H / 2,
+  zoomW: 800, zoomH: 450, smoothing: 0.12, rafId: null,
   animDa: null, animA: null, animInizio: 0, animDurata: 0
 };
 
@@ -774,12 +780,6 @@ function isMobileZoom() {
 }
 
 function getPosizionePallaScena() {
-  if (zoomState.animDa && zoomState.animA && zoomState.animDurata > 0) {
-    var t = (performance.now() - zoomState.animInizio) / zoomState.animDurata;
-    if (t < 0) t = 0; if (t > 1) t = 1;
-    var e = t * t * (3 - 2 * t);
-    return { x: zoomState.animDa.x + (zoomState.animA.x - zoomState.animDa.x) * e, y: zoomState.animDa.y + (zoomState.animA.y - zoomState.animDa.y) * e };
-  }
   if (stato.giocatorePalla) {
     var wrapper = document.querySelector('[data-giocatore-id="' + stato.giocatorePalla + '"]');
     if (wrapper) {
@@ -806,15 +806,18 @@ function applicaZoomPalla(px, py) {
   if (!scena || !wrapper) return;
   var w = wrapper.clientWidth, h = wrapper.clientHeight;
   if (w === 0 || h === 0) return;
-  var scala = Math.min(w / zoomState.zoomW, h / zoomState.zoomH);
+  
+  // ZOOM FISSO x2
   var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
-  if (scala < scalaFit) scala = scalaFit;
-  if (scala > scalaFit * 3.2) scala = scalaFit * 3.2;
+  var scala = scalaFit * 2; 
+
   var offsetX = w / 2 - px * scala;
   var offsetY = h / 2 - py * scala;
+  
   var lS = SCENA_W * scala, aS = SCENA_H * scala;
   if (lS <= w) offsetX = (w - lS) / 2; else { if (offsetX > 0) offsetX = 0; if (offsetX < w - lS) offsetX = w - lS; }
   if (aS <= h) offsetY = (h - aS) / 2; else { if (offsetY > 0) offsetY = 0; if (offsetY < h - aS) offsetY = h - aS; }
+  
   zoomState.scalaTarget = scala; zoomState.offsetTargetX = offsetX; zoomState.offsetTargetY = offsetY;
   if (!zoomState.attivo) {
     zoomState.scalaCorrente = scala;
@@ -834,7 +837,6 @@ function applicaTransformScena() {
 
 function loopZoom() {
   if (isMobileZoom()) {
-    // ZOOM MOBILE: segue la palla
     var p = getPosizionePallaScena();
     applicaZoomPalla(p.x, p.y);
     zoomState.scalaCorrente += (zoomState.scalaTarget - zoomState.scalaCorrente) * zoomState.smoothing;
@@ -842,7 +844,6 @@ function loopZoom() {
     zoomState.offsetCorrenteY += (zoomState.offsetTargetY - zoomState.offsetCorrenteY) * zoomState.smoothing;
     applicaTransformScena();
   } else {
-    // ZOOM DESKTOP (o "fit" classico)
     var scena = document.getElementById('scena');
     var wrapper = document.getElementById('scena-wrapper');
     if (scena && wrapper) {
@@ -863,9 +864,7 @@ function loopZoom() {
 function avviaLoopZoom() { if (zoomState.rafId) cancelAnimationFrame(zoomState.rafId); zoomState.rafId = requestAnimationFrame(loopZoom); }
 
 function notificaInizioAnimazionePalla(pDa, pA, durataMs) {
-  zoomState.animDa = pDa; zoomState.animA = pA;
-  zoomState.animInizio = performance.now(); zoomState.animDurata = durataMs;
-  setTimeout(function() { zoomState.animDa = null; zoomState.animA = null; zoomState.animDurata = 0; }, durataMs + 60);
+  // Non più usato per lo zoom, ma lo lasciamo per compatibilità
 }
 
 function adattaScena() { avviaLoopZoom(); }
@@ -878,9 +877,6 @@ window.addEventListener('orientationchange', function() { setTimeout(adattaScena
 function mostraBannerTop() { var p = document.getElementById('banner-top'); if (p) p.classList.remove('nascosto'); }
 function nascondiBannerTop() { var p = document.getElementById('banner-top'); if (p) p.classList.add('nascosto'); }
 
-/* ============================================================
-   MODALITÀ A FASI (mobile/tablet)
-   ============================================================ */
 function isMobileFasi() {
   var w = window.innerWidth, h = window.innerHeight;
   return (w <= 1100 && h <= 800) || (w <= 900);
@@ -1903,7 +1899,6 @@ function animaPallaInZona(gDa, gA, cb, saltaZone) {
   var pY = (rD.bottom - box.top) / scalaCorrente;
   var aX = (rA.left + rA.width/2 - box.left) / scalaCorrente;
   var aY = (rA.bottom - box.top) / scalaCorrente;
-  notificaInizioAnimazionePalla({ x: pX, y: pY }, { x: aX, y: aY }, DURATA_ANIM_PALLA * (saltaZone ? 1.4 : 1));
   var p = document.getElementById('palla-volante');
   if (p && p.parentNode !== scena) scena.appendChild(p);
   var v = document.querySelectorAll('.palla-centro'); for (var i=0;i<v.length;i++) v[i].remove();
@@ -1926,7 +1921,7 @@ function animaPallaInZona(gDa, gA, cb, saltaZone) {
     p.style.left = (pX + dx*e2) + 'px'; p.style.top = (pY + dy*e2 + arcoY) + 'px';
     pi.style.transform = 'rotate(' + (gradi*e2) + 'deg)';
     if (t < 1) requestAnimationFrame(anima);
-    else { p.classList.remove('attiva'); stato.pallaInAnimazione = false; zoomState.animDa = null; zoomState.animA = null; zoomState.animDurata = 0; tornaAFaseAzione(); if (cb) cb(); }
+    else { p.classList.remove('attiva'); stato.pallaInAnimazione = false; tornaAFaseAzione(); if (cb) cb(); }
   }
   requestAnimationFrame(anima);
 }
@@ -2417,7 +2412,6 @@ function animaPallaVersoPorta(squadra, cb) {
   palla.style.top = startY + 'px';
   palla.style.transform = 'translate(-50%, -50%) scale(1)';
   void palla.offsetWidth;
-  notificaInizioAnimazionePalla({ x: startX, y: startY }, { x: targetX, y: targetY }, 900);
   var startTime = performance.now();
   var durata = 900;
   var dx = targetX - startX;
@@ -2441,7 +2435,6 @@ function animaPallaVersoPorta(squadra, cb) {
         palla.classList.remove('attiva');
         palla.style.transform = 'translate(-50%, -50%) scale(1)';
         stato.pallaInAnimazione = false;
-        zoomState.animDa = null; zoomState.animA = null; zoomState.animDurata = 0;
         renderCampo();
         tornaAFaseAzione();
         if (cb) cb();
@@ -2504,8 +2497,8 @@ function resetPortiere() {
   pt.classList.remove('pg-braccia-addome', 'pg-braccia-alte', 'pg-braccia-alte-sx', 'pg-braccia-alte-dx',
                       'pg-braccia-alte-bassa-sx', 'pg-braccia-alte-bassa-dx',
                       'pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro', 'pg-salta');
-  var pos5 = casellaToPos(5);
-  posizionaPortiereSu(pos5.cx, pos5.cy, true);
+  var pos8 = casellaToPos(8); // Settore 8 (centro-basso)
+  posizionaPortiereSu(pos8.cx, pos8.cy, true);
 }
 function applicaBracciaVerso(cxPerc, cyPerc) {
   var pt = document.getElementById('tiro-portiere');
@@ -2520,13 +2513,17 @@ function applicaBracciaVerso(cxPerc, cyPerc) {
   var sogliaY = PORTA_H * 0.15;
   var oriz = Math.abs(dx) < sogliaX ? 'centro' : (dx < 0 ? 'sx' : 'dx');
   var vert = dy < -sogliaY ? 'alta' : (dy > sogliaY ? 'bassa' : 'media');
-  if (oriz === 'centro' && vert === 'alta') pt.classList.add('pg-braccia-alte');
-  else if (oriz === 'centro' && vert === 'bassa') pt.classList.add('pg-braccia-addome');
-  else if (oriz === 'sx' && vert === 'bassa') pt.classList.add('pg-braccia-alte-bassa-sx');
-  else if (oriz === 'dx' && vert === 'bassa') pt.classList.add('pg-braccia-alte-bassa-dx');
-  else if (oriz === 'sx') pt.classList.add('pg-braccia-alte-sx');
-  else if (oriz === 'dx') pt.classList.add('pg-braccia-alte-dx');
-  else pt.classList.add('pg-braccia-alte');
+  
+  // Se è verso il centro/alto, alza entrambe le braccia
+  if (vert === 'alta' || vert === 'media') {
+    pt.classList.add('pg-braccia-alte');
+  } else if (oriz === 'sx' && vert === 'bassa') {
+    pt.classList.add('pg-braccia-alte-bassa-sx');
+  } else if (oriz === 'dx' && vert === 'bassa') {
+    pt.classList.add('pg-braccia-alte-bassa-dx');
+  } else {
+    pt.classList.add('pg-braccia-addome');
+  }
 }
 
 function eseguiParataPortiereSettore(dT, dP, parata) {
@@ -2534,28 +2531,30 @@ function eseguiParataPortiereSettore(dT, dP, parata) {
   if (!pt) return;
   var posPalla = casellaToPos(dT);
   var posSettore = centroSettoreToPos(dP);
-  var pos5 = casellaToPos(5);
+  var pos8 = casellaToPos(8); // Posizione di partenza: Settore 8
   pt.classList.remove('pg-braccia-addome', 'pg-braccia-alte', 'pg-braccia-alte-sx', 'pg-braccia-alte-dx',
                       'pg-braccia-alte-bassa-sx', 'pg-braccia-alte-bassa-dx',
                       'pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro', 'pg-salta');
-  posizionaPortiereSu(pos5.cx, pos5.cy, true);
+  posizionaPortiereSu(pos8.cx, pos8.cy, true);
   void pt.offsetWidth;
+  
   if (parata) {
-    applicaBracciaVerso(posPalla.cx, posPalla.cy);
+    // PARATA: alza entrambe le braccia e si tuffa verso il centro del settore
+    pt.classList.add('pg-braccia-alte');
     setTimeout(function() {
-      var midX = (pos5.cx + posPalla.cx) / 2;
-      var midY = (pos5.cy + posPalla.cy) / 2;
-      posizionaPortiereSu(midX, midY, false);
-      var col = (dT - 1) % 3;
-      if (col === 0) pt.classList.add('pg-tuffo-sx');
-      else if (col === 2) pt.classList.add('pg-tuffo-dx');
+      posizionaPortiereSu(posSettore.cx, posSettore.cy, false);
+      var c = CENTRI_ZONE_4[dP];
+      if (c.x < 45) pt.classList.add('pg-tuffo-sx');
+      else if (c.x > 55) pt.classList.add('pg-tuffo-dx');
       else pt.classList.add('pg-tuffo-centro');
       setTimeout(function() { pt.classList.add('pg-salta'); }, 450);
       setTimeout(function() { pt.classList.remove('pg-salta'); }, 1150);
     }, 500);
     return;
   }
-  applicaBracciaVerso(posSettore.cx, posSettore.cy);
+  
+  // GOL: alza entrambe le braccia e si tuffa verso il centro del settore
+  pt.classList.add('pg-braccia-alte');
   setTimeout(function() {
     posizionaPortiereSu(posSettore.cx, posSettore.cy, false);
     var c = CENTRI_ZONE_4[dP];
@@ -2879,6 +2878,7 @@ function mostraEsitoTiroConGrafica(esito, dT, att, dif, motivo) {
         var wrapRect = wrapperPorta.getBoundingClientRect();
         var ptCx = ((ptRect.left + ptRect.width / 2 - wrapRect.left) / wrapRect.width) * 100;
         var ptCy = ((ptRect.top + ptRect.height / 2 - wrapRect.top) / wrapRect.height) * 100;
+        // Niente rimbalzo: la palla si sposta linearmente e si ferma
         pa.style.transition = 'left 0.55s linear, top 0.55s linear';
         pa.style.left = ptCx + '%';
         pa.style.top  = (ptCy - 2) + '%';

@@ -117,7 +117,7 @@
   .pedina.pg-in-calcio .pg-braccio-dx { animation: calciaBraccioDx 0.7s ease-out forwards; transform-origin: 34px 40px; transform-box: view-box; }
 
   /* ============================================================
-     SCIVOLATA — tackle realistico con corpo snodato
+     SCIVOLATA
      ============================================================ */
 
   .pedina.pg-in-tackle-dx {
@@ -477,7 +477,7 @@
     pointer-events: none;
   }
   .tiro-portiere svg { width: 100%; height: 100%; display: block; transition: transform 0.55s cubic-bezier(0.34,1.2,0.64,1); transform-origin: 50% 90%; }
-  .tiro-portiere .pg-braccio-sx, .tiro-portiere .pg-braccio-dx { transform-box: view-box; transition: transform 0.4s cubic-bezier(0.34,1.3,0.64,1); }
+  .tiro-portiere .pg-braccio-sx, .tiro-portiere .pg-braccio-dx { transform-box: view-box; transition: transform 0.5s cubic-bezier(0.34,1.2,0.64,1); }
   .tiro-portiere .pg-braccio-sx { transform-origin: 12px 20px; }
   .tiro-portiere .pg-braccio-dx { transform-origin: 28px 20px; }
   .tiro-portiere.pg-braccia-addome .pg-braccio-sx { transform: rotate(35deg); }
@@ -488,15 +488,31 @@
   .tiro-portiere.pg-braccia-alte-sx .pg-braccio-dx { transform: rotate(-10deg); }
   .tiro-portiere.pg-braccia-alte-dx .pg-braccio-dx { transform: rotate(75deg) translate(2px, -2px); }
   .tiro-portiere.pg-braccia-alte-dx .pg-braccio-sx { transform: rotate(10deg); }
+  .tiro-portiere.pg-braccia-alte-bassa-sx .pg-braccio-sx { transform: rotate(-40deg) translate(-2px, 3px); }
+  .tiro-portiere.pg-braccia-alte-bassa-sx .pg-braccio-dx { transform: rotate(15deg); }
+  .tiro-portiere.pg-braccia-alte-bassa-dx .pg-braccio-dx { transform: rotate(40deg) translate(2px, 3px); }
+  .tiro-portiere.pg-braccia-alte-bassa-dx .pg-braccio-sx { transform: rotate(-15deg); }
   .tiro-portiere.pg-tuffo-sx svg { transform: rotate(-25deg) translateX(-6%) translateY(3%); }
   .tiro-portiere.pg-tuffo-dx svg { transform: rotate(25deg)  translateX(6%)  translateY(3%); }
   .tiro-portiere.pg-tuffo-centro svg { transform: translateY(-4%); }
   .tiro-portiere.pg-salta svg { animation: saltoPortiere 0.7s ease-out; }
   @keyframes saltoPortiere { 0% { transform: translateY(0) scale(1); } 40% { transform: translateY(-10px) scale(1.05); } 100% { transform: translateY(0) scale(1); } }
 
-  .tiro-palla { position: absolute; width: 36px; height: 36px; background: radial-gradient(circle at 35% 35%, #ffe066, #f59f00); border-radius: 50%; border: 4px solid #b45309; z-index: 20; transition: all 0.8s cubic-bezier(0.34,1.56,0.64,1); transform: translate(-50%, -50%); box-shadow: 0 0 15px rgba(245, 158, 11, 0.6); }
-  .tiro-palla.iniziale { left: 50%; bottom: 4%; top: auto; width: 56px; height: 56px; }
-  .tiro-palla.rigore { left: 50%; bottom: 14%; top: auto; width: 42px; height: 42px; }
+  /* ===== PALLA DEL TIRO: DIMENSIONE DOPPIA ===== */
+  .tiro-palla {
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    background: radial-gradient(circle at 35% 35%, #ffe066, #f59f00);
+    border-radius: 50%;
+    border: 6px solid #b45309;
+    z-index: 20;
+    transition: left 0.8s cubic-bezier(0.34,1.56,0.64,1), top 0.8s cubic-bezier(0.34,1.56,0.64,1);
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 22px rgba(245, 158, 11, 0.65);
+  }
+  .tiro-palla.iniziale { left: 50%; bottom: 2%; top: auto; width: 112px; height: 112px; }
+  .tiro-palla.rigore { left: 50%; bottom: 10%; top: auto; width: 84px; height: 84px; }
   .tiro-esito { font-size: 48px; font-weight: 900; color: #ffd700; text-align: center; letter-spacing: 4px; min-height: 60px; margin-top: 6px; flex-shrink: 0; }
   .tiro-esito.goal { color: #4ade80; }
   .tiro-esito.parata { color: #ef4444; }
@@ -949,43 +965,26 @@ var POSIZIONI_PORTIERI = [
 var DISTANZA_COPPIA_PX = 60;
 
 /* ============================================================
-   ZOOM DINAMICO CHE SEGUE LA PALLA
+   ZOOM DINAMICO
    ============================================================ */
 var zoomState = {
-  attivo: false,
-  scalaTarget: 1,
-  scalaCorrente: 1,
-  offsetTargetX: 0,
-  offsetTargetY: 0,
-  offsetCorrenteX: 0,
-  offsetCorrenteY: 0,
-  zoomW: 900,
-  zoomH: 500,
-  smoothing: 0.12,
-  rafId: null,
-  ultimaPallaX: SCENA_W / 2,
-  ultimaPallaY: SCENA_H / 2,
-  animDa: null,
-  animA: null,
-  animInizio: 0,
-  animDurata: 0
+  attivo: false, scalaTarget: 1, scalaCorrente: 1,
+  offsetTargetX: 0, offsetTargetY: 0, offsetCorrenteX: 0, offsetCorrenteY: 0,
+  zoomW: 900, zoomH: 500, smoothing: 0.12, rafId: null,
+  ultimaPallaX: SCENA_W / 2, ultimaPallaY: SCENA_H / 2,
+  animDa: null, animA: null, animInizio: 0, animDurata: 0
 };
 
 function isMobileZoom() {
-  return (window.innerWidth <= 900) ||
-         (window.innerHeight <= 600 && window.innerWidth < 1200);
+  return (window.innerWidth <= 900) || (window.innerHeight <= 600 && window.innerWidth < 1200);
 }
 
 function getPosizionePallaScena() {
   if (zoomState.animDa && zoomState.animA && zoomState.animDurata > 0) {
     var t = (performance.now() - zoomState.animInizio) / zoomState.animDurata;
-    if (t < 0) t = 0;
-    if (t > 1) t = 1;
+    if (t < 0) t = 0; if (t > 1) t = 1;
     var e = t * t * (3 - 2 * t);
-    return {
-      x: zoomState.animDa.x + (zoomState.animA.x - zoomState.animDa.x) * e,
-      y: zoomState.animDa.y + (zoomState.animA.y - zoomState.animDa.y) * e
-    };
+    return { x: zoomState.animDa.x + (zoomState.animA.x - zoomState.animDa.x) * e, y: zoomState.animDa.y + (zoomState.animA.y - zoomState.animDa.y) * e };
   }
   if (stato.giocatorePalla) {
     var wrapper = document.querySelector('[data-giocatore-id="' + stato.giocatorePalla + '"]');
@@ -993,10 +992,7 @@ function getPosizionePallaScena() {
       var scena = document.getElementById('scena');
       var r = wrapper.getBoundingClientRect();
       var box = scena.getBoundingClientRect();
-      return {
-        x: (r.left + r.width / 2 - box.left) / scalaCorrente,
-        y: (r.top + r.height / 2 - box.top) / scalaCorrente
-      };
+      return { x: (r.left + r.width / 2 - box.left) / scalaCorrente, y: (r.top + r.height / 2 - box.top) / scalaCorrente };
     }
   }
   if (stato.zonaPalla !== null && stato.zonaPalla !== undefined) {
@@ -1025,9 +1021,7 @@ function applicaZoomPalla(px, py) {
   var lS = SCENA_W * scala, aS = SCENA_H * scala;
   if (lS <= w) offsetX = (w - lS) / 2; else { if (offsetX > 0) offsetX = 0; if (offsetX < w - lS) offsetX = w - lS; }
   if (aS <= h) offsetY = (h - aS) / 2; else { if (offsetY > 0) offsetY = 0; if (offsetY < h - aS) offsetY = h - aS; }
-  zoomState.scalaTarget = scala;
-  zoomState.offsetTargetX = offsetX;
-  zoomState.offsetTargetY = offsetY;
+  zoomState.scalaTarget = scala; zoomState.offsetTargetX = offsetX; zoomState.offsetTargetY = offsetY;
   if (!zoomState.attivo) {
     zoomState.scalaCorrente = scala;
     zoomState.offsetCorrenteX = offsetX;
@@ -1063,8 +1057,7 @@ function loopZoom() {
     return;
   }
   var p = getPosizionePallaScena();
-  zoomState.ultimaPallaX = p.x;
-  zoomState.ultimaPallaY = p.y;
+  zoomState.ultimaPallaX = p.x; zoomState.ultimaPallaY = p.y;
   applicaZoomPalla(p.x, p.y);
   zoomState.scalaCorrente += (zoomState.scalaTarget - zoomState.scalaCorrente) * zoomState.smoothing;
   zoomState.offsetCorrenteX += (zoomState.offsetTargetX - zoomState.offsetCorrenteX) * zoomState.smoothing;
@@ -1093,7 +1086,7 @@ function nascondiBannerTop() { var p = document.getElementById('banner-top'); if
 function mostraCarteOverlay() { var o = document.getElementById('carte-overlay'); if (o) o.classList.add('attivo'); if (isMobileZoom()) document.body.classList.add('carte-in-gioco'); }
 function nascondiCarteOverlay() { var o = document.getElementById('carte-overlay'); if (o) o.classList.remove('attivo'); document.body.classList.remove('carte-in-gioco'); setTimeout(function() { if (typeof adattaScena === 'function') adattaScena(); }, 350); }
 
-function mostraBonusChoice(tipo, callback, isTimeout) {
+function mostraBonusChoice(tipo, callback) {
   var ov = document.getElementById('bonus-choice-overlay');
   var info = NOMI_BONUS[tipo];
   var carta = document.getElementById('bonus-choice-carta');
@@ -1103,8 +1096,7 @@ function mostraBonusChoice(tipo, callback, isTimeout) {
   document.getElementById('bonus-choice-nome').textContent = info.nome;
   carta.className = 'bonus-choice-carta ' + tipo;
   var azioni = document.getElementById('bonus-choice-azioni');
-  azioni.innerHTML = '<button class="bonus-btn" id="bc-si">✅ SÌ, USA ' + info.icona + ' ' + info.nome.toUpperCase() + '</button>' +
-                     '<button id="bc-no" style="background:#8B2020;border-color:#ff6b6b">❌ NO, SALTA</button>';
+  azioni.innerHTML = '<button class="bonus-btn" id="bc-si">✅ SÌ, USA ' + info.icona + ' ' + info.nome.toUpperCase() + '</button>' + '<button id="bc-no" style="background:#8B2020;border-color:#ff6b6b">❌ NO, SALTA</button>';
   document.getElementById('bc-si').onclick = function() { clearTimeout(window._bonusChoiceTimer); chiudiBonusChoice(); callback(true); };
   document.getElementById('bc-no').onclick = function() { clearTimeout(window._bonusChoiceTimer); chiudiBonusChoice(); callback(false); };
   var timerEl = document.getElementById('bonus-choice-timer');
@@ -1217,8 +1209,7 @@ var stato = {
   mazzi:{ tu:[], cpu:[] }, scarti:{ tu:[], cpu:[] }, mazzoBonus:[],
   mani:{ tu:[], cpu:[] }, giocatori:{ tu:[], cpu:[] }, panchina:{ tu:[], cpu:[] },
   monetaVinta:null, partitaFinita:false, sostBloccate:false,
-  semeGuidaPrecedente:null, direzioneAttaccoTU:1, invertiCoppie:false,
-  tuECasa:true,
+  semeGuidaPrecedente:null, direzioneAttaccoTU:1, invertiCoppie:false, tuECasa:true,
   bonus: { tu: [], cpu: [] }, bonusUsatoQuestoTiro: { tu:null, cpu:null }, streak: { tu:0, cpu:0 },
   statistiche: {
     tu: { gol:0, tiri:0, parate:0, angoli:0, pali:0, contese:0, vinte:0, falli:0, ammonizioni:0, espulsioni:0, sostituzioni:0, bonusGuadagnati:0 },
@@ -1335,22 +1326,13 @@ function mostraSchermataRipristino(dati) {
     '<h2>💾 Partita in corso</h2>' +
     '<p style="font-size:14px;color:#ccc;margin:10px 0">Hai una partita non terminata:</p>' +
     '<div style="background:rgba(0,0,0,0.4);border-radius:8px;padding:12px;margin:12px 0">' +
-      '<div style="font-size:18px;font-weight:bold;color:#ffd700">' +
-        nomeTU + ' <span style="color:#4dabf7">' + dati.punteggio.tu + '</span>' +
-        ' - ' +
-        '<span style="color:#ff6b6b">' + dati.punteggio.cpu + '</span> ' + nomeCPU +
-      '</div>' +
-      '<div style="font-size:12px;color:#aaa;margin-top:6px">' +
-        'Tempo ' + dati.tempo + '° · Mano ' + dati.mano + '/' + dati.maxMani +
-        ' · Minuto ' + (dati.tempo === 1 ? Math.min((dati.mano-1)*2,45) : Math.min(45+(dati.mano-1)*2,90)) + "'" +
-      '</div>' +
+      '<div style="font-size:18px;font-weight:bold;color:#ffd700">' + nomeTU + ' <span style="color:#4dabf7">' + dati.punteggio.tu + '</span> - <span style="color:#ff6b6b">' + dati.punteggio.cpu + '</span> ' + nomeCPU + '</div>' +
+      '<div style="font-size:12px;color:#aaa;margin-top:6px">Tempo ' + dati.tempo + '° · Mano ' + dati.mano + '/' + dati.maxMani + ' · Minuto ' + (dati.tempo === 1 ? Math.min((dati.mano-1)*2,45) : Math.min(45+(dati.mano-1)*2,90)) + "'" + '</div>' +
       '<div style="font-size:11px;color:#666;margin-top:4px">Salvata il ' + dataOra + '</div>' +
     '</div>' +
     '<p style="font-size:12px;color:#ff8a8a;margin:10px 0">⚠️ Se abbandoni, subirai una sconfitta a tavolino 0-2.</p>' +
-    '<div>' +
-      '<button class="primario" onclick="riprendiPartitaSalvata()">▶️ RIPRENDI PARTITA</button>' +
-      '<button style="background:#8B2020;border-color:#ff6b6b" onclick="abbandonaPartitaSalvata()">🗑️ ABBANDONA (0-2 a tavolino)</button>' +
-    '</div>';
+    '<div><button class="primario" onclick="riprendiPartitaSalvata()">▶️ RIPRENDI PARTITA</button>' +
+    '<button style="background:#8B2020;border-color:#ff6b6b" onclick="abbandonaPartitaSalvata()">🗑️ ABBANDONA (0-2 a tavolino)</button></div>';
   window._salvataggioDaRipristinare = dati;
 }
 function riprendiPartitaSalvata() {
@@ -1398,12 +1380,7 @@ function applicaVittoriaATavolino(dati) {
   if (TORNEO_MODE === 'seriea' && PARTITA_TORNEO) salvaRisultatoTorneoATavolino(dati);
 }
 function salvaRisultatoTorneoATavolino(dati) {
-  var r = {
-    golTU: 0, golCPU: 2, sqTU: dati.squadraTU, sqCPU: dati.squadraCPU,
-    casaOriginale: dati.urlCasa || dati.squadraTU, trasfertaOriginale: dati.urlTrasferta || dati.squadraCPU,
-    statistiche: JSON.parse(JSON.stringify(dati.statistiche || stato.statistiche)),
-    aTavolino: true, motivo: 'abbandono'
-  };
+  var r = { golTU: 0, golCPU: 2, sqTU: dati.squadraTU, sqCPU: dati.squadraCPU, casaOriginale: dati.urlCasa || dati.squadraTU, trasfertaOriginale: dati.urlTrasferta || dati.squadraCPU, statistiche: JSON.parse(JSON.stringify(dati.statistiche || stato.statistiche)), aTavolino: true, motivo: 'abbandono' };
   try { localStorage.setItem('campionato_partita_' + PARTITA_TORNEO, JSON.stringify(r)); } catch(e) { console.error('Errore salvataggio risultato a tavolino:', e); }
 }
 function mostraRisultatoAbbandono(dati) {
@@ -1414,9 +1391,7 @@ function mostraRisultatoAbbandono(dati) {
     document.getElementById('modale-box').innerHTML =
       '<h2 style="color:#ff6b6b">🚫 PARTITA ABBANDONATA</h2>' +
       '<p style="font-size:14px;color:#ccc;margin:12px 0">Hai abbandonato la partita.</p>' +
-      '<p style="font-size:28px;font-weight:bold;margin:16px 0">' +
-        '<span style="color:#4dabf7">0</span> - <span style="color:#ff6b6b">2</span>' +
-      '</p>' +
+      '<p style="font-size:28px;font-weight:bold;margin:16px 0"><span style="color:#4dabf7">0</span> - <span style="color:#ff6b6b">2</span></p>' +
       '<p style="color:#ff8a8a;font-size:13px">Sconfitta a tavolino. Risultato registrato nel campionato.</p>' +
       '<p style="color:#aaa;font-size:11px;margin-top:12px">Ritorno al campionato...</p>';
     setTimeout(function() { location.href = 'seriea2027.html?risultato=' + encodeURIComponent(PARTITA_TORNEO); }, 2500);
@@ -1425,17 +1400,10 @@ function mostraRisultatoAbbandono(dati) {
   document.getElementById('modale').classList.remove('nascosto');
   document.getElementById('modale-box').innerHTML =
     '<h2 style="color:#ff6b6b">🚫 PARTITA ABBANDONATA</h2>' +
-    '<p style="font-size:36px;font-weight:bold;margin:16px 0">' +
-      '<span style="color:#4dabf7">0</span> - <span style="color:#ff6b6b">2</span>' +
-    '</p>' +
+    '<p style="font-size:36px;font-weight:bold;margin:16px 0"><span style="color:#4dabf7">0</span> - <span style="color:#ff6b6b">2</span></p>' +
     '<p style="font-size:16px;color:#ff6b6b;margin:12px 0">Sconfitta a tavolino</p>' +
-    '<p style="font-size:13px;color:#ccc;margin:10px 0">' +
-      nomeTU + ' <span style="color:#ff6b6b">abbandona</span> — ' + nomeCPU + ' vince a tavolino' +
-    '</p>' +
-    '<div style="margin-top:20px">' +
-      '<button class="primario" onclick="location.reload()">NUOVA PARTITA</button>' +
-      '<button onclick="mostraMenuPrincipale()">MENU</button>' +
-    '</div>';
+    '<p style="font-size:13px;color:#ccc;margin:10px 0">' + nomeTU + ' <span style="color:#ff6b6b">abbandona</span> — ' + nomeCPU + ' vince a tavolino</p>' +
+    '<div style="margin-top:20px"><button class="primario" onclick="location.reload()">NUOVA PARTITA</button><button onclick="mostraMenuPrincipale()">MENU</button></div>';
 }
 
 var timerPartita = null;
@@ -1501,13 +1469,8 @@ function pescaUnaCarta(sq) {
       log('🔄 Mazzo ' + (sq === 'tu' ? 'TU' : 'CPU') + ' esaurito, rimescolo!');
     }
     var carta = stato.mazzi[sq].pop();
-    if (contaSemeInMano(sq, carta.seme) < MAX_CARTE_STESSO_SEME) {
-      stato.mani[sq].push(carta);
-      return;
-    } else {
-      stato.mazzi[sq].push(carta);
-      stato.mazzi[sq] = mescola(stato.mazzi[sq]);
-    }
+    if (contaSemeInMano(sq, carta.seme) < MAX_CARTE_STESSO_SEME) { stato.mani[sq].push(carta); return; }
+    else { stato.mazzi[sq].push(carta); stato.mazzi[sq] = mescola(stato.mazzi[sq]); }
   }
   if (stato.mazzi[sq].length > 0) stato.mani[sq].push(stato.mazzi[sq].pop());
 }
@@ -1615,12 +1578,9 @@ function mostraMenuPrincipale() {
     '<div class="menu-principale">' +
       '<div class="menu-titolo">⚽ CALCIO A CARTE ⚽</div>' +
       '<div class="menu-sottotitolo">Scegli la modalità di gioco</div>' +
-      '<div class="menu-btn" onclick="avviaSetup1P()"><div class="icona">🎮</div>' +
-        '<div class="testo"><div class="titolo">PARTITA SINGOLA</div><div class="descr">1 giocatore vs CPU</div></div></div>' +
-      '<div class="menu-btn" onclick="avviaSetup2P()"><div class="icona">👥</div>' +
-        '<div class="testo"><div class="titolo">PARTITA 2 GIOCATORI</div><div class="descr">Locale - stesso dispositivo</div></div></div>' +
-      '<div class="menu-btn evidenza" onclick="location.href=\'seriea2027.html\'"><div class="icona">⚽</div>' +
-        '<div class="testo"><div class="titolo">SERIE A 2026/2027</div><div class="descr">20 squadre · 38 giornate</div></div></div>' +
+      '<div class="menu-btn" onclick="avviaSetup1P()"><div class="icona">🎮</div><div class="testo"><div class="titolo">PARTITA SINGOLA</div><div class="descr">1 giocatore vs CPU</div></div></div>' +
+      '<div class="menu-btn" onclick="avviaSetup2P()"><div class="icona">👥</div><div class="testo"><div class="titolo">PARTITA 2 GIOCATORI</div><div class="descr">Locale - stesso dispositivo</div></div></div>' +
+      '<div class="menu-btn evidenza" onclick="location.href=\'seriea2027.html\'"><div class="icona">⚽</div><div class="testo"><div class="titolo">SERIE A 2026/2027</div><div class="descr">20 squadre · 38 giornate</div></div></div>' +
       '<div style="margin-top:16px"><button onclick="apriImpostazioni()">⚙️ Impostazioni</button></div>' +
     '</div>';
 }
@@ -1653,26 +1613,12 @@ function apriIstruzioni() {
       '<p>Segna più gol della tua avversaria (CPU o altro giocatore) in <strong>46 mani</strong> totali, divise in due tempi da 23 mani ciascuno. Ogni mano equivale a 2 minuti di gioco.</p>' +
       '<h3>🃏 Come funziona una Mano</h3>' +
       '<p>In ogni mano si disputa un <strong>contrasto</strong> in una zona del campo.</p>' +
-      '<ul>' +
-        '<li>Viene estratta una <strong>carta seme guida</strong> (Palla ⚽, Coppa 🏆, Guantone 🧤 o Bandierina 🚩).</li>' +
-        '<li>Entrambi i giocatori scelgono una carta dalla propria mano (max 4 carte ciascuno).</li>' +
-        '<li>Chi ha una carta dello <strong>stesso seme guida</strong> vince automaticamente (se l\'altro non ce l\'ha).</li>' +
-        '<li>Se entrambi hanno il seme, o nessuno dei due, vince chi ha il <strong>valore più alto</strong>.</li>' +
-      '</ul>' +
+      '<ul><li>Viene estratta una <strong>carta seme guida</strong> (Palla ⚽, Coppa 🏆, Guantone 🧤 o Bandierina 🚩).</li><li>Entrambi i giocatori scelgono una carta dalla propria mano (max 4 carte ciascuno).</li><li>Chi ha una carta dello <strong>stesso seme guida</strong> vince automaticamente (se l\'altro non ce l\'ha).</li><li>Se entrambi hanno il seme, o nessuno dei due, vince chi ha il <strong>valore più alto</strong>.</li></ul>' +
       '<div class="highlight-box">⚠️ <strong>Attenzione:</strong> se giochi una carta di seme diverso da quello guida, commetti un <strong>fallo</strong>: l\'avversaria vince il contrasto e tu accumuli un fallo. 3 falli = 🟨 ammonizione. 6 falli = 🟥 espulsione!</div>' +
       '<h3>⚽ Avanzamento e Tiro</h3>' +
-      '<ul>' +
-        '<li>Chi vince il contrasto avanza di <strong>1 zona</strong> verso la porta avversaria.</li>' +
-        '<li>Se vinci un contrasto in <strong>Z1</strong> o <strong>Z5</strong>, scatta il <strong>tiro in porta</strong>!</li>' +
-        '<li>Dopo un gol, si riparte dal centrocampo con la squadra che ha subito il gol.</li>' +
-        '<li>Dopo un pareggio nel contrasto, si rigioca la stessa mano con un nuovo seme guida.</li>' +
-      '</ul>' +
+      '<ul><li>Chi vince il contrasto avanza di <strong>1 zona</strong> verso la porta avversaria.</li><li>Se vinci un contrasto in <strong>Z1</strong> o <strong>Z5</strong>, scatta il <strong>tiro in porta</strong>!</li><li>Dopo un gol, si riparte dal centrocampo con la squadra che ha subito il gol.</li><li>Dopo un pareggio nel contrasto, si rigioca la stessa mano con un nuovo seme guida.</li></ul>' +
       '<h3>🥅 Fase di Tiro</h3>' +
-      '<ul>' +
-        '<li><strong>Fase 1:</strong> l\'attaccante tira 1d9 e sceglie la casella.</li>' +
-        '<li><strong>Fase 2:</strong> il portiere tira 1d4 e si tuffa in una zona di 4 caselle.</li>' +
-        '<li><strong>Fase 3:</strong> si tira 1d9 per l\'esito: se esce il numero della casella colpita (fuori dalla zona del portiere) è <strong>GOAL</strong>!</li>' +
-      '</ul>' +
+      '<ul><li><strong>Fase 1:</strong> l\'attaccante tira 1d9 e sceglie la casella.</li><li><strong>Fase 2:</strong> il portiere tira 1d4 e si tuffa in una zona di 4 caselle.</li><li><strong>Fase 3:</strong> si tira 1d9 per l\'esito: se esce il numero della casella colpita (fuori dalla zona del portiere) è <strong>GOAL</strong>!</li></ul>' +
       '<h3>🎴 Le Carte BONUS</h3>' +
       '<p>Ogni volta che vinci <strong>3 contrasti consecutivi</strong> (streak), guadagni una carta Bonus casuale (massimo 3 in mano).</p>' +
       '<div class="bonus-card"><div class="icona">⭐</div><div class="testo"><strong>Contrasto Sicuro</strong><p>Vinci automaticamente il contrasto senza giocare carte.</p></div></div>' +
@@ -2510,14 +2456,13 @@ function animaPallaVersoPorta(squadra, cb) {
 }
 
 /* ============================================================
-   TACKLE — scivolata realistica con corpo snodato
+   TACKLE
    ============================================================ */
 function animaTackle(gVincitore, gPerdente) {
   var wrapperV = document.querySelector('[data-giocatore-id="' + gVincitore.id + '"]');
   if (!wrapperV) return;
   var pedinaV = wrapperV.querySelector('.pedina');
   if (!pedinaV) return;
-
   var versoDestra = true;
   if (gPerdente) {
     var wrapperP = document.querySelector('[data-giocatore-id="' + gPerdente.id + '"]');
@@ -2534,18 +2479,14 @@ function animaTackle(gVincitore, gPerdente) {
     var xV2 = (rV2.left + rV2.width / 2 - box.left) / scalaCorrente;
     versoDestra = (posPalla.x >= xV2);
   }
-
   pedinaV.classList.remove('pg-in-tackle-dx', 'pg-in-tackle-sx');
   void pedinaV.offsetWidth;
   pedinaV.classList.add(versoDestra ? 'pg-in-tackle-dx' : 'pg-in-tackle-sx');
-
-  setTimeout(function() {
-    pedinaV.classList.remove('pg-in-tackle-dx', 'pg-in-tackle-sx');
-  }, DURATA_SCIVOLATA + 80);
+  setTimeout(function() { pedinaV.classList.remove('pg-in-tackle-dx', 'pg-in-tackle-sx'); }, DURATA_SCIVOLATA + 80);
 }
 
 /* ============================================================
-   PORTIERE — alto 2/3 della porta + braccia corrette
+   PORTIERE — braccia prima, corpo dopo
    ============================================================ */
 function posizionaPortiereSu(cx, cy, istantaneo) {
   var pt = document.getElementById('tiro-portiere');
@@ -2563,44 +2504,83 @@ function casellaToPos(numero) {
   var row = Math.floor((numero - 1) / 3);
   return { cx: PORTA_LEFT + (col + 0.5) * PORTA_W / 3, cy: PORTA_TOP + (row + 0.5) * PORTA_H / 3 };
 }
+function centroSettoreToPos(dP) {
+  var c = CENTRI_ZONE_4[dP];
+  return { cx: PORTA_LEFT + (c.x / 100) * PORTA_W, cy: PORTA_TOP + (c.y / 100) * PORTA_H };
+}
 function resetPortiere() {
   var pt = document.getElementById('tiro-portiere');
   if (!pt) return;
-  pt.classList.remove('pg-braccia-addome', 'pg-braccia-alte', 'pg-braccia-alte-sx', 'pg-braccia-alte-dx', 'pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro', 'pg-salta');
+  pt.classList.remove('pg-braccia-addome', 'pg-braccia-alte', 'pg-braccia-alte-sx', 'pg-braccia-alte-dx',
+                      'pg-braccia-alte-bassa-sx', 'pg-braccia-alte-bassa-dx',
+                      'pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro', 'pg-salta');
   var pos5 = casellaToPos(5);
   posizionaPortiereSu(pos5.cx, pos5.cy, true);
 }
+function applicaBracciaVerso(cxPerc, cyPerc) {
+  var pt = document.getElementById('tiro-portiere');
+  if (!pt) return;
+  pt.classList.remove('pg-braccia-addome', 'pg-braccia-alte', 'pg-braccia-alte-sx', 'pg-braccia-alte-dx',
+                      'pg-braccia-alte-bassa-sx', 'pg-braccia-alte-bassa-dx');
+  var cxCentro = PORTA_LEFT + PORTA_W / 2;
+  var cyCentro = PORTA_TOP  + PORTA_H / 2;
+  var dx = cxPerc - cxCentro;
+  var dy = cyPerc - cyCentro;
+  var sogliaX = PORTA_W * 0.10;
+  var sogliaY = PORTA_H * 0.15;
+  var oriz = Math.abs(dx) < sogliaX ? 'centro' : (dx < 0 ? 'sx' : 'dx');
+  var vert = dy < -sogliaY ? 'alta' : (dy > sogliaY ? 'bassa' : 'media');
+  if (oriz === 'centro' && vert === 'alta') pt.classList.add('pg-braccia-alte');
+  else if (oriz === 'centro' && vert === 'bassa') pt.classList.add('pg-braccia-addome');
+  else if (oriz === 'sx' && vert === 'bassa') pt.classList.add('pg-braccia-alte-bassa-sx');
+  else if (oriz === 'dx' && vert === 'bassa') pt.classList.add('pg-braccia-alte-bassa-dx');
+  else if (oriz === 'sx') pt.classList.add('pg-braccia-alte-sx');
+  else if (oriz === 'dx') pt.classList.add('pg-braccia-alte-dx');
+  else pt.classList.add('pg-braccia-alte');
+}
+
 function eseguiParataPortiereSettore(dT, dP, parata) {
   var pt = document.getElementById('tiro-portiere');
   if (!pt) return;
-  pt.classList.remove('pg-braccia-addome', 'pg-braccia-alte', 'pg-braccia-alte-sx', 'pg-braccia-alte-dx', 'pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro', 'pg-salta');
+  var posPalla = casellaToPos(dT);
+  var posSettore = centroSettoreToPos(dP);
   var pos5 = casellaToPos(5);
-  var posTarget = casellaToPos(dT);
+
+  // Reset completo classi e posizione (istantaneo)
+  pt.classList.remove('pg-braccia-addome', 'pg-braccia-alte', 'pg-braccia-alte-sx', 'pg-braccia-alte-dx',
+                      'pg-braccia-alte-bassa-sx', 'pg-braccia-alte-bassa-dx',
+                      'pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro', 'pg-salta');
+  posizionaPortiereSu(pos5.cx, pos5.cy, true);
+  void pt.offsetWidth;
+
   if (parata) {
-    if (dT === 5 || dT === 8) {
-      posizionaPortiereSu(pos5.cx, pos5.cy, false);
-      pt.classList.add('pg-braccia-addome');
-      setTimeout(function() { pt.classList.add('pg-salta'); }, 350);
-      setTimeout(function() { pt.classList.remove('pg-salta'); }, 1100);
-      return;
-    }
-    var midX = (pos5.cx + posTarget.cx) / 2;
-    var midY = (pos5.cy + posTarget.cy) / 2;
-    posizionaPortiereSu(midX, midY, false);
-    var col = (dT - 1) % 3;
-    if (col === 0) pt.classList.add('pg-tuffo-sx', 'pg-braccia-alte-sx');
-    else if (col === 2) pt.classList.add('pg-tuffo-dx', 'pg-braccia-alte-dx');
-    else pt.classList.add('pg-tuffo-centro', 'pg-braccia-alte');
-    setTimeout(function() { pt.classList.add('pg-salta'); }, 400);
-    setTimeout(function() { pt.classList.remove('pg-salta'); }, 1200);
+    // PARATA: prima braccia verso la palla, poi corpo verso la palla
+    applicaBracciaVerso(posPalla.cx, posPalla.cy);
+    setTimeout(function() {
+      var midX = (pos5.cx + posPalla.cx) / 2;
+      var midY = (pos5.cy + posPalla.cy) / 2;
+      posizionaPortiereSu(midX, midY, false);
+      var col = (dT - 1) % 3;
+      if (col === 0) pt.classList.add('pg-tuffo-sx');
+      else if (col === 2) pt.classList.add('pg-tuffo-dx');
+      else pt.classList.add('pg-tuffo-centro');
+      setTimeout(function() { pt.classList.add('pg-salta'); }, 450);
+      setTimeout(function() { pt.classList.remove('pg-salta'); }, 1150);
+    }, 500);
     return;
   }
-  posizionaPortiereSu(pos5.cx, pos5.cy, true);
-  var centroZona = CENTRI_ZONE_4[dP];
-  var dxPerc = (centroZona.x - 50) * PORTA_W / 100;
-  if (Math.abs(dxPerc) < PORTA_W * 0.10) pt.classList.add('pg-tuffo-centro', 'pg-braccia-alte');
-  else if (dxPerc < 0) pt.classList.add('pg-tuffo-sx', 'pg-braccia-alte-sx');
-  else pt.classList.add('pg-tuffo-dx', 'pg-braccia-alte-dx');
+
+  // GOL: prima braccia verso il centro del settore d4, poi corpo verso il centro del settore
+  applicaBracciaVerso(posSettore.cx, posSettore.cy);
+  setTimeout(function() {
+    posizionaPortiereSu(posSettore.cx, posSettore.cy, false);
+    var c = CENTRI_ZONE_4[dP];
+    if (c.x < 45) pt.classList.add('pg-tuffo-sx');
+    else if (c.x > 55) pt.classList.add('pg-tuffo-dx');
+    else pt.classList.add('pg-tuffo-centro');
+    setTimeout(function() { pt.classList.add('pg-salta'); }, 450);
+    setTimeout(function() { pt.classList.remove('pg-salta'); }, 1150);
+  }, 500);
 }
 
 /* ============================================================
@@ -2813,7 +2793,7 @@ function eseguiTiroConGrafica(att, dif, isRigore) {
       setTimeout(function() {
         if (parataGS) mostraEsitoTiroConGrafica('parata', dT, att, dif, '🧤 PARATA (Gol Super)!');
         else mostraEsitoTiroConGrafica('goal', dT, att, dif, '⚽ GOAL SUPER!');
-      }, 1800);
+      }, 2200);
       return;
     }
 
@@ -2839,7 +2819,7 @@ function eseguiTiroConGrafica(att, dif, isRigore) {
       setTimeout(function() {
         if (parataPS) mostraEsitoTiroConGrafica('parata', dT, att, dif, '🧤 PARATA SUPER!');
         else mostraEsitoTiroConGrafica('goal', dT, att, dif, '⚽ GOAL (Parata Super "bucata")!');
-      }, 1800);
+      }, 2200);
       return;
     }
 
@@ -2857,7 +2837,7 @@ function eseguiTiroConGrafica(att, dif, isRigore) {
         if (isRigore) fase3RigoreConGrafica(dT, att, dif);
         else fase3TiroConGrafica(dT, att, dif);
       }
-    }, 1800);
+    }, 2200);
   }, 1200);
 }
 
@@ -2903,6 +2883,7 @@ function mostraEsitoTiroConGrafica(esito, dT, att, dif, motivo) {
   e.textContent = motivo; e.classList.add(esito);
   var i = document.getElementById('tiro-info'); if (i) i.textContent = 'ESITO: ' + motivo;
 
+  // NIENTE RIMBALZO: la palla si sposta linearmente verso il portiere e si ferma
   if (esito === 'parata') {
     var pa = document.getElementById('tiro-palla');
     var pt = document.getElementById('tiro-portiere');
@@ -2913,11 +2894,9 @@ function mostraEsitoTiroConGrafica(esito, dT, att, dif, motivo) {
         var wrapRect = wrapperPorta.getBoundingClientRect();
         var ptCx = ((ptRect.left + ptRect.width / 2 - wrapRect.left) / wrapRect.width) * 100;
         var ptCy = ((ptRect.top + ptRect.height / 2 - wrapRect.top) / wrapRect.height) * 100;
-        pa.style.transition = 'left 0.55s cubic-bezier(0.34,1.2,0.64,1), top 0.55s cubic-bezier(0.34,1.2,0.64,1), transform 0.55s cubic-bezier(0.34,1.2,0.64,1), opacity 0.55s ease-out';
+        pa.style.transition = 'left 0.55s linear, top 0.55s linear';
         pa.style.left = ptCx + '%';
-        pa.style.top  = (ptCy + 3) + '%';
-        pa.style.transform = 'translate(-50%, -50%) scale(0.55)';
-        setTimeout(function() { pa.style.opacity = '0.4'; }, 400);
+        pa.style.top  = (ptCy - 2) + '%';
       }
     }
   }
@@ -3098,9 +3077,7 @@ function fineTempoOPartita() {
 function mostraFinestraFineTempo(cb) {
   var h = '<div style="text-align:center;padding:10px">' +
     '<h2 style="color:#ffd700;margin-bottom:12px">⏸️ FINE PRIMO TEMPO</h2>' +
-    '<p style="font-size:32px;font-weight:bold;margin:12px 0">' +
-      '<span style="color:#4dabf7">' + stato.punteggio.tu + '</span> - <span style="color:#ff6b6b">' + stato.punteggio.cpu + '</span>' +
-    '</p>' +
+    '<p style="font-size:32px;font-weight:bold;margin:12px 0"><span style="color:#4dabf7">' + stato.punteggio.tu + '</span> - <span style="color:#ff6b6b">' + stato.punteggio.cpu + '</span></p>' +
     '<p style="font-size:14px;color:#ffd700;margin:8px 0">🔄 Cambio campo!</p>' +
     '<p style="font-size:12px;color:#aaa">Ripresa tra 3 secondi...</p></div>';
   document.getElementById('modale-box').innerHTML = h;
@@ -3119,8 +3096,7 @@ function finePartita() {
   if (TORNEO_MODE === 'seriea') { salvaRisultatoTorneo(); return; }
   var msg = stato.punteggio.tu > stato.punteggio.cpu ? '🏆 HAI VINTO!' : stato.punteggio.cpu > stato.punteggio.tu ? '😢 CPU vince' : '🤝 Pareggio';
   var html = '<h2>FINE PARTITA</h2>' +
-    '<p style="font-size:36px;font-weight:bold;margin:10px 0">' +
-      '<span style="color:#4dabf7">' + stato.punteggio.tu + '</span> - <span style="color:#ff6b6b">' + stato.punteggio.cpu + '</span></p>' +
+    '<p style="font-size:36px;font-weight:bold;margin:10px 0"><span style="color:#4dabf7">' + stato.punteggio.tu + '</span> - <span style="color:#ff6b6b">' + stato.punteggio.cpu + '</span></p>' +
     '<p style="font-size:18px;color:#ffd700;margin:12px 0">' + msg + '</p>' +
     '<div style="background:rgba(0,0,0,0.4);border-radius:8px;padding:12px;margin:12px 0;text-align:left;font-size:12px">' +
       '<h3 style="color:#ffd700;margin-bottom:8px;text-align:center">📊 Statistiche Partita</h3>' +
@@ -3142,17 +3118,9 @@ function finePartita() {
   document.getElementById('modale').classList.remove('nascosto');
 }
 function salvaRisultatoTorneo() {
-  var r = {
-    golTU: stato.punteggio.tu, golCPU: stato.punteggio.cpu,
-    sqTU: stato.squadraTU, sqCPU: stato.squadraCPU,
-    casaOriginale: URL_CASA || stato.squadraTU,
-    trasfertaOriginale: URL_TRASFERTA || stato.squadraCPU,
-    statistiche: JSON.parse(JSON.stringify(stato.statistiche))
-  };
+  var r = { golTU: stato.punteggio.tu, golCPU: stato.punteggio.cpu, sqTU: stato.squadraTU, sqCPU: stato.squadraCPU, casaOriginale: URL_CASA || stato.squadraTU, trasfertaOriginale: URL_TRASFERTA || stato.squadraCPU, statistiche: JSON.parse(JSON.stringify(stato.statistiche)) };
   localStorage.setItem('campionato_partita_' + PARTITA_TORNEO, JSON.stringify(r));
-  setTimeout(function() {
-    location.href = 'seriea2027.html?risultato=' + encodeURIComponent(PARTITA_TORNEO);
-  }, 1500);
+  setTimeout(function() { location.href = 'seriea2027.html?risultato=' + encodeURIComponent(PARTITA_TORNEO); }, 1500);
 }
 
 /* ============================================================
@@ -3172,16 +3140,14 @@ function renderModaleSostituzioni() {
   for (var i=0;i<gs.length;i++) {
     var g = gs[i];
     var sel = selezioneSost.campo === g.id ? 'background:#ffd700;color:#16213e;' : 'background:#0f3460;color:#fff;';
-    h += '<div style="' + sel + 'border:2px solid #4dabf7;border-radius:6px;padding:6px 10px;font-size:11px;cursor:pointer" onclick="selezionaSostCampo(\'' + g.id + '\')">' +
-      '<div>' + g.nome + '</div><div>⚡' + g.stamina + '/20</div></div>';
+    h += '<div style="' + sel + 'border:2px solid #4dabf7;border-radius:6px;padding:6px 10px;font-size:11px;cursor:pointer" onclick="selezionaSostCampo(\'' + g.id + '\')"><div>' + g.nome + '</div><div>⚡' + g.stamina + '/20</div></div>';
   }
   h += '</div></div><div style="background:rgba(0,0,0,0.3);border-radius:8px;padding:10px;margin:12px 0"><h3 style="font-size:13px;color:#ffd700">Panchina</h3><div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center">';
   for (var k=0;k<stato.panchina[sq].length;k++) {
     var p = stato.panchina[sq][k];
     var sel2 = selezioneSost.panchina === p.id ? 'background:#ffd700;color:#16213e;' : 'background:#0f3460;color:#fff;';
     var dis = p.entrato ? 'opacity:0.35;cursor:not-allowed;' : 'cursor:pointer;';
-    h += '<div style="' + sel2 + dis + 'border:2px solid #4dabf7;border-radius:6px;padding:6px 10px;font-size:11px" onclick="selezionaSostPanchina(\'' + p.id + '\')">' +
-      '<div>' + p.nome + ' <span style="color:#aaa;font-size:9px">(' + p.ruolo + ')</span></div><div>⚡' + p.stamina + '/20</div></div>';
+    h += '<div style="' + sel2 + dis + 'border:2px solid #4dabf7;border-radius:6px;padding:6px 10px;font-size:11px" onclick="selezionaSostPanchina(\'' + p.id + '\')"><div>' + p.nome + ' <span style="color:#aaa;font-size:9px">(' + p.ruolo + ')</span></div><div>⚡' + p.stamina + '/20</div></div>';
   }
   h += '</div></div><div style="margin-top:14px">';
   if (selezioneSost.campo && selezioneSost.panchina) h += '<button class="primario" onclick="confermaSostituzione()">CONFERMA</button>';
@@ -3200,10 +3166,7 @@ function confermaSostituzione() {
   for (var i=0;i<stato.giocatori[sq].length;i++) if (stato.giocatori[sq][i].id === selezioneSost.campo) { campo = stato.giocatori[sq][i]; break; }
   for (var j=0;j<stato.panchina[sq].length;j++) if (stato.panchina[sq][j].id === selezioneSost.panchina) { pan = stato.panchina[sq][j]; break; }
   if (!campo || !pan || pan.entrato) return;
-  var n = {
-    id:pan.id+'_sost', squadra:sq, zona:campo.zona, ruolo:pan.ruolo, portiere:pan.portiere,
-    stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, nome:pan.nome
-  };
+  var n = { id:pan.id+'_sost', squadra:sq, zona:campo.zona, ruolo:pan.ruolo, portiere:pan.portiere, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, nome:pan.nome };
   var idx = stato.giocatori[sq].indexOf(campo);
   stato.giocatori[sq][idx] = n;
   pan.entrato = true;
@@ -3218,12 +3181,7 @@ function bloccaCoppiaContrasto() {
   var c = getCoppiaAttiva(zona, meta);
   var gP = poss === 'tu' ? c.tu : c.cpu;
   var gA = poss === 'tu' ? c.cpu : c.tu;
-  stato.contrastoCoppia = {
-    zona:zona, meta:meta,
-    giocatorePoss: gP ? gP.id : null,
-    giocatoreAvv: gA ? gA.id : null,
-    possessore: poss
-  };
+  stato.contrastoCoppia = { zona:zona, meta:meta, giocatorePoss: gP ? gP.id : null, giocatoreAvv: gA ? gA.id : null, possessore: poss };
 }
 
 /* ============================================================
@@ -3259,9 +3217,7 @@ try {
   }
 } catch(err) {
   console.error('Errore avvio:', err);
-  document.body.innerHTML = '<div style="background:#8B2020;color:#fff;padding:30px;font-family:monospace;font-size:14px;white-space:pre-wrap">' +
-    '<h2>ERRORE DI AVVIO</h2><p>' + err.message + '</p><pre>' + (err.stack||'') + '</pre>' +
-    '<p>Verifica che divise.js e ammonizioni.js siano caricati.</p></div>';
+  document.body.innerHTML = '<div style="background:#8B2020;color:#fff;padding:30px;font-family:monospace;font-size:14px;white-space:pre-wrap"><h2>ERRORE DI AVVIO</h2><p>' + err.message + '</p><pre>' + (err.stack||'') + '</pre><p>Verifica che divise.js e ammonizioni.js siano caricati.</p></div>';
 }
 </script>
 </body>

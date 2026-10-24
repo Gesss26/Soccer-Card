@@ -21,7 +21,6 @@
   @keyframes ruotaAnim { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(90deg); } }
   .avviso-ruota h2 { color: #ffd700; font-size: 24px; margin-bottom: 12px; letter-spacing: 2px; }
   .avviso-ruota p { color: #aaa; font-size: 14px; max-width: 300px; line-height: 1.5; }
-  /* Solo il "ruota il dispositivo" per mobile in verticale */
   @media (orientation: portrait) and (max-width: 900px) {
     .avviso-ruota { display: flex; }
     .app { display: none; }
@@ -421,6 +420,66 @@
 
   body.pesca-in-corso .carte-overlay-carte .carta { pointer-events: none; opacity: 0.7; }
   body.pesca-in-corso #azioni-container button { pointer-events: none; opacity: 0.5; }
+
+  /* ============================================================
+     MODALITÀ A FASI — solo mobile/tablet
+     ============================================================ */
+  @media (max-width: 1100px) and (max-height: 800px), (max-width: 900px) {
+    body.fase-azione .banner-top {
+      display: flex !important;
+      position: fixed;
+      top: 44px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: none;
+      height: calc(50vh - 22px);
+      margin: 0;
+      border-radius: 0;
+      transform: none;
+      padding: 6px 10px 10px;
+      overflow-y: auto;
+      opacity: 1;
+    }
+    body.fase-azione .carte-overlay {
+      display: flex !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      position: fixed;
+      inset: auto 0 0 0;
+      top: calc(44px + (50vh - 22px));
+      height: calc(50vh + 22px);
+      background: rgba(10,15,30,0.97);
+      border-top: 2px solid rgba(255,215,0,0.5);
+      padding: 6px 8px;
+      align-items: center;
+      justify-content: center;
+    }
+    body.fase-azione .carte-overlay::before { display: none; }
+    body.fase-azione .carte-overlay-inner {
+      width: 100%;
+      max-width: none;
+      padding: 6px 8px;
+      border-width: 2px;
+      gap: 6px;
+    }
+    body.fase-azione .carte-overlay-titolo { font-size: 11px; }
+    body.fase-azione .carte-overlay-sottotitolo { display: none; }
+    body.fase-azione .carte-overlay-riga { gap: 8px; }
+    body.fase-azione .seme-carta { width: 64px; height: 92px; border-width: 3px; }
+    body.fase-azione .seme-carta .seme-emoji { font-size: 40px; }
+    body.fase-azione .seme-carta-label { font-size: 8px; }
+    body.fase-azione .carte-overlay .carta { width: 64px; height: 92px; }
+    body.fase-azione .carte-overlay .carta .seme-centro { font-size: 38px; }
+    body.fase-azione .carte-overlay .carta .valore-alto,
+    body.fase-azione .carte-overlay .carta .valore-basso { font-size: 16px; }
+    body.fase-azione .carte-overlay-azioni button { padding: 8px 14px; font-size: 12px; }
+    body.fase-azione .info-carte { font-size: 9px; padding: 2px 6px; }
+    body.fase-azione .area-gioco { pointer-events: none; }
+    body.fase-campo .banner-top { display: none !important; }
+    body.fase-campo .carte-overlay { display: none !important; }
+    body.fase-campo .area-gioco { pointer-events: auto; }
+  }
 </style>
 </head>
 <body>
@@ -663,7 +722,7 @@ var POSIZIONI_PORTIERI = [
 var DISTANZA_COPPIA_PX = 60;
 
 /* ============================================================
-   ZOOM DINAMICO — versione "da sito" (fit), niente mobile
+   ZOOM DINAMICO
    ============================================================ */
 var zoomState = {
   attivo: false, scalaTarget: 1, scalaCorrente: 1,
@@ -673,10 +732,7 @@ var zoomState = {
   animDa: null, animA: null, animInizio: 0, animDurata: 0
 };
 
-// Disattivato: usiamo sempre la scala "da sito" (fit della scena 1600x900)
-function isMobileZoom() {
-  return false;
-}
+function isMobileZoom() { return false; }
 
 function getPosizionePallaScena() {
   if (zoomState.animDa && zoomState.animA && zoomState.animDurata > 0) {
@@ -705,31 +761,6 @@ function getPosizionePallaScena() {
   return { x: SCENA_W / 2, y: SCENA_H / 2 };
 }
 
-function applicaZoomPalla(px, py) {
-  var scena = document.getElementById('scena');
-  var wrapper = document.getElementById('scena-wrapper');
-  if (!scena || !wrapper) return;
-  var w = wrapper.clientWidth, h = wrapper.clientHeight;
-  if (w === 0 || h === 0) return;
-  var scala = Math.min(w / zoomState.zoomW, h / zoomState.zoomH);
-  var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
-  if (scala < scalaFit) scala = scalaFit;
-  if (scala > scalaFit * 3.2) scala = scalaFit * 3.2;
-  var offsetX = w / 2 - px * scala;
-  var offsetY = h / 2 - py * scala;
-  var lS = SCENA_W * scala, aS = SCENA_H * scala;
-  if (lS <= w) offsetX = (w - lS) / 2; else { if (offsetX > 0) offsetX = 0; if (offsetX < w - lS) offsetX = w - lS; }
-  if (aS <= h) offsetY = (h - aS) / 2; else { if (offsetY > 0) offsetY = 0; if (offsetY < h - aS) offsetY = h - aS; }
-  zoomState.scalaTarget = scala; zoomState.offsetTargetX = offsetX; zoomState.offsetTargetY = offsetY;
-  if (!zoomState.attivo) {
-    zoomState.scalaCorrente = scala;
-    zoomState.offsetCorrenteX = offsetX;
-    zoomState.offsetCorrenteY = offsetY;
-    zoomState.attivo = true;
-    applicaTransformScena();
-  }
-}
-
 function applicaTransformScena() {
   var scena = document.getElementById('scena');
   if (!scena) return;
@@ -738,24 +769,19 @@ function applicaTransformScena() {
 }
 
 function loopZoom() {
-  if (!isMobileZoom()) {
-    var scena = document.getElementById('scena');
-    var wrapper = document.getElementById('scena-wrapper');
-    if (scena && wrapper) {
-      var w = wrapper.clientWidth, h = wrapper.clientHeight;
-      if (w && h) {
-        var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
-        zoomState.scalaCorrente = scalaFit;
-        zoomState.offsetCorrenteX = (w - SCENA_W * scalaFit) / 2;
-        zoomState.offsetCorrenteY = (h - SCENA_H * scalaFit) / 2;
-        scalaCorrente = scalaFit;
-        applicaTransformScena();
-      }
+  var scena = document.getElementById('scena');
+  var wrapper = document.getElementById('scena-wrapper');
+  if (scena && wrapper) {
+    var w = wrapper.clientWidth, h = wrapper.clientHeight;
+    if (w && h) {
+      var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
+      zoomState.scalaCorrente = scalaFit;
+      zoomState.offsetCorrenteX = (w - SCENA_W * scalaFit) / 2;
+      zoomState.offsetCorrenteY = (h - SCENA_H * scalaFit) / 2;
+      scalaCorrente = scalaFit;
+      applicaTransformScena();
     }
-    zoomState.rafId = requestAnimationFrame(loopZoom);
-    return;
   }
-  // ramo mobile disattivato (isMobileZoom() è false)
   zoomState.rafId = requestAnimationFrame(loopZoom);
 }
 
@@ -776,6 +802,47 @@ window.addEventListener('orientationchange', function() { setTimeout(adattaScena
    ============================================================ */
 function mostraBannerTop() { var p = document.getElementById('banner-top'); if (p) p.classList.remove('nascosto'); }
 function nascondiBannerTop() { var p = document.getElementById('banner-top'); if (p) p.classList.add('nascosto'); }
+
+/* ============================================================
+   MODALITÀ A FASI (mobile/tablet)
+   ============================================================ */
+function isMobileFasi() {
+  var w = window.innerWidth, h = window.innerHeight;
+  return (w <= 1100 && h <= 800) || (w <= 900);
+}
+
+var _faseTimeout = null;
+
+function setFase(fase) {
+  if (!isMobileFasi()) {
+    document.body.classList.remove('fase-azione', 'fase-campo');
+    return;
+  }
+  document.body.classList.remove('fase-azione', 'fase-campo');
+  if (fase) document.body.classList.add('fase-' + fase);
+  setTimeout(function() { if (typeof adattaScena === 'function') adattaScena(); }, 50);
+}
+
+function tornaAFaseAzione() {
+  if (_faseTimeout) clearTimeout(_faseTimeout);
+  _faseTimeout = setTimeout(function() {
+    if (stato.partitaFinita) return;
+    setFase('azione');
+    _faseTimeout = null;
+  }, 600);
+}
+
+function vaiAFaseCampo() {
+  if (_faseTimeout) { clearTimeout(_faseTimeout); _faseTimeout = null; }
+  setFase('campo');
+}
+
+window.addEventListener('resize', function() {
+  if (!isMobileFasi()) {
+    document.body.classList.remove('fase-azione', 'fase-campo');
+  }
+});
+
 function mostraCarteOverlay() { var o = document.getElementById('carte-overlay'); if (o) o.classList.add('attivo'); }
 function nascondiCarteOverlay() { var o = document.getElementById('carte-overlay'); if (o) o.classList.remove('attivo'); document.body.classList.remove('carte-in-gioco'); setTimeout(function() { if (typeof adattaScena === 'function') adattaScena(); }, 350); }
 
@@ -810,12 +877,12 @@ function chiudiBonusChoice() {
 }
 
 /* ============================================================
-   GITHUB SYNC  (PAT salvato in localStorage, mai nel codice)
+   GITHUB SYNC
    ============================================================ */
 var GH = {
-  owner: 'TUO-UTENTE',        // ← CAMBIA: il tuo username GitHub
-  repo: 'calcio-a-carte',     // ← CAMBIA: nome del repo
-  branch: 'main',             // ← CAMBIA se usi 'master'
+  owner: 'TUO-UTENTE',
+  repo: 'calcio-a-carte',
+  branch: 'main',
   path: 'calcio_carte_salvataggio.json',
   token: null,
   sha: null,
@@ -944,9 +1011,6 @@ function programmaSalvataggioGitHub() {
   if (_ghDebounce) clearTimeout(_ghDebounce);
   _ghDebounce = setTimeout(function() { salvaSuGitHub(); }, 4000);
 }
-/* ============================================================
-   FINE GITHUB SYNC
-   ============================================================ */
 
 /* ============================================================
    AMMONIZIONI
@@ -996,6 +1060,22 @@ function resetCampionatoSalvato() {
   try { localStorage.removeItem('seriea2027_v1'); } catch(e){}
   alert('✅ Campionato azzerato');
   programmaSalvataggioGitHub();
+}
+
+function caricaFileSuGitHubOra(file) {
+  if (!GH.abilitato) { alert('Prima salva il PAT qui sopra!'); return; }
+  var reader = new FileReader();
+  reader.onload = async function(e) {
+    try {
+      var dati = JSON.parse(e.target.result);
+      if (!dati || typeof dati !== 'object') { alert('File non valido'); return; }
+      await ghScriviFile(dati);
+      alert('✅ File caricato su GitHub!');
+    } catch(err) {
+      alert('Errore: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
 }
 
 /* ============================================================
@@ -1055,7 +1135,7 @@ var selezioneSost = { campo:null, panchina:null };
 var renderingCampoInCorso = false;
 
 /* ============================================================
-   SALVATAGGIO AUTOMATICO (locale + GitHub)
+   SALVATAGGIO AUTOMATICO
    ============================================================ */
 var CHIAVE_SALVATAGGIO = 'calcio_carte_partita_in_corso_v2';
 function serializzaStato() {
@@ -1441,7 +1521,9 @@ function apriImpostazioni() {
       '<button onclick="ghSalvaConfig(null);alert(\'Token rimosso.\')">🗑 Rimuovi token</button>' +
       '<button onclick="salvaSuGitHub()">☁️ Forza salvataggio ora</button>' +
       '<button onclick="caricaDaGitHub().then(function(ok){alert(ok?\'Caricato da GitHub!\':\'Nessun file trovato o errore\')})">⬇️ Forza caricamento ora</button>' +
+      '<button class="primario" onclick="document.getElementById(\'file-input-upload-gh\').click()">☁️ Carica questo file su GitHub ora</button>' +
     '</div>' +
+    '<input type="file" id="file-input-upload-gh" accept=".json,application/json" style="display:none" onchange="if(this.files[0]){caricaFileSuGitHubOra(this.files[0]);this.value=\'\';}">' +
     '<h3 style="color:#ffd700;margin:16px 0 8px;font-size:16px">🔊 Volume</h3>' +
     '<div class="volume-control"><label>🎵 Musica</label><input type="range" min="0" max="100" value="' + Math.round(volumeMusica*100) + '" oninput="cambiaVolume(\'musica\',this.value)"><span class="vol-val" id="vol-musica-val">' + Math.round(volumeMusica*100) + '%</span></div>' +
     '<div class="volume-control"><label>👥 Tifosi</label><input type="range" min="0" max="100" value="' + Math.round(volumeTifosi*100) + '" oninput="cambiaVolume(\'tifosi\',this.value)"><span class="vol-val" id="vol-tifosi-val">' + Math.round(volumeTifosi*100) + '%</span></div>' +
@@ -1724,18 +1806,6 @@ function mostraAnimazioneMoneta(vincente, cb) {
   setTimeout(function() { testo.textContent = vincente === 'tu' ? '🏆 TU VINCI!' : '🏆 CPU VINCE!'; moneta.textContent = vincente === 'tu' ? '🏆' : '🤖'; }, 2000);
   setTimeout(function() { anim.classList.add('nascosta'); if (cb) cb(); }, 3200);
 }
-function mostraAnimazioneMonetaConflitto(vincente, cb) {
-  suonaMoneta();
-  var anim = document.getElementById('moneta-animazione');
-  var moneta = document.getElementById('moneta-gira');
-  var testo = document.getElementById('moneta-testo');
-  anim.classList.remove('nascosta');
-  moneta.textContent = '🪙'; testo.textContent = 'Conflitto bonus! Lancio della moneta...';
-  moneta.style.animation = 'none'; void moneta.offsetWidth;
-  moneta.style.animation = 'monetaGira 2s cubic-bezier(0.4,0,0.2,1) forwards';
-  setTimeout(function() { testo.textContent = vincente === 'tu' ? '🏆 TU VINCI!' : '🏆 CPU VINCE!'; moneta.textContent = vincente === 'tu' ? '🏆' : '🤖'; }, 2000);
-  setTimeout(function() { anim.classList.add('nascosta'); if (cb) cb(); }, 3200);
-}
 
 function animaPallaInZona(gDa, gA, cb, saltaZone) {
   suonaCalcio();
@@ -1775,7 +1845,7 @@ function animaPallaInZona(gDa, gA, cb, saltaZone) {
     p.style.left = (pX + dx*e2) + 'px'; p.style.top = (pY + dy*e2 + arcoY) + 'px';
     pi.style.transform = 'rotate(' + (gradi*e2) + 'deg)';
     if (t < 1) requestAnimationFrame(anima);
-    else { p.classList.remove('attiva'); stato.pallaInAnimazione = false; zoomState.animDa = null; zoomState.animA = null; zoomState.animDurata = 0; if (cb) cb(); }
+    else { p.classList.remove('attiva'); stato.pallaInAnimazione = false; zoomState.animDa = null; zoomState.animA = null; zoomState.animDurata = 0; tornaAFaseAzione(); if (cb) cb(); }
   }
   requestAnimationFrame(anima);
 }
@@ -1830,9 +1900,6 @@ function eseguiCalcioIniziale(squadra) {
   }, DURATA_SPOSTAMENTO_INIZIO);
 }
 
-/* ============================================================
-   ANIMAZIONE PESCA CARTA
-   ============================================================ */
 function animaPescaCarta(carta, callback) {
   var mazzoEl = document.getElementById('mazzo-pila');
   var overlayEl = document.getElementById('carte-overlay');
@@ -1900,6 +1967,7 @@ function avviaContrasto() {
   if (stato.mano > stato.maxMani) { fineTempoOPartita(); return; }
   salvaPartita();
   mostraBannerTop();
+  if (isMobileFasi()) setFase('azione');
   stato.sostBloccate = false;
   var zona = stato.zonaPalla;
   var poss = stato.possessore;
@@ -2025,10 +2093,11 @@ function renderPilaBonus() { var bp = document.getElementById('bonus-pila'); if 
 function renderBonusSlots() { var slots = document.querySelectorAll('#bonus-slots-tu .bonus-slot'); for (var i=0;i<slots.length;i++) { var s = slots[i]; s.innerHTML = ''; s.classList.remove('pieno'); if (i < stato.bonus.tu.length) { var tipo = stato.bonus.tu[i]; s.classList.add('pieno'); var info = NOMI_BONUS[tipo]; var c = document.createElement('div'); c.className = 'bonus-carta ' + tipo; c.innerHTML = '<span class="ang tl">' + info.icona + '</span>' + '<span class="ang tr">' + info.icona + '</span>' + '<span class="ang bl">' + info.icona + '</span>' + '<span class="ang br">' + info.icona + '</span>' + '<span>' + info.icona + '</span>' + '<div class="nome-bonus">' + info.nome + '</div>'; s.appendChild(c); } } }
 
 function selezionaCartaTu(idx) { if (stato.contrasto.risolto) return; if (!stato.sostBloccate) { stato.sostBloccate = true; } selezioneCarta = idx; renderPannelloContrasto(); }
-function usaContrastoSicuroTU() { if (!haBonus('tu', 'contrasto-sicuro')) return; consumaBonus('tu', 'contrasto-sicuro'); mostraBonusBanner('🏆 TU usi: ⭐ Contrasto Sicuro!'); document.getElementById('azioni-container').innerHTML = ''; renderBonusSlots(); setTimeout(function() { risolviContrastoAutomatico('tu'); }, 1500); }
+function usaContrastoSicuroTU() { if (!haBonus('tu', 'contrasto-sicuro')) return; consumaBonus('tu', 'contrasto-sicuro'); mostraBonusBanner('🏆 TU usi: ⭐ Contrasto Sicuro!'); document.getElementById('azioni-container').innerHTML = ''; renderBonusSlots(); vaiAFaseCampo(); setTimeout(function() { risolviContrastoAutomatico('tu'); }, 1500); }
 function risolviContrastoAutomatico(vincente) {
   var c = stato.contrasto;
   if (!c || c.risolto) return;
+  vaiAFaseCampo();
   c.risolto = true; c.vincitore = vincente; c.motivoFallo = null;
   flashVincitore(vincente); nascondiCarteOverlay();
   stato.streak[vincente]++;
@@ -2060,12 +2129,13 @@ function confermaCarta() {
   else if (cartaCpu.valore > cartaTu.valore) esito = 'cpu';
   else esito = 'pareggio';
   nascondiCarteOverlay();
+  vaiAFaseCampo();
   if (esito === 'pareggio') {
     log('🤝 Pareggio! Si rigioca.', 'highlight');
     selezioneCarta = null;
     c.cartaTu = null; c.cartaCpu = null;
     c.semeGuida = scegliSemeGuida();
-    setTimeout(function() { mostraBannerMano('pareggio', cartaTu, cartaCpu, c.semeGuida, 'Pareggio'); setTimeout(function() { nascondiBannerMano(); renderPannelloContrasto(); mostraCarteOverlay(); }, 2500); }, 400);
+    setTimeout(function() { mostraBannerMano('pareggio', cartaTu, cartaCpu, c.semeGuida, 'Pareggio'); setTimeout(function() { nascondiBannerMano(); renderPannelloContrasto(); mostraCarteOverlay(); tornaAFaseAzione(); }, 2500); }, 400);
     return;
   }
   c.risolto = true;
@@ -2181,7 +2251,7 @@ function risolviContrastoLogica(vincente, c, motivoFallo) {
       renderCampo(); renderHeader();
       setTimeout(function() {
         if (stato.partitaFinita) return;
-        if (!gVincitore) { stato.possessore = vincente; stato.giocatorePalla = sc.id; bloccaCoppiaContrasto(); setTimeout(avviaContrasto, 800); return; }
+        if (!gVincitore) { stato.possessore = vincente; stato.giocatorePalla = sc.id; bloccaCoppiaContrasto(); tornaAFaseAzione(); setTimeout(avviaContrasto, 800); return; }
         animaPallaInZona(gVincitore, sc, function() { if (stato.partitaFinita) return; stato.possessore = vincente; stato.giocatorePalla = sc.id; bloccaCoppiaContrasto(); salvaPartita(); setTimeout(avviaContrasto, 800); });
       }, 100);
     }, dPR);
@@ -2292,6 +2362,7 @@ function animaPallaVersoPorta(squadra, cb) {
         stato.pallaInAnimazione = false;
         zoomState.animDa = null; zoomState.animA = null; zoomState.animDurata = 0;
         renderCampo();
+        tornaAFaseAzione();
         if (cb) cb();
       }, 200);
     }
@@ -2323,7 +2394,7 @@ function animaTackle(gVincitore, gPerdente) {
   pedinaV.classList.remove('pg-in-tackle-dx', 'pg-in-tackle-sx');
   void pedinaV.offsetWidth;
   pedinaV.classList.add(versoDestra ? 'pg-in-tackle-dx' : 'pg-in-tackle-sx');
-  setTimeout(function() { pedinaV.classList.remove('pg-in-tackle-dx', 'pg-in-tackle-sx'); }, DURATA_SCIVOLATA + 80);
+  setTimeout(function() { pedinaV.classList.remove('pg-in-tackle-dx', 'pg-in-tackle-sx'); tornaAFaseAzione(); }, DURATA_SCIVOLATA + 80);
 }
 
 function posizionaPortiereSu(cx, cy, istantaneo) {
@@ -2420,10 +2491,17 @@ document.addEventListener('DOMContentLoaded', function() {
   if (bannerEl) {
     bannerEl.addEventListener('click', function(e) {
       if (e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
-      document.body.classList.toggle('carte-in-gioco');
-      setTimeout(function() { adattaScena(); }, 350);
+      if (isMobileFasi()) {
+        if (document.body.classList.contains('fase-azione')) setFase('campo');
+        else setFase('azione');
+        setTimeout(function() { adattaScena(); }, 350);
+      } else {
+        document.body.classList.toggle('carte-in-gioco');
+        setTimeout(function() { adattaScena(); }, 350);
+      }
     });
   }
+  if (isMobileFasi() && stato.contrasto && !stato.partitaFinita) setFase('azione');
 });
 
 var tiroInAttesa = null;
@@ -2443,6 +2521,7 @@ function apriSchermataRigore(att) {
 
 function apriOverlayTiro(att, dif, isRigore) {
   nascondiCarteOverlay(); nascondiBannerTop();
+  setFase(null);
   stato.bonusUsatoQuestoTiro = { tu:null, cpu:null };
   var ov = document.createElement('div');
   ov.className = 'tiro-overlay'; ov.id = 'tiro-overlay';
@@ -2753,6 +2832,7 @@ function gestisciGoal(att) {
   log('⚽ GOAL!', 'goal');
   mostraGoalBanner(att);
   suonaEsultanza();
+  setFase('campo');
   setTimeout(function() {
     if (stato.partitaFinita) return;
     var sub = att === 'tu' ? 'cpu' : 'tu';
@@ -2774,6 +2854,7 @@ function gestisciParata(att, dif) {
       stato.possessore = dif; stato.giocatorePalla = null;
       renderCampo(); renderHeader(); aggiornaSottofondoPerZona(3);
       bloccaCoppiaContrasto(); salvaPartita();
+      tornaAFaseAzione();
       setTimeout(avviaContrasto, 800);
     }, 600);
     return;
@@ -2795,12 +2876,14 @@ function gestisciParata(att, dif) {
         stato.pallaInAnimazione = false;
         renderCampo(); renderHeader();
         bloccaCoppiaContrasto(); salvaPartita();
+        tornaAFaseAzione();
         setTimeout(avviaContrasto, 800);
       });
     } else {
       stato.pallaInAnimazione = false;
       renderCampo(); renderHeader();
       bloccaCoppiaContrasto(); salvaPartita();
+      tornaAFaseAzione();
       setTimeout(avviaContrasto, 800);
     }
   }, 400);
@@ -2815,6 +2898,7 @@ function gestisciPalo(att, dif) {
       stato.zonaPalla = 3; stato.possessore = att; stato.metaContesa = 'inf';
       renderCampo(); renderHeader(); aggiornaSottofondoPerZona(3);
       bloccaCoppiaContrasto(); salvaPartita();
+      tornaAFaseAzione();
       setTimeout(avviaContrasto, 800);
     }, 800);
     return;
@@ -2828,6 +2912,7 @@ function gestisciPalo(att, dif) {
     setTimeout(function() {
       if (stato.partitaFinita) return;
       bloccaCoppiaContrasto(); salvaPartita();
+      tornaAFaseAzione();
       setTimeout(avviaContrasto, 800);
     }, 300);
   }, 800);
@@ -2850,6 +2935,7 @@ function gestisciAngolo(att, dif) {
     }
     renderCampo(); renderHeader(); aggiornaSottofondoPerZona(zA);
     bloccaCoppiaContrasto(); salvaPartita();
+    tornaAFaseAzione();
     setTimeout(avviaContrasto, 800);
   }, 800);
 }
@@ -2910,6 +2996,7 @@ function finePartita() {
   eliminaSalvataggio();
   suonaFischietto('fine-partita'); fermaSottofondo(); salvaAmmonizioniInLocalStorage();
   nascondiBannerTop(); nascondiCarteOverlay(); chiudiBonusChoice();
+  setFase(null);
   if (timerPartita) { clearInterval(timerPartita); timerPartita = null; }
   if (TORNEO_MODE === 'seriea') { salvaRisultatoTorneo(); return; }
   var msg = stato.punteggio.tu > stato.punteggio.cpu ? '🏆 HAI VINTO!' : stato.punteggio.cpu > stato.punteggio.tu ? '😢 CPU vince' : '🤝 Pareggio';
@@ -3014,13 +3101,12 @@ window.addEventListener('beforeunload', function(e) {
    ============================================================ */
 try {
   inizializzaAmmonizioni();
-  ghCaricaConfig();               // carica il PAT da localStorage (se presente)
+  ghCaricaConfig();
   adattaScena();
   setTimeout(adattaScena, 100);
   setTimeout(adattaScena, 400);
   avviaLoopZoom();
 
-  // Prova prima il file su GitHub (se PAT configurato); poi l'eventuale salvataggio locale
   caricaDaGitHub().then(function(ok) {
     var salvata = caricaPartitaSalvata();
     if (salvata) {

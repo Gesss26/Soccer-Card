@@ -21,6 +21,7 @@
   @keyframes ruotaAnim { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(90deg); } }
   .avviso-ruota h2 { color: #ffd700; font-size: 24px; margin-bottom: 12px; letter-spacing: 2px; }
   .avviso-ruota p { color: #aaa; font-size: 14px; max-width: 300px; line-height: 1.5; }
+  /* Solo il "ruota il dispositivo" per mobile in verticale */
   @media (orientation: portrait) and (max-width: 900px) {
     .avviso-ruota { display: flex; }
     .app { display: none; }
@@ -85,257 +86,59 @@
   .evidenzia-coppia { position: absolute; width: 65px; height: 22px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(255,215,0,0.55) 0%, rgba(255,215,0,0.2) 55%, rgba(255,215,0,0) 85%); border: 2px solid rgba(255,215,0,0.9); box-shadow: 0 0 15px rgba(255,215,0,0.8), inset 0 0 8px rgba(255,215,0,0.4); pointer-events: none; transform: translate(-50%, -50%); z-index: 3; animation: pulseEllisse 1.5s infinite; }
   @keyframes pulseEllisse { 0%, 100% { box-shadow: 0 0 15px rgba(255,215,0,0.8), inset 0 0 8px rgba(255,215,0,0.4); border-color: rgba(255,215,0,0.9); } 50% { box-shadow: 0 0 25px rgba(255,215,0,1), inset 0 0 15px rgba(255,215,0,0.6); border-color: rgba(255,215,0,1); } }
 
-  /* ===== ANIMAZIONI PEDINE ===== */
-  @keyframes calciaGamba {
-    0%   { transform: rotate(0deg); }
-    20%  { transform: rotate(-45deg); }
-    45%  { transform: rotate(-110deg); }
-    65%  { transform: rotate(50deg); }
-    85%  { transform: rotate(20deg); }
-    100% { transform: rotate(0deg); }
-  }
-  @keyframes calciaBusto {
-    0%   { transform: rotate(0deg) translateY(0); }
-    30%  { transform: rotate(-8deg) translateY(-2px); }
-    55%  { transform: rotate(12deg) translateY(2px); }
-    100% { transform: rotate(0deg) translateY(0); }
-  }
-  @keyframes calciaBraccio {
-    0%   { transform: rotate(0deg); }
-    40%  { transform: rotate(-55deg); }
-    70%  { transform: rotate(-30deg); }
-    100% { transform: rotate(0deg); }
-  }
-  @keyframes calciaBraccioDx {
-    0%   { transform: rotate(0deg); }
-    40%  { transform: rotate(35deg); }
-    100% { transform: rotate(0deg); }
-  }
+  @keyframes calciaGamba { 0% { transform: rotate(0deg); } 20% { transform: rotate(-45deg); } 45% { transform: rotate(-110deg); } 65% { transform: rotate(50deg); } 85% { transform: rotate(20deg); } 100% { transform: rotate(0deg); } }
+  @keyframes calciaBusto { 0% { transform: rotate(0deg) translateY(0); } 30% { transform: rotate(-8deg) translateY(-2px); } 55% { transform: rotate(12deg) translateY(2px); } 100% { transform: rotate(0deg) translateY(0); } }
+  @keyframes calciaBraccio { 0% { transform: rotate(0deg); } 40% { transform: rotate(-55deg); } 70% { transform: rotate(-30deg); } 100% { transform: rotate(0deg); } }
+  @keyframes calciaBraccioDx { 0% { transform: rotate(0deg); } 40% { transform: rotate(35deg); } 100% { transform: rotate(0deg); } }
   .pedina.pg-in-calcio .pg-gamba-dx { animation: calciaGamba 0.7s cubic-bezier(0.34,1.2,0.64,1) forwards; transform-origin: 30px 72px; transform-box: view-box; }
   .pedina.pg-in-calcio .pg-busto { animation: calciaBusto 0.7s cubic-bezier(0.34,1.2,0.64,1) forwards; transform-origin: 25px 60px; transform-box: view-box; }
   .pedina.pg-in-calcio .pg-braccio-sx { animation: calciaBraccio 0.7s ease-out forwards; transform-origin: 16px 40px; transform-box: view-box; }
   .pedina.pg-in-calcio .pg-braccio-dx { animation: calciaBraccioDx 0.7s ease-out forwards; transform-origin: 34px 40px; transform-box: view-box; }
 
-  /* ============================================================
-     SCIVOLATA
-     ============================================================ */
+  .pedina.pg-in-tackle-dx { animation: tackleContainerDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards; z-index: 25; }
+  .pedina.pg-in-tackle-sx { animation: tackleContainerSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards; z-index: 25; }
+  @keyframes tackleContainerDx { 0% { transform: translate(0, 0) scaleY(1); } 25% { transform: translate(6px, -4px) scaleY(1); } 55% { transform: translate(22px, 8px) scaleY(0.82); } 78% { transform: translate(24px, 8px) scaleY(0.82); } 100% { transform: translate(0, 0) scaleY(1); } }
+  @keyframes tackleContainerSx { 0% { transform: translate(0, 0) scaleY(1); } 25% { transform: translate(-6px, -4px) scaleY(1); } 55% { transform: translate(-22px, 8px) scaleY(0.82); } 78% { transform: translate(-24px, 8px) scaleY(0.82); } 100% { transform: translate(0, 0) scaleY(1); } }
 
-  .pedina.pg-in-tackle-dx {
-    animation: tackleContainerDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
-    z-index: 25;
-  }
-  .pedina.pg-in-tackle-sx {
-    animation: tackleContainerSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
-    z-index: 25;
-  }
-  @keyframes tackleContainerDx {
-    0%   { transform: translate(0, 0) scaleY(1); }
-    25%  { transform: translate(6px, -4px) scaleY(1); }
-    55%  { transform: translate(22px, 8px) scaleY(0.82); }
-    78%  { transform: translate(24px, 8px) scaleY(0.82); }
-    100% { transform: translate(0, 0) scaleY(1); }
-  }
-  @keyframes tackleContainerSx {
-    0%   { transform: translate(0, 0) scaleY(1); }
-    25%  { transform: translate(-6px, -4px) scaleY(1); }
-    55%  { transform: translate(-22px, 8px) scaleY(0.82); }
-    78%  { transform: translate(-24px, 8px) scaleY(0.82); }
-    100% { transform: translate(0, 0) scaleY(1); }
-  }
+  .pedina.pg-in-tackle-dx .pg-busto { animation: tackleBustoDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards; transform-origin: 20px 36px; transform-box: view-box; }
+  .pedina.pg-in-tackle-sx .pg-busto { animation: tackleBustoSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards; transform-origin: 20px 36px; transform-box: view-box; }
+  @keyframes tackleBustoDx { 0% { transform: rotate(0deg) translateY(0); } 25% { transform: rotate(-15deg) translateY(0); } 55% { transform: rotate(-35deg) translateY(2px); } 78% { transform: rotate(-35deg) translateY(2px); } 100% { transform: rotate(0deg) translateY(0); } }
+  @keyframes tackleBustoSx { 0% { transform: rotate(0deg) translateY(0); } 25% { transform: rotate(15deg) translateY(0); } 55% { transform: rotate(35deg) translateY(2px); } 78% { transform: rotate(35deg) translateY(2px); } 100% { transform: rotate(0deg) translateY(0); } }
 
-  .pedina.pg-in-tackle-dx .pg-busto {
-    animation: tackleBustoDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
-    transform-origin: 20px 36px;
-    transform-box: view-box;
-  }
-  .pedina.pg-in-tackle-sx .pg-busto {
-    animation: tackleBustoSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
-    transform-origin: 20px 36px;
-    transform-box: view-box;
-  }
-  @keyframes tackleBustoDx {
-    0%   { transform: rotate(0deg) translateY(0); }
-    25%  { transform: rotate(-15deg) translateY(0); }
-    55%  { transform: rotate(-35deg) translateY(2px); }
-    78%  { transform: rotate(-35deg) translateY(2px); }
-    100% { transform: rotate(0deg) translateY(0); }
-  }
-  @keyframes tackleBustoSx {
-    0%   { transform: rotate(0deg) translateY(0); }
-    25%  { transform: rotate(15deg) translateY(0); }
-    55%  { transform: rotate(35deg) translateY(2px); }
-    78%  { transform: rotate(35deg) translateY(2px); }
-    100% { transform: rotate(0deg) translateY(0); }
-  }
+  .pedina.pg-in-tackle-dx .pg-gamba-dx { animation: tackleCosciaDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards; transform-origin: 24px 48px; transform-box: view-box; }
+  .pedina.pg-in-tackle-sx .pg-gamba-sx { animation: tackleCosciaSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards; transform-origin: 16px 48px; transform-box: view-box; }
+  @keyframes tackleCosciaDx { 0% { transform: rotate(0deg); } 25% { transform: rotate(-15deg); } 50% { transform: rotate(78deg); } 60% { transform: rotate(90deg); } 78% { transform: rotate(90deg); } 100% { transform: rotate(0deg); } }
+  @keyframes tackleCosciaSx { 0% { transform: rotate(0deg); } 25% { transform: rotate(15deg); } 50% { transform: rotate(-78deg); } 60% { transform: rotate(-90deg); } 78% { transform: rotate(-90deg); } 100% { transform: rotate(0deg); } }
 
-  .pedina.pg-in-tackle-dx .pg-gamba-dx {
-    animation: tackleCosciaDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
-    transform-origin: 24px 48px;
-    transform-box: view-box;
-  }
-  .pedina.pg-in-tackle-sx .pg-gamba-sx {
-    animation: tackleCosciaSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
-    transform-origin: 16px 48px;
-    transform-box: view-box;
-  }
-  @keyframes tackleCosciaDx {
-    0%   { transform: rotate(0deg); }
-    25%  { transform: rotate(-15deg); }
-    50%  { transform: rotate(78deg); }
-    60%  { transform: rotate(90deg); }
-    78%  { transform: rotate(90deg); }
-    100% { transform: rotate(0deg); }
-  }
-  @keyframes tackleCosciaSx {
-    0%   { transform: rotate(0deg); }
-    25%  { transform: rotate(15deg); }
-    50%  { transform: rotate(-78deg); }
-    60%  { transform: rotate(-90deg); }
-    78%  { transform: rotate(-90deg); }
-    100% { transform: rotate(0deg); }
-  }
+  .pedina.pg-in-tackle-dx .pg-gamba-dx-bassa { animation: tackleGinocchioDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards; transform-origin: 24px 52px; transform-box: view-box; }
+  .pedina.pg-in-tackle-sx .pg-gamba-sx-bassa { animation: tackleGinocchioSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards; transform-origin: 16px 52px; transform-box: view-box; }
+  @keyframes tackleGinocchioDx { 0% { transform: rotate(0deg); } 25% { transform: rotate(35deg); } 50% { transform: rotate(-15deg); } 60% { transform: rotate(-20deg); } 78% { transform: rotate(-20deg); } 100% { transform: rotate(0deg); } }
+  @keyframes tackleGinocchioSx { 0% { transform: rotate(0deg); } 25% { transform: rotate(-35deg); } 50% { transform: rotate(15deg); } 60% { transform: rotate(20deg); } 78% { transform: rotate(20deg); } 100% { transform: rotate(0deg); } }
 
-  .pedina.pg-in-tackle-dx .pg-gamba-dx-bassa {
-    animation: tackleGinocchioDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
-    transform-origin: 24px 52px;
-    transform-box: view-box;
-  }
-  .pedina.pg-in-tackle-sx .pg-gamba-sx-bassa {
-    animation: tackleGinocchioSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
-    transform-origin: 16px 52px;
-    transform-box: view-box;
-  }
-  @keyframes tackleGinocchioDx {
-    0%   { transform: rotate(0deg); }
-    25%  { transform: rotate(35deg); }
-    50%  { transform: rotate(-15deg); }
-    60%  { transform: rotate(-20deg); }
-    78%  { transform: rotate(-20deg); }
-    100% { transform: rotate(0deg); }
-  }
-  @keyframes tackleGinocchioSx {
-    0%   { transform: rotate(0deg); }
-    25%  { transform: rotate(-35deg); }
-    50%  { transform: rotate(15deg); }
-    60%  { transform: rotate(20deg); }
-    78%  { transform: rotate(20deg); }
-    100% { transform: rotate(0deg); }
-  }
+  .pedina.pg-in-tackle-dx .pg-gamba-sx { animation: tackleCosciaAppoggioDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards; transform-origin: 16px 48px; transform-box: view-box; }
+  .pedina.pg-in-tackle-sx .pg-gamba-dx { animation: tackleCosciaAppoggioSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards; transform-origin: 24px 48px; transform-box: view-box; }
+  @keyframes tackleCosciaAppoggioDx { 0% { transform: rotate(0deg) scaleY(1); } 55% { transform: rotate(20deg) scaleY(0.85); } 78% { transform: rotate(20deg) scaleY(0.85); } 100% { transform: rotate(0deg) scaleY(1); } }
+  @keyframes tackleCosciaAppoggioSx { 0% { transform: rotate(0deg) scaleY(1); } 55% { transform: rotate(-20deg) scaleY(0.85); } 78% { transform: rotate(-20deg) scaleY(0.85); } 100% { transform: rotate(0deg) scaleY(1); } }
 
-  .pedina.pg-in-tackle-dx .pg-gamba-sx {
-    animation: tackleCosciaAppoggioDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
-    transform-origin: 16px 48px;
-    transform-box: view-box;
-  }
-  .pedina.pg-in-tackle-sx .pg-gamba-dx {
-    animation: tackleCosciaAppoggioSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
-    transform-origin: 24px 48px;
-    transform-box: view-box;
-  }
-  @keyframes tackleCosciaAppoggioDx {
-    0%   { transform: rotate(0deg) scaleY(1); }
-    55%  { transform: rotate(20deg) scaleY(0.85); }
-    78%  { transform: rotate(20deg) scaleY(0.85); }
-    100% { transform: rotate(0deg) scaleY(1); }
-  }
-  @keyframes tackleCosciaAppoggioSx {
-    0%   { transform: rotate(0deg) scaleY(1); }
-    55%  { transform: rotate(-20deg) scaleY(0.85); }
-    78%  { transform: rotate(-20deg) scaleY(0.85); }
-    100% { transform: rotate(0deg) scaleY(1); }
-  }
+  .pedina.pg-in-tackle-dx .pg-gamba-sx-bassa { animation: tackleGinocchioAppoggioDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards; transform-origin: 16px 52px; transform-box: view-box; }
+  .pedina.pg-in-tackle-sx .pg-gamba-dx-bassa { animation: tackleGinocchioAppoggioSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards; transform-origin: 24px 52px; transform-box: view-box; }
+  @keyframes tackleGinocchioAppoggioDx { 0% { transform: rotate(0deg); } 55% { transform: rotate(30deg); } 78% { transform: rotate(30deg); } 100% { transform: rotate(0deg); } }
+  @keyframes tackleGinocchioAppoggioSx { 0% { transform: rotate(0deg); } 55% { transform: rotate(-30deg); } 78% { transform: rotate(-30deg); } 100% { transform: rotate(0deg); } }
 
-  .pedina.pg-in-tackle-dx .pg-gamba-sx-bassa {
-    animation: tackleGinocchioAppoggioDx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
-    transform-origin: 16px 52px;
-    transform-box: view-box;
-  }
-  .pedina.pg-in-tackle-sx .pg-gamba-dx-bassa {
-    animation: tackleGinocchioAppoggioSx 1.1s cubic-bezier(0.4, 0.0, 0.6, 1.0) forwards;
-    transform-origin: 24px 52px;
-    transform-box: view-box;
-  }
-  @keyframes tackleGinocchioAppoggioDx {
-    0%   { transform: rotate(0deg); }
-    55%  { transform: rotate(30deg); }
-    78%  { transform: rotate(30deg); }
-    100% { transform: rotate(0deg); }
-  }
-  @keyframes tackleGinocchioAppoggioSx {
-    0%   { transform: rotate(0deg); }
-    55%  { transform: rotate(-30deg); }
-    78%  { transform: rotate(-30deg); }
-    100% { transform: rotate(0deg); }
-  }
+  .pedina.pg-in-tackle-dx .pg-braccio-dx { animation: tackleBraccioGiuDx 1.1s ease-out forwards; transform-origin: 28px 20px; transform-box: view-box; }
+  .pedina.pg-in-tackle-sx .pg-braccio-sx { animation: tackleBraccioGiuSx 1.1s ease-out forwards; transform-origin: 12px 20px; transform-box: view-box; }
+  @keyframes tackleBraccioGiuDx { 0% { transform: rotate(0deg); } 55% { transform: rotate(65deg); } 78% { transform: rotate(65deg); } 100% { transform: rotate(0deg); } }
+  @keyframes tackleBraccioGiuSx { 0% { transform: rotate(0deg); } 55% { transform: rotate(-65deg); } 78% { transform: rotate(-65deg); } 100% { transform: rotate(0deg); } }
 
-  .pedina.pg-in-tackle-dx .pg-braccio-dx {
-    animation: tackleBraccioGiuDx 1.1s ease-out forwards;
-    transform-origin: 28px 20px;
-    transform-box: view-box;
-  }
-  .pedina.pg-in-tackle-sx .pg-braccio-sx {
-    animation: tackleBraccioGiuSx 1.1s ease-out forwards;
-    transform-origin: 12px 20px;
-    transform-box: view-box;
-  }
-  @keyframes tackleBraccioGiuDx {
-    0%   { transform: rotate(0deg); }
-    55%  { transform: rotate(65deg); }
-    78%  { transform: rotate(65deg); }
-    100% { transform: rotate(0deg); }
-  }
-  @keyframes tackleBraccioGiuSx {
-    0%   { transform: rotate(0deg); }
-    55%  { transform: rotate(-65deg); }
-    78%  { transform: rotate(-65deg); }
-    100% { transform: rotate(0deg); }
-  }
+  .pedina.pg-in-tackle-dx .pg-braccio-sx { animation: tackleBraccioEqDx 1.1s ease-out forwards; transform-origin: 12px 20px; transform-box: view-box; }
+  .pedina.pg-in-tackle-sx .pg-braccio-dx { animation: tackleBraccioEqSx 1.1s ease-out forwards; transform-origin: 28px 20px; transform-box: view-box; }
+  @keyframes tackleBraccioEqDx { 0% { transform: rotate(0deg); } 55% { transform: rotate(-50deg); } 78% { transform: rotate(-50deg); } 100% { transform: rotate(0deg); } }
+  @keyframes tackleBraccioEqSx { 0% { transform: rotate(0deg); } 55% { transform: rotate(50deg); } 78% { transform: rotate(50deg); } 100% { transform: rotate(0deg); } }
 
-  .pedina.pg-in-tackle-dx .pg-braccio-sx {
-    animation: tackleBraccioEqDx 1.1s ease-out forwards;
-    transform-origin: 12px 20px;
-    transform-box: view-box;
-  }
-  .pedina.pg-in-tackle-sx .pg-braccio-dx {
-    animation: tackleBraccioEqSx 1.1s ease-out forwards;
-    transform-origin: 28px 20px;
-    transform-box: view-box;
-  }
-  @keyframes tackleBraccioEqDx {
-    0%   { transform: rotate(0deg); }
-    55%  { transform: rotate(-50deg); }
-    78%  { transform: rotate(-50deg); }
-    100% { transform: rotate(0deg); }
-  }
-  @keyframes tackleBraccioEqSx {
-    0%   { transform: rotate(0deg); }
-    55%  { transform: rotate(50deg); }
-    78%  { transform: rotate(50deg); }
-    100% { transform: rotate(0deg); }
-  }
-
-  .pedina.pg-in-tackle-dx .pg-testa {
-    animation: tackleTestaDx 1.1s ease-out forwards;
-    transform-origin: 20px 17px;
-    transform-box: view-box;
-  }
-  .pedina.pg-in-tackle-sx .pg-testa {
-    animation: tackleTestaSx 1.1s ease-out forwards;
-    transform-origin: 20px 17px;
-    transform-box: view-box;
-  }
-  @keyframes tackleTestaDx {
-    0%   { transform: rotate(0deg); }
-    55%  { transform: rotate(-12deg); }
-    78%  { transform: rotate(-12deg); }
-    100% { transform: rotate(0deg); }
-  }
-  @keyframes tackleTestaSx {
-    0%   { transform: rotate(0deg); }
-    55%  { transform: rotate(12deg); }
-    78%  { transform: rotate(12deg); }
-    100% { transform: rotate(0deg); }
-  }
+  .pedina.pg-in-tackle-dx .pg-testa { animation: tackleTestaDx 1.1s ease-out forwards; transform-origin: 20px 17px; transform-box: view-box; }
+  .pedina.pg-in-tackle-sx .pg-testa { animation: tackleTestaSx 1.1s ease-out forwards; transform-origin: 20px 17px; transform-box: view-box; }
+  @keyframes tackleTestaDx { 0% { transform: rotate(0deg); } 55% { transform: rotate(-12deg); } 78% { transform: rotate(-12deg); } 100% { transform: rotate(0deg); } }
+  @keyframes tackleTestaSx { 0% { transform: rotate(0deg); } 55% { transform: rotate(12deg); } 78% { transform: rotate(12deg); } 100% { transform: rotate(0deg); } }
 
   .flash-vincitore { position: absolute; inset: 0; z-index: 55; pointer-events: none; opacity: 0; }
   .flash-vincitore.tu { background: radial-gradient(circle, rgba(77,171,247,0.7), transparent 70%); }
@@ -441,7 +244,6 @@
   button.bonus-btn { background: linear-gradient(135deg, #ffd700, #f59f00); color: #16213e; border-color: #fff; box-shadow: 0 0 14px rgba(255,215,0,0.6); animation: pulseBonus 1.5s infinite; }
   @keyframes pulseBonus { 0%, 100% { box-shadow: 0 0 14px rgba(255,215,0,0.6); } 50% { box-shadow: 0 0 24px rgba(255,215,0,1); } }
 
-  /* ===== SCHERMATA TIRO ===== */
   .tiro-overlay { position: fixed; inset: 0; background: linear-gradient(180deg, #0a1a2e 0%, #0a0a15 100%); z-index: 700; display: flex; flex-direction: column; padding: 12px; opacity: 0; transition: opacity 0.4s ease; overflow: hidden; }
   .tiro-overlay.attiva { opacity: 1; }
   .tiro-titolo { color: #ffd700; font-size: 20px; font-weight: 900; letter-spacing: 3px; text-align: center; margin-bottom: 6px; flex-shrink: 0; }
@@ -466,16 +268,7 @@
   .tiro-casella .numero-casella { position: absolute; top: 4px; left: 6px; font-size: 12px; color: rgba(255,215,0,0.7); font-weight: bold; }
   .tiro-casella.colpita { background: rgba(255,215,0,0.4); border-color: #ffd700; }
 
-  .tiro-portiere {
-    position: absolute;
-    width: calc(var(--porta-width) / 3);
-    height: calc(var(--porta-height) * 2 / 3);
-    left: calc(var(--porta-left) + var(--porta-width) / 2 - var(--porta-width) / 6);
-    top:  calc(var(--porta-top) + var(--porta-height) - var(--porta-height) * 2 / 3);
-    transition: left 0.55s cubic-bezier(0.34,1.2,0.64,1), top  0.55s cubic-bezier(0.34,1.2,0.64,1);
-    z-index: 10;
-    pointer-events: none;
-  }
+  .tiro-portiere { position: absolute; width: calc(var(--porta-width) / 3); height: calc(var(--porta-height) * 2 / 3); left: calc(var(--porta-left) + var(--porta-width) / 2 - var(--porta-width) / 6); top: calc(var(--porta-top) + var(--porta-height) - var(--porta-height) * 2 / 3); transition: left 0.55s cubic-bezier(0.34,1.2,0.64,1), top 0.55s cubic-bezier(0.34,1.2,0.64,1); z-index: 10; pointer-events: none; }
   .tiro-portiere svg { width: 100%; height: 100%; display: block; transition: transform 0.55s cubic-bezier(0.34,1.2,0.64,1); transform-origin: 50% 90%; }
   .tiro-portiere .pg-braccio-sx, .tiro-portiere .pg-braccio-dx { transform-box: view-box; transition: transform 0.5s cubic-bezier(0.34,1.2,0.64,1); }
   .tiro-portiere .pg-braccio-sx { transform-origin: 12px 20px; }
@@ -498,19 +291,7 @@
   .tiro-portiere.pg-salta svg { animation: saltoPortiere 0.7s ease-out; }
   @keyframes saltoPortiere { 0% { transform: translateY(0) scale(1); } 40% { transform: translateY(-10px) scale(1.05); } 100% { transform: translateY(0) scale(1); } }
 
-  /* ===== PALLA DEL TIRO: DIMENSIONE DOPPIA ===== */
-  .tiro-palla {
-    position: absolute;
-    width: 72px;
-    height: 72px;
-    background: radial-gradient(circle at 35% 35%, #ffe066, #f59f00);
-    border-radius: 50%;
-    border: 6px solid #b45309;
-    z-index: 20;
-    transition: left 0.8s cubic-bezier(0.34,1.56,0.64,1), top 0.8s cubic-bezier(0.34,1.56,0.64,1);
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 22px rgba(245, 158, 11, 0.65);
-  }
+  .tiro-palla { position: absolute; width: 72px; height: 72px; background: radial-gradient(circle at 35% 35%, #ffe066, #f59f00); border-radius: 50%; border: 6px solid #b45309; z-index: 20; transition: left 0.8s cubic-bezier(0.34,1.56,0.64,1), top 0.8s cubic-bezier(0.34,1.56,0.64,1); transform: translate(-50%, -50%); box-shadow: 0 0 22px rgba(245, 158, 11, 0.65); }
   .tiro-palla.iniziale { left: 50%; bottom: 2%; top: auto; width: 112px; height: 112px; }
   .tiro-palla.rigore { left: 50%; bottom: 10%; top: auto; width: 84px; height: 84px; }
   .tiro-esito { font-size: 48px; font-weight: 900; color: #ffd700; text-align: center; letter-spacing: 4px; min-height: 60px; margin-top: 6px; flex-shrink: 0; }
@@ -627,58 +408,12 @@
   .istruzioni-content .bonus-card .testo p { margin: 2px 0 0; font-size: 12px; color: #bbb; }
   .istruzioni-content .highlight-box { background: rgba(77,171,247,0.15); border-left: 4px solid #4dabf7; padding: 10px 14px; margin: 10px 0; border-radius: 0 8px 8px 0; font-size: 12px; }
 
-  /* ===== ANIMAZIONE PESCA CARTA ===== */
-  .carta-pescata {
-    position: fixed;
-    width: 96px;
-    height: 138px;
-    border-radius: 8px;
-    perspective: 800px;
-    pointer-events: none;
-    z-index: 561;
-    transition: left 0.65s cubic-bezier(0.34,1.2,0.64,1),
-                top 0.65s cubic-bezier(0.34,1.2,0.64,1),
-                width 0.65s cubic-bezier(0.34,1.2,0.64,1),
-                height 0.65s cubic-bezier(0.34,1.2,0.64,1);
-  }
-  .carta-pescata .carta-pescata-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.5s cubic-bezier(0.34,1.2,0.64,1);
-  }
-  .carta-pescata .carta-pescata-faccia,
-  .carta-pescata .carta-pescata-dorso {
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.6);
-  }
-  .carta-pescata .carta-pescata-dorso {
-    background: linear-gradient(135deg, #4dabf7, #2563eb);
-    border: 2px solid #fff;
-    transform: rotateY(0deg);
-    font-size: 58px;
-    color: #fff;
-  }
+  .carta-pescata { position: fixed; width: 96px; height: 138px; border-radius: 8px; perspective: 800px; pointer-events: none; z-index: 561; transition: left 0.65s cubic-bezier(0.34,1.2,0.64,1), top 0.65s cubic-bezier(0.34,1.2,0.64,1), width 0.65s cubic-bezier(0.34,1.2,0.64,1), height 0.65s cubic-bezier(0.34,1.2,0.64,1); }
+  .carta-pescata .carta-pescata-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.5s cubic-bezier(0.34,1.2,0.64,1); }
+  .carta-pescata .carta-pescata-faccia, .carta-pescata .carta-pescata-dorso { position: absolute; inset: 0; border-radius: 8px; backface-visibility: hidden; -webkit-backface-visibility: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 12px rgba(0,0,0,0.6); }
+  .carta-pescata .carta-pescata-dorso { background: linear-gradient(135deg, #4dabf7, #2563eb); border: 2px solid #fff; transform: rotateY(0deg); font-size: 58px; color: #fff; }
   .carta-pescata .carta-pescata-dorso::after { content: '🂠'; }
-  .carta-pescata .carta-pescata-faccia {
-    background: #fff;
-    color: #222;
-    border: 2px solid #fff;
-    transform: rotateY(180deg);
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: space-between;
-    padding: 7px 8px;
-    font-family: 'Segoe UI', sans-serif;
-  }
+  .carta-pescata .carta-pescata-faccia { background: #fff; color: #222; border: 2px solid #fff; transform: rotateY(180deg); flex-direction: column; align-items: stretch; justify-content: space-between; padding: 7px 8px; font-family: 'Segoe UI', sans-serif; }
   .carta-pescata .carta-pescata-faccia .pf-alto { font-weight: 900; font-family: 'Georgia', serif; font-size: 22px; align-self: flex-start; }
   .carta-pescata .carta-pescata-faccia .pf-seme { font-size: 52px; line-height: 1; text-align: center; }
   .carta-pescata .carta-pescata-faccia .pf-basso { font-weight: 900; font-family: 'Georgia', serif; font-size: 22px; align-self: flex-end; transform: rotate(180deg); }
@@ -686,43 +421,6 @@
 
   body.pesca-in-corso .carte-overlay-carte .carta { pointer-events: none; opacity: 0.7; }
   body.pesca-in-corso #azioni-container button { pointer-events: none; opacity: 0.5; }
-
-  @media (orientation: landscape) and (max-height: 600px) {
-    .banner-top { top: 42px !important; width: 94% !important; padding: 4px 10px 10px !important; max-height: 140px; }
-    .banner-top .riga-alta { gap: 10px !important; }
-    .pila, .pila-bonus { width: 68px; height: 98px; }
-    .pila-carta, .pila-bonus .pila-carta { width: 68px; height: 98px; }
-    .pila-carta.dietro::after { font-size: 42px; }
-    .pila-bonus .pila-carta.bonus::after { font-size: 42px; }
-    .pila-carta.scarto::after { font-size: 36px; }
-    .pila-titolo, .pila-bonus .pila-titolo { font-size: 9px; top: -14px; }
-    .pila-count, .pila-bonus .pila-count { font-size: 9px; bottom: -18px; padding: 1px 6px; }
-    .bonus-slot { width: 68px; height: 98px; }
-    .bonus-slot .bonus-carta { font-size: 34px; }
-    .bonus-slot .bonus-carta .ang { font-size: 12px; }
-    .bonus-slot .bonus-carta .nome-bonus { font-size: 7px; bottom: 6px; }
-    .bonus-tu-wrapper { padding: 4px 6px; }
-    .bonus-tu-wrapper .bonus-label { font-size: 8px; }
-    .bonus-slots { gap: 4px; }
-    .banner-mano-box { padding: 16px 22px; }
-    .banner-mano-vincitore { font-size: 24px; margin-bottom: 12px; }
-    .banner-mano-carta .carta { width: 64px; height: 90px; }
-    .banner-mano-carta .carta .seme-centro { font-size: 38px; }
-    .banner-mano-carta.seme-centrale .carta .seme-centro { font-size: 44px; }
-    .banner-mano-vs { font-size: 18px; }
-    .banner-mano-seme { font-size: 11px; margin-top: 10px; }
-    .banner-mano-motivo { font-size: 10px; margin-top: 6px; }
-    .carte-overlay-inner { max-width: calc(100vw - 32px); margin: 0 16px; padding: 10px 14px 12px; border-width: 2px; }
-    .carte-overlay-riga { gap: 10px; }
-    .carte-overlay-carte { gap: 6px; }
-    .carte-overlay .carta { width: 80px; height: 114px; }
-    .carte-overlay .carta .seme-centro { font-size: 46px; }
-    .carte-overlay .carta .valore-alto { font-size: 18px; }
-    .carte-overlay .carta .valore-basso { font-size: 18px; }
-    .seme-carta { width: 80px; height: 114px; }
-    .seme-carta .seme-emoji { font-size: 50px; }
-    .carte-overlay-azioni button { padding: 8px 18px; font-size: 13px; }
-  }
 </style>
 </head>
 <body>
@@ -965,7 +663,7 @@ var POSIZIONI_PORTIERI = [
 var DISTANZA_COPPIA_PX = 60;
 
 /* ============================================================
-   ZOOM DINAMICO
+   ZOOM DINAMICO — versione "da sito" (fit), niente mobile
    ============================================================ */
 var zoomState = {
   attivo: false, scalaTarget: 1, scalaCorrente: 1,
@@ -975,8 +673,9 @@ var zoomState = {
   animDa: null, animA: null, animInizio: 0, animDurata: 0
 };
 
+// Disattivato: usiamo sempre la scala "da sito" (fit della scena 1600x900)
 function isMobileZoom() {
-  return (window.innerWidth <= 900) || (window.innerHeight <= 600 && window.innerWidth < 1200);
+  return false;
 }
 
 function getPosizionePallaScena() {
@@ -1056,13 +755,7 @@ function loopZoom() {
     zoomState.rafId = requestAnimationFrame(loopZoom);
     return;
   }
-  var p = getPosizionePallaScena();
-  zoomState.ultimaPallaX = p.x; zoomState.ultimaPallaY = p.y;
-  applicaZoomPalla(p.x, p.y);
-  zoomState.scalaCorrente += (zoomState.scalaTarget - zoomState.scalaCorrente) * zoomState.smoothing;
-  zoomState.offsetCorrenteX += (zoomState.offsetTargetX - zoomState.offsetCorrenteX) * zoomState.smoothing;
-  zoomState.offsetCorrenteY += (zoomState.offsetTargetY - zoomState.offsetCorrenteY) * zoomState.smoothing;
-  applicaTransformScena();
+  // ramo mobile disattivato (isMobileZoom() è false)
   zoomState.rafId = requestAnimationFrame(loopZoom);
 }
 
@@ -1083,7 +776,7 @@ window.addEventListener('orientationchange', function() { setTimeout(adattaScena
    ============================================================ */
 function mostraBannerTop() { var p = document.getElementById('banner-top'); if (p) p.classList.remove('nascosto'); }
 function nascondiBannerTop() { var p = document.getElementById('banner-top'); if (p) p.classList.add('nascosto'); }
-function mostraCarteOverlay() { var o = document.getElementById('carte-overlay'); if (o) o.classList.add('attivo'); if (isMobileZoom()) document.body.classList.add('carte-in-gioco'); }
+function mostraCarteOverlay() { var o = document.getElementById('carte-overlay'); if (o) o.classList.add('attivo'); }
 function nascondiCarteOverlay() { var o = document.getElementById('carte-overlay'); if (o) o.classList.remove('attivo'); document.body.classList.remove('carte-in-gioco'); setTimeout(function() { if (typeof adattaScena === 'function') adattaScena(); }, 350); }
 
 function mostraBonusChoice(tipo, callback) {
@@ -1117,11 +810,150 @@ function chiudiBonusChoice() {
 }
 
 /* ============================================================
+   GITHUB SYNC  (PAT salvato in localStorage, mai nel codice)
+   ============================================================ */
+var GH = {
+  owner: 'TUO-UTENTE',        // ← CAMBIA: il tuo username GitHub
+  repo: 'calcio-a-carte',     // ← CAMBIA: nome del repo
+  branch: 'main',             // ← CAMBIA se usi 'master'
+  path: 'calcio_carte_salvataggio.json',
+  token: null,
+  sha: null,
+  abilitato: false
+};
+
+var _ghDebounce = null;
+
+function ghCaricaConfig() {
+  try {
+    var cfg = JSON.parse(localStorage.getItem('gh_config') || '{}');
+    if (cfg.token) { GH.token = cfg.token; GH.abilitato = true; }
+  } catch(e) {}
+}
+
+function ghSalvaConfig(token) {
+  try {
+    if (token) {
+      localStorage.setItem('gh_config', JSON.stringify({ token: token }));
+      GH.token = token; GH.abilitato = true;
+    } else {
+      localStorage.removeItem('gh_config');
+      GH.token = null; GH.abilitato = false;
+    }
+  } catch(e) {}
+}
+
+function ghApiHeaders() {
+  return {
+    'Authorization': 'Bearer ' + GH.token,
+    'Accept': 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28'
+  };
+}
+
+async function ghLeggiFile() {
+  var url = 'https://api.github.com/repos/' + GH.owner + '/' + GH.repo +
+            '/contents/' + encodeURIComponent(GH.path) + '?ref=' + GH.branch;
+  var r = await fetch(url, { headers: ghApiHeaders() });
+  if (r.status === 404) return { contenuto: null, sha: null };
+  if (!r.ok) throw new Error('GitHub GET ' + r.status);
+  var j = await r.json();
+  var testo = atob(j.content.replace(/\n/g, ''));
+  testo = decodeURIComponent(escape(testo));
+  return { contenuto: JSON.parse(testo), sha: j.sha };
+}
+
+async function ghScriviFile(oggetto) {
+  var attuale = await ghLeggiFile().catch(function(){ return { sha: null }; });
+  var contenuto = JSON.stringify(oggetto, null, 2);
+  var b64 = btoa(unescape(encodeURIComponent(contenuto)));
+  var body = {
+    message: 'Salvataggio automatico ' + new Date().toISOString(),
+    content: b64,
+    branch: GH.branch
+  };
+  if (attuale.sha) body.sha = attuale.sha;
+  var url = 'https://api.github.com/repos/' + GH.owner + '/' + GH.repo +
+            '/contents/' + encodeURIComponent(GH.path);
+  var r = await fetch(url, {
+    method: 'PUT',
+    headers: Object.assign({ 'Content-Type': 'application/json' }, ghApiHeaders()),
+    body: JSON.stringify(body)
+  });
+  if (!r.ok) {
+    var err = await r.text();
+    throw new Error('GitHub PUT ' + r.status + ': ' + err);
+  }
+  var j = await r.json();
+  GH.sha = j.content.sha;
+  return j;
+}
+
+var ghSalvataggioInCorso = false;
+
+async function salvaSuGitHub() {
+  if (!GH.abilitato || ghSalvataggioInCorso) return;
+  ghSalvataggioInCorso = true;
+  try {
+    var dati = {
+      versione: 1,
+      data: new Date().toISOString(),
+      campionato: null,
+      ammonizioni: (typeof ammonizioni !== 'undefined') ? ammonizioni : null
+    };
+    try {
+      var c = localStorage.getItem('seriea2027_v1');
+      if (c) dati.campionato = JSON.parse(c);
+    } catch(e) {}
+    var partita = localStorage.getItem('calcio_carte_partita_in_corso_v2');
+    if (partita) dati.partitaInCorso = JSON.parse(partita);
+    await ghScriviFile(dati);
+    console.log('☁️ Salvato su GitHub');
+  } catch(e) {
+    console.warn('Salvataggio GitHub fallito:', e);
+  } finally {
+    ghSalvataggioInCorso = false;
+  }
+}
+
+async function caricaDaGitHub() {
+  if (!GH.abilitato) return false;
+  try {
+    var r = await ghLeggiFile();
+    if (!r.contenuto) return false;
+    var dati = r.contenuto;
+    if (dati.ammonizioni && dati.ammonizioni.squadre) {
+      ammonizioni = dati.ammonizioni;
+      salvaAmmonizioniInLocalStorage();
+    }
+    if (dati.campionato) {
+      localStorage.setItem('seriea2027_v1', JSON.stringify(dati.campionato));
+    }
+    if (dati.partitaInCorso) {
+      localStorage.setItem('calcio_carte_partita_in_corso_v2', JSON.stringify(dati.partitaInCorso));
+    }
+    console.log('☁️ Caricato da GitHub');
+    return true;
+  } catch(e) {
+    console.warn('Caricamento GitHub fallito:', e);
+    return false;
+  }
+}
+
+function programmaSalvataggioGitHub() {
+  if (_ghDebounce) clearTimeout(_ghDebounce);
+  _ghDebounce = setTimeout(function() { salvaSuGitHub(); }, 4000);
+}
+/* ============================================================
+   FINE GITHUB SYNC
+   ============================================================ */
+
+/* ============================================================
    AMMONIZIONI
    ============================================================ */
 var ammonizioni = null;
 function caricaAmmonizioniDaLocalStorage() { try { var s = localStorage.getItem('campionato_ammonizioni'); if (s) return JSON.parse(s); } catch(e){} return null; }
-function salvaAmmonizioniInLocalStorage() { try { localStorage.setItem('campionato_ammonizioni', JSON.stringify(ammonizioni)); } catch(e){} }
+function salvaAmmonizioniInLocalStorage() { try { localStorage.setItem('campionato_ammonizioni', JSON.stringify(ammonizioni)); programmaSalvataggioGitHub(); } catch(e){} }
 function inizializzaAmmonizioni() { var d = caricaAmmonizioniDaLocalStorage(); ammonizioni = (d && d.squadre) ? d : inizializzaAmmonizioniVuote(); }
 function getGiocatoreAmmonizioni(sqId, nome) {
   if (!ammonizioni || !ammonizioni.squadre[sqId]) return null;
@@ -1163,6 +995,7 @@ function resetCampionatoSalvato() {
   if (!confirm('Vuoi davvero azzerare il campionato salvato? (Le ammonizioni restano)')) return;
   try { localStorage.removeItem('seriea2027_v1'); } catch(e){}
   alert('✅ Campionato azzerato');
+  programmaSalvataggioGitHub();
 }
 
 /* ============================================================
@@ -1222,7 +1055,7 @@ var selezioneSost = { campo:null, panchina:null };
 var renderingCampoInCorso = false;
 
 /* ============================================================
-   SALVATAGGIO AUTOMATICO
+   SALVATAGGIO AUTOMATICO (locale + GitHub)
    ============================================================ */
 var CHIAVE_SALVATAGGIO = 'calcio_carte_partita_in_corso_v2';
 function serializzaStato() {
@@ -1245,6 +1078,7 @@ function salvaPartita() {
   if (!stato.giocatori || !stato.giocatori.tu || stato.giocatori.tu.length === 0) return;
   if (stato.partitaFinita) { try { localStorage.removeItem(CHIAVE_SALVATAGGIO); } catch(e){} return; }
   try { localStorage.setItem(CHIAVE_SALVATAGGIO, JSON.stringify(serializzaStato())); } catch(e) { console.warn('Salvataggio partita fallito:', e); }
+  programmaSalvataggioGitHub();
 }
 function caricaPartitaSalvata() {
   try {
@@ -1382,6 +1216,7 @@ function applicaVittoriaATavolino(dati) {
 function salvaRisultatoTorneoATavolino(dati) {
   var r = { golTU: 0, golCPU: 2, sqTU: dati.squadraTU, sqCPU: dati.squadraCPU, casaOriginale: dati.urlCasa || dati.squadraTU, trasfertaOriginale: dati.urlTrasferta || dati.squadraCPU, statistiche: JSON.parse(JSON.stringify(dati.statistiche || stato.statistiche)), aTavolino: true, motivo: 'abbandono' };
   try { localStorage.setItem('campionato_partita_' + PARTITA_TORNEO, JSON.stringify(r)); } catch(e) { console.error('Errore salvataggio risultato a tavolino:', e); }
+  programmaSalvataggioGitHub();
 }
 function mostraRisultatoAbbandono(dati) {
   var nomeTU = SQUADRE[dati.squadraTU] ? SQUADRE[dati.squadraTU].nome : dati.squadraTU;
@@ -1597,6 +1432,15 @@ function apriImpostazioni() {
       '<button onclick="apriSostituzioni()">🔄 Sostituzioni</button>' +
       '<button class="primario" style="background:#4dabf7;border-color:#fff" onclick="apriIstruzioni()">📖 Istruzioni del Gioco</button>' +
       '<button onclick="chiudiModale()">← Chiudi</button>' +
+    '</div>' +
+    '<h3 style="color:#ffd700;margin:16px 0 8px;font-size:16px">☁️ Sincronizzazione GitHub</h3>' +
+    '<div class="impostazioni-info">Inserisci un Personal Access Token fine-grained (solo permesso Contents:Read/Write sul repo del gioco). Verrà salvato SOLO su questo dispositivo (localStorage).</div>' +
+    '<input type="password" id="gh-token-input" placeholder="github_pat_..." style="width:100%;padding:10px;border-radius:8px;border:2px solid #4dabf7;background:#0a0a15;color:#fff;font-family:monospace;font-size:12px;margin-bottom:8px">' +
+    '<div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">' +
+      '<button class="primario" onclick="ghSalvaConfig(document.getElementById(\'gh-token-input\').value);alert(\'Token salvato su questo dispositivo!\')">💾 Salva token</button>' +
+      '<button onclick="ghSalvaConfig(null);alert(\'Token rimosso.\')">🗑 Rimuovi token</button>' +
+      '<button onclick="salvaSuGitHub()">☁️ Forza salvataggio ora</button>' +
+      '<button onclick="caricaDaGitHub().then(function(ok){alert(ok?\'Caricato da GitHub!\':\'Nessun file trovato o errore\')})">⬇️ Forza caricamento ora</button>' +
     '</div>' +
     '<h3 style="color:#ffd700;margin:16px 0 8px;font-size:16px">🔊 Volume</h3>' +
     '<div class="volume-control"><label>🎵 Musica</label><input type="range" min="0" max="100" value="' + Math.round(volumeMusica*100) + '" oninput="cambiaVolume(\'musica\',this.value)"><span class="vol-val" id="vol-musica-val">' + Math.round(volumeMusica*100) + '%</span></div>' +
@@ -2455,9 +2299,6 @@ function animaPallaVersoPorta(squadra, cb) {
   requestAnimationFrame(anima);
 }
 
-/* ============================================================
-   TACKLE
-   ============================================================ */
 function animaTackle(gVincitore, gPerdente) {
   var wrapperV = document.querySelector('[data-giocatore-id="' + gVincitore.id + '"]');
   if (!wrapperV) return;
@@ -2485,9 +2326,6 @@ function animaTackle(gVincitore, gPerdente) {
   setTimeout(function() { pedinaV.classList.remove('pg-in-tackle-dx', 'pg-in-tackle-sx'); }, DURATA_SCIVOLATA + 80);
 }
 
-/* ============================================================
-   PORTIERE — braccia prima, corpo dopo
-   ============================================================ */
 function posizionaPortiereSu(cx, cy, istantaneo) {
   var pt = document.getElementById('tiro-portiere');
   if (!pt) return;
@@ -2545,16 +2383,12 @@ function eseguiParataPortiereSettore(dT, dP, parata) {
   var posPalla = casellaToPos(dT);
   var posSettore = centroSettoreToPos(dP);
   var pos5 = casellaToPos(5);
-
-  // Reset completo classi e posizione (istantaneo)
   pt.classList.remove('pg-braccia-addome', 'pg-braccia-alte', 'pg-braccia-alte-sx', 'pg-braccia-alte-dx',
                       'pg-braccia-alte-bassa-sx', 'pg-braccia-alte-bassa-dx',
                       'pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro', 'pg-salta');
   posizionaPortiereSu(pos5.cx, pos5.cy, true);
   void pt.offsetWidth;
-
   if (parata) {
-    // PARATA: prima braccia verso la palla, poi corpo verso la palla
     applicaBracciaVerso(posPalla.cx, posPalla.cy);
     setTimeout(function() {
       var midX = (pos5.cx + posPalla.cx) / 2;
@@ -2569,8 +2403,6 @@ function eseguiParataPortiereSettore(dT, dP, parata) {
     }, 500);
     return;
   }
-
-  // GOL: prima braccia verso il centro del settore d4, poi corpo verso il centro del settore
   applicaBracciaVerso(posSettore.cx, posSettore.cy);
   setTimeout(function() {
     posizionaPortiereSu(posSettore.cx, posSettore.cy, false);
@@ -2583,9 +2415,6 @@ function eseguiParataPortiereSettore(dT, dP, parata) {
   }, 500);
 }
 
-/* ============================================================
-   TAP SUL BANNER = COLLASSA/ESPANDI MANUALE
-   ============================================================ */
 document.addEventListener('DOMContentLoaded', function() {
   var bannerEl = document.getElementById('banner-top');
   if (bannerEl) {
@@ -2596,9 +2425,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
-/* ============================================================
-   SCHERMATA TIRO
-   ============================================================ */
+
 var tiroInAttesa = null;
 
 function apriSchermataTiro(att) {
@@ -2882,8 +2709,6 @@ function mostraEsitoTiroConGrafica(esito, dT, att, dif, motivo) {
   var e = document.getElementById('tiro-esito');
   e.textContent = motivo; e.classList.add(esito);
   var i = document.getElementById('tiro-info'); if (i) i.textContent = 'ESITO: ' + motivo;
-
-  // NIENTE RIMBALZO: la palla si sposta linearmente verso il portiere e si ferma
   if (esito === 'parata') {
     var pa = document.getElementById('tiro-palla');
     var pt = document.getElementById('tiro-portiere');
@@ -2900,7 +2725,6 @@ function mostraEsitoTiroConGrafica(esito, dT, att, dif, motivo) {
       }
     }
   }
-
   setTimeout(function() {
     var ov = document.getElementById('tiro-overlay');
     if (ov) { ov.classList.remove('attiva'); setTimeout(function() { ov.remove(); }, 400); }
@@ -2915,9 +2739,6 @@ function mostraEsitoTiroConGrafica(esito, dT, att, dif, motivo) {
   }, 2500);
 }
 
-/* ============================================================
-   GESTIONE EVENTI POST-TIRO
-   ============================================================ */
 function mostraGoalBanner(v) {
   var b = document.getElementById('goal-banner');
   b.classList.remove('tu', 'cpu', 'attivo'); void b.offsetWidth;
@@ -3043,9 +2864,6 @@ function flashVincitore(sq) {
   setTimeout(function() { f.classList.remove('attivo'); }, 600);
 }
 
-/* ============================================================
-   FINE TEMPO / FINE PARTITA
-   ============================================================ */
 function fineTempoOPartita() {
   if (stato.partitaFinita) return;
   if (stato.tempo === 1) {
@@ -3120,12 +2938,10 @@ function finePartita() {
 function salvaRisultatoTorneo() {
   var r = { golTU: stato.punteggio.tu, golCPU: stato.punteggio.cpu, sqTU: stato.squadraTU, sqCPU: stato.squadraCPU, casaOriginale: URL_CASA || stato.squadraTU, trasfertaOriginale: URL_TRASFERTA || stato.squadraCPU, statistiche: JSON.parse(JSON.stringify(stato.statistiche)) };
   localStorage.setItem('campionato_partita_' + PARTITA_TORNEO, JSON.stringify(r));
+  programmaSalvataggioGitHub();
   setTimeout(function() { location.href = 'seriea2027.html?risultato=' + encodeURIComponent(PARTITA_TORNEO); }, 1500);
 }
 
-/* ============================================================
-   SOSTITUZIONI
-   ============================================================ */
 function apriSostituzioni() {
   if (stato.sostBloccate) { alert('Sostituzioni bloccate durante il contrasto.'); return; }
   if (stato.partitaFinita) return;
@@ -3184,9 +3000,6 @@ function bloccaCoppiaContrasto() {
   stato.contrastoCoppia = { zona:zona, meta:meta, giocatorePoss: gP ? gP.id : null, giocatoreAvv: gA ? gA.id : null, possessore: poss };
 }
 
-/* ============================================================
-   SALVATAGGIO IN USCITA + AVVIO
-   ============================================================ */
 window.addEventListener('beforeunload', function(e) {
   if (!stato.partitaFinita && stato.giocatori && stato.giocatori.tu && stato.giocatori.tu.length > 0) {
     salvaPartita();
@@ -3196,25 +3009,33 @@ window.addEventListener('beforeunload', function(e) {
   }
 });
 
+/* ============================================================
+   AVVIO
+   ============================================================ */
 try {
   inizializzaAmmonizioni();
+  ghCaricaConfig();               // carica il PAT da localStorage (se presente)
   adattaScena();
   setTimeout(adattaScena, 100);
   setTimeout(adattaScena, 400);
   avviaLoopZoom();
-  var salvata = caricaPartitaSalvata();
-  if (salvata) {
-    mostraSchermataRipristino(salvata);
-  } else if (TORNEO_MODE === 'seriea' && PARTITA_TORNEO && URL_SQ_TU && URL_SQ_CPU) {
-    if (SQUADRE[URL_SQ_TU] && SQUADRE[URL_SQ_CPU]) {
-      avviaPartita(URL_SQ_TU, URL_SQ_CPU, '1P', URL_CASA);
+
+  // Prova prima il file su GitHub (se PAT configurato); poi l'eventuale salvataggio locale
+  caricaDaGitHub().then(function(ok) {
+    var salvata = caricaPartitaSalvata();
+    if (salvata) {
+      mostraSchermataRipristino(salvata);
+    } else if (TORNEO_MODE === 'seriea' && PARTITA_TORNEO && URL_SQ_TU && URL_SQ_CPU) {
+      if (SQUADRE[URL_SQ_TU] && SQUADRE[URL_SQ_CPU]) {
+        avviaPartita(URL_SQ_TU, URL_SQ_CPU, '1P', URL_CASA);
+      } else {
+        console.error('Squadre non valide:', URL_SQ_TU, URL_SQ_CPU);
+        mostraMenuPrincipale();
+      }
     } else {
-      console.error('Squadre non valide:', URL_SQ_TU, URL_SQ_CPU);
       mostraMenuPrincipale();
     }
-  } else {
-    mostraMenuPrincipale();
-  }
+  });
 } catch(err) {
   console.error('Errore avvio:', err);
   document.body.innerHTML = '<div style="background:#8B2020;color:#fff;padding:30px;font-family:monospace;font-size:14px;white-space:pre-wrap"><h2>ERRORE DI AVVIO</h2><p>' + err.message + '</p><pre>' + (err.stack||'') + '</pre><p>Verifica che divise.js e ammonizioni.js siano caricati.</p></div>';

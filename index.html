@@ -428,7 +428,6 @@
      MODALITÀ A FASI (solo mobile/tablet)
      ============================================================ */
   @media (max-width: 1100px) and (max-height: 800px), (max-width: 900px) {
-    /* Il campo si restringe nella metà bassa per non stare dietro i banner */
     body.fase-azione .area-gioco {
       margin-top: calc(50vh - 22px);
       height: calc(50vh + 22px);
@@ -455,10 +454,9 @@
       padding: 6px 10px 10px;
       overflow-y: auto;
       opacity: 1;
-      background: #0a0a15; /* Sfondo scuro dietro il banner */
+      background: #0a0a15;
     }
 
-    /* Compattiamo il banner mazzi su mobile */
     body.fase-azione .banner-top .riga-alta { gap: 8px; align-items: center; }
     body.fase-azione .pila, body.fase-azione .pila-bonus { width: 64px; height: 92px; }
     body.fase-azione .pila-carta, body.fase-azione .pila-bonus .pila-carta { width: 64px; height: 92px; }
@@ -471,7 +469,6 @@
     body.fase-azione .bonus-slot .nome-bonus { display: none; }
     body.fase-azione .bonus-slots { gap: 4px; }
 
-    /* L'overlay delle carte occupa il resto dello schermo, ingrandito */
     body.fase-azione .carte-overlay {
       display: flex !important;
       opacity: 1 !important;
@@ -494,30 +491,28 @@
       padding: 8px;
       border-width: 2px;
       gap: 8px;
-      margin: auto 0; /* Spinge il contenuto al centro verticale se c'è spazio */
+      margin: auto 0;
     }
     body.fase-azione .carte-overlay-titolo { font-size: 14px; }
     body.fase-azione .carte-overlay-sottotitolo { display: none; }
-    body.fase-azione .carte-overlay-riga { gap: 10px; margin-top: 8px; }
-    
-    /* Carte ingrandite (circa il doppio) per stare su schermi bassi */
-    body.fase-azione .seme-carta { width: 120px; height: 172px; }
-    body.fase-azione .seme-carta .seme-emoji { font-size: 72px; }
-    body.fase-azione .seme-carta-label { font-size: 10px; }
-    body.fase-azione .carte-overlay .carta { width: 120px; height: 172px; }
-    body.fase-azione .carte-overlay .carta .seme-centro { font-size: 68px; }
-    body.fase-azione .carte-overlay .carta .valore-alto, body.fase-azione .carte-overlay .carta .valore-basso { font-size: 28px; }
-    
-    /* Il bottone deve essere bello visibile */
+    body.fase-azione .carte-overlay-riga { gap: 12px; margin-top: 8px; }
+
+    /* ===== CARTE RADDOPPIATE (160x230) ===== */
+    body.fase-azione .seme-carta { width: 160px; height: 230px; }
+    body.fase-azione .seme-carta .seme-emoji { font-size: 100px; }
+    body.fase-azione .seme-carta-label { font-size: 11px; }
+    body.fase-azione .carte-overlay .carta { width: 160px; height: 230px; padding: 10px 12px; }
+    body.fase-azione .carte-overlay .carta .seme-centro { font-size: 96px; }
+    body.fase-azione .carte-overlay .carta .valore-alto,
+    body.fase-azione .carte-overlay .carta .valore-basso { font-size: 40px; }
+
     body.fase-azione .carte-overlay-azioni button { padding: 14px 28px; font-size: 16px; width: 100%; max-width: 340px; margin: 0 auto; }
     body.fase-azione .info-carte { font-size: 11px; padding: 3px 8px; margin-top: 6px; }
 
-    /* Fase Campo (Animazione) */
     body.fase-campo .banner-top { display: none !important; }
     body.fase-campo .carte-overlay { display: none !important; }
     body.fase-campo .area-gioco { display: block; margin-top: 0; height: 100%; }
 
-    /* Palla più piccola su mobile */
     .palla-centro { width: 9px; height: 9px; }
     .palla-volante { width: 9px; height: 9px; }
     .tiro-palla { width: 36px; height: 36px; border-width: 3px; }
@@ -806,19 +801,26 @@ function applicaZoomPalla(px, py) {
   if (!scena || !wrapper) return;
   var w = wrapper.clientWidth, h = wrapper.clientHeight;
   if (w === 0 || h === 0) return;
-  
-  // ZOOM FISSO x2
-  var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
-  var scala = scalaFit * 2; 
 
+  // ===== ZOOM FISSO x2 =====
+  var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
+  var scala = scalaFit * 2;
+
+  // La palla resta al centro dello schermo
   var offsetX = w / 2 - px * scala;
   var offsetY = h / 2 - py * scala;
-  
+
+  // Clampa per non mostrare i bordi della scena
   var lS = SCENA_W * scala, aS = SCENA_H * scala;
-  if (lS <= w) offsetX = (w - lS) / 2; else { if (offsetX > 0) offsetX = 0; if (offsetX < w - lS) offsetX = w - lS; }
-  if (aS <= h) offsetY = (h - aS) / 2; else { if (offsetY > 0) offsetY = 0; if (offsetY < h - aS) offsetY = h - aS; }
-  
-  zoomState.scalaTarget = scala; zoomState.offsetTargetX = offsetX; zoomState.offsetTargetY = offsetY;
+  if (lS <= w) offsetX = (w - lS) / 2;
+  else { if (offsetX > 0) offsetX = 0; if (offsetX < w - lS) offsetX = w - lS; }
+  if (aS <= h) offsetY = (h - aS) / 2;
+  else { if (offsetY > 0) offsetY = 0; if (offsetY < h - aS) offsetY = h - aS; }
+
+  zoomState.scalaTarget = scala;
+  zoomState.offsetTargetX = offsetX;
+  zoomState.offsetTargetY = offsetY;
+
   if (!zoomState.attivo) {
     zoomState.scalaCorrente = scala;
     zoomState.offsetCorrenteX = offsetX;

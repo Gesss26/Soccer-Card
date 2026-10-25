@@ -427,7 +427,7 @@
   /* ============================================================
      MODALITÀ A FASI (solo mobile/tablet)
      ============================================================ */
-  @media (max-width: 1100px) and (max-height: 800px), (max-width: 900px) {
+  @media (max-width: 1400px) and (max-height: 850px), (max-width: 1000px) {
     body.fase-azione .area-gioco {
       margin-top: calc(50vh - 22px);
       height: calc(50vh + 22px);
@@ -881,7 +881,7 @@ function nascondiBannerTop() { var p = document.getElementById('banner-top'); if
 
 function isMobileFasi() {
   var w = window.innerWidth, h = window.innerHeight;
-  return (w <= 1100 && h <= 800) || (w <= 900);
+  return (w <= 1400 && h <= 850) || (w <= 1000);
 }
 
 var _faseTimeout = null;

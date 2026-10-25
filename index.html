@@ -2,7 +2,8 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1600, initial-scale=0.25, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<!-- FIX FONDAMENTALE: Usa la larghezza reale del dispositivo invece di forzare 1600px -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0a0a15">
@@ -427,7 +428,8 @@
   /* ============================================================
      MODALITÀ A FASI (solo mobile/tablet)
      ============================================================ */
-  @media (max-width: 1400px) and (max-height: 850px), (max-width: 1000px) {
+  /* FIX: Media query basata solo sull'altezza in orizzontale. Si attiva su iPad (768px) e cellulari (360-400px) */
+  @media (orientation: landscape) and (max-height: 950px), (max-width: 1000px) {
     body.fase-azione .area-gioco {
       margin-top: calc(50vh - 22px);
       height: calc(50vh + 22px);
@@ -497,7 +499,7 @@
     body.fase-azione .carte-overlay-sottotitolo { display: none; }
     body.fase-azione .carte-overlay-riga { gap: 12px; margin-top: 8px; }
 
-    /* ===== CARTE RADDOPPIATE (160x230) ===== */
+    /* CARTE GRANDI (160x230) */
     body.fase-azione .seme-carta { width: 160px; height: 230px; }
     body.fase-azione .seme-carta .seme-emoji { font-size: 100px; }
     body.fase-azione .seme-carta-label { font-size: 11px; }
@@ -881,7 +883,8 @@ function nascondiBannerTop() { var p = document.getElementById('banner-top'); if
 
 function isMobileFasi() {
   var w = window.innerWidth, h = window.innerHeight;
-  return (w <= 1400 && h <= 850) || (w <= 1000);
+  // Ora il viewport è reale, attiviamo la modalità mobile per tutti i tablet e telefoni in landscape
+  return (w <= 1400 && h <= 950) || (w <= 1000);
 }
 
 var _faseTimeout = null;

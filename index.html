@@ -625,7 +625,10 @@ async function caricaDaGitHub() {
     return true;
   } catch(e) { return false; }
 }
-function programmaSalvataggioGitHub() { if (_ghDebounce) clearTimeout(_ghDebounce); _ghDebounce = setTimeout(function() { salvaSuGitHub(); }, 4000); }
+function programmaSalvataggioGitHub() {
+  /* Sync GitHub disabilitata: il salvataggio avviene solo in localStorage */
+  return;
+}
 
 /* AMMONIZIONI */
 var ammonizioni = null;
@@ -2338,13 +2341,12 @@ try {
   inizializzaAmmonizioni(); ghCaricaConfig();
   adattaScena(); setTimeout(adattaScena, 100); setTimeout(adattaScena, 400);
   avviaLoopZoom(); aggiornaIconaFullscreen();
-  caricaDaGitHub().then(function() {
-    var salvata = caricaPartitaSalvata();
-    if (salvata) mostraSchermataRipristino(salvata);
-    else if (TORNEO_MODE === 'seriea' && PARTITA_TORNEO && URL_SQ_TU && URL_SQ_CPU) {
-      if (SQUADRE[URL_SQ_TU] && SQUADRE[URL_SQ_CPU]) avviaPartita(URL_SQ_TU, URL_SQ_CPU, '1P', URL_CASA);
-      else mostraMenuPrincipale();
-    } else mostraMenuPrincipale();
+var salvata = caricaPartitaSalvata();
+if (salvata) mostraSchermataRipristino(salvata);
+else if (TORNEO_MODE === 'seriea' && PARTITA_TORNEO && URL_SQ_TU && URL_SQ_CPU) {
+  if (SQUADRE[URL_SQ_TU] && SQUADRE[URL_SQ_CPU]) avviaPartita(URL_SQ_TU, URL_SQ_CPU, '1P', URL_CASA);
+  else mostraMenuPrincipale();
+} else mostraMenuPrincipale();
   });
 } catch(err) {
   console.error('Errore avvio:', err);

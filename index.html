@@ -622,6 +622,7 @@ var DURATA_SPOSTAMENTO_INIZIO = 600;
 var SALITA_CALCIO_INIZIO = 100;
 var MAX_CARTE_STESSO_SEME = 5;
 var ORDINE_SEMI = ['bandierina', 'coppa', 'guantone', 'palla'];
+var PAUSA_BANNER = 2000; // 2 secondi di pausa prima/dopo l'azione sul campo
 
 var ZONE_PORTIERE_4 = { 1: [1,2,4,5], 2: [2,3,5,6], 3: [4,5,7,8], 4: [5,6,8,9] };
 var CENTRI_ZONE_4 = { 1:{x:33.3,y:33.3}, 2:{x:66.6,y:33.3}, 3:{x:33.3,y:66.6}, 4:{x:66.6,y:66.6} };
@@ -758,7 +759,6 @@ function getPosizionePallaScena() {
   return { x: SCENA_W / 2, y: SCENA_H / 2 };
 }
 
-/* Alias mantenuti per compatibilità: lo zoom è SEMPRE x2 fisso sulla palla */
 function impostaZoomFit() { zoomState.modalita = 'palla2x'; }
 function impostaZoomPalla2x() { zoomState.modalita = 'palla2x'; }
 
@@ -1400,7 +1400,7 @@ function creaPalloneSVG() {
     '<ellipse cx="13" cy="11" rx="5" ry="3.5" fill="#fff" opacity="0.55"/></svg>';
 }
 
-function tuASinistra() { if (stato.tuECasa) return !stato.invertiCoppie; else return stato.invertiCoppia || stato.invertiCoppie; }
+function tuASinistra() { if (stato.tuECasa) return !stato.invertiCoppie; else return stato.invertiCoppie; }
 function zonaLogicaDi(g) { var tuSin = tuASinistra(); if (g.squadra === 'tu') return tuSin ? g.zona : (6 - g.zona); else return tuSin ? (6 - g.zona) : g.zona; }
 function giocatoriInZona(sq, zonaLogica, escludiPortiere) { return stato.giocatori[sq].filter(function(g){ if (escludiPortiere && g.portiere) return false; return zonaLogicaDi(g) === zonaLogica; }); }
 function getCoppiaAttiva(zonaId, meta) { var idx = meta === 'sup' ? 0 : 1; var tu = giocatoriInZona('tu', zonaId, true); var cpu = giocatoriInZona('cpu', zonaId, true); return { tu: tu[idx] || tu[0] || null, cpu: cpu[idx] || cpu[0] || null }; }
@@ -1963,13 +1963,9 @@ function animaPescaCarta(carta, callback) {
 }
 
 /* ============================================================
-   COMBAT — NUOVE REGOLE
-   - possessore gioca per primo, il suo seme diventa il guida
-   - avversario risponde con lo stesso seme (o gioca più alta se non ce l'ha)
-   - vince seme guida; se entrambi hanno/non hanno il seme, vince il valore più alto
-   - pareggio: si rigioca con lo stesso seme
-   - si continua finché la mano non è esaurita
-   - se la mano si esaurisce senza vincitore: si ripesca 1 carta a testa
+   COMBAT — NUOVE REGOLE (possessore per primo, seme guida,
+   avversario risponde, pareggio = stesso seme, mano esaurita
+   = ripesca 1 a testa)
    ============================================================ */
 
 function avviaContrasto() {
@@ -1990,11 +1986,9 @@ function avviaContrasto() {
   if (!gA) { var l2 = giocatoriInZona(dif, zona, false).filter(function(g){ return !g.portiere; }); gA = l2[0]; }
   if (gP) stato.giocatorePalla = gP.id;
 
-  /* Riempi le mani fino a 5 carte (o quel che resta) */
   riempiMano('tu');
   riempiMano('cpu');
 
-  /* Se una delle due mani è vuota e non c'è nulla da pescare: gestione d'emergenza */
   if (stato.mani.tu.length === 0 && stato.mani.cpu.length === 0) {
     log('⚠️ Entrambe le mani sono vuote, salto il contrasto', 'parata');
     stato.mano++;
@@ -2019,7 +2013,6 @@ function avviaContrasto() {
   stato.statistiche[poss].contese++;
   selezioneCarta = null;
 
-  /* Bonus Contrasto Sicuro CPU (gioca automatico) */
   if (poss === 'cpu' && haBonus('cpu', 'contrasto-sicuro') && cpuVuoleUsareContrastoSicuro(zona)) {
     setTimeout(function() {
       consumaBonus('cpu', 'contrasto-sicuro');
@@ -2031,14 +2024,11 @@ function avviaContrasto() {
   renderCampo(); renderHeader();
   renderPannelloContrasto();
 
-  /* Se è la CPU a possedere, fa partire lei: il suo seme è il guida e il TU deve rispondere */
   if (poss === 'cpu') {
     setTimeout(function() { turnoGiocaCPUAttaccante(); }, 600);
   }
-  /* Se è il TU a possedere, mostriamo subito le carte per la scelta */
 }
 
-/* Il TU gioca per primo come attaccante: la sua carta definisce il seme guida */
 function confermaCarta() {
   if (selezioneCarta === null) return;
   var c = stato.contrasto;
@@ -2051,12 +2041,13 @@ function confermaCarta() {
     c.cartaTu = cartaTu;
     rimuoviCartaDaMano('tu', cartaTu);
     log('🃏 TU gioca ' + cartaTu.label + SEMI[cartaTu.seme].emoji + ' → seme guida: ' + SEMI[cartaTu.seme].nome, 'highlight');
-    /* CPU risponde */
-    setTimeout(function() { rispostaCPUAlSeme(); }, 400);
+    setTimeout(function() {
+      nascondiEntrambiBanner();
+      setTimeout(function() { rispostaCPUAlSeme(); }, PAUSA_BANNER);
+    }, PAUSA_BANNER);
     return;
   }
 
-  /* Se il TU è difensore e deve rispondere con il seme guida */
   if (c.fase === 'risposta-difensore' && c.difensore === 'tu') {
     var cartaTuR = stato.mani.tu[selezioneCarta];
     if (!cartaTuR) return;
@@ -2064,7 +2055,10 @@ function confermaCarta() {
     c.cartaTu = cartaTuR;
     rimuoviCartaDaMano('tu', cartaTuR);
     log('🃏 TU risponde ' + cartaTuR.label + SEMI[cartaTuR.seme].emoji);
-    setTimeout(function() { risolviTurnoContrasto(); }, 300);
+    setTimeout(function() {
+      nascondiEntrambiBanner();
+      setTimeout(function() { risolviTurnoContrasto(); }, PAUSA_BANNER);
+    }, PAUSA_BANNER);
     return;
   }
 }
@@ -2077,12 +2071,10 @@ function rimuoviCartaDaMano(sq, carta) {
   }
 }
 
-/* CPU attaccante: sceglie la sua carta più alta come seme guida */
 function turnoGiocaCPUAttaccante() {
   var c = stato.contrasto;
   if (!c || c.risolto) return;
   if (stato.mani.cpu.length === 0) {
-    /* Se la CPU non ha carte come attaccante, ripesca 1 */
     pescaUnaCarta('cpu');
     if (stato.mani.cpu.length === 0) { fineManoSenzaVincitore(); return; }
   }
@@ -2092,15 +2084,16 @@ function turnoGiocaCPUAttaccante() {
   rimuoviCartaDaMano('cpu', cartaCPU);
   log('🃏 CPU gioca ' + cartaCPU.label + SEMI[cartaCPU.seme].emoji + ' → seme guida: ' + SEMI[cartaCPU.seme].nome, 'highlight');
   renderPannelloContrasto();
-  /* Ora tocca al TU rispondere */
   setTimeout(function() {
-    c.fase = 'risposta-difensore';
-    renderPannelloContrasto();
-    setTimeout(function() { mostraCarteOverlay(); }, 200);
-  }, 400);
+    nascondiEntrambiBanner();
+    setTimeout(function() {
+      c.fase = 'risposta-difensore';
+      renderPannelloContrasto();
+      setTimeout(function() { mostraCarteOverlay(); }, PAUSA_BANNER);
+    }, PAUSA_BANNER);
+  }, PAUSA_BANNER);
 }
 
-/* CPU risponde al seme guida del TU (attaccante umano) */
 function rispostaCPUAlSeme() {
   var c = stato.contrasto;
   if (!c || c.risolto) return;
@@ -2109,7 +2102,6 @@ function rispostaCPUAlSeme() {
     pescaUnaCarta('cpu');
     mani = stato.mani.cpu;
     if (mani.length === 0) {
-      /* CPU senza carte: vince il TU */
       log('⚠️ CPU senza carte, TU vince il turno', 'highlight');
       c.cartaCpu = null;
       risolviTurnoContrasto();
@@ -2121,13 +2113,12 @@ function rispostaCPUAlSeme() {
   if (carteSeme.length > 0) {
     cartaCPU = scegliCartaPiuAlta(carteSeme);
   } else {
-    /* Non ha il seme: gioca la più alta */
     cartaCPU = scegliCartaPiuAlta(mani);
   }
   c.cartaCpu = cartaCPU;
   rimuoviCartaDaMano('cpu', cartaCPU);
   log('🃏 CPU risponde ' + cartaCPU.label + SEMI[cartaCPU.seme].emoji);
-  setTimeout(function() { risolviTurnoContrasto(); }, 300);
+  setTimeout(function() { risolviTurnoContrasto(); }, PAUSA_BANNER);
 }
 
 function scegliCartaPiuAlta(carte) {
@@ -2139,7 +2130,6 @@ function scegliCartaPiuAlta(carte) {
   return best;
 }
 
-/* Risolve un singolo turno del contrasto */
 function risolviTurnoContrasto() {
   var c = stato.contrasto;
   if (!c || c.risolto) return;
@@ -2147,20 +2137,23 @@ function risolviTurnoContrasto() {
   var cartaAtt = (c.attaccante === 'tu') ? c.cartaTu : c.cartaCpu;
   var cartaDif = (c.difensore === 'tu') ? c.cartaTu : c.cartaCpu;
   if (!cartaAtt && !cartaDif) { fineManoSenzaVincitore(); return; }
-  if (!cartaAtt) { /* Attaccante senza carta: vince difensore */
+  if (!cartaAtt) {
     c.storico.push({ att: null, dif: cartaDif, esito: 'difensore' });
-    mostraBannerTurno(null, cartaDif, c.semeGuida, 'Attaccante senza carta', 'difensore');
-    setTimeout(function() { concludiContrasto('difensore'); }, 3000);
+    setTimeout(function() {
+      mostraBannerTurno(null, cartaDif, c.semeGuida, 'Attaccante senza carta', 'difensore');
+      setTimeout(function() { nascondiBannerMano(); concludiContrasto('difensore'); }, 3000);
+    }, PAUSA_BANNER);
     return;
   }
-  if (!cartaDif) { /* Difensore senza carta: vince attaccante */
+  if (!cartaDif) {
     c.storico.push({ att: cartaAtt, dif: null, esito: 'attaccante' });
-    mostraBannerTurno(cartaAtt, null, c.semeGuida, 'Difensore senza carta', 'attaccante');
-    setTimeout(function() { concludiContrasto('attaccante'); }, 3000);
+    setTimeout(function() {
+      mostraBannerTurno(cartaAtt, null, c.semeGuida, 'Difensore senza carta', 'attaccante');
+      setTimeout(function() { nascondiBannerMano(); concludiContrasto('attaccante'); }, 3000);
+    }, PAUSA_BANNER);
     return;
   }
 
-  /* Entrambi hanno la carta: confronto */
   var attHaSeme = cartaAtt.seme === c.semeGuida;
   var difHaSeme = cartaDif.seme === c.semeGuida;
   var esito;
@@ -2169,7 +2162,6 @@ function risolviTurnoContrasto() {
   if (attHaSeme && !difHaSeme) { esito = 'attaccante'; motivo = 'Attaccante col seme guida'; }
   else if (!attHaSeme && difHaSeme) { esito = 'difensore'; motivo = 'Difensore col seme guida'; }
   else {
-    /* Entrambi col seme o entrambi senza: vince il valore più alto */
     if (cartaAtt.valore > cartaDif.valore) { esito = 'attaccante'; motivo = 'Attaccante col valore più alto'; }
     else if (cartaDif.valore > cartaAtt.valore) { esito = 'difensore'; motivo = 'Difensore col valore più alto'; }
     else { esito = 'pareggio'; motivo = 'Carte di pari valore'; }
@@ -2178,54 +2170,48 @@ function risolviTurnoContrasto() {
   c.storico.push({ att: cartaAtt, dif: cartaDif, esito: esito });
   log('🎴 ' + cartaAtt.label + SEMI[cartaAtt.seme].emoji + ' vs ' + cartaDif.label + SEMI[cartaDif.seme].emoji + ' → ' + esito);
 
-  /* Mostra il banner della mano */
-  mostraBannerTurno(cartaAtt, cartaDif, c.semeGuida, motivo, esito);
-
   setTimeout(function() {
-    nascondiBannerMano();
+    mostraBannerTurno(cartaAtt, cartaDif, c.semeGuida, motivo, esito);
+    setTimeout(function() {
+      nascondiBannerMano();
 
-    if (esito === 'pareggio') {
-      /* Si rigioca con lo stesso seme */
-      c.cartaTu = null; c.cartaCpu = null;
-      c.turni++;
-      if (stato.mani.tu.length === 0 || stato.mani.cpu.length === 0) {
-        /* Mano esaurita: ripesca 1 a testa */
-        log('🎴 Mano esaurita in pareggio: si ripesca 1 carta a testa (stesso seme)');
-        ripescaPerPareggio();
+      if (esito === 'pareggio') {
+        c.cartaTu = null; c.cartaCpu = null;
+        c.turni++;
+        if (stato.mani.tu.length === 0 || stato.mani.cpu.length === 0) {
+          log('🎴 Mano esaurita in pareggio: si ripesca 1 carta a testa (stesso seme)');
+          ripescaPerPareggio();
+          return;
+        }
+        if (c.attaccante === 'tu') {
+          if (!haSemeInMano('tu', c.semeGuida)) {
+            var auto = scegliCartaPiuAlta(stato.mani.tu);
+            c.cartaTu = auto;
+            rimuoviCartaDaMano('tu', auto);
+            log('⚠️ TU non ha il seme ' + SEMI[c.semeGuida].nome + ': gioca la più alta (' + auto.label + SEMI[auto.seme].emoji + ')', 'parata');
+            setTimeout(function() { rispostaCPUAlSeme(); }, PAUSA_BANNER);
+          } else {
+            selezioneCarta = null;
+            c.fase = 'gioca-attaccante';
+            setTimeout(function() { mostraEntrambiBanner(); renderPannelloContrasto(); }, PAUSA_BANNER);
+          }
+        } else {
+          turnoGiocaCPUAttaccanteRipetizione();
+        }
         return;
       }
-      /* Chi ha il seme guida gioca di nuovo per primo */
-      if (c.attaccante === 'tu') {
-        if (!haSemeInMano('tu', c.semeGuida)) {
-          /* Auto-seleziona la più alta */
-          var auto = scegliCartaPiuAlta(stato.mani.tu);
-          c.cartaTu = auto;
-          rimuoviCartaDaMano('tu', auto);
-          log('⚠️ TU non ha il seme ' + SEMI[c.semeGuida].nome + ': gioca la più alta (' + auto.label + SEMI[auto.seme].emoji + ')', 'parata');
-          setTimeout(function() { rispostaCPUAlSeme(); }, 300);
-        } else {
-          selezioneCarta = null;
-          c.fase = 'gioca-attaccante';
-          setTimeout(function() { mostraEntrambiBanner(); renderPannelloContrasto(); }, 300);
-        }
-      } else {
-        /* CPU attaccante: gioca il seme guida (o la più alta) */
-        turnoGiocaCPUAttaccanteRipetizione();
-      }
-      return;
-    }
 
-    concludiContrasto(esito);
-  }, 3000);
+      concludiContrasto(esito);
+    }, 3000);
+  }, PAUSA_BANNER);
 }
 
-/* Quando in pareggio la CPU è attaccante: deve rigiocare con lo STESSO seme guida */
 function turnoGiocaCPUAttaccanteRipetizione() {
   var c = stato.contrasto;
   if (!c || c.risolto) return;
   if (stato.mani.cpu.length === 0) {
     pescaUnaCarta('cpu');
-    if (stato.mani.cpu.length === 0) { /* Difensore (TU) vince */
+    if (stato.mani.cpu.length === 0) {
       log('⚠️ CPU senza carte, TU vince il turno', 'highlight');
       c.cartaCpu = null;
       risolviTurnoContrasto();
@@ -2244,10 +2230,13 @@ function turnoGiocaCPUAttaccanteRipetizione() {
   log('🃏 CPU rigioca ' + cartaCPU.label + SEMI[cartaCPU.seme].emoji + ' (seme: ' + SEMI[c.semeGuida].nome + ')');
   renderPannelloContrasto();
   setTimeout(function() {
-    c.fase = 'risposta-difensore';
-    renderPannelloContrasto();
-    setTimeout(function() { mostraCarteOverlay(); }, 200);
-  }, 400);
+    nascondiEntrambiBanner();
+    setTimeout(function() {
+      c.fase = 'risposta-difensore';
+      renderPannelloContrasto();
+      setTimeout(function() { mostraCarteOverlay(); }, PAUSA_BANNER);
+    }, PAUSA_BANNER);
+  }, PAUSA_BANNER);
 }
 
 function haSemeInMano(sq, seme) {
@@ -2257,7 +2246,6 @@ function haSemeInMano(sq, seme) {
   return false;
 }
 
-/* Mano esaurita: si ripesca 1 carta a testa (stesso seme guida) */
 function ripescaPerPareggio() {
   var c = stato.contrasto;
   if (!c || c.risolto) return;
@@ -2265,10 +2253,9 @@ function ripescaPerPareggio() {
   pescaUnaCarta('cpu');
 
   if (stato.mani.tu.length === 0 || stato.mani.cpu.length === 0) {
-    /* Ancora vuote: chi non ha carte perde */
     if (stato.mani.tu.length === 0 && stato.mani.cpu.length === 0) {
       log('⚠️ Nessuna carta disponibile per nessuno: il contrasto si chiude con il possessore attuale', 'parata');
-      concludiContrasto(c.attaccante === 'tu' ? 'attaccante' : 'attaccante');
+      concludiContrasto('attaccante');
     } else if (stato.mani.tu.length === 0) {
       log('⚠️ TU senza carte, vince CPU', 'highlight');
       concludiContrasto(c.difensore === 'tu' ? 'attaccante' : 'difensore');
@@ -2281,22 +2268,23 @@ function ripescaPerPareggio() {
 
   log('🎴 Nuove carte pescate (stesso seme: ' + SEMI[c.semeGuida].nome + ')');
 
-  /* Il possessore gioca per primo la nuova carta */
-  if (c.attaccante === 'tu') {
-    if (!haSemeInMano('tu', c.semeGuida)) {
-      var autoT = scegliCartaPiuAlta(stato.mani.tu);
-      c.cartaTu = autoT;
-      rimuoviCartaDaMano('tu', autoT);
-      log('⚠️ TU non ha il seme ' + SEMI[c.semeGuida].nome + ': gioca la più alta (' + autoT.label + SEMI[autoT.seme].emoji + ')', 'parata');
-      setTimeout(function() { rispostaCPUAlSeme(); }, 300);
+  setTimeout(function() {
+    if (c.attaccante === 'tu') {
+      if (!haSemeInMano('tu', c.semeGuida)) {
+        var autoT = scegliCartaPiuAlta(stato.mani.tu);
+        c.cartaTu = autoT;
+        rimuoviCartaDaMano('tu', autoT);
+        log('⚠️ TU non ha il seme ' + SEMI[c.semeGuida].nome + ': gioca la più alta (' + autoT.label + SEMI[autoT.seme].emoji + ')', 'parata');
+        setTimeout(function() { rispostaCPUAlSeme(); }, PAUSA_BANNER);
+      } else {
+        selezioneCarta = null;
+        c.fase = 'gioca-attaccante';
+        setTimeout(function() { mostraEntrambiBanner(); renderPannelloContrasto(); }, PAUSA_BANNER);
+      }
     } else {
-      selezioneCarta = null;
-      c.fase = 'gioca-attaccante';
-      setTimeout(function() { mostraEntrambiBanner(); renderPannelloContrasto(); }, 300);
+      turnoGiocaCPUAttaccanteRipetizione();
     }
-  } else {
-    turnoGiocaCPUAttaccanteRipetizione();
-  }
+  }, PAUSA_BANNER);
 }
 
 function concludiContrasto(esito) {
@@ -2304,17 +2292,13 @@ function concludiContrasto(esito) {
   if (!c || c.risolto) return;
   c.risolto = true;
   c.vincitore = (esito === 'attaccante') ? c.attaccante : c.difensore;
-  if (esito === 'pareggio') {
-    /* fallback: non dovrebbe succedere qui, ma nel dubbio l'attaccante mantiene */
-    c.vincitore = c.attaccante;
-  }
+  if (esito === 'pareggio') c.vincitore = c.attaccante;
   risolviContrastoLogica(c.vincitore, c, null);
 }
 
 function fineManoSenzaVincitore() {
   var c = stato.contrasto;
   if (!c || c.risolto) return;
-  /* Caso limite: entrambe le mani vuote. Ripeschiamo 1 a testa, se possibile */
   pescaUnaCarta('tu');
   pescaUnaCarta('cpu');
   if (stato.mani.tu.length === 0 && stato.mani.cpu.length === 0) {
@@ -2327,7 +2311,6 @@ function fineManoSenzaVincitore() {
   ripescaPerPareggio();
 }
 
-/* Mostra il banner con il risultato del singolo turno */
 function mostraBannerTurno(cartaAtt, cartaDif, semeGuida, motivo, esito) {
   var b = document.getElementById('banner-mano');
   b.classList.remove('tu', 'cpu', 'attivo'); void b.offsetWidth;
@@ -2338,7 +2321,7 @@ function mostraBannerTurno(cartaAtt, cartaDif, semeGuida, motivo, esito) {
   var testoVincitore;
   if (esito === 'pareggio') testoVincitore = '🤝 PAREGGIO!';
   else if (esito === 'attaccante') testoVincitore = (stato.contrasto.attaccante === 'tu') ? '🏆 TU VINCI IL TURNO!' : '🏆 CPU VINCE IL TURNO!';
-  else testoVincitore = (stato.contrasto.difensore === 'tu') ? '🏆 TU RUBI PALLA!' : '🏆 CPU RUB A PALLA!';
+  else testoVincitore = (stato.contrasto.difensore === 'tu') ? '🏆 TU RUBI PALLA!' : '🏆 CPU RUBA PALLA!';
   document.getElementById('banner-vincitore').textContent = testoVincitore;
 
   var eCasa = document.getElementById('banner-carta-casa'); eCasa.innerHTML = '';
@@ -2409,7 +2392,6 @@ function renderPannelloContrasto() {
   }
   document.getElementById('carte-overlay-titolo').textContent = faseLabel;
 
-  /* Carte TU ordinate */
   var carteOrdinate = stato.mani.tu.map(function(carta, idxOrig) {
     return { carta: carta, idxOrig: idxOrig };
   }).sort(function(a, b) {
@@ -2438,7 +2420,6 @@ function renderPannelloContrasto() {
     })(carteOrdinate[i]);
   }
 
-  /* Avviso se il TU non ha il seme e deve auto-giocare */
   var avvisoNoSeme = '';
   if (tuDeveRispondereAlSeme && c.semeGuida && !haSemeInMano('tu', c.semeGuida)) {
     avvisoNoSeme = '<div style="background:#8B2020;color:#fff;padding:14px;border-radius:10px;font-weight:bold;font-size:18px;text-align:center">⚠️ Non hai il seme ' + SEMI[c.semeGuida].emoji + ' ' + SEMI[c.semeGuida].nome + ' → giochi automaticamente la tua carta più alta</div>';
@@ -2462,7 +2443,6 @@ function renderPannelloContrasto() {
   var contAz = document.getElementById('azioni-container');
   contAz.innerHTML = avvisoNoSeme + azioni;
 
-  /* Se il TU non ha il seme e deve rispondere: auto-gioca dopo 1.2s */
   if (tuDeveRispondereAlSeme && c.semeGuida && !haSemeInMano('tu', c.semeGuida) && !c.risolto && !c._autoGiocato) {
     c._autoGiocato = true;
     setTimeout(function() {
@@ -2472,7 +2452,10 @@ function renderPannelloContrasto() {
       c.cartaTu = auto;
       rimuoviCartaDaMano('tu', auto);
       log('⚠️ TU non ha il seme: gioca ' + auto.label + SEMI[auto.seme].emoji + ' (auto)', 'parata');
-      setTimeout(function() { risolviTurnoContrasto(); }, 400);
+      setTimeout(function() {
+        nascondiEntrambiBanner();
+        setTimeout(function() { risolviTurnoContrasto(); }, PAUSA_BANNER);
+      }, PAUSA_BANNER);
     }, 1200);
   }
 
@@ -2538,10 +2521,6 @@ function mostraBannerMano(v, cT, cC, seme, motivo) {
 }
 function nascondiBannerMano() { document.getElementById('banner-mano').classList.remove('attivo'); }
 
-/* ============================================================
-   RISOLUZIONE CONTRASTO (identica alla versione precedente:
-   avanzamento, tackle, tiro, bonus, ecc.)
-   ============================================================ */
 function risolviContrastoLogica(vincente, c, motivoFallo) {
   if (vincente === 'tu') { stato.streak.tu++; stato.streak.cpu = 0; if (stato.streak.tu >= STREAK_PER_BONUS) { stato.streak.tu = 0; assegnaBonus('tu'); } }
   else { stato.streak.cpu++; stato.streak.tu = 0; if (stato.streak.cpu >= STREAK_PER_BONUS) { stato.streak.cpu = 0; assegnaBonus('cpu'); } }
@@ -2604,7 +2583,7 @@ function risolviContrastoLogica(vincente, c, motivoFallo) {
         if (!gVincitore) {
           stato.possessore = vincente; stato.giocatorePalla = sc.id;
           setTimeout(function() {
-            bloccaCoppiaContrasto(); salvaPartita();
+            salvaPartita();
             setTimeout(function() { mostraEntrambiBanner(); setTimeout(avviaContrasto, 300); }, 1500);
           }, 500);
           return;
@@ -2613,7 +2592,7 @@ function risolviContrastoLogica(vincente, c, motivoFallo) {
           if (stato.partitaFinita) return;
           stato.possessore = vincente; stato.giocatorePalla = sc.id;
           setTimeout(function() {
-            bloccaCoppiaContrasto(); salvaPartita();
+            salvaPartita();
             setTimeout(function() { mostraEntrambiBanner(); setTimeout(avviaContrasto, 300); }, 1500);
           }, 500);
         });
@@ -3371,7 +3350,6 @@ function confermaSostituzione() {
   renderCampo(); renderModaleSostituzioni();
   salvaPartita();
 }
-function bloccaCoppiaContrasto() {}
 
 window.addEventListener('beforeunload', function(e) {
   if (!stato.partitaFinita && stato.giocatori && stato.giocatori.tu && stato.giocatori.tu.length > 0) {

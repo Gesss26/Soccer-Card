@@ -174,7 +174,21 @@
   .tiro-casella { border: 1px solid rgba(255,215,0,0.35); display: flex; align-items: center; justify-content: center; position: relative; }
   .tiro-casella .numero-casella { position: absolute; top: 4px; left: 6px; font-size: 16px; color: rgba(255,215,0,0.7); font-weight: bold; }
   .tiro-casella.colpita { background: rgba(255,215,0,0.4); border-color: #ffd700; }
-  .tiro-settori-overlay { position: absolute; left: var(--porta-left); top: var(--porta-top); width: var(--porta-width); height: var(--porta-height); display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; pointer-events: none; z-index: 6; opacity: 0; transition: opacity 0.3s; }
+  .tiro-settori-overlay {
+  position: absolute;
+  left: var(--porta-left);
+  top: var(--porta-top);
+  width: var(--porta-width);
+  height: var(--porta-height);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0;
+  pointer-events: none;
+  z-index: 6;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
   .tiro-settori-overlay.attivo { opacity: 1; }
   .tiro-settore { background: rgba(77,171,247,0.15); border: 2px solid rgba(77,171,247,0.5); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 900; color: rgba(255,255,255,0.5); transition: all 0.3s; }
   .tiro-settore.evidenziato { background: rgba(255,215,0,0.55); border-color: #ffd700; color: #16213e; box-shadow: 0 0 20px rgba(255,215,0,0.9), inset 0 0 10px rgba(255,255,255,0.5); }

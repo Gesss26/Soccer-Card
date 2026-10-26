@@ -861,7 +861,7 @@ function creaGiocatori(sq) {
   var g = []; var id = 0;
   var sqId = sq === 'tu' ? stato.squadraTU : stato.squadraCPU;
   var rosa = ROSE[sqId]; if (!rosa) return g;
-  function z(zonaLogica) { return sq === 'tu' ? zonaLogica : (6 - zonaLogica); }
+  function z(zonaLogica) { return zonaLogica; }
   g.push({ id:sq+'_'+(id++), squadra:sq, zona:z(0), ruolo:'POR', portiere:true, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, nome: rosa.portiere[0] });
   for (var i=0;i<2;i++) g.push({ id:sq+'_'+(id++), squadra:sq, zona:z(1), ruolo:'DIF', portiere:false, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, nome: rosa.difensori[i] || ('DIF'+(i+1)) });
   var cen = rosa.centrocampisti;

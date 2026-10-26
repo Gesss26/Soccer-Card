@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-26T14:43:32.861Z",
+  "data": "2026-10-26T14:44:34.121Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -2964,7 +2964,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793025808856,
+    "timestamp": 1793025870118,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "inter",
@@ -2985,15 +2985,15 @@
       }
     },
     "tempo": 2,
-    "mano": 9,
+    "mano": 13,
     "maxMani": 23,
     "punteggio": {
       "tu": 1,
       "cpu": 2
     },
-    "zonaPalla": 4,
+    "zonaPalla": 1,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_3",
+    "giocatorePalla": "cpu_9",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3104,18 +3104,6 @@
           "seme": "bandierina",
           "valore": 11,
           "label": "J"
-        },
-        {
-          "id": "c4",
-          "seme": "palla",
-          "valore": 10,
-          "label": "10"
-        },
-        {
-          "id": "c8",
-          "seme": "palla",
-          "valore": 6,
-          "label": "6"
         }
       ],
       "cpu": [
@@ -3220,18 +3208,6 @@
           "seme": "palla",
           "valore": 6,
           "label": "6"
-        },
-        {
-          "id": "c20",
-          "seme": "coppa",
-          "valore": 7,
-          "label": "7"
-        },
-        {
-          "id": "c27",
-          "seme": "guantone",
-          "valore": 13,
-          "label": "K"
         }
       ]
     },
@@ -3398,6 +3374,30 @@
           "seme": "coppa",
           "valore": 10,
           "label": "10"
+        },
+        {
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c49",
+          "seme": "bandierina",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c20",
+          "seme": "coppa",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c8",
+          "seme": "palla",
+          "valore": 6,
+          "label": "6"
         }
       ],
       "cpu": [
@@ -3574,6 +3574,24 @@
           "seme": "guantone",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c27",
+          "seme": "guantone",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c20",
+          "seme": "coppa",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c25",
+          "seme": "coppa",
+          "valore": 2,
+          "label": "2"
         }
       ]
     },
@@ -3586,18 +3604,10 @@
       "passaggio-lungo",
       "passaggio-lungo",
       "gol-super",
-      "gol-super",
-      "parata-super",
-      "contrasto-sicuro"
+      "gol-super"
     ],
     "mani": {
       "tu": [
-        {
-          "id": "c49",
-          "seme": "bandierina",
-          "valore": 4,
-          "label": "4"
-        },
         {
           "id": "c34",
           "seme": "guantone",
@@ -3605,31 +3615,19 @@
           "label": "6"
         },
         {
-          "id": "c50",
-          "seme": "bandierina",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c20",
-          "seme": "coppa",
-          "valore": 7,
-          "label": "7"
-        },
-        {
           "id": "c43",
           "seme": "bandierina",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c4",
+          "seme": "palla",
           "valore": 10,
           "label": "10"
         }
       ],
       "cpu": [
-        {
-          "id": "c25",
-          "seme": "coppa",
-          "valore": 2,
-          "label": "2"
-        },
         {
           "id": "c51",
           "seme": "bandierina",
@@ -3671,7 +3669,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 19,
+          "stamina": 18,
           "staminaMax": 20,
           "falli": 0,
           "ammonito": false,
@@ -3710,7 +3708,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 20,
+          "stamina": 19,
           "staminaMax": 20,
           "falli": 0,
           "ammonito": false,
@@ -3723,9 +3721,9 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 18,
+          "stamina": 17,
           "staminaMax": 20,
-          "falli": 0,
+          "falli": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Douglas Luiz"
@@ -3749,9 +3747,9 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 19,
+          "stamina": 18,
           "staminaMax": 20,
-          "falli": 0,
+          "falli": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Conceiçao"
@@ -3842,7 +3840,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 19,
+          "stamina": 18,
           "staminaMax": 20,
           "falli": 0,
           "ammonito": false,
@@ -3868,7 +3866,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 18,
+          "stamina": 17,
           "staminaMax": 20,
           "falli": 0,
           "ammonito": false,
@@ -3907,7 +3905,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 20,
+          "stamina": 19,
           "staminaMax": 20,
           "falli": 0,
           "ammonito": false,
@@ -3920,7 +3918,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 19,
+          "stamina": 18,
           "staminaMax": 20,
           "falli": 0,
           "ammonito": false,
@@ -4138,12 +4136,13 @@
     "bonus": {
       "tu": [],
       "cpu": [
-        "tiro-fuori-area"
+        "tiro-fuori-area",
+        "parata-super"
       ]
     },
     "streak": {
       "tu": 0,
-      "cpu": 1
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
@@ -4154,7 +4153,7 @@
         "pali": 0,
         "contese": 13,
         "vinte": 11,
-        "falli": 2,
+        "falli": 4,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4166,13 +4165,13 @@
         "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 16,
-        "vinte": 16,
+        "contese": 19,
+        "vinte": 20,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 3
+        "bonusGuadagnati": 5
       }
     },
     "logCompleto": [
@@ -4555,8 +4554,60 @@
       {
         "msg": "🃏 CPU gioca 8🧤 → seme guida: Guantone",
         "classe": "highlight"
+      },
+      {
+        "msg": "🃏 TU risponde 3🚩 ⚠️ FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎴 8🧤 vs 3🚩 → attaccante (FALLO DIF)",
+        "classe": ""
+      },
+      {
+        "msg": "🟨 Fallo di Conceiçao (1)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🃏 CPU gioca K🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🃏 TU risponde 4🚩 ⚠️ FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎴 K🧤 vs 4🚩 → attaccante (FALLO DIF)",
+        "classe": ""
+      },
+      {
+        "msg": "🟨 Fallo di Douglas Luiz (1)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🃏 CPU gioca 7🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🃏 TU risponde 7🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎴 7🏆 vs 7🏆 → pareggio",
+        "classe": ""
+      },
+      {
+        "msg": "🃏 CPU rigioca 2🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🃏 TU risponde 6⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎴 2🏆 vs 6⚽ → attaccante",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 1170
+    "secondiTrascorsi": 1231
   }
 }

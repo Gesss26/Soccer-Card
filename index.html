@@ -154,6 +154,10 @@
   button.bonus-btn { background: linear-gradient(135deg, #ffd700, #f59f00); color: #16213e; border-color: #fff; box-shadow: 0 0 14px rgba(255,215,0,0.6); animation: pulseBonus 1.5s infinite; }
   @keyframes pulseBonus { 0%, 100% { box-shadow: 0 0 14px rgba(255,215,0,0.6); } 50% { box-shadow: 0 0 24px rgba(255,215,0,1); } }
   .carte-overlay-azioni button { padding: 20px 48px; font-size: 24px; border-radius: 14px; }
+  
+  /* ============================================================
+     CSS CORRETTO PER PORTA, GRIGLIA E SETTORI
+     ============================================================ */
   .tiro-overlay { position: fixed; inset: 0; background: linear-gradient(180deg, #0a1a2e 0%, #0a0a15 100%); z-index: 700; display: flex; flex-direction: column; padding: 12px; opacity: 0; transition: opacity 0.4s ease; overflow: hidden; }
   .tiro-overlay.attiva { opacity: 1; }
   .tiro-titolo { color: #ffd700; font-size: 28px; font-weight: 900; letter-spacing: 3px; text-align: center; margin-bottom: 6px; flex-shrink: 0; }
@@ -168,31 +172,18 @@
   .tiro-dado-label { font-size: 16px; color: #aaa; text-transform: uppercase; min-width: 140px; text-align: right; font-weight: bold; }
   .tiro-bonus-container { display: flex; flex-direction: column; gap: 8px; justify-content: center; align-items: stretch; margin-top: auto; }
   .tiro-col-dx { flex: 1; display: flex; align-items: center; justify-content: center; min-width: 0; }
-  .tiro-porta-wrapper { position: relative; width: 100%; max-height: 100%; aspect-ratio: 3 / 2; margin: 0 auto; --porta-left: 21%; --porta-top: 34%; --porta-width: 58%; --porta-height: 48%; }
+  .tiro-porta-wrapper { position: relative; width: 100%; max-height: 100%; aspect-ratio: 3 / 2; margin: 0 auto; --porta-left: 21.5%; --porta-top: 35%; --porta-width: 57%; --porta-height: 46%; }
   .tiro-porta-sfondo { position: absolute; inset: 0; width: 100%; height: 100%; background: url('Porta.png') center/cover no-repeat; border-radius: 12px; }
-  .tiro-griglia { position: absolute; left: var(--porta-left); top: var(--porta-top); width: var(--porta-width); height: var(--porta-height); display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; gap: 1px; pointer-events: none; z-index: 5; }
-  .tiro-casella { border: 1px solid rgba(255,215,0,0.35); display: flex; align-items: center; justify-content: center; position: relative; }
+  .tiro-griglia { position: absolute; left: var(--porta-left); top: var(--porta-top); width: var(--porta-width); height: var(--porta-height); display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; gap: 0; pointer-events: none; z-index: 5; }
+  .tiro-casella { border: 1px solid rgba(255,215,0,0.25); display: flex; align-items: center; justify-content: center; position: relative; box-sizing: border-box; }
   .tiro-casella .numero-casella { position: absolute; top: 4px; left: 6px; font-size: 16px; color: rgba(255,215,0,0.7); font-weight: bold; }
   .tiro-casella.colpita { background: rgba(255,215,0,0.4); border-color: #ffd700; }
-  .tiro-settori-overlay {
-  position: absolute;
-  left: var(--porta-left);
-  top: var(--porta-top);
-  width: var(--porta-width);
-  height: var(--porta-height);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0;
-  pointer-events: none;
-  z-index: 6;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
+  .tiro-settori-overlay { position: absolute; left: var(--porta-left); top: var(--porta-top); width: var(--porta-width); height: var(--porta-height); display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; gap: 0; pointer-events: none; z-index: 6; opacity: 0; transition: opacity 0.3s; }
   .tiro-settori-overlay.attivo { opacity: 1; }
-  .tiro-settore { background: rgba(77,171,247,0.15); border: 2px solid rgba(77,171,247,0.5); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 900; color: rgba(255,255,255,0.5); transition: all 0.3s; }
+  .tiro-settore { background: rgba(77,171,247,0.15); border: 2px solid rgba(77,171,247,0.5); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 900; color: rgba(255,255,255,0.5); transition: all 0.3s; box-sizing: border-box; }
   .tiro-settore.evidenziato { background: rgba(255,215,0,0.55); border-color: #ffd700; color: #16213e; box-shadow: 0 0 20px rgba(255,215,0,0.9), inset 0 0 10px rgba(255,255,255,0.5); }
   .tiro-settore.scartato { background: rgba(0,0,0,0.5); border-color: rgba(100,100,100,0.5); color: rgba(100,100,100,0.5); }
+  
   .tiro-portiere { position: absolute; width: calc(var(--porta-width) / 3); height: calc(var(--porta-height) * 2 / 3); left: calc(var(--porta-left) + var(--porta-width) / 2 - var(--porta-width) / 6); top: calc(var(--porta-top) + var(--porta-height) - var(--porta-height) * 2 / 3); transition: left 0.55s cubic-bezier(0.34,1.2,0.64,1), top 0.55s cubic-bezier(0.34,1.2,0.64,1); z-index: 10; pointer-events: none; }
   .tiro-portiere svg { width: 100%; height: 100%; display: block; overflow: visible; }
   .tiro-portiere .pg-corpo { transition: transform 0.55s cubic-bezier(0.34,1.2,0.64,1); }
@@ -210,6 +201,8 @@
   .tiro-palla.rigore { left: 50%; bottom: 10%; top: auto; width: 60px; height: 60px; }
   .tiro-esito { font-size: 64px; font-weight: 900; color: #ffd700; text-align: center; letter-spacing: 4px; min-height: 80px; margin-top: 6px; flex-shrink: 0; }
   .tiro-esito.goal { color: #4ade80; } .tiro-esito.parata { color: #ef4444; } .tiro-esito.palo { color: #f59f00; } .tiro-esito.angolo { color: #4dabf7; } .tiro-esito.fuori { color: #666; }
+  
+  /* Resto del CSS invariato */
   .bonus-choice-overlay { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 750; }
   .bonus-choice-overlay.attivo { display: flex; }
   .bonus-choice-overlay::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); }
@@ -390,7 +383,6 @@
 </div>
 
 <div class="modale" id="modale"><div class="modale-box" id="modale-box"></div></div>
-
 <script src="divise.js"></script>
 <script src="ammonizioni.js"></script>
 <script>
@@ -419,7 +411,7 @@ var DURATA_BANNER_VINCITORE = 3000;
 var ZONE_PORTIERE_4 = { 1: [1,2,4,5], 2: [2,3,5,6], 3: [4,5,7,8], 4: [5,6,8,9] };
 var CENTRI_ZONE_4 = { 1:{x:33.3,y:33.3}, 2:{x:66.6,y:33.3}, 3:{x:33.3,y:66.6}, 4:{x:66.6,y:66.6} };
 var COPPIE_11 = { 1:[1,2],2:[1,4],3:[2,3],4:[2,5],5:[3,6],6:[4,5],7:[4,7],8:[5,6],9:[5,8],10:[7,8],11:[8,9] };
-var PORTA_LEFT = 21, PORTA_TOP = 34, PORTA_W = 58, PORTA_H = 48;
+var PORTA_LEFT = 21.5, PORTA_TOP = 35, PORTA_W = 57, PORTA_H = 46;
 var CASELLE_PERC = { 1:{x:16.6,y:16.6},2:{x:50,y:16.6},3:{x:83.3,y:16.6},4:{x:16.6,y:50},5:{x:50,y:50},6:{x:83.3,y:50},7:{x:16.6,y:83.3},8:{x:50,y:83.3},9:{x:83.3,y:83.3} };
 var NOMI_BONUS = {
   'contrasto-sicuro':{nome:'Contrasto Sicuro',icona:'⭐'},
@@ -1778,9 +1770,24 @@ function orientaPortiereVerso(c) {
 function mostraSettoriPortiere(dadoPortiere) {
   var ov = document.getElementById('tiro-settori-overlay'); if (!ov) return;
   ov.innerHTML = ''; ov.classList.add('attivo');
+  
+  // Posizionamento esplicito dei 4 settori nella griglia 3x3
+  var mappaSettori = {
+    1: { col: '1 / 3', row: '1 / 3' }, // Alto-Sx (copre 1,2,4,5)
+    2: { col: '2 / 4', row: '1 / 3' }, // Alto-Dx (copre 2,3,5,6)
+    3: { col: '1 / 3', row: '2 / 4' }, // Basso-Sx (copre 4,5,7,8)
+    4: { col: '2 / 4', row: '2 / 4' }  // Basso-Dx (copre 5,6,8,9)
+  };
+
   for (var i = 1; i <= 4; i++) {
-    var s = document.createElement('div'); s.className = 'tiro-settore'; s.textContent = i;
-    if (i === dadoPortiere) s.classList.add('evidenziato'); else s.classList.add('scartato');
+    var s = document.createElement('div');
+    s.className = 'tiro-settore';
+    s.textContent = i;
+    s.style.gridColumn = mappaSettori[i].col;
+    s.style.gridRow = mappaSettori[i].row;
+    
+    if (i === dadoPortiere) s.classList.add('evidenziato');
+    else s.classList.add('scartato');
     ov.appendChild(s);
   }
 }

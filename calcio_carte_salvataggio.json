@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-26T18:01:39.498Z",
+  "data": "2026-10-26T18:02:43.294Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -2964,7 +2964,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793037695496,
+    "timestamp": 1793037759291,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "inter",
@@ -2985,7 +2985,7 @@
       }
     },
     "tempo": 1,
-    "mano": 14,
+    "mano": 20,
     "maxMani": 23,
     "punteggio": {
       "tu": 1,
@@ -2993,8 +2993,8 @@
     },
     "zonaPalla": 1,
     "possessore": "tu",
-    "giocatorePalla": "tu_9",
-    "metaContesa": "sup",
+    "giocatorePalla": "tu_10",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -3182,30 +3182,6 @@
           "seme": "palla",
           "valore": 8,
           "label": "8"
-        },
-        {
-          "id": "c21",
-          "seme": "coppa",
-          "valore": 6,
-          "label": "6"
-        },
-        {
-          "id": "c15",
-          "seme": "coppa",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
-          "id": "c37",
-          "seme": "guantone",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c27",
-          "seme": "guantone",
-          "valore": 13,
-          "label": "K"
         }
       ],
       "cpu": [
@@ -3394,30 +3370,6 @@
           "seme": "bandierina",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c47",
-          "seme": "bandierina",
-          "valore": 6,
-          "label": "6"
-        },
-        {
-          "id": "c0",
-          "seme": "palla",
-          "valore": 14,
-          "label": "A"
-        },
-        {
-          "id": "c49",
-          "seme": "bandierina",
-          "valore": 4,
-          "label": "4"
-        },
-        {
-          "id": "c35",
-          "seme": "guantone",
-          "valore": 5,
-          "label": "5"
         }
       ]
     },
@@ -3494,6 +3446,36 @@
           "seme": "coppa",
           "valore": 13,
           "label": "K"
+        },
+        {
+          "id": "c36",
+          "seme": "guantone",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c45",
+          "seme": "bandierina",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c27",
+          "seme": "guantone",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c15",
+          "seme": "coppa",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c21",
+          "seme": "coppa",
+          "valore": 6,
+          "label": "6"
         }
       ],
       "cpu": [
@@ -3568,6 +3550,36 @@
           "seme": "coppa",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c28",
+          "seme": "guantone",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c48",
+          "seme": "bandierina",
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c35",
+          "seme": "guantone",
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c25",
+          "seme": "coppa",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c0",
+          "seme": "palla",
+          "valore": 14,
+          "label": "A"
         }
       ]
     },
@@ -3582,17 +3594,10 @@
       "parata-super",
       "passaggio-lungo",
       "parata-super",
-      "tiro-fuori-area",
-      "gol-super"
+      "tiro-fuori-area"
     ],
     "mani": {
       "tu": [
-        {
-          "id": "c36",
-          "seme": "guantone",
-          "valore": 4,
-          "label": "4"
-        },
         {
           "id": "c7",
           "seme": "palla",
@@ -3606,25 +3611,19 @@
           "label": "8"
         },
         {
-          "id": "c45",
-          "seme": "bandierina",
-          "valore": 8,
-          "label": "8"
-        },
-        {
           "id": "c23",
           "seme": "coppa",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
-        {
-          "id": "c48",
-          "seme": "bandierina",
-          "valore": 5,
-          "label": "5"
-        },
         {
           "id": "c38",
           "seme": "guantone",
@@ -3638,16 +3637,16 @@
           "label": "3"
         },
         {
-          "id": "c25",
-          "seme": "coppa",
-          "valore": 2,
-          "label": "2"
+          "id": "c49",
+          "seme": "bandierina",
+          "valore": 4,
+          "label": "4"
         },
         {
-          "id": "c28",
-          "seme": "guantone",
-          "valore": 12,
-          "label": "Q"
+          "id": "c47",
+          "seme": "bandierina",
+          "valore": 6,
+          "label": "6"
         }
       ]
     },
@@ -3672,7 +3671,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3698,7 +3697,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3737,7 +3736,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3763,7 +3762,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3856,7 +3855,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3882,7 +3881,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3895,7 +3894,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3921,7 +3920,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -4137,7 +4136,9 @@
     "invertiCoppie": false,
     "tuECasa": false,
     "bonus": {
-      "tu": [],
+      "tu": [
+        "gol-super"
+      ],
       "cpu": [
         "tiro-fuori-area"
       ]
@@ -4153,13 +4154,13 @@
         "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 7,
-        "vinte": 8,
+        "contese": 10,
+        "vinte": 12,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 2,
+        "bonusGuadagnati": 3,
         "marcatori": [
           {
             "nome": "Woltemade",
@@ -4173,8 +4174,8 @@
         "parate": 2,
         "angoli": 0,
         "pali": 1,
-        "contese": 5,
-        "vinte": 4,
+        "contese": 7,
+        "vinte": 5,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4347,8 +4348,72 @@
       {
         "msg": "🥅 TIRO IN PORTA!",
         "classe": "highlight"
+      },
+      {
+        "msg": "⚽ GOAL di Woltemade al 26'!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🃏 CPU gioca Q🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🃏 TU risponde 4🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎴 Q🧤 vs 4🧤 → attaccante",
+        "classe": ""
+      },
+      {
+        "msg": "🃏 CPU gioca 5🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🃏 TU risponde 8🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎴 5🚩 vs 8🚩 → difensore",
+        "classe": ""
+      },
+      {
+        "msg": "🃏 TU gioca K🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🃏 CPU risponde 5🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎴 K🧤 vs 5🧤 → attaccante",
+        "classe": ""
+      },
+      {
+        "msg": "🃏 TU gioca Q🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🃏 CPU risponde 2🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎴 Q🏆 vs 2🏆 → attaccante",
+        "classe": ""
+      },
+      {
+        "msg": "🃏 TU gioca 6🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🃏 CPU risponde A⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎴 6🏆 vs A⚽ → attaccante",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 255
+    "secondiTrascorsi": 318
   }
 }

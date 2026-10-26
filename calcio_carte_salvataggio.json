@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-26T18:02:43.294Z",
+  "data": "2026-10-26T18:03:54.299Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -2964,7 +2964,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793037759291,
+    "timestamp": 1793037830293,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "inter",
@@ -2985,16 +2985,16 @@
       }
     },
     "tempo": 1,
-    "mano": 20,
+    "mano": 22,
     "maxMani": 23,
     "punteggio": {
-      "tu": 1,
+      "tu": 2,
       "cpu": 0
     },
-    "zonaPalla": 1,
-    "possessore": "tu",
-    "giocatorePalla": "tu_10",
-    "metaContesa": "inf",
+    "zonaPalla": 4,
+    "possessore": "cpu",
+    "giocatorePalla": "cpu_7",
+    "metaContesa": "sup",
     "mazzi": {
       "tu": [
         {
@@ -3170,18 +3170,6 @@
           "seme": "guantone",
           "valore": 12,
           "label": "Q"
-        },
-        {
-          "id": "c22",
-          "seme": "coppa",
-          "valore": 5,
-          "label": "5"
-        },
-        {
-          "id": "c6",
-          "seme": "palla",
-          "valore": 8,
-          "label": "8"
         }
       ],
       "cpu": [
@@ -3358,18 +3346,6 @@
           "seme": "palla",
           "valore": 4,
           "label": "4"
-        },
-        {
-          "id": "c51",
-          "seme": "bandierina",
-          "valore": 2,
-          "label": "2"
-        },
-        {
-          "id": "c50",
-          "seme": "bandierina",
-          "valore": 3,
-          "label": "3"
         }
       ]
     },
@@ -3476,6 +3452,12 @@
           "seme": "coppa",
           "valore": 6,
           "label": "6"
+        },
+        {
+          "id": "c6",
+          "seme": "palla",
+          "valore": 8,
+          "label": "8"
         }
       ],
       "cpu": [
@@ -3580,6 +3562,18 @@
           "seme": "palla",
           "valore": 14,
           "label": "A"
+        },
+        {
+          "id": "c47",
+          "seme": "bandierina",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c49",
+          "seme": "bandierina",
+          "valore": 4,
+          "label": "4"
         }
       ]
     },
@@ -3621,6 +3615,12 @@
           "seme": "guantone",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c22",
+          "seme": "coppa",
+          "valore": 5,
+          "label": "5"
         }
       ],
       "cpu": [
@@ -3637,16 +3637,16 @@
           "label": "3"
         },
         {
-          "id": "c49",
+          "id": "c50",
           "seme": "bandierina",
-          "valore": 4,
-          "label": "4"
+          "valore": 3,
+          "label": "3"
         },
         {
-          "id": "c47",
+          "id": "c51",
           "seme": "bandierina",
-          "valore": 6,
-          "label": "6"
+          "valore": 2,
+          "label": "2"
         }
       ]
     },
@@ -3788,7 +3788,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3829,7 +3829,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -4136,26 +4136,24 @@
     "invertiCoppie": false,
     "tuECasa": false,
     "bonus": {
-      "tu": [
-        "gol-super"
-      ],
+      "tu": [],
       "cpu": [
         "tiro-fuori-area"
       ]
     },
     "streak": {
-      "tu": 1,
+      "tu": 2,
       "cpu": 0
     },
     "statistiche": {
       "tu": {
-        "gol": 1,
-        "tiri": 3,
+        "gol": 2,
+        "tiri": 4,
         "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 10,
-        "vinte": 12,
+        "contese": 11,
+        "vinte": 13,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4165,6 +4163,10 @@
           {
             "nome": "Woltemade",
             "minuto": 26
+          },
+          {
+            "nome": "Kolo Muani",
+            "minuto": 40
           }
         ]
       },
@@ -4174,7 +4176,7 @@
         "parate": 2,
         "angoli": 0,
         "pali": 1,
-        "contese": 7,
+        "contese": 8,
         "vinte": 5,
         "falli": 0,
         "ammonizioni": 0,
@@ -4412,8 +4414,32 @@
       {
         "msg": "🎴 6🏆 vs A⚽ → attaccante",
         "classe": ""
+      },
+      {
+        "msg": "🃏 TU gioca 8⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🃏 CPU risponde 6🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎴 8⚽ vs 6🚩 → attaccante",
+        "classe": ""
+      },
+      {
+        "msg": "🥅 TIRO IN PORTA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ GOAL di Kolo Muani al 40'!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🃏 CPU gioca 4🚩 → seme guida: Bandierina",
+        "classe": "highlight"
       }
     ],
-    "secondiTrascorsi": 318
+    "secondiTrascorsi": 390
   }
 }

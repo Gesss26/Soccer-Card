@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-26T17:59:30.153Z",
+  "data": "2026-10-26T18:00:39.302Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -2964,7 +2964,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793037566149,
+    "timestamp": 1793037635300,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "inter",
@@ -2985,7 +2985,7 @@
       }
     },
     "tempo": 1,
-    "mano": 9,
+    "mano": 12,
     "maxMani": 23,
     "punteggio": {
       "tu": 0,
@@ -2993,8 +2993,8 @@
     },
     "zonaPalla": 2,
     "possessore": "tu",
-    "giocatorePalla": "tu_7",
-    "metaContesa": "sup",
+    "giocatorePalla": "tu_8",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -3212,36 +3212,6 @@
           "seme": "coppa",
           "valore": 4,
           "label": "4"
-        },
-        {
-          "id": "c45",
-          "seme": "bandierina",
-          "valore": 8,
-          "label": "8"
-        },
-        {
-          "id": "c14",
-          "seme": "coppa",
-          "valore": 13,
-          "label": "K"
-        },
-        {
-          "id": "c1",
-          "seme": "palla",
-          "valore": 13,
-          "label": "K"
-        },
-        {
-          "id": "c18",
-          "seme": "coppa",
-          "valore": 9,
-          "label": "9"
-        },
-        {
-          "id": "c32",
-          "seme": "guantone",
-          "valore": 8,
-          "label": "8"
         }
       ],
       "cpu": [
@@ -3460,36 +3430,6 @@
           "seme": "guantone",
           "valore": 12,
           "label": "Q"
-        },
-        {
-          "id": "c25",
-          "seme": "coppa",
-          "valore": 2,
-          "label": "2"
-        },
-        {
-          "id": "c37",
-          "seme": "guantone",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c41",
-          "seme": "bandierina",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
-          "id": "c38",
-          "seme": "guantone",
-          "valore": 2,
-          "label": "2"
-        },
-        {
-          "id": "c48",
-          "seme": "bandierina",
-          "valore": 5,
-          "label": "5"
         }
       ]
     },
@@ -3542,6 +3482,24 @@
           "seme": "guantone",
           "valore": 5,
           "label": "5"
+        },
+        {
+          "id": "c5",
+          "seme": "palla",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c1",
+          "seme": "palla",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c18",
+          "seme": "coppa",
+          "valore": 9,
+          "label": "9"
         }
       ],
       "cpu": [
@@ -3592,6 +3550,24 @@
           "seme": "guantone",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c44",
+          "seme": "bandierina",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c41",
+          "seme": "bandierina",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c21",
+          "seme": "coppa",
+          "valore": 6,
+          "label": "6"
         }
       ]
     },
@@ -3608,17 +3584,10 @@
       "parata-super",
       "tiro-fuori-area",
       "gol-super",
-      "gol-super",
-      "contrasto-sicuro"
+      "gol-super"
     ],
     "mani": {
       "tu": [
-        {
-          "id": "c5",
-          "seme": "palla",
-          "valore": 9,
-          "label": "9"
-        },
         {
           "id": "c36",
           "seme": "guantone",
@@ -3630,15 +3599,27 @@
           "seme": "palla",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c32",
+          "seme": "guantone",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c14",
+          "seme": "coppa",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c45",
+          "seme": "bandierina",
+          "valore": 8,
+          "label": "8"
         }
       ],
       "cpu": [
-        {
-          "id": "c21",
-          "seme": "coppa",
-          "valore": 6,
-          "label": "6"
-        },
         {
           "id": "c23",
           "seme": "coppa",
@@ -3646,10 +3627,28 @@
           "label": "4"
         },
         {
-          "id": "c44",
+          "id": "c48",
           "seme": "bandierina",
-          "valore": 9,
-          "label": "9"
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c38",
+          "seme": "guantone",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c25",
+          "seme": "coppa",
+          "valore": 2,
+          "label": "2"
         }
       ]
     },
@@ -3726,7 +3725,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3752,7 +3751,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3791,7 +3790,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3832,7 +3831,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3845,7 +3844,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3871,7 +3870,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -4139,7 +4138,9 @@
     "invertiCoppie": false,
     "tuECasa": false,
     "bonus": {
-      "tu": [],
+      "tu": [
+        "contrasto-sicuro"
+      ],
       "cpu": [
         "tiro-fuori-area"
       ]
@@ -4151,26 +4152,26 @@
     "statistiche": {
       "tu": {
         "gol": 0,
-        "tiri": 1,
+        "tiri": 2,
         "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 3,
-        "vinte": 3,
+        "contese": 6,
+        "vinte": 6,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 0,
+        "bonusGuadagnati": 1,
         "marcatori": []
       },
       "cpu": {
         "gol": 0,
         "tiri": 2,
-        "parate": 1,
+        "parate": 2,
         "angoli": 0,
         "pali": 1,
-        "contese": 4,
+        "contese": 5,
         "vinte": 4,
         "falli": 0,
         "ammonizioni": 0,
@@ -4288,8 +4289,48 @@
       {
         "msg": "🎴 5🧤 vs 4🧤 → attaccante",
         "classe": ""
+      },
+      {
+        "msg": "🃏 TU gioca 9⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🃏 CPU risponde 9🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎴 9⚽ vs 9🚩 → attaccante",
+        "classe": ""
+      },
+      {
+        "msg": "🃏 TU gioca K⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🃏 CPU risponde Q🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎴 K⚽ vs Q🚩 → attaccante",
+        "classe": ""
+      },
+      {
+        "msg": "🥅 TIRO IN PORTA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🃏 CPU gioca 6🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🃏 TU risponde 9🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎴 6🏆 vs 9🏆 → difensore",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 125
+    "secondiTrascorsi": 195
   }
 }

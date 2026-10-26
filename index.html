@@ -959,7 +959,7 @@ function apriIstruzioni() {
     '<h3>🃏 Contrasto</h3><p>Il possessore gioca per primo: la sua carta è il <strong>seme guida</strong>. Il difensore risponde col seme (se ce l\'ha). Chi gioca fuori seme quando poteva rispondere commette fallo. 3 falli = 🟨, 6 falli = 🟥.</p>' +
     '<h3>⚽ Avanzamento</h3><p>Chi vince avanza di 1 zona. Se rubi palla (vinci in difesa), la squadra rubante avanza. In Z1 o Z5 si tira in porta.</p>' +
     '<h3>🥅 Tiro e Rigore</h3><p>Attaccante 1d9. Portiere 1d4 (4 settori). Se il settore copre la casella → parata. <strong>Se il difensore commette fallo, l\'attaccante va direttamente a tirare un rigore</strong> (salta l\'avanzamento).</p>' +
-    '<h3>⚡ Stamina e Cartellini</h3><p>Ogni contrasto vinto costa 1 punto stamina. A 0 stamina o se espulso, il giocatore gioca la coppia con una carta in meno.</p>' +
+    '<h3>⚡ Stamina e Cartellini</h3><p>Ogni contrasto vinto costa 1 punto stamina. A 0 stamina o se espulso, il giocatore gioca la coppia con una carta in meno. Chi commette fallo subisce una penalità di -1 stamina.</p>' +
     '</div><button class="primario" onclick="mostraMenuPrincipale()" style="margin-top:24px">← Chiudi</button>';
 }
 function cambiaVolume(tipo, valore) {
@@ -1585,6 +1585,7 @@ function trovaGiocatorePerId(sq, id) { if (!id) return null; for (var i = 0; i <
 function applicaFallo(sq, gF) {
   if (!gF || gF.espulso) return;
   gF.falli++; stato.statistiche[sq].falli++;
+  gF.stamina = Math.max(0, gF.stamina - 1); // Penalità fallo
   suonaFischietto('fallo');
   log('🟨 Fallo di ' + gF.nome + ' (' + gF.falli + ')', 'parata');
   if (gF.falli === 3) {
@@ -2093,7 +2094,8 @@ function fineTempoOPartita() {
     stato.invertiCoppie = !stato.invertiCoppie;
     stato.direzioneAttaccoTU = -stato.direzioneAttaccoTU;
     log('⏸️ FINE PRIMO TEMPO. Risultato: ' + stato.punteggio.tu + '-' + stato.punteggio.cpu, 'goal');
-    ['tu','cpu'].forEach(function(sq) { for (var i=0;i<stato.giocatori[sq].length;i++) { stato.giocatori[sq][i].stamina = stato.giocatori[sq][i].staminaMax; stato.giocatori[sq][i].falli = 0; stato.giocatori[sq][i].ammonito = false; } });
+    // Aumenta stamina di 3 invece di resettare a 10
+    ['tu','cpu'].forEach(function(sq) { for (var i=0;i<stato.giocatori[sq].length;i++) { stato.giocatori[sq][i].stamina = Math.min(stato.giocatori[sq][i].staminaMax, stato.giocatori[sq][i].stamina + 3); stato.giocatori[sq][i].falli = 0; stato.giocatori[sq][i].ammonito = false; } });
     riempiMano('tu'); riempiMano('cpu'); renderHeader(); salvaPartita();
     mostraFinestraFineTempo(function() { if (stato.partitaFinita) return; var chiBatte = stato.monetaVinta === 'tu' ? 'cpu' : 'tu'; eseguiCalcioIniziale(chiBatte); });
   } else finePartita();
@@ -2108,8 +2110,14 @@ function finePartita() {
   suonaFischietto('fine-partita'); fermaSottofondo(); salvaAmmonizioniInLocalStorage();
   nascondiEntrambiBanner(); chiudiBonusChoice();
   if (timerPartita) { clearInterval(timerPartita); timerPartita = null; }
-  if (TORNEO_MODE === 'seriea') { salvaRisultatoTorneo(); return; }
   
+  // Se è una partita di torneo, salva il risultato e ricarica il campionato
+  if (TORNEO_MODE === 'seriea') {
+    salvaRisultatoTorneo();
+    return; 
+  }
+
+  // Altrimenti mostra il report normale
   var msg = stato.punteggio.tu > stato.punteggio.cpu ? '🏆 HAI VINTO!' : stato.punteggio.cpu > stato.punteggio.tu ? '😢 CPU vince' : '🤝 Pareggio';
   var marcatoriTU = stato.statistiche.tu.marcatori.map(function(m){ return m.nome + ' (' + m.minuto + '\')'; }).join(', ') || 'Nessuno';
   var marcatoriCPU = stato.statistiche.cpu.marcatori.map(function(m){ return m.nome + ' (' + m.minuto + '\')'; }).join(', ') || 'Nessuno';

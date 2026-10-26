@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-26T12:44:12.441Z",
+  "data": "2026-10-26T12:44:25.554Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -2964,7 +2964,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793018648438,
+    "timestamp": 1793018661550,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "inter",
@@ -2985,15 +2985,15 @@
       }
     },
     "tempo": 1,
-    "mano": 2,
+    "mano": 3,
     "maxMani": 23,
     "punteggio": {
       "tu": 0,
       "cpu": 0
     },
-    "zonaPalla": 4,
+    "zonaPalla": 5,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_7",
+    "giocatorePalla": "cpu_9",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3566,8 +3566,22 @@
       ]
     },
     "scarti": {
-      "tu": [],
-      "cpu": []
+      "tu": [
+        {
+          "id": "c10",
+          "seme": "palla",
+          "valore": 4,
+          "label": "4"
+        }
+      ],
+      "cpu": [
+        {
+          "id": "c27",
+          "seme": "guantone",
+          "valore": 13,
+          "label": "K"
+        }
+      ]
     },
     "mazzoBonus": [
       "passaggio-lungo",
@@ -3593,12 +3607,6 @@
           "seme": "palla",
           "valore": 9,
           "label": "9"
-        },
-        {
-          "id": "c10",
-          "seme": "palla",
-          "valore": 4,
-          "label": "4"
         },
         {
           "id": "c6",
@@ -3643,12 +3651,6 @@
           "seme": "bandierina",
           "valore": 10,
           "label": "10"
-        },
-        {
-          "id": "c27",
-          "seme": "guantone",
-          "valore": 13,
-          "label": "K"
         }
       ]
     },
@@ -3699,9 +3701,9 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 20,
+          "stamina": 19,
           "staminaMax": 20,
-          "falli": 0,
+          "falli": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Lucumì"
@@ -3896,7 +3898,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 20,
+          "stamina": 19,
           "staminaMax": 20,
           "falli": 0,
           "ammonito": false,
@@ -4143,7 +4145,7 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 0
+      "cpu": 1
     },
     "statistiche": {
       "tu": {
@@ -4154,7 +4156,7 @@
         "pali": 0,
         "contese": 0,
         "vinte": 0,
-        "falli": 0,
+        "falli": 1,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4166,8 +4168,8 @@
         "parate": 0,
         "angoli": 0,
         "pali": 0,
-        "contese": 0,
-        "vinte": 0,
+        "contese": 1,
+        "vinte": 1,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4175,7 +4177,24 @@
         "bonusGuadagnati": 0
       }
     },
-    "logCompleto": [],
-    "secondiTrascorsi": 3
+    "logCompleto": [
+      {
+        "msg": "🃏 CPU gioca K🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🃏 TU risponde 4⚽ ⚠️ FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎴 K🧤 vs 4⚽ → attaccante (FALLO DIF)",
+        "classe": ""
+      },
+      {
+        "msg": "🟨 Fallo di Lucumì (1)",
+        "classe": "parata"
+      }
+    ],
+    "secondiTrascorsi": 16
   }
 }

@@ -839,7 +839,15 @@ function creaPalloneSVG() {
 
 function tuASinistra() { if (stato.tuECasa) return !stato.invertiCoppie; else return stato.invertiCoppie; }
 function zonaLogicaDi(g) { var tuSin = tuASinistra(); if (g.squadra === 'tu') return tuSin ? g.zona : (6 - g.zona); else return tuSin ? (6 - g.zona) : g.zona; }
-function giocatoriInZona(sq, zonaLogica, escludiPortiere) { return stato.giocatori[sq].filter(function(g){ if (escludiPortiere && g.portiere) return false; return zonaLogicaDi(g) === zonaLogica; }); }
+function giocatoriInZona(sq, zonaFisica, escludiPortiere) {
+  var tuSin = tuASinistra();
+  var squadraASinistra = (sq === 'tu') ? tuSin : !tuSin;
+  return stato.giocatori[sq].filter(function(g) {
+    if (escludiPortiere && g.portiere) return false;
+    var zonaFisicaG = squadraASinistra ? g.zona : (6 - g.zona);
+    return zonaFisicaG === zonaFisica;
+  });
+}
 function getCoppiaAttiva(zonaId, meta) { var idx = meta === 'sup' ? 0 : 1; var tu = giocatoriInZona('tu', zonaId, true); var cpu = giocatoriInZona('cpu', zonaId, true); return { tu: tu[idx] || tu[0] || null, cpu: cpu[idx] || cpu[0] || null }; }
 function direzionePerSquadra(sq) { var dirTU = stato.direzioneAttaccoTU; return sq === 'tu' ? dirTU : -dirTU; }
 
@@ -861,7 +869,7 @@ function creaGiocatori(sq) {
   var g = []; var id = 0;
   var sqId = sq === 'tu' ? stato.squadraTU : stato.squadraCPU;
   var rosa = ROSE[sqId]; if (!rosa) return g;
-  function z(zonaLogica) { return zonaLogica; }
+    function z(zonaLogica) { return zonaLogica; }
   g.push({ id:sq+'_'+(id++), squadra:sq, zona:z(0), ruolo:'POR', portiere:true, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, nome: rosa.portiere[0] });
   for (var i=0;i<2;i++) g.push({ id:sq+'_'+(id++), squadra:sq, zona:z(1), ruolo:'DIF', portiere:false, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, nome: rosa.difensori[i] || ('DIF'+(i+1)) });
   var cen = rosa.centrocampisti;

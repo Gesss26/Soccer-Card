@@ -2,18 +2,22 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1600, initial-scale=0.25, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0a0a15">
 <title>Calcio a Carte</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+<link rel="manifest" href="manifest.json">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-  html, body { height: 100%; font-family: 'Segoe UI', Tahoma, sans-serif; background: #0a0a15; color: #eee; overflow: hidden; user-select: none; }
+  html, body { height: 100%; width: 100%; font-family: 'Segoe UI', Tahoma, sans-serif; background: #0a0a15; color: #eee; overflow: hidden; user-select: none; overscroll-behavior: none; touch-action: manipulation; }
   body { display: flex; justify-content: center; align-items: flex-start; }
+  body:fullscreen, body:-webkit-full-screen { background: #000; }
+  .app:fullscreen, .app:-webkit-full-screen { max-width: none; }
 
-  .app { display: flex; flex-direction: column; height: 100vh; height: 100dvh; position: relative; width: 100%; max-width: 1600px; }
+  .app { display: flex; flex-direction: column; height: 100vh; height: 100dvh; position: relative; width: 100%; max-width: 100vw; }
 
   .stadio-sfondo { position: absolute; inset: 0; background: url('Stadio.jpg') center/cover no-repeat; z-index: 0; pointer-events: none; }
   .stadio-sfondo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,21,0.55) 0%, rgba(10,10,21,0.15) 30%, rgba(10,10,21,0.15) 70%, rgba(10,10,21,0.75) 100%); }
@@ -23,8 +27,8 @@
   @keyframes ruotaAnim { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(90deg); } }
   .avviso-ruota h2 { color: #ffd700; font-size: 24px; margin-bottom: 12px; letter-spacing: 2px; }
   .avviso-ruota p { color: #aaa; font-size: 14px; max-width: 300px; line-height: 1.5; }
-  
-  @media (orientation: portrait) and (max-width: 900px) {
+
+  @media (orientation: portrait) {
     .avviso-ruota { display: flex; }
     .app { display: none; }
   }
@@ -474,6 +478,7 @@
   </div>
 
   <div class="topbar-buttons">
+    <button class="btn-icona" onclick="toggleFullscreen()" id="btn-fullscreen" title="Schermo intero">⛶</button>
     <button class="btn-icona" onclick="apriLog()">📋</button>
     <button class="btn-icona" onclick="apriImpostazioni()">⚙️</button>
   </div>
@@ -683,6 +688,57 @@ var POSIZIONI_PORTIERI = [
 ];
 
 var DISTANZA_COPPIA_PX = 60;
+
+/* ============================================================
+   FULLSCREEN
+   ============================================================ */
+function isFullscreen() {
+  return !!(document.fullscreenElement || document.webkitFullscreenElement ||
+            document.mozFullScreenElement || document.msFullscreenElement);
+}
+
+function richiediFullscreen() {
+  if (isFullscreen()) return;
+  var el = document.documentElement;
+  var p = null;
+  if (el.requestFullscreen) p = el.requestFullscreen();
+  else if (el.webkitRequestFullscreen) p = el.webkitRequestFullscreen();
+  else if (el.mozRequestFullScreen) p = el.mozRequestFullScreen();
+  else if (el.msRequestFullscreen) p = el.msRequestFullscreen();
+  if (p && p.catch) p.catch(function(){});
+  if (screen.orientation && screen.orientation.lock) {
+    screen.orientation.lock('landscape').catch(function(){});
+  }
+  aggiornaIconaFullscreen();
+  setTimeout(adattaScena, 300);
+}
+
+function esciFullscreen() {
+  var p = null;
+  if (document.exitFullscreen) p = document.exitFullscreen();
+  else if (document.webkitExitFullscreen) p = document.webkitExitFullscreen();
+  else if (document.mozCancelFullScreen) p = document.mozCancelFullScreen();
+  else if (document.msExitFullscreen) p = document.msExitFullscreen();
+  if (p && p.catch) p.catch(function(){});
+  aggiornaIconaFullscreen();
+  setTimeout(adattaScena, 300);
+}
+
+function toggleFullscreen() {
+  initAudio();
+  if (isFullscreen()) esciFullscreen(); else richiediFullscreen();
+}
+
+function aggiornaIconaFullscreen() {
+  var b = document.getElementById('btn-fullscreen');
+  if (!b) return;
+  b.textContent = '⛶';
+  b.title = isFullscreen() ? 'Esci da schermo intero' : 'Schermo intero';
+  b.style.borderColor = isFullscreen() ? '#ffd700' : '#4dabf7';
+}
+
+document.addEventListener('fullscreenchange', function() { aggiornaIconaFullscreen(); setTimeout(adattaScena, 200); });
+document.addEventListener('webkitfullscreenchange', function() { aggiornaIconaFullscreen(); setTimeout(adattaScena, 200); });
 
 /* ============================================================
    ZOOM: x1 (fit) o x2 (fisso sulla palla al centro)
@@ -1716,6 +1772,7 @@ function avviaPartitaDaSetup() { if (stato.tipoPartita === '1P') { var d = Objec
 
 function avviaPartita(sqTU, sqCPU, tipo, casaSquadra) {
   tipo = tipo || '1P';
+  richiediFullscreen();
   stato.tipoPartita = tipo; stato.squadraTU = sqTU; stato.squadraCPU = sqCPU;
   stato.divise = scegliDivise(sqTU, sqCPU);
   stato.giocatori.tu = creaGiocatori('tu'); stato.giocatori.cpu = creaGiocatori('cpu');
@@ -1752,6 +1809,7 @@ function avviaPartita(sqTU, sqCPU, tipo, casaSquadra) {
 }
 
 function lanciaMoneta(scelta, callback) {
+  richiediFullscreen();
   initAudio(); avviaSottofondo();
   setTimeout(function() { aggiornaSottofondoPerZona(stato.zonaPalla); }, 500);
   var esito = Math.random() < 0.5 ? 'testa' : 'croce';
@@ -3029,6 +3087,7 @@ try {
   setTimeout(adattaScena, 100);
   setTimeout(adattaScena, 400);
   avviaLoopZoom();
+  aggiornaIconaFullscreen();
 
   caricaDaGitHub().then(function(ok) {
     var salvata = caricaPartitaSalvata();

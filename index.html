@@ -155,9 +155,6 @@
   @keyframes pulseBonus { 0%, 100% { box-shadow: 0 0 14px rgba(255,215,0,0.6); } 50% { box-shadow: 0 0 24px rgba(255,215,0,1); } }
   .carte-overlay-azioni button { padding: 20px 48px; font-size: 24px; border-radius: 14px; }
   
-  /* ============================================================
-     CSS CORRETTO PER PORTA, GRIGLIA E SETTORI
-     ============================================================ */
   .tiro-overlay { position: fixed; inset: 0; background: linear-gradient(180deg, #0a1a2e 0%, #0a0a15 100%); z-index: 700; display: flex; flex-direction: column; padding: 12px; opacity: 0; transition: opacity 0.4s ease; overflow: hidden; }
   .tiro-overlay.attiva { opacity: 1; }
   .tiro-titolo { color: #ffd700; font-size: 28px; font-weight: 900; letter-spacing: 3px; text-align: center; margin-bottom: 6px; flex-shrink: 0; }
@@ -175,13 +172,15 @@
   .tiro-porta-wrapper { position: relative; width: 100%; max-height: 100%; aspect-ratio: 3 / 2; margin: 0 auto; --porta-left: 21.5%; --porta-top: 35%; --porta-width: 57%; --porta-height: 46%; }
   .tiro-porta-sfondo { position: absolute; inset: 0; width: 100%; height: 100%; background: url('Porta.png') center/cover no-repeat; border-radius: 12px; }
   .tiro-griglia { position: absolute; left: var(--porta-left); top: var(--porta-top); width: var(--porta-width); height: var(--porta-height); display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; gap: 0; pointer-events: none; z-index: 5; }
-  .tiro-casella { border: 1px solid rgba(255,215,0,0.25); display: flex; align-items: center; justify-content: center; position: relative; box-sizing: border-box; }
+  .tiro-casella { border: 1px solid rgba(255,215,0,0.25); display: flex; align-items: center; justify-content: center; position: relative; box-sizing: border-box; z-index: 1; }
   .tiro-casella .numero-casella { position: absolute; top: 4px; left: 6px; font-size: 16px; color: rgba(255,215,0,0.7); font-weight: bold; }
   .tiro-casella.colpita { background: rgba(255,215,0,0.4); border-color: #ffd700; }
-  .tiro-settori-overlay { position: absolute; left: var(--porta-left); top: var(--porta-top); width: var(--porta-width); height: var(--porta-height); display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; gap: 0; pointer-events: none; z-index: 6; opacity: 0; transition: opacity 0.3s; }
+  
+  /* SETTORI SOPRA LE CASELLE NERE */
+  .tiro-settori-overlay { position: absolute; left: var(--porta-left); top: var(--porta-top); width: var(--porta-width); height: var(--porta-height); display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; gap: 0; pointer-events: none; z-index: 15; opacity: 0; transition: opacity 0.3s; }
   .tiro-settori-overlay.attivo { opacity: 1; }
-  .tiro-settore { background: rgba(77,171,247,0.15); border: 2px solid rgba(77,171,247,0.5); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 900; color: rgba(255,255,255,0.5); transition: all 0.3s; box-sizing: border-box; }
-  .tiro-settore.evidenziato { background: rgba(255,215,0,0.55); border-color: #ffd700; color: #16213e; box-shadow: 0 0 20px rgba(255,215,0,0.9), inset 0 0 10px rgba(255,255,255,0.5); }
+  .tiro-settore { background: rgba(77,171,247,0.15); border: 1px solid rgba(77,171,247,0.8); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 900; color: rgba(255,255,255,0.5); transition: all 0.3s; box-sizing: border-box; z-index: 2; }
+  .tiro-settore.evidenziato { background: rgba(255,215,0,0.85); border-color: #ffd700; color: #16213e; box-shadow: 0 0 20px rgba(255,215,0,0.9), inset 0 0 10px rgba(255,255,255,0.5); z-index: 10; }
   .tiro-settore.scartato { background: rgba(0,0,0,0.5); border-color: rgba(100,100,100,0.5); color: rgba(100,100,100,0.5); }
   
   .tiro-portiere { position: absolute; width: calc(var(--porta-width) / 3); height: calc(var(--porta-height) * 2 / 3); left: calc(var(--porta-left) + var(--porta-width) / 2 - var(--porta-width) / 6); top: calc(var(--porta-top) + var(--porta-height) - var(--porta-height) * 2 / 3); transition: left 0.55s cubic-bezier(0.34,1.2,0.64,1), top 0.55s cubic-bezier(0.34,1.2,0.64,1); z-index: 10; pointer-events: none; }
@@ -202,7 +201,6 @@
   .tiro-esito { font-size: 64px; font-weight: 900; color: #ffd700; text-align: center; letter-spacing: 4px; min-height: 80px; margin-top: 6px; flex-shrink: 0; }
   .tiro-esito.goal { color: #4ade80; } .tiro-esito.parata { color: #ef4444; } .tiro-esito.palo { color: #f59f00; } .tiro-esito.angolo { color: #4dabf7; } .tiro-esito.fuori { color: #666; }
   
-  /* Resto del CSS invariato */
   .bonus-choice-overlay { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 750; }
   .bonus-choice-overlay.attivo { display: flex; }
   .bonus-choice-overlay::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); }
@@ -244,16 +242,19 @@
   .squadra-btn.selezionata { background: #ffd700; color: #16213e; border-color: #ffd700; }
   .squadra-btn .nome { font-size: 16px; margin-bottom: 6px; }
   .squadra-btn .maglia { width: 64px; height: 84px; margin: 0 auto; } .squadra-btn .maglia svg { width: 100%; height: 100%; }
-  .menu-principale { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 20px; }
-  .menu-titolo { font-size: 72px; font-weight: 900; color: #ffd700; letter-spacing: 8px; margin-bottom: 10px; text-shadow: 0 6px 20px rgba(0,0,0,0.8); }
-  .menu-sottotitolo { font-size: 24px; color: #aaa; margin-bottom: 30px; }
-  .menu-btn { background: linear-gradient(135deg, #0f3460, #16213e); border: 4px solid #4dabf7; border-radius: 20px; padding: 30px 48px; min-width: 560px; cursor: pointer; color: #fff; font-weight: bold; display: flex; align-items: center; gap: 28px; transition: all 0.2s; }
-  .menu-btn:hover { background: linear-gradient(135deg, #4dabf7, #2563eb); border-color: #ffd700; transform: scale(1.03); }
-  .menu-btn .icona { font-size: 72px; }
-  .menu-btn .testo { display: flex; flex-direction: column; gap: 8px; text-align: left; }
-  .menu-btn .testo .titolo { font-size: 32px; }
-  .menu-btn .testo .descr { font-size: 20px; color: #ccc; font-weight: normal; }
+  
+  /* MENU PRINCIPALE SISTEMATO */
+  .menu-principale { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 10px; height: 100%; justify-content: center; }
+  .menu-titolo { font-size: 52px; font-weight: 900; color: #ffd700; letter-spacing: 6px; margin-bottom: 4px; text-shadow: 0 6px 20px rgba(0,0,0,0.8); }
+  .menu-sottotitolo { font-size: 20px; color: #aaa; margin-bottom: 16px; }
+  .menu-btn { background: linear-gradient(135deg, #0f3460, #16213e); border: 3px solid #4dabf7; border-radius: 16px; padding: 14px 28px; min-width: 480px; cursor: pointer; color: #fff; font-weight: bold; display: flex; align-items: center; gap: 18px; transition: all 0.2s; }
+  .menu-btn:hover { background: linear-gradient(135deg, #4dabf7, #2563eb); border-color: #ffd700; transform: scale(1.02); }
+  .menu-btn .icona { font-size: 48px; }
+  .menu-btn .testo { display: flex; flex-direction: column; gap: 4px; text-align: left; }
+  .menu-btn .testo .titolo { font-size: 24px; }
+  .menu-btn .testo .descr { font-size: 16px; color: #ccc; font-weight: normal; }
   .menu-btn.evidenza { background: linear-gradient(135deg, #ffd700, #f59f00); border-color: #fff; color: #16213e; }
+  
   .banner-mano { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 600; pointer-events: none; opacity: 0; transition: opacity 0.4s; }
   .banner-mano.attivo { opacity: 1; }
   .banner-mano.tu { background: radial-gradient(circle, rgba(77,171,247,0.9), rgba(0,0,0,0.95)); }
@@ -287,6 +288,7 @@
   .istruzioni-content h3 { color: #ffd700; font-size: 24px; margin: 24px 0 12px; border-bottom: 2px solid rgba(255,215,0,0.3); padding-bottom: 6px; }
   .istruzioni-content p { margin: 10px 0; }
   .istruzioni-content ul { margin: 10px 0 16px 28px; } .istruzioni-content li { margin: 8px 0; }
+  #banner-riavvio.attivo { display: flex !important; }
 </style>
 </head>
 <body>
@@ -383,6 +385,15 @@
 </div>
 
 <div class="modale" id="modale"><div class="modale-box" id="modale-box"></div></div>
+
+<div id="banner-riavvio" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; flex-direction:column; gap:20px;">
+  <h2 style="color:#ffd700; font-size:36px; text-align:center;">Vuoi ricominciare la partita?</h2>
+  <div style="display:flex; gap:20px;">
+    <button class="primario" onclick="eseguiRiavvio()" style="font-size:24px; padding:20px 40px;">SÌ</button>
+    <button onclick="annullaRiavvio()" style="font-size:24px; padding:20px 40px; background:#8B2020; border-color:#ff6b6b;">NO</button>
+  </div>
+</div>
+
 <script src="divise.js"></script>
 <script src="ammonizioni.js"></script>
 <script>
@@ -581,7 +592,7 @@ function chiudiBonusChoice() {
   if (window._bonusChoiceTimer) { clearTimeout(window._bonusChoiceTimer); window._bonusChoiceTimer = null; }
 }
 
-/* GITHUB (disabilitato: owner placeholder) */
+/* GITHUB */
 var GH = { owner: 'Gesss26', repo: 'Soccer-Card', branch: 'main', path: 'calcio_carte_salvataggio.json', token: null, sha: null, abilitato: false };
 var _ghDebounce = null;
 function ghCaricaConfig() { try { var cfg = JSON.parse(localStorage.getItem('gh_config') || '{}'); if (cfg.token) { GH.token = cfg.token; GH.abilitato = true; } } catch(e) {} }
@@ -925,7 +936,7 @@ function apriImpostazioni() {
       '<button style="background:#8B2020;border-color:#ff6b6b" onclick="resetCampionatoSalvato()">🗑 Azzera campionato</button>' +
       '<button onclick="apriSostituzioni()">🔄 Sostituzioni</button>' +
       '<button class="primario" style="background:#4dabf7;border-color:#fff" onclick="apriIstruzioni()">📖 Istruzioni</button>' +
-      '<button onclick="chiudiModale()">← Chiudi</button>' +
+      '<button onclick="mostraMenuPrincipale()">← Chiudi</button>' +
     '</div>' +
     '<h3 style="color:#ffd700;margin:24px 0 12px">☁️ GitHub</h3>' +
     '<input type="password" id="gh-token-input" placeholder="github_pat_..." style="width:100%;padding:14px;border-radius:10px;border:2px solid #4dabf7;background:#0a0a15;color:#fff;font-family:monospace;font-size:16px;margin-bottom:12px">' +
@@ -949,7 +960,7 @@ function apriIstruzioni() {
     '<h3>🃏 Contrasto</h3><p>Il possessore gioca per primo: la sua carta è il <strong>seme guida</strong>. Il difensore risponde col seme (se ce l\'ha). Chi gioca fuori seme quando poteva rispondere commette fallo. 3 falli = 🟨, 6 falli = 🟥.</p>' +
     '<h3>⚽ Avanzamento</h3><p>Chi vince avanza di 1 zona. In Z1 o Z5 si tira in porta.</p>' +
     '<h3>🥅 Tiro</h3><p>Attaccante 1d9. Portiere 1d4 (4 settori). Se il settore copre la casella → parata.</p>' +
-    '</div><button class="primario" onclick="apriImpostazioni()" style="margin-top:24px">← Indietro</button>';
+    '</div><button class="primario" onclick="mostraMenuPrincipale()" style="margin-top:24px">← Chiudi</button>';
 }
 function cambiaVolume(tipo, valore) {
   var v = parseInt(valore) / 100;
@@ -1241,13 +1252,8 @@ function eseguiCalcioIniziale(squadra) {
     }, 250);
   }, DURATA_SPOSTAMENTO_INIZIO);
 }
-/* ============================================================
-   COMBAT — REGOLE CON FALLI
-   Turno 1: attaccante gioca → seme guida (mai fallo)
-   Turno 2+ (pareggio): attaccante se fuori seme + difensore ha il seme → fallo att.
-   Difensore: se ha il seme ma gioca fuori → fallo dif.
-   Nessun fallo se il difensore non ha il seme.
-   ============================================================ */
+
+/* COMBAT — REGOLE CON FALLI */
 function avviaContrasto() {
   if (stato.partitaFinita) return;
   if (stato.mano > stato.maxMani) { fineTempoOPartita(); return; }
@@ -1295,19 +1301,33 @@ function confermaCarta() {
   if (c.fase === 'gioca-attaccante' && c.attaccante === 'tu') {
     var cartaTu = stato.mani.tu[selezioneCarta];
     if (!cartaTu) return;
+
+    // Turno 0: definisce il seme guida, nessun fallo possibile
     if (c.turni === 0 && !c.semeGuida) {
-      c.semeGuida = cartaTu.seme; c.falloAttaccante = false;
-      c.cartaTu = cartaTu; rimuoviCartaDaMano('tu', cartaTu);
+      c.semeGuida = cartaTu.seme; 
+      c.falloAttaccante = false;
+      c.cartaTu = cartaTu; 
+      rimuoviCartaDaMano('tu', cartaTu);
       log('🃏 TU gioca ' + cartaTu.label + SEMI[cartaTu.seme].emoji + ' → seme guida: ' + SEMI[cartaTu.seme].nome, 'highlight');
-      nascondiEntrambiBanner(); setTimeout(function() { rispostaCPUAlSeme(); }, 1000); return;
+      nascondiEntrambiBanner(); 
+      setTimeout(function() { rispostaCPUAlSeme(); }, 1000); 
+      return;
     }
+
+    // Turno > 0: se giochi fuori dal seme guida, fai fallo SOLO se l'avversario ha il seme
     if (cartaTu.seme !== c.semeGuida) {
-      var difHaSeme = haSemeInMano('cpu', c.semeGuida);
-      c.falloAttaccante = difHaSeme;
-    } else c.falloAttaccante = false;
-    c.cartaTu = cartaTu; rimuoviCartaDaMano('tu', cartaTu);
+      var cpuHaSemeGuida = haSemeInMano('cpu', c.semeGuida);
+      c.falloAttaccante = cpuHaSemeGuida;
+    } else {
+      c.falloAttaccante = false;
+    }
+
+    c.cartaTu = cartaTu; 
+    rimuoviCartaDaMano('tu', cartaTu);
     log('🃏 TU gioca ' + cartaTu.label + SEMI[cartaTu.seme].emoji + (c.falloAttaccante ? ' ⚠️ FALLO!' : ''), c.falloAttaccante ? 'parata' : 'highlight');
-    nascondiEntrambiBanner(); setTimeout(function() { rispostaCPUAlSeme(); }, 1000); return;
+    nascondiEntrambiBanner(); 
+    setTimeout(function() { rispostaCPUAlSeme(); }, 1000); 
+    return;
   }
 
   /* TU DIFENSORE */
@@ -1353,11 +1373,9 @@ function rispostaCPUAlSeme() {
   var carteSeme = mani.filter(function(x){ return x.seme === c.semeGuida; });
   var cartaCPU;
   if (carteSeme.length > 0) {
-    /* CPU ha il seme → gioca il seme (no fallo) */
     cartaCPU = scegliCartaPiuAlta(carteSeme);
     c.falloDifensore = false;
   } else {
-    /* CPU non ha il seme → gioca la più alta (no fallo, non poteva rispondere) */
     cartaCPU = scegliCartaPiuAlta(mani);
     c.falloDifensore = false;
   }
@@ -1379,11 +1397,9 @@ function risolviTurnoContrasto() {
   var attHaSeme = cartaAtt.seme === c.semeGuida;
   var difHaSeme = cartaDif.seme === c.semeGuida;
   var esito, motivo;
-  /* Priorità 1: falli */
   if (c.falloAttaccante && c.falloDifensore) { esito = cartaAtt.valore >= cartaDif.valore ? 'attaccante' : 'difensore'; motivo = '⚠️ ENTRAMBI IN FALLO'; }
   else if (c.falloAttaccante) { esito = 'difensore'; motivo = '⚠️ FALLO ATTACCANTE · vince il difensore'; }
   else if (c.falloDifensore) { esito = 'attaccante'; motivo = '⚠️ FALLO DIFENSORE · vince l\'attaccante'; }
-  /* Priorità 2: confronto normale */
   else if (attHaSeme && !difHaSeme) { esito = 'attaccante'; motivo = 'Attaccante col seme guida'; }
   else if (!attHaSeme && difHaSeme) { esito = 'difensore'; motivo = 'Difensore col seme guida'; }
   else { if (cartaAtt.valore > cartaDif.valore) { esito = 'attaccante'; motivo = 'Valore più alto'; } else if (cartaDif.valore > cartaAtt.valore) { esito = 'difensore'; motivo = 'Valore più alto'; } else { esito = 'pareggio'; motivo = 'Carte di pari valore'; } }
@@ -1742,9 +1758,7 @@ function animaTackle(gVincitore, gPerdente) {
   setTimeout(function() { pedinaV.classList.remove('pg-in-tackle-dx', 'pg-in-tackle-sx'); }, DURATA_SCIVOLATA + 80);
 }
 
-/* ============================================================
-   TIRO — MODALITÀ CON SETTORI E TUFFO AL CENTRO
-   ============================================================ */
+/* TIRO */
 function posizionaPortiereSu(cx, cy, istantaneo) {
   var pt = document.getElementById('tiro-portiere'); if (!pt) return;
   var wPerc = PORTA_W / 3; var hPerc = PORTA_H * 2 / 3; var offsetY = hPerc * 0.46;
@@ -1770,22 +1784,18 @@ function orientaPortiereVerso(c) {
 function mostraSettoriPortiere(dadoPortiere) {
   var ov = document.getElementById('tiro-settori-overlay'); if (!ov) return;
   ov.innerHTML = ''; ov.classList.add('attivo');
-  
-  // Posizionamento esplicito dei 4 settori nella griglia 3x3
   var mappaSettori = {
-    1: { col: '1 / 3', row: '1 / 3' }, // Alto-Sx (copre 1,2,4,5)
-    2: { col: '2 / 4', row: '1 / 3' }, // Alto-Dx (copre 2,3,5,6)
-    3: { col: '1 / 3', row: '2 / 4' }, // Basso-Sx (copre 4,5,7,8)
-    4: { col: '2 / 4', row: '2 / 4' }  // Basso-Dx (copre 5,6,8,9)
+    1: { col: '1 / 3', row: '1 / 3' },
+    2: { col: '2 / 4', row: '1 / 3' },
+    3: { col: '1 / 3', row: '2 / 4' },
+    4: { col: '2 / 4', row: '2 / 4' }
   };
-
   for (var i = 1; i <= 4; i++) {
     var s = document.createElement('div');
     s.className = 'tiro-settore';
     s.textContent = i;
     s.style.gridColumn = mappaSettori[i].col;
     s.style.gridRow = mappaSettori[i].row;
-    
     if (i === dadoPortiere) s.classList.add('evidenziato');
     else s.classList.add('scartato');
     ov.appendChild(s);
@@ -1798,7 +1808,6 @@ function eseguiTuffoPortiere(casellaTiro, parata) {
   pt.classList.remove('pg-braccia-alte', 'pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro');
   var pos8 = casellaToPos(8); posizionaPortiereSu(pos8.cx, pos8.cy, true); void pt.offsetWidth;
   pt.classList.add('pg-braccia-alte');
-  /* Parata → verso la palla (casella del tiro). Gol → verso il centro dell'intersezione = casella 5 */
   var target = parata ? casellaToPos(casellaTiro) : casellaToPos(5);
   setTimeout(function() {
     posizionaPortiereSu(target.cx, target.cy, false);
@@ -2123,6 +2132,26 @@ function confermaSostituzione() {
   selezioneSost = { campo:null, panchina:null };
   renderCampo(); renderModaleSostituzioni(); salvaPartita();
 }
+
+function mostraBannerRiavvio() {
+  var b = document.getElementById('banner-riavvio');
+  if (b) b.classList.add('attivo');
+}
+function annullaRiavvio() {
+  var b = document.getElementById('banner-riavvio');
+  if (b) b.classList.remove('attivo');
+}
+function eseguiRiavvio() {
+  localStorage.removeItem(CHIAVE_SALVATAGGIO);
+  location.reload();
+}
+
+window.addEventListener('keydown', function(e) {
+  if (e.key === 'PrintScreen' || e.key === 'F9') {
+    e.preventDefault();
+    mostraBannerRiavvio();
+  }
+});
 
 window.addEventListener('beforeunload', function(e) {
   if (!stato.partitaFinita && stato.giocatori && stato.giocatori.tu && stato.giocatori.tu.length > 0) { salvaPartita(); e.preventDefault(); e.returnValue = ''; return ''; }

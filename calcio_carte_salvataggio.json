@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-26T14:29:23.611Z",
+  "data": "2026-10-26T14:29:53.620Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -2964,7 +2964,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793024959609,
+    "timestamp": 1793024989616,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "inter",
@@ -4211,6 +4211,6 @@
         "classe": "goal"
       }
     ],
-    "secondiTrascorsi": 330
+    "secondiTrascorsi": 360
   }
 }

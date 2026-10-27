@@ -1,5 +1,5 @@
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-html, body { height: 100%; width: 100%; font-family: 'Segoe UI', Tahoma, sans-serif; background: #0a0a15; color: #eee; overflow: hidden; user-select: none; overscroll-behavior: none; touch-action: manipulation; position: fixed; top: 0; left: 0; -webkit-user-select: none; -webkit-touch-callout: none; }
+html, body { height: 100%; width: 100%; font-family: 'Segoe UI', Tahoma, sans-serif; background: #0a0a15; color: #eee; overflow: hidden; user-select: none; overscroll-behavior: none; touch-action: manipulation; position: fixed; top: 0; left: 0; -webkit-user-select: none; -webkit-touch-callout: none; min-width: 1600px; }
 body { display: flex; justify-content: center; align-items: flex-start; }
 body:fullscreen, body:-webkit-full-screen { background: #000; }
 .app:fullscreen, .app:-webkit-full-screen { max-width: none; }
@@ -106,36 +106,36 @@ body:fullscreen, body:-webkit-full-screen { background: #000; }
 .bonus-slot .bonus-carta.gol-super { background: linear-gradient(135deg, #14532d, #22c55e); border: 1px solid #bbf7d0; }
 .bonus-slot .bonus-carta.passaggio-lungo { background: linear-gradient(135deg, #581c87, #a855f7); border: 1px solid #e9d5ff; }
 .bonus-slot .bonus-carta.tiro-fuori-area { background: linear-gradient(135deg, #92400e, #f59e0b); border: 1px solid #fde68a; }
-.carte-overlay { position: fixed; top: calc(44px + 33vh); left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 450; background: #0a0a15; border-top: 2px solid rgba(255,215,0,0.5); padding: 8px 10px; opacity: 0; pointer-events: none; transition: opacity 0.35s; }
+.carte-overlay { position: fixed; top: calc(44px + 24vh); left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 450; background: #0a0a15; border-top: 2px solid rgba(255,215,0,0.5); padding: 4px 8px; opacity: 0; pointer-events: none; transition: opacity 0.35s; }
 .carte-overlay.attivo { opacity: 1; pointer-events: auto; }
-.carte-overlay-inner { background: rgba(10,15,30,0.95); border: 3px solid #ffd700; border-radius: 18px; padding: 12px 16px 14px; box-shadow: 0 12px 48px rgba(0,0,0,0.9); display: flex; flex-direction: column; align-items: center; gap: 8px; width: 96%; max-width: 1400px; margin: 0 auto; height: 100%; max-height: 100%; overflow-y: auto; justify-content: center; }
-.carte-overlay-titolo { font-size: clamp(13px, 1.8vw, 20px); color: #ffd700; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
-.carte-overlay-sottotitolo { font-size: clamp(10px, 1.3vw, 15px); color: #aaa; text-align: center; margin-top: -4px; }
-.carte-overlay-riga { display: flex; align-items: center; gap: 16px; flex-wrap: nowrap; justify-content: center; }
-.carte-overlay-carte { display: flex; gap: 10px; flex-wrap: nowrap; justify-content: center; width: 100%; }
-.carte-overlay-carte .carta { width: clamp(50px, 9vw, 140px); height: clamp(75px, 13.5vw, 200px); }
-.carte-overlay-carte .carta .valore-alto { font-size: clamp(14px, 2.2vw, 40px); } 
-.carte-overlay-carte .carta .seme-centro { font-size: clamp(24px, 4.5vw, 90px); } 
-.carte-overlay-carte .carta .valore-basso { font-size: clamp(14px, 2.2vw, 40px); }
+.carte-overlay-inner { background: rgba(10,15,30,0.95); border: 3px solid #ffd700; border-radius: 14px; padding: 8px 12px 10px; box-shadow: 0 12px 48px rgba(0,0,0,0.9); display: flex; flex-direction: column; align-items: center; gap: 5px; width: 96%; max-width: 1400px; margin: 0 auto; height: 100%; max-height: 100%; overflow: hidden; justify-content: center; }
+.carte-overlay-titolo { font-size: clamp(11px, 1.6vw, 18px); color: #ffd700; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
+.carte-overlay-sottotitolo { font-size: clamp(9px, 1.1vw, 13px); color: #aaa; text-align: center; margin-top: -2px; }
+.carte-overlay-riga { display: flex; align-items: center; gap: 14px; flex-wrap: nowrap; justify-content: center; }
+.carte-overlay-carte { display: flex; gap: 8px; flex-wrap: nowrap; justify-content: center; width: 100%; }
+.carte-overlay-carte .carta { width: clamp(44px, 7.5vw, 120px); height: clamp(66px, 11.25vw, 180px); }
+.carte-overlay-carte .carta .valore-alto,
+.carte-overlay-carte .carta .valore-basso { font-size: clamp(12px, 1.8vw, 32px); }
+.carte-overlay-carte .carta .seme-centro { font-size: clamp(20px, 3.6vw, 72px); }
 .seme-carta-wrapper { display: flex; flex-direction: column; align-items: center; gap: 4px; flex-shrink: 0; }
-.seme-carta-wrapper .seme-carta-label { font-size: clamp(9px, 1.2vw, 14px); color: #ffd700; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 1px 3px #000; }
+.seme-carta-wrapper .seme-carta-label { font-size: clamp(8px, 1.1vw, 13px); color: #ffd700; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 1px 3px #000; }
 .seme-carta-wrapper .seme-carta-label.cpu-label { color: #ff6b6b; }
-.seme-carta { width: clamp(50px, 9vw, 140px); height: clamp(75px, 13.5vw, 200px); background: linear-gradient(135deg, #fff9c4, #ffe066); border: 4px solid #ffd700; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 30px rgba(255,215,0,0.9), 0 0 60px rgba(255,215,0,0.5), inset 0 0 24px rgba(255,215,0,0.3); position: relative; animation: pulseSeme 2s infinite; }
+.seme-carta { width: clamp(44px, 7.5vw, 120px); height: clamp(66px, 11.25vw, 180px); background: linear-gradient(135deg, #fff9c4, #ffe066); border: 4px solid #ffd700; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 30px rgba(255,215,0,0.9), 0 0 60px rgba(255,215,0,0.5), inset 0 0 24px rgba(255,215,0,0.3); position: relative; animation: pulseSeme 2s infinite; }
 @keyframes pulseSeme { 0%, 100% { box-shadow: 0 0 30px rgba(255,215,0,0.9), 0 0 60px rgba(255,215,0,0.5), inset 0 0 24px rgba(255,215,0,0.3); } 50% { box-shadow: 0 0 40px rgba(255,215,0,1), 0 0 80px rgba(255,215,0,0.7), inset 0 0 34px rgba(255,215,0,0.5); } }
-.seme-carta .seme-emoji { font-size: clamp(24px, 4.5vw, 90px); line-height: 1; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5)); }
-.cpu-card-slot { width: clamp(50px, 9vw, 140px); height: clamp(75px, 13.5vw, 200px); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
-.cpu-card-slot .carta { width: 100%; height: 100%; box-shadow: 0 0 30px rgba(255,107,107,0.9), 0 0 60px rgba(255,107,107,0.5); border: 4px solid #ff6b6b; border-radius: 12px; padding: 8px 10px; }
-.cpu-card-slot .carta .valore-alto { font-size: clamp(14px, 2.2vw, 40px); color: #ff6b6b; } 
-.cpu-card-slot .carta .valore-basso { font-size: clamp(14px, 2.2vw, 40px); color: #ff6b6b; } 
-.cpu-card-slot .carta .seme-centro { font-size: clamp(24px, 4.5vw, 90px); }
-.carte-overlay-azioni { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
+.seme-carta .seme-emoji { font-size: clamp(20px, 3.6vw, 72px); line-height: 1; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5)); }
+.cpu-card-slot { width: clamp(44px, 7.5vw, 120px); height: clamp(66px, 11.25vw, 180px); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+.cpu-card-slot .carta { width: 100%; height: 100%; box-shadow: 0 0 30px rgba(255,107,107,0.9), 0 0 60px rgba(255,107,107,0.5); border: 4px solid #ff6b6b; border-radius: 12px; padding: 5px 7px; }
+.cpu-card-slot .carta .valore-alto,
+.cpu-card-slot .carta .valore-basso { font-size: clamp(12px, 1.8vw, 32px); color: #ff6b6b; }
+.cpu-card-slot .carta .seme-centro { font-size: clamp(20px, 3.6vw, 72px); }
+.carte-overlay-azioni { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 2px; }
 .carta { background: #fff; color: #222; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 8px 10px; cursor: pointer; border: 3px solid transparent; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s; position: relative; }
 .carta:hover { transform: translateY(-6px); }
 .carta .valore-alto { font-weight: 900; align-self: flex-start; font-family: 'Georgia', serif; } .carta .seme-centro { line-height: 1; } .carta .valore-basso { font-weight: 900; align-self: flex-end; transform: rotate(180deg); font-family: 'Georgia', serif; }
 .carta.selezionata { border-color: #ffd700; background: #fff9c4; transform: translateY(-12px); box-shadow: 0 0 30px #ffd700; }
 .carta.seme-guidatore { box-shadow: 0 0 15px rgba(255,215,0,0.9); }
 .carta.disabilitata { opacity: 0.3; cursor: not-allowed; filter: grayscale(0.8); }
-.info-carte { display: flex; gap: 16px; font-size: clamp(10px, 1.3vw, 14px); color: #aaa; background: rgba(0,0,0,0.4); padding: 4px 12px; border-radius: 6px; border: 1px solid rgba(255,215,0,0.3); font-weight: bold; }
+.info-carte { display: flex; gap: 16px; font-size: clamp(9px, 1.1vw, 12px); color: #aaa; background: rgba(0,0,0,0.4); padding: 2px 10px; border-radius: 6px; border: 1px solid rgba(255,215,0,0.3); font-weight: bold; }
 .info-carte strong { color: #ffd700; }
 button { background: #0f3460; color: #fff; border: 2px solid #4dabf7; padding: 10px 20px; border-radius: 10px; font-size: clamp(12px, 1.8vw, 18px); font-weight: bold; cursor: pointer; margin: 4px; }
 button:hover:not(:disabled) { background: #4dabf7; color: #16213e; }
@@ -144,7 +144,7 @@ button.primario { background: #ffd700; color: #16213e; border-color: #ffd700; }
 button.primario:hover:not(:disabled) { background: #fff; }
 button.bonus-btn { background: linear-gradient(135deg, #ffd700, #f59f00); color: #16213e; border-color: #fff; box-shadow: 0 0 14px rgba(255,215,0,0.6); animation: pulseBonus 1.5s infinite; }
 @keyframes pulseBonus { 0%, 100% { box-shadow: 0 0 14px rgba(255,215,0,0.6); } 50% { box-shadow: 0 0 24px rgba(255,215,0,1); } }
-.carte-overlay-azioni button { padding: 8px 18px; font-size: clamp(11px, 1.5vw, 16px); border-radius: 8px; }
+.carte-overlay-azioni button { padding: 6px 14px; font-size: clamp(10px, 1.3vw, 14px); border-radius: 7px; }
 .tiro-overlay { position: fixed; inset: 0; background: linear-gradient(180deg, #0a1a2e 0%, #0a0a15 100%); z-index: 700; display: flex; flex-direction: column; padding: 8px; opacity: 0; transition: opacity 0.4s ease; overflow: hidden; }
 .tiro-overlay.attiva { opacity: 1; }
 .tiro-titolo { color: #ffd700; font-size: clamp(16px, 2.5vw, 28px); font-weight: 900; letter-spacing: 2px; text-align: center; margin-bottom: 4px; flex-shrink: 0; }

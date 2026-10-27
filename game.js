@@ -93,12 +93,13 @@ document.addEventListener('fullscreenchange', function() { aggiornaIconaFullscre
 document.addEventListener('webkitfullscreenchange', function() { aggiornaIconaFullscreen(); setTimeout(adattaScena, 200); });
 
 /* ============================================================
-   ZOOM — FIX MOBILE: calcolo robusto con getBoundingClientRect
+   ZOOM — palla sempre al centro, scala 2x su tutti i device
    ============================================================ */
 var zoomState = {
   modalita: 'palla2x', scalaTarget: 1, scalaCorrente: 1,
   offsetTargetX: 0, offsetTargetY: 0, offsetCorrenteX: 0, offsetCorrenteY: 0,
-  smoothing: 0.10, rafId: null
+  smoothing: 0.10, rafId: null,
+  seguiIstantaneo: false
 };
 function getPosizionePallaScena() {
   if (stato.giocatorePalla) {
@@ -123,18 +124,13 @@ function aggiornaTargetZoom() {
   var scena = document.getElementById('scena'); var wrapper = document.getElementById('scena-wrapper');
   if (!scena || !wrapper) return;
 
-  // Usa getBoundingClientRect: dà la dimensione REALE visualizzata del wrapper
-  // (dopo lo scaling del viewport sul telefono)
   var box = wrapper.getBoundingClientRect();
   var w = box.width, h = box.height;
   if (w === 0 || h === 0) return;
 
-  // Quanto è grande la scena 1600x900 rispetto al wrapper visualizzato?
   var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
 
-  // Su desktop grande (>= 1200px visualizzati) teniamo il 2x per il "camera on ball".
-  // Su mobile/tablet (schermo più piccolo) usiamo il fit puro per vedere tutta la scena.
-  var scala = scalaFit;
+  // SEMPRE 2x (camera on ball) — uguale su PC e mobile
   var scala = scalaFit * 2;
 
   var p = getPosizionePallaScena();
@@ -155,11 +151,14 @@ function applicaTransformScena() {
   scena.style.transform = 'translate(' + zoomState.offsetCorrenteX + 'px,' + zoomState.offsetCorrenteY + 'px) scale(' + zoomState.scalaCorrente + ')';
   scalaCorrente = zoomState.scalaCorrente;
 }
+
 function loopZoom() {
   aggiornaTargetZoom();
-  zoomState.scalaCorrente += (zoomState.scalaTarget - zoomState.scalaCorrente) * zoomState.smoothing;
-  zoomState.offsetCorrenteX += (zoomState.offsetTargetX - zoomState.offsetCorrenteX) * zoomState.smoothing;
-  zoomState.offsetCorrenteY += (zoomState.offsetTargetY - zoomState.offsetCorrenteY) * zoomState.smoothing;
+  // Se stiamo seguendo la palla in movimento, snap istantaneo (campo scorre sotto)
+  var s = zoomState.seguiIstantaneo ? 1.0 : zoomState.smoothing;
+  zoomState.scalaCorrente     += (zoomState.scalaTarget     - zoomState.scalaCorrente)     * s;
+  zoomState.offsetCorrenteX   += (zoomState.offsetTargetX   - zoomState.offsetCorrenteX)   * s;
+  zoomState.offsetCorrenteY   += (zoomState.offsetTargetY   - zoomState.offsetCorrenteY)   * s;
   applicaTransformScena();
   zoomState.rafId = requestAnimationFrame(loopZoom);
 }
@@ -371,7 +370,6 @@ function salvaPartita() {
   programmaSalvataggioGitHub();
 }
 
-// FIX MOBILE: salvataggio affidabile anche su iOS/Android
 document.addEventListener('visibilitychange', function() { if (document.hidden) salvaPartita(); });
 window.addEventListener('pagehide', function() { salvaPartita(); });
 window.addEventListener('blur', function() { salvaPartita(); });
@@ -580,9 +578,6 @@ function apriImpostazioni() {
     '<input type="file" id="file-input-campionato" accept=".json" style="display:none" onchange="gestisciFileCampionato(event)">';
 }
 
-/* ============================================================
-   FORZA RICARICA (bypass cache Safari iOS / GitHub Pages)
-   ============================================================ */
 function forzaRicarica() {
   if (!confirm('Forzare la ricarica? Verranno ricaricati tutti i file (HTML, CSS, JS) dalla rete, ignorando la cache del browser.\n\nI salvataggi locali (partita in corso, campionato, ammonizioni) NON verranno toccati.')) return;
   if ('caches' in window) {
@@ -824,10 +819,13 @@ function mostraAnimazioneMoneta(vincente, cb) {
 
 function animaPallaInZona(gDa, gA, cb, saltaZone) {
   suonaCalcio();
+  // Segui istantaneamente la palla durante l'animazione (campo scorre sotto)
+  zoomState.seguiIstantaneo = true;
+
   var scena = document.getElementById('scena'); var box = scena.getBoundingClientRect();
   var wrapperD = document.querySelector('[data-giocatore-id="' + gDa.id + '"]');
   var wrapperA = document.querySelector('[data-giocatore-id="' + gA.id + '"]');
-  if (!wrapperD || !wrapperA) { if (cb) cb(); return; }
+  if (!wrapperD || !wrapperA) { zoomState.seguiIstantaneo = false; if (cb) cb(); return; }
   var pedD = wrapperD.querySelector('.pedina') || wrapperD;
   var pedA = wrapperA.querySelector('.pedina') || wrapperA;
   var rD = pedD.getBoundingClientRect(), rA = pedA.getBoundingClientRect();
@@ -854,7 +852,12 @@ function animaPallaInZona(gDa, gA, cb, saltaZone) {
     p.style.left = (pX + dx*e2) + 'px'; p.style.top = (pY + dy*e2 + arcoY) + 'px';
     pi.style.transform = 'rotate(' + (gradi*e2) + 'deg)';
     if (t < 1) requestAnimationFrame(anima);
-    else { p.classList.remove('attiva'); stato.pallaInAnimazione = false; if (cb) cb(); }
+    else {
+      p.classList.remove('attiva');
+      stato.pallaInAnimazione = false;
+      zoomState.seguiIstantaneo = false;
+      if (cb) cb();
+    }
   }
   requestAnimationFrame(anima);
 }
@@ -874,8 +877,9 @@ function eseguiCalcioIniziale(squadra) {
   if (compagni.length === 0 && zonaDest !== 3) { zonaDest = 3; compagni = giocatoriInZona(squadra, 3, false).filter(function(g){ return !g.portiere && !g.espulso && g.id !== gB.id; }); }
   var gA = compagni[0];
   stato.zonaPalla = 3; stato.metaContesa = 'inf'; stato.possessore = squadra; stato.giocatorePalla = gB.id;
+  zoomState.seguiIstantaneo = true;
   renderCampo(); renderHeader(); aggiornaSottofondoPerZona(3);
-  if (!gA) { stato.pallaInAnimazione = false; renderCampo(); renderHeader(); setTimeout(function() { avviaContrasto(); }, 800); return; }
+  if (!gA) { stato.pallaInAnimazione = false; zoomState.seguiIstantaneo = false; renderCampo(); renderHeader(); setTimeout(function() { avviaContrasto(); }, 800); return; }
 
   log('🎙️ Calcio d\'inizio! ' + (squadra === 'tu' ? 'TU' : 'CPU') + ' batte dal centro con ' + gB.nome + '.', 'highlight');
   log('🎙️ ' + gB.nome + ' serve ' + gA.nome + ' in Z' + zonaDest + '.', '');
@@ -884,6 +888,7 @@ function eseguiCalcioIniziale(squadra) {
   function finalizza() {
     var idxG = compagni.indexOf(gA); var metaG = idxG <= 0 ? 'sup' : 'inf';
     stato.zonaPalla = zonaDest; stato.metaContesa = metaG; stato.possessore = squadra; stato.giocatorePalla = gA.id; stato.pallaInAnimazione = false;
+    zoomState.seguiIstantaneo = false;
     renderCampo(); renderHeader(); aggiornaSottofondoPerZona(zonaDest);
     stato.mano++; salvaPartita(); setTimeout(avviaContrasto, 800);
   }
@@ -976,7 +981,6 @@ function confermaCarta() {
   if (c.fase === 'risposta-difensore' && c.difensore === 'tu') {
     var cartaTuR = stato.mani.tu[selezioneCarta];
     if (!cartaTuR) return;
-    // REGOLA: fallo SEMPRE se il difensore gioca fuori seme
     c.falloDifensore = (cartaTuR.seme !== c.semeGuida);
     c.cartaTu = cartaTuR; rimuoviCartaDaMano('tu', cartaTuR);
     var nomeDif = (trovaGiocatorePerId('tu', c.giocatoreAvv)||{}).nome || 'TU';
@@ -1018,7 +1022,6 @@ function rispostaCPUAlSeme() {
   if (carteSeme.length > 0) {
     cartaCPU = scegliCartaPiuAlta(carteSeme); c.falloDifensore = false;
   } else {
-    // REGOLA: fallo SEMPRE se il difensore gioca fuori seme
     cartaCPU = scegliCartaPiuAlta(mani); c.falloDifensore = true;
   }
   c.cartaCpu = cartaCPU; rimuoviCartaDaMano('cpu', cartaCPU);
@@ -1257,7 +1260,6 @@ function applicaFallo(sq, gF, inArea) {
   suonaFischietto('fallo');
 
   if (inArea) {
-    // Regola area: 1° fallo = giallo, 2° fallo = rosso
     if (gF.falliArea === 1 && !gF.ammonito) {
       gF.ammonito = true; stato.statistiche[sq].ammonizioni++;
       log('🟨 AMMONIZIONE per ' + gF.nome + ' (fallo in area: 1/2)', 'parata');
@@ -1304,7 +1306,6 @@ function risolviContrastoLogica(vincente, c) {
   var haRubato = (vincente === c.difensore);
   log('🎙️ ' + nomeV + ' vince il contrasto in Z' + c.zona + (haRubato ? ' e RUBA PALLA!' : ' e avanza!'), 'highlight');
 
-  // RIGORE solo se fallo del difensore IN AREA
   if (c.falloDifensore && falloInArea) {
     log('⚽ RIGORE per fallo del difensore in area!', 'goal');
     setTimeout(function() { apriSchermataTiro(vincente, true); }, PAUSA_PRE_AZIONE);
@@ -1362,7 +1363,6 @@ function risolviContrastoLogica(vincente, c) {
       setTimeout(function() { salvaPartita(); mostraEntrambiBanner(); setTimeout(avviaContrasto, 400); }, PAUSA_POST_AZIONE);
     }
   };
-  // TIRO DA FUORI AREA: solo Z4 (dir +1) o Z2 (dir -1)
   var zonaTiroFuori = dirVincente > 0 ? 4 : 2;
   if (vincente === 'tu' && zonaAttuale === zonaTiroFuori && haBonus('tu', 'tiro-fuori-area')) {
     chiediTiroFuoriArea(zonaAttuale, function(usa) {
@@ -1396,15 +1396,16 @@ function chiediTiroFuoriArea(zona, callback) {
 function confermaTiroFuoriArea(usa) { if (window._tiroFuoriCallback) window._tiroFuoriCallback(usa); }
 
 function animaPallaVersoPorta(squadra, cb) {
+  zoomState.seguiIstantaneo = true;
   var palla = document.getElementById('palla-volante'); var scena = document.getElementById('scena');
-  if (!palla || !scena) { if (cb) cb(); return; }
+  if (!palla || !scena) { zoomState.seguiIstantaneo = false; if (cb) cb(); return; }
   var idGiocatore = stato.giocatorePalla;
   var wrapperGiocatore = idGiocatore ? document.querySelector('[data-giocatore-id="' + idGiocatore + '"]') : null;
   var avversario = squadra === 'tu' ? 'cpu' : 'tu';
   var portiere = null;
   for (var i = 0; i < stato.giocatori[avversario].length; i++) if (stato.giocatori[avversario][i].portiere && !stato.giocatori[avversario][i].espulso) { portiere = stato.giocatori[avversario][i]; break; }
   var wrapperPortiere = portiere ? document.querySelector('[data-giocatore-id="' + portiere.id + '"]') : null;
-  if (!wrapperGiocatore || !wrapperPortiere) { if (cb) cb(); return; }
+  if (!wrapperGiocatore || !wrapperPortiere) { zoomState.seguiIstantaneo = false; if (cb) cb(); return; }
   var pedG = wrapperGiocatore.querySelector('.pedina') || wrapperGiocatore;
   var pedP = wrapperPortiere.querySelector('.pedina') || wrapperPortiere;
   var box = scena.getBoundingClientRect();
@@ -1430,7 +1431,7 @@ function animaPallaVersoPorta(squadra, cb) {
     var sc = 1 - 0.15 * ease;
     palla.style.transform = 'translate(-50%, -50%) scale(' + sc + ')';
     if (t < 1) requestAnimationFrame(anima);
-    else { setTimeout(function() { palla.classList.remove('attiva'); palla.style.transform = 'translate(-50%, -50%) scale(1)'; stato.pallaInAnimazione = false; renderCampo(); if (cb) cb(); }, 200); }
+    else { setTimeout(function() { palla.classList.remove('attiva'); palla.style.transform = 'translate(-50%, -50%) scale(1)'; stato.pallaInAnimazione = false; zoomState.seguiIstantaneo = false; renderCampo(); if (cb) cb(); }, 200); }
   }
   requestAnimationFrame(anima);
 }
@@ -1502,7 +1503,6 @@ function apriSchermataTiro(att, isRigore) {
   var dif = att === 'tu' ? 'cpu' : 'tu';
   stato.statistiche[att].tiri++;
 
-  // NUOVO: il portiere che difende perde 1 stamina
   var por = null;
   for (var i = 0; i < stato.giocatori[dif].length; i++) {
     if (stato.giocatori[dif][i].portiere && !stato.giocatori[dif][i].espulso) { por = stato.giocatori[dif][i]; break; }
@@ -1863,7 +1863,6 @@ function finePartita() {
   document.getElementById('modale').classList.remove('nascosto');
 }
 function salvaRisultatoTorneo() {
-  // FIX: aggiunti casaOriginale e trasfertaOriginale per evitare loop infinito torneo
   var casaOrig = URL_CASA || stato.squadraTU;
   var trasfOrig = URL_TRASFERTA || stato.squadraCPU;
   var r = {

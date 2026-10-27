@@ -135,7 +135,7 @@ function aggiornaTargetZoom() {
   // Su desktop grande (>= 1200px visualizzati) teniamo il 2x per il "camera on ball".
   // Su mobile/tablet (schermo più piccolo) usiamo il fit puro per vedere tutta la scena.
   var scala = scalaFit;
-  if (w >= 1200) scala = scalaFit * 2;
+  var scala = scalaFit * 2;
 
   var p = getPosizionePallaScena();
   var offsetX = w / 2 - p.x * scala;

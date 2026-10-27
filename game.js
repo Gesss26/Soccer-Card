@@ -93,7 +93,7 @@ document.addEventListener('fullscreenchange', function() { aggiornaIconaFullscre
 document.addEventListener('webkitfullscreenchange', function() { aggiornaIconaFullscreen(); setTimeout(adattaScena, 200); });
 
 /* ============================================================
-   ZOOM (palla2x fisso) — viewport 1600px = secondo monitor
+   ZOOM — FIX MOBILE: calcolo robusto con getBoundingClientRect
    ============================================================ */
 var zoomState = {
   modalita: 'palla2x', scalaTarget: 1, scalaCorrente: 1,
@@ -118,21 +118,38 @@ function getPosizionePallaScena() {
 }
 function impostaZoomFit() { zoomState.modalita = 'palla2x'; }
 function impostaZoomPalla2x() { zoomState.modalita = 'palla2x'; }
+
 function aggiornaTargetZoom() {
   var scena = document.getElementById('scena'); var wrapper = document.getElementById('scena-wrapper');
   if (!scena || !wrapper) return;
-  var w = wrapper.clientWidth, h = wrapper.clientHeight;
+
+  // Usa getBoundingClientRect: dà la dimensione REALE visualizzata del wrapper
+  // (dopo lo scaling del viewport sul telefono)
+  var box = wrapper.getBoundingClientRect();
+  var w = box.width, h = box.height;
   if (w === 0 || h === 0) return;
+
+  // Quanto è grande la scena 1600x900 rispetto al wrapper visualizzato?
   var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
-  var p = getPosizionePallaScena(); var scala = scalaFit * 2;
-  var offsetX = w / 2 - p.x * scala; var offsetY = h / 2 - p.y * scala;
+
+  // Su desktop grande (>= 1200px visualizzati) teniamo il 2x per il "camera on ball".
+  // Su mobile/tablet (schermo più piccolo) usiamo il fit puro per vedere tutta la scena.
+  var scala = scalaFit;
+  if (w >= 1200) scala = scalaFit * 2;
+
+  var p = getPosizionePallaScena();
+  var offsetX = w / 2 - p.x * scala;
+  var offsetY = h / 2 - p.y * scala;
   var lS = SCENA_W * scala, aS = SCENA_H * scala;
   if (lS <= w) offsetX = (w - lS) / 2;
   else { if (offsetX > 0) offsetX = 0; if (offsetX < w - lS) offsetX = w - lS; }
   if (aS <= h) offsetY = (h - aS) / 2;
   else { if (offsetY > 0) offsetY = 0; if (offsetY < h - aS) offsetY = h - aS; }
-  zoomState.scalaTarget = scala; zoomState.offsetTargetX = offsetX; zoomState.offsetTargetY = offsetY;
+  zoomState.scalaTarget = scala;
+  zoomState.offsetTargetX = offsetX;
+  zoomState.offsetTargetY = offsetY;
 }
+
 function applicaTransformScena() {
   var scena = document.getElementById('scena'); if (!scena) return;
   scena.style.transform = 'translate(' + zoomState.offsetCorrenteX + 'px,' + zoomState.offsetCorrenteY + 'px) scale(' + zoomState.scalaCorrente + ')';
@@ -354,7 +371,7 @@ function salvaPartita() {
   programmaSalvataggioGitHub();
 }
 
-// Salvataggio affidabile su mobile (iOS/Android)
+// FIX MOBILE: salvataggio affidabile anche su iOS/Android
 document.addEventListener('visibilitychange', function() { if (document.hidden) salvaPartita(); });
 window.addEventListener('pagehide', function() { salvaPartita(); });
 window.addEventListener('blur', function() { salvaPartita(); });

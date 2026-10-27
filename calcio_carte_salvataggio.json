@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-27T10:59:03.713Z",
+  "data": "2026-10-27T11:00:10.912Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -2964,7 +2964,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793098739708,
+    "timestamp": 1793098806906,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "inter",
@@ -2985,16 +2985,16 @@
       }
     },
     "tempo": 1,
-    "mano": 5,
+    "mano": 6,
     "maxMani": 23,
     "punteggio": {
       "tu": 1,
       "cpu": 0
     },
-    "zonaPalla": 4,
+    "zonaPalla": 5,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_7",
-    "metaContesa": "sup",
+    "giocatorePalla": "cpu_10",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -3260,12 +3260,6 @@
           "seme": "coppa",
           "valore": 6,
           "label": "6"
-        },
-        {
-          "id": "c26",
-          "seme": "guantone",
-          "valore": 14,
-          "label": "A"
         }
       ],
       "cpu": [
@@ -3526,18 +3520,6 @@
           "seme": "coppa",
           "valore": 10,
           "label": "10"
-        },
-        {
-          "id": "c37",
-          "seme": "guantone",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c15",
-          "seme": "coppa",
-          "valore": 12,
-          "label": "Q"
         }
       ]
     },
@@ -3554,6 +3536,12 @@
           "seme": "bandierina",
           "valore": 10,
           "label": "10"
+        },
+        {
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
@@ -3574,6 +3562,18 @@
           "seme": "coppa",
           "valore": 14,
           "label": "A"
+        },
+        {
+          "id": "c1",
+          "seme": "palla",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c15",
+          "seme": "coppa",
+          "valore": 12,
+          "label": "Q"
         }
       ]
     },
@@ -3597,12 +3597,6 @@
     "mani": {
       "tu": [
         {
-          "id": "c50",
-          "seme": "bandierina",
-          "valore": 3,
-          "label": "3"
-        },
-        {
           "id": "c45",
           "seme": "bandierina",
           "valore": 8,
@@ -3625,6 +3619,12 @@
           "seme": "coppa",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c26",
+          "seme": "guantone",
+          "valore": 14,
+          "label": "A"
         }
       ],
       "cpu": [
@@ -3647,10 +3647,10 @@
           "label": "6"
         },
         {
-          "id": "c1",
-          "seme": "palla",
-          "valore": 13,
-          "label": "K"
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
         }
       ]
     },
@@ -3701,9 +3701,9 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Lucumì"
@@ -3898,7 +3898,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -4144,8 +4144,8 @@
       "cpu": []
     },
     "streak": {
-      "tu": 2,
-      "cpu": 0
+      "tu": 0,
+      "cpu": 1
     },
     "statistiche": {
       "tu": {
@@ -4156,7 +4156,7 @@
         "pali": 0,
         "contese": 3,
         "vinte": 2,
-        "falli": 0,
+        "falli": 1,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4174,8 +4174,8 @@
         "parate": 0,
         "angoli": 0,
         "pali": 0,
-        "contese": 1,
-        "vinte": 0,
+        "contese": 3,
+        "vinte": 1,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4220,8 +4220,48 @@
       {
         "msg": "🃏 CPU gioca A🏆 → seme guida: Coppa",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Z4 superiore: Zielinski (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Zielinski gioca K⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 3🚩 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Zielinski K⚽ vs Lucumì 3🚩 → vince Zielinski (⚠️ FALLO DIFENSORE · vince l'attaccante)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Lucumì (1)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Zielinski vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Zielinski serve Thuram in Z5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Thuram (CPU) contro Bremer (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Thuram gioca Q🏆 → seme guida: Coppa",
+        "classe": "highlight"
       }
     ],
-    "secondiTrascorsi": 232
+    "secondiTrascorsi": 300
   }
 }

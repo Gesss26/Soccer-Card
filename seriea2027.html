@@ -2,7 +2,12 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- Viewport desktop fissa: su cellulare/tablet la pagina si vede identica al PC a schermo intero (scalata) -->
+<meta name="viewport" content="width=1600, user-scalable=yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0a15">
 <title>Serie A 2026/2027</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
 <style>
@@ -14,8 +19,9 @@
     color: #eee;
     overflow: hidden;
     user-select: none;
+    min-width: 1600px; /* forza il layout desktop anche se lo schermo fisico è più piccolo */
   }
-  .app { display: flex; flex-direction: column; height: 100vh; overflow-y: auto; }
+  .app { display: flex; flex-direction: column; height: 100vh; overflow-y: auto; min-width: 1600px; }
   .header {
     background: linear-gradient(135deg, #16213e, #0f3460);
     padding: 16px;
@@ -222,9 +228,56 @@
   .marcatori td:nth-child(4) { text-align: center; font-weight: bold; color: #4ade80; width: 40px; }
   .marcatori tr.podio td:first-child { font-size: 14px; }
   .marcatori tr.tua td:nth-child(2) { color: #4dabf7; }
+
+  /* ===== AVVISO RUOTA ===== */
+  .avviso-ruota {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #0a0a15;
+    z-index: 99999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+  .avviso-ruota .icona-ruota {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: ruotaIcona 2s ease-in-out infinite;
+  }
+  .avviso-ruota h2 {
+    color: #ffd700;
+    font-size: 24px;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+  }
+  .avviso-ruota p {
+    color: #ccc;
+    font-size: 16px;
+    max-width: 400px;
+    line-height: 1.5;
+  }
+  @keyframes ruotaIcona {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(90deg); }
+  }
+  /* Mostra l'avviso solo su dispositivi touch piccoli in portrait */
+  @media (orientation: portrait) and (max-width: 900px) {
+    .avviso-ruota { display: flex; }
+  }
 </style>
 </head>
 <body>
+
+<!-- Avviso ruota (mostrato solo in portrait su dispositivi piccoli) -->
+<div class="avviso-ruota" id="avviso-ruota">
+  <div class="icona-ruota">📱</div>
+  <h2>RUOTA IL DISPOSITIVO</h2>
+  <p>Per vedere il campionato come sul PC, ruota il telefono in orizzontale (landscape).</p>
+</div>
+
 <button class="torna-menu" onclick="location.href='index.html'">← Menù</button>
 <div class="top-buttons-right">
   <button onclick="apriGestioneAmmonizioni()">📋 Ammonizioni</button>
@@ -1240,7 +1293,9 @@ function simulaRestoGiornata(g) {
   salvaStato();
 }
 
-/* RICEZIONE RISULTATO */
+/* ============================================================
+   RICEZIONE RISULTATO — VERSIONE CORRETTA (fix loop torneo)
+   ============================================================ */
 function riceviRisultato() {
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get('risultato');
@@ -1251,10 +1306,19 @@ function riceviRisultato() {
   const risultato = JSON.parse(json);
   localStorage.removeItem('campionato_partita_' + id);
 
-  const casa = risultato.casaOriginale;
-  const trasferta = risultato.trasfertaOriginale;
+  // Fallback: se il salvataggio non contiene casa/trasferta, ricavali dal calendario
+  const partiId = id.split('_');
+  const gId = parseInt(partiId[0].substring(1));
+  const iId = parseInt(partiId[1]);
+  const partitaCal = CALENDARIO_SERIEA[gId - 1] && CALENDARIO_SERIEA[gId - 1][iId];
+  const casa = risultato.casaOriginale || (partitaCal ? normalizzaNome(partitaCal.homeTeam) : null);
+  const trasferta = risultato.trasfertaOriginale || (partitaCal ? normalizzaNome(partitaCal.awayTeam) : null);
   const sqTU = risultato.sqTU;
-  if (!casa || !trasferta || !sqTU) return false;
+  if (!casa || !trasferta || !sqTU) {
+    console.error('riceviRisultato: dati insufficienti', risultato);
+    window.history.replaceState({}, document.title, 'seriea2027.html');
+    return false;
+  }
 
   const golTU = risultato.golTU;
   const golCPU = risultato.golCPU;
@@ -1268,11 +1332,15 @@ function riceviRisultato() {
   resetSqualificheDopoPartita(sqTU);
   salvaAmmonizioni();
 
-  const parti = id.split('_');
-  const g = parseInt(parti[0].substring(1));
-  simulaRestoGiornata(g);
+  const giornata = CALENDARIO_SERIEA[gId - 1];
+  if (!giornata) {
+    console.error('riceviRisultato: giornata non trovata per', id);
+    window.history.replaceState({}, document.title, 'seriea2027.html');
+    return false;
+  }
 
-  const giornata = CALENDARIO_SERIEA[g - 1];
+  simulaRestoGiornata(gId);
+
   for (let i=0;i<giornata.length;i++) {
     const p = giornata[i];
     const c = normalizzaNome(p.homeTeam);

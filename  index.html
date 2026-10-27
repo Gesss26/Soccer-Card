@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<!-- Viewport fissa 1600px: su cellulare mostra la scena identica al PC, scalata -->
+<meta name="viewport" content="width=1600, user-scalable=yes, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0a15">
+<title>Calcio a Carte</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="avviso-ruota" id="avviso-ruota">
+  <div class="icona-ruota">📱</div>
+  <h2>RUOTA IL DISPOSITIVO</h2>
+  <p>Per giocare a Calcio a Carte, ruota il telefono in orizzontale (landscape).</p>
+</div>
+
+<div class="app" id="app">
+  <div class="topbar">
+    <div class="risultato-wrapper">
+      <div class="risultato">
+        <span class="casa" id="nome-casa">CASA</span>
+        <span id="punteggio-casa">0</span>
+        <span class="sep">-</span>
+        <span id="punteggio-trasferta">0</span>
+        <span class="trasferta" id="nome-trasferta">TRASFERTA</span>
+      </div>
+      <div class="minuto">
+        <span class="parziale" id="minuto-parziale">0'</span>
+        <span class="sep-min">|</span>
+        <span class="totale" id="minuto-totale">0'</span>
+        <span class="sep-min">|</span>
+        <span class="timer" id="timer-partita">00:00</span>
+      </div>
+    </div>
+    <div class="info-top">Tempo <span id="tempo">1°</span> · Mano <span id="mano">1</span>/46<br>Palla <span id="zona-palla">Z3</span> · <span id="attacco-lato">→</span></div>
+  </div>
+  <div class="topbar-buttons">
+    <button class="btn-icona" onclick="toggleFullscreen()" id="btn-fullscreen" title="Schermo intero">⛶</button>
+    <button class="btn-icona" onclick="apriLog()">📋</button>
+    <button class="btn-icona" onclick="apriImpostazioni()">⚙️</button>
+  </div>
+
+  <div class="banner-top" id="banner-top">
+    <div class="info-mano"><div class="titolo" id="titolo-mano">Contrasto</div><div class="turno-label" id="turno-label"></div></div>
+    <div class="riga-alta">
+      <div class="pila-bonus-wrapper"><div class="pila-bonus"><div class="pila-titolo">BONUS</div><div class="pila-carte" id="bonus-pila"></div><div class="pila-count bonus" id="bonus-count">12</div></div></div>
+      <div class="bonus-tu-wrapper"><div class="bonus-label">I TUOI BONUS</div><div class="bonus-slots" id="bonus-slots-tu"><div class="bonus-slot" data-slot="0"></div><div class="bonus-slot" data-slot="1"></div><div class="bonus-slot" data-slot="2"></div></div></div>
+      <div class="pile-wrapper" style="display:flex; gap:18px; align-items:center;">
+        <div class="pila"><div class="pila-titolo">MAZZO</div><div class="pila-carte" id="mazzo-pila"></div><div class="pila-count mazzo" id="mazzo-count">0</div></div>
+        <div class="pila"><div class="pila-titolo">SCARTI</div><div class="pila-carte" id="scarti-pila"></div><div class="pila-count scarto" id="scarti-count">0</div></div>
+      </div>
+      <div class="bonus-cpu-slots"><div class="bonus-cpu-label">CPU</div><div class="bonus-cpu-slot" id="bonus-cpu-slot-0"></div><div class="bonus-cpu-slot" id="bonus-cpu-slot-1"></div><div class="bonus-cpu-slot" id="bonus-cpu-slot-2"></div></div>
+    </div>
+  </div>
+
+  <div class="carte-overlay" id="carte-overlay">
+    <div class="carte-overlay-inner">
+      <div class="carte-overlay-titolo" id="carte-overlay-titolo">SCEGLI UNA CARTA</div>
+      <div class="carte-overlay-sottotitolo" id="carte-overlay-sottotitolo">Seme: Palla ⚽</div>
+      <div class="carte-overlay-riga">
+        <div class="seme-carta-wrapper"><div class="seme-carta-label" id="seme-carta-label">SEME GUIDA</div><div id="slot-cpu-carta"></div></div>
+        <div class="carte-overlay-carte" id="carte-overlay-carte"></div>
+      </div>
+      <div class="info-carte"><span>Mazzo: <strong id="info-mazzo">52</strong></span><span>Scarti: <strong id="info-scarti">0</strong></span><span>Streak: <strong id="info-streak">0</strong>/3</span></div>
+      <div class="carte-overlay-azioni" id="azioni-container"></div>
+    </div>
+  </div>
+
+  <div class="area-gioco">
+    <div class="scena-wrapper" id="scena-wrapper">
+      <div class="scena" id="scena">
+        <div class="stadio-sfondo"></div>
+        <div class="campo-area"><div class="zone" id="zone"></div></div>
+        <div class="palla-volante" id="palla-volante"></div>
+        <div class="flash-vincitore" id="flash"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bonus-choice-overlay" id="bonus-choice-overlay"><div class="bonus-choice-box"><div class="bonus-choice-titolo" id="bonus-choice-titolo">USA CARTA BONUS?</div><div class="bonus-choice-sottotitolo" id="bonus-choice-sottotitolo">Vuoi usare questa carta?</div><div class="bonus-choice-carta" id="bonus-choice-carta"><span class="icona-grande" id="bonus-choice-icona">⭐</span><span class="nome" id="bonus-choice-nome">Contrasto Sicuro</span></div><div class="bonus-choice-azioni" id="bonus-choice-azioni"></div><div class="bonus-choice-timer" id="bonus-choice-timer"></div></div></div>
+
+<div class="goal-banner" id="goal-banner"><div class="goal-banner-text" id="goal-banner-text">GGGOOOAAALLL</div></div>
+<div class="moneta-animazione nascosta" id="moneta-animazione"><div class="moneta-gira" id="moneta-gira">🪙</div><div class="moneta-testo" id="moneta-testo">Lancio della moneta...</div></div>
+<div class="bonus-banner" id="bonus-banner"></div>
+
+<div class="banner-mano" id="banner-mano">
+  <div class="banner-mano-box">
+    <div class="banner-mano-vincitore" id="banner-vincitore">TU VINCI!</div>
+    <div class="banner-mano-carte">
+      <div class="banner-mano-carta casa"><div class="chi">Casa</div><div id="banner-carta-casa"></div></div>
+      <div class="banner-mano-vs">VS</div>
+      <div class="banner-mano-carta seme-centrale"><div class="chi">Seme</div><div id="banner-carta-seme"></div></div>
+      <div class="banner-mano-vs">VS</div>
+      <div class="banner-mano-carta trasferta"><div class="chi">Trasferta</div><div id="banner-carta-trasferta"></div></div>
+    </div>
+    <div class="banner-mano-seme" id="banner-seme">Seme: Palla ⚽</div>
+    <div class="banner-mano-motivo" id="banner-motivo"></div>
+  </div>
+</div>
+
+<div class="modale" id="modale"><div class="modale-box" id="modale-box"></div></div>
+
+<div id="banner-riavvio" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; flex-direction:column; gap:20px;">
+  <h2 style="color:#ffd700; font-size:36px; text-align:center;">Vuoi ricominciare la partita?</h2>
+  <div style="display:flex; gap:20px;">
+    <button class="primario" onclick="eseguiRiavvio()" style="font-size:24px; padding:20px 40px;">SÌ</button>
+    <button onclick="annullaRiavvio()" style="font-size:24px; padding:20px 40px; background:#8B2020; border-color:#ff6b6b;">NO</button>
+  </div>
+</div>
+
+<script>
+  // Blocca bounce e pinch-to-zoom su iOS Safari (non blocca i tap singoli)
+  document.addEventListener('touchmove', function(e) {
+    if (e.touches.length > 1) e.preventDefault();
+  }, { passive: false });
+  document.addEventListener('gesturestart', function(e) { e.preventDefault(); });
+  document.addEventListener('gesturechange', function(e) { e.preventDefault(); });
+  document.addEventListener('gestureend', function(e) { e.preventDefault(); });
+</script>
+
+<script src="divise.js"></script>
+<script src="ammonizioni.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

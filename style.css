@@ -1,9 +1,9 @@
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-html, body { height: 100%; width: 100%; font-family: 'Segoe UI', Tahoma, sans-serif; background: #0a0a15; color: #eee; overflow: hidden; user-select: none; overscroll-behavior: none; touch-action: manipulation; position: fixed; top: 0; left: 0; }
+html, body { height: 100%; width: 100%; min-width: 1600px; font-family: 'Segoe UI', Tahoma, sans-serif; background: #0a0a15; color: #eee; overflow: hidden; user-select: none; overscroll-behavior: none; touch-action: manipulation; position: fixed; top: 0; left: 0; -webkit-user-select: none; -webkit-touch-callout: none; }
 body { display: flex; justify-content: center; align-items: flex-start; }
 body:fullscreen, body:-webkit-full-screen { background: #000; }
 .app:fullscreen, .app:-webkit-full-screen { max-width: none; }
-.app { display: flex; flex-direction: column; height: 100vh; height: 100dvh; position: relative; width: 100%; max-width: 100vw; }
+.app { display: flex; flex-direction: column; height: 100vh; height: 100dvh; position: relative; width: 100%; max-width: 100vw; min-width: 1600px; }
 .stadio-sfondo { position: absolute; inset: 0; background: url('Stadio.jpg') center/cover no-repeat; z-index: 0; pointer-events: none; }
 .stadio-sfondo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,21,0.55) 0%, rgba(10,10,21,0.15) 30%, rgba(10,10,21,0.15) 70%, rgba(10,10,21,0.75) 100%); }
 .avviso-ruota { display: none; position: fixed; inset: 0; background: linear-gradient(135deg, #0a0a15, #16213e); z-index: 9999; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px; color: #fff; }
@@ -272,80 +272,3 @@ button.bonus-btn { background: linear-gradient(135deg, #ffd700, #f59f00); color:
 .istruzioni-content p { margin: 10px 0; }
 .istruzioni-content ul { margin: 10px 0 16px 28px; } .istruzioni-content li { margin: 8px 0; }
 #banner-riavvio.attivo { display: flex !important; }
-
-/* ============================================================
-   FIX MOBILE: carte e overlay più piccoli su schermi piccoli
-   ============================================================ */
-@media (max-width: 900px) {
-  /* Carte nell'overlay di gioco */
-  .carte-overlay-carte .carta {
-    width: 9vw;
-    height: 13.5vw;
-    max-width: 90px;
-    max-height: 135px;
-    min-width: 50px;
-    min-height: 75px;
-    padding: 6px 8px;
-    border-radius: 8px;
-  }
-  .carte-overlay-carte .carta .valore-alto,
-  .carte-overlay-carte .carta .valore-basso {
-    font-size: clamp(14px, 2vw, 22px);
-  }
-  .carte-overlay-carte .carta .seme-centro {
-    font-size: clamp(26px, 4vw, 48px);
-  }
-  .seme-carta,
-  .cpu-card-slot {
-    width: 9vw;
-    height: 13.5vw;
-    max-width: 90px;
-    max-height: 135px;
-    min-width: 50px;
-    min-height: 75px;
-  }
-  .seme-carta .seme-emoji {
-    font-size: clamp(26px, 4vw, 48px);
-  }
-  .cpu-card-slot .carta {
-    padding: 6px 8px;
-    border-radius: 8px;
-  }
-  .cpu-card-slot .carta .valore-alto,
-  .cpu-card-slot .carta .valore-basso {
-    font-size: clamp(14px, 2vw, 22px);
-  }
-  .cpu-card-slot .carta .seme-centro {
-    font-size: clamp(26px, 4vw, 48px);
-  }
-  /* Banner mano (le tre carte centrali) */
-  .banner-mano-carta .carta {
-    width: clamp(70px, 11vw, 140px);
-    height: clamp(100px, 16vw, 200px);
-  }
-  .banner-mano-carta .carta .seme-centro {
-    font-size: clamp(36px, 6vw, 80px);
-  }
-  .banner-mano-carta .carta .valore-alto,
-  .banner-mano-carta .carta .valore-basso {
-    font-size: clamp(16px, 2.5vw, 32px);
-  }
-  /* Overlay interno */
-  .carte-overlay-inner {
-    padding: 10px 14px 12px;
-    border-radius: 12px;
-    gap: 8px;
-  }
-  .carte-overlay-titolo { font-size: 14px; letter-spacing: 2px; }
-  .carte-overlay-sottotitolo { font-size: 11px; }
-  .carte-overlay-riga { gap: 12px; }
-  .carte-overlay-carte { gap: 8px; }
-  .carte-overlay-azioni button { padding: 8px 16px; font-size: 13px; }
-  .info-carte { font-size: 11px; gap: 10px; padding: 4px 10px; }
-  /* Banner mano box */
-  .banner-mano-box { padding: 20px 30px; border-radius: 24px; border-width: 6px; }
-  .banner-mano-vincitore { margin-bottom: 14px; }
-  .banner-mano-carte { gap: 16px; margin-top: 16px; }
-  .banner-mano-seme { margin-top: 14px; }
-  .banner-mano-motivo { margin-top: 10px; }
-}

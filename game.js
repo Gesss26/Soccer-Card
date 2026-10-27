@@ -93,7 +93,7 @@ document.addEventListener('fullscreenchange', function() { aggiornaIconaFullscre
 document.addEventListener('webkitfullscreenchange', function() { aggiornaIconaFullscreen(); setTimeout(adattaScena, 200); });
 
 /* ============================================================
-   ZOOM — FIX MOBILE: zoom adattivo
+   ZOOM (palla2x fisso) — viewport 1600px = secondo monitor
    ============================================================ */
 var zoomState = {
   modalita: 'palla2x', scalaTarget: 1, scalaCorrente: 1,
@@ -118,23 +118,13 @@ function getPosizionePallaScena() {
 }
 function impostaZoomFit() { zoomState.modalita = 'palla2x'; }
 function impostaZoomPalla2x() { zoomState.modalita = 'palla2x'; }
-
 function aggiornaTargetZoom() {
   var scena = document.getElementById('scena'); var wrapper = document.getElementById('scena-wrapper');
   if (!scena || !wrapper) return;
   var w = wrapper.clientWidth, h = wrapper.clientHeight;
   if (w === 0 || h === 0) return;
   var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
-  var p = getPosizionePallaScena();
-
-  // FIX MOBILE: zoom adattivo in base all'area dello schermo
-  var zoomDesiderato = 2;
-  var area = w * h;
-  if (area < 500000) zoomDesiderato = 1.4;          // smartphone
-  else if (area < 1200000) zoomDesiderato = 1.7;    // tablet piccolo
-  // altrimenti 2x (desktop / tablet grande)
-
-  var scala = scalaFit * zoomDesiderato;
+  var p = getPosizionePallaScena(); var scala = scalaFit * 2;
   var offsetX = w / 2 - p.x * scala; var offsetY = h / 2 - p.y * scala;
   var lS = SCENA_W * scala, aS = SCENA_H * scala;
   if (lS <= w) offsetX = (w - lS) / 2;
@@ -364,7 +354,7 @@ function salvaPartita() {
   programmaSalvataggioGitHub();
 }
 
-// FIX MOBILE: salva quando l'app va in background (iOS/Android scatenano visibilitychange e pagehide)
+// Salvataggio affidabile su mobile (iOS/Android)
 document.addEventListener('visibilitychange', function() { if (document.hidden) salvaPartita(); });
 window.addEventListener('pagehide', function() { salvaPartita(); });
 window.addEventListener('blur', function() { salvaPartita(); });
@@ -544,6 +534,7 @@ function mostraMenuPrincipale() {
       '<div style="margin-top:24px"><button onclick="apriImpostazioni()">⚙️ Impostazioni</button></div>' +
     '</div>';
 }
+
 function apriImpostazioni() {
   document.getElementById('modale').classList.remove('nascosto');
   document.getElementById('modale-box').innerHTML =
@@ -552,6 +543,7 @@ function apriImpostazioni() {
       '<button class="primario" onclick="esportaCampionato()">💾 Salva campionato su file</button>' +
       '<button onclick="document.getElementById(\'file-input-campionato\').click()">📂 Carica campionato da file</button>' +
       '<button style="background:#8B2020;border-color:#ff6b6b" onclick="resetCampionatoSalvato()">🗑 Azzera campionato</button>' +
+      '<button class="primario" style="background:#4dabf7;border-color:#fff" onclick="forzaRicarica()">🔄 Forza ricarica (svuota cache)</button>' +
       '<button onclick="apriSostituzioni()">🔄 Sostituzioni</button>' +
       '<button class="primario" style="background:#4dabf7;border-color:#fff" onclick="apriIstruzioni()">📖 Istruzioni</button>' +
       '<button onclick="mostraMenuPrincipale()">← Chiudi</button>' +
@@ -570,6 +562,23 @@ function apriImpostazioni() {
     '<div class="volume-control"><label>🔔 Effetti</label><input type="range" min="0" max="100" value="' + Math.round(volumeEffetti*100) + '" oninput="cambiaVolume(\'effetti\',this.value)"><span class="vol-val" id="vol-effetti-val">' + Math.round(volumeEffetti*100) + '%</span></div>' +
     '<input type="file" id="file-input-campionato" accept=".json" style="display:none" onchange="gestisciFileCampionato(event)">';
 }
+
+/* ============================================================
+   FORZA RICARICA (bypass cache Safari iOS / GitHub Pages)
+   ============================================================ */
+function forzaRicarica() {
+  if (!confirm('Forzare la ricarica? Verranno ricaricati tutti i file (HTML, CSS, JS) dalla rete, ignorando la cache del browser.\n\nI salvataggi locali (partita in corso, campionato, ammonizioni) NON verranno toccati.')) return;
+  if ('caches' in window) {
+    caches.keys().then(function(names) {
+      names.forEach(function(name) { caches.delete(name); });
+    }).catch(function(){});
+  }
+  var base = location.href.split('?')[0].split('#')[0];
+  var params = location.search ? location.search.substring(1) + '&' : '';
+  var nuovoUrl = base + '?' + params + 'v=' + Date.now();
+  location.replace(nuovoUrl);
+}
+
 function apriIstruzioni() {
   document.getElementById('modale').classList.remove('nascosto');
   document.getElementById('modale-box').innerHTML =
@@ -850,10 +859,10 @@ function eseguiCalcioIniziale(squadra) {
   stato.zonaPalla = 3; stato.metaContesa = 'inf'; stato.possessore = squadra; stato.giocatorePalla = gB.id;
   renderCampo(); renderHeader(); aggiornaSottofondoPerZona(3);
   if (!gA) { stato.pallaInAnimazione = false; renderCampo(); renderHeader(); setTimeout(function() { avviaContrasto(); }, 800); return; }
-  
+
   log('🎙️ Calcio d\'inizio! ' + (squadra === 'tu' ? 'TU' : 'CPU') + ' batte dal centro con ' + gB.nome + '.', 'highlight');
   log('🎙️ ' + gB.nome + ' serve ' + gA.nome + ' in Z' + zonaDest + '.', '');
-  
+
   var wrapperB = document.querySelector('[data-giocatore-id="' + gB.id + '"]');
   function finalizza() {
     var idxG = compagni.indexOf(gA); var metaG = idxG <= 0 ? 'sup' : 'inf';
@@ -893,11 +902,11 @@ function avviaContrasto() {
   if (!gP) { var l1 = giocatoriInZona(poss, zona, false).filter(function(g){ return !g.portiere; }); gP = l1[0]; }
   if (!gA) { var l2 = giocatoriInZona(dif, zona, false).filter(function(g){ return !g.portiere; }); gA = l2[0]; }
   if (gP) stato.giocatorePalla = gP.id;
-  
+
   if (gP && gA) {
     log('🎙️ Z' + zona + ' ' + (meta === 'sup' ? 'superiore' : 'inferiore') + ': ' + gP.nome + ' (' + (poss === 'tu' ? 'TU' : 'CPU') + ') contro ' + gA.nome + ' (' + (dif === 'tu' ? 'TU' : 'CPU') + ').', '');
   }
-  
+
   riempiMano('tu'); riempiMano('cpu');
   if (stato.mani.tu.length === 0 && stato.mani.cpu.length === 0) {
     stato.mano++; setTimeout(function() { if (!stato.partitaFinita) avviaContrasto(); }, 600); return;
@@ -1021,12 +1030,12 @@ function risolviTurnoContrasto() {
   else if (!attHaSeme && difHaSeme) { esito = 'difensore'; motivo = 'Difensore col seme guida'; }
   else { if (cartaAtt.valore > cartaDif.valore) { esito = 'attaccante'; motivo = 'Valore più alto'; } else if (cartaDif.valore > cartaAtt.valore) { esito = 'difensore'; motivo = 'Valore più alto'; } else { esito = 'pareggio'; motivo = 'Carte di pari valore'; } }
   c.storico.push({ att: cartaAtt, dif: cartaDif, esito: esito, fAtt: c.falloAttaccante, fDif: c.falloDifensore });
-  
+
   var nomeAtt = (trovaGiocatorePerId(c.attaccante, c.giocatorePoss)||{}).nome || c.attaccante;
   var nomeDif = (trovaGiocatorePerId(c.difensore, c.giocatoreAvv)||{}).nome || c.difensore;
   var esitoTxt = (esito === 'pareggio') ? 'PAREGGIO' : (esito === 'attaccante' ? 'vince ' + nomeAtt : 'vince ' + nomeDif);
   log('🎙️ ' + nomeAtt + ' ' + cartaAtt.label + SEMI[cartaAtt.seme].emoji + ' vs ' + nomeDif + ' ' + cartaDif.label + SEMI[cartaDif.seme].emoji + ' → ' + esitoTxt + ' (' + motivo + ')', esito === 'pareggio' ? '' : 'highlight');
-  
+
   mostraBannerTurno(cartaAtt, cartaDif, c.semeGuida, motivo, esito);
   setTimeout(function() {
     nascondiBannerMano();
@@ -1229,7 +1238,7 @@ function applicaFallo(sq, gF, inArea) {
   if (inArea) gF.falliArea = (gF.falliArea || 0) + 1;
   gF.stamina = Math.max(0, gF.stamina - 1);
   suonaFischietto('fallo');
-  
+
   if (inArea) {
     // Regola area: 1° fallo = giallo, 2° fallo = rosso
     if (gF.falliArea === 1 && !gF.ammonito) {
@@ -1261,23 +1270,23 @@ function applicaFallo(sq, gF, inArea) {
 function risolviContrastoLogica(vincente, c) {
   var zonaTiroDif = direzionePerSquadra(vincente) > 0 ? 5 : 1;
   var falloInArea = (c.zona === zonaTiroDif);
-  
+
   if (c.falloAttaccante) { var gAtt = trovaGiocatorePerId(c.attaccante, c.giocatorePoss); if (gAtt) applicaFallo(c.attaccante, gAtt, false); }
   if (c.falloDifensore) { var gDif = trovaGiocatorePerId(c.difensore, c.giocatoreAvv); if (gDif) applicaFallo(c.difensore, gDif, falloInArea); }
-  
+
   if (vincente === 'tu') { stato.streak.tu++; stato.streak.cpu = 0; if (stato.streak.tu >= STREAK_PER_BONUS) { stato.streak.tu = 0; assegnaBonus('tu'); } }
   else { stato.streak.cpu++; stato.streak.tu = 0; if (stato.streak.cpu >= STREAK_PER_BONUS) { stato.streak.cpu = 0; assegnaBonus('cpu'); } }
   flashVincitore(vincente); stato.statistiche[vincente].vinte++;
-  
+
   var gP = trovaGiocatorePerId(c.attaccante, c.giocatorePoss);
   var gA = trovaGiocatorePerId(c.difensore, c.giocatoreAvv);
   if (gP && !gP.portiere && !gP.espulso) gP.stamina = Math.max(0, gP.stamina - 1);
   if (gA && !gA.portiere && !gA.espulso) gA.stamina = Math.max(0, gA.stamina - 1);
-  
+
   var nomeV = (trovaGiocatorePerId(vincente, vincente===c.attaccante?c.giocatorePoss:c.giocatoreAvv)||{}).nome || vincente;
   var haRubato = (vincente === c.difensore);
   log('🎙️ ' + nomeV + ' vince il contrasto in Z' + c.zona + (haRubato ? ' e RUBA PALLA!' : ' e avanza!'), 'highlight');
-  
+
   // RIGORE solo se fallo del difensore IN AREA
   if (c.falloDifensore && falloInArea) {
     log('⚽ RIGORE per fallo del difensore in area!', 'goal');
@@ -1472,24 +1481,24 @@ function eseguiTuffoPortiere(casellaTiro, parata) {
 
 var tiroInAttesa = null;
 
-function apriSchermataTiro(att, isRigore) { 
-  var dif = att === 'tu' ? 'cpu' : 'tu'; 
-  stato.statistiche[att].tiri++; 
-  
+function apriSchermataTiro(att, isRigore) {
+  var dif = att === 'tu' ? 'cpu' : 'tu';
+  stato.statistiche[att].tiri++;
+
   // NUOVO: il portiere che difende perde 1 stamina
   var por = null;
   for (var i = 0; i < stato.giocatori[dif].length; i++) {
     if (stato.giocatori[dif][i].portiere && !stato.giocatori[dif][i].espulso) { por = stato.giocatori[dif][i]; break; }
   }
-  if (por) { 
-    por.stamina = Math.max(0, por.stamina - 1); 
+  if (por) {
+    por.stamina = Math.max(0, por.stamina - 1);
     log('🧤 ' + por.nome + ' si prepara al tiro (stamina ' + por.stamina + '/' + por.staminaMax + ')', '');
   }
-  
+
   var nomeTir = (trovaGiocatorePerId(att, stato.giocatorePalla)||{}).nome || 'Attaccante';
   log('🎙️ ' + nomeTir + ' va al tiro' + (isRigore?' SU RIGORE':'') + '!', 'highlight');
-  
-  apriOverlayTiro(att, dif, !!isRigore); 
+
+  apriOverlayTiro(att, dif, !!isRigore);
 }
 
 function apriOverlayTiro(att, dif, isRigore) {
@@ -1598,7 +1607,7 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
   orientaPortiereVerso(dT);
 
   await animaRollDado(dT, 9, 'dado-att', 'attaccante');
-  
+
   var nomeTir = (trovaGiocatorePerId(att, stato.giocatorePalla)||{}).nome || 'Attaccante';
   log('🎙️ Tiro di ' + nomeTir + ': dado ' + dT + ' (casella ' + dT + ').', '');
 
@@ -1693,14 +1702,14 @@ function fase3RigoreConGrafica(dT, att, dif) {
 function mostraEsitoTiroConGrafica(esito, dT, att, dif, motivo) {
   var e = document.getElementById('tiro-esito'); e.textContent = motivo; e.classList.add(esito);
   var i = document.getElementById('tiro-info'); if (i) i.textContent = 'ESITO: ' + motivo;
-  
+
   var nomeTir = (trovaGiocatorePerId(att, stato.giocatorePalla)||{}).nome || 'Attaccante';
   if (esito === 'goal') log('⚽ GOOOAL! ' + nomeTir + ' batte il portiere!', 'goal');
   else if (esito === 'parata') log('🧤 PARATA! Il portiere ferma ' + nomeTir + '.', 'parata');
   else if (esito === 'palo') log('🥅 PALO! Che sfortuna per ' + nomeTir + '.', 'highlight');
   else if (esito === 'angolo') log('🚩 ANGOLO per ' + (att==='tu'?'TU':'CPU') + '.', '');
   else if (esito === 'fuori') log('❌ FUORI! ' + nomeTir + ' calcia a lato.', '');
-  
+
   if (esito === 'parata') {
     var pa = document.getElementById('tiro-palla'); var pt = document.getElementById('tiro-portiere');
     if (pa && pt) {
@@ -1809,10 +1818,10 @@ function finePartita() {
   suonaFischietto('fine-partita'); fermaSottofondo(); salvaAmmonizioniInLocalStorage();
   nascondiEntrambiBanner(); chiudiBonusChoice();
   if (timerPartita) { clearInterval(timerPartita); timerPartita = null; }
-  
+
   if (TORNEO_MODE === 'seriea') {
     salvaRisultatoTorneo();
-    return; 
+    return;
   }
 
   var msg = stato.punteggio.tu > stato.punteggio.cpu ? '🏆 HAI VINTO!' : stato.punteggio.cpu > stato.punteggio.tu ? '😢 CPU vince' : '🤝 Pareggio';
@@ -1837,16 +1846,17 @@ function finePartita() {
   document.getElementById('modale').classList.remove('nascosto');
 }
 function salvaRisultatoTorneo() {
+  // FIX: aggiunti casaOriginale e trasfertaOriginale per evitare loop infinito torneo
   var casaOrig = URL_CASA || stato.squadraTU;
   var trasfOrig = URL_TRASFERTA || stato.squadraCPU;
-  var r = { 
-    golTU: stato.punteggio.tu, 
-    golCPU: stato.punteggio.cpu, 
-    sqTU: stato.squadraTU, 
+  var r = {
+    golTU: stato.punteggio.tu,
+    golCPU: stato.punteggio.cpu,
+    sqTU: stato.squadraTU,
     sqCPU: stato.squadraCPU,
     casaOriginale: casaOrig,
     trasfertaOriginale: trasfOrig,
-    statistiche: JSON.parse(JSON.stringify(stato.statistiche)) 
+    statistiche: JSON.parse(JSON.stringify(stato.statistiche))
   };
   localStorage.setItem('campionato_partita_' + PARTITA_TORNEO, JSON.stringify(r));
   setTimeout(function() { location.href = 'seriea2027.html?risultato=' + encodeURIComponent(PARTITA_TORNEO); }, 1500);

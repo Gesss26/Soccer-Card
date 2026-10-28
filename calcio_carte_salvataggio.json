@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T14:17:44.294Z",
+  "data": "2026-10-28T14:31:09.857Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3061,7 +3061,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793197060293,
+    "timestamp": 1793197865852,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "genoa",
@@ -4267,7 +4267,7 @@
         "parate": 3,
         "angoli": 0,
         "pali": 1,
-        "contese": 15,
+        "contese": 16,
         "vinte": 16,
         "falli": 4,
         "ammonizioni": 1,
@@ -5217,8 +5217,12 @@
       {
         "msg": "🎙️ Z2 superiore: Conceiçao (TU) contro Ehizibue (CPU).",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Conceiçao (TU) contro Ehizibue (CPU).",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 870
+    "secondiTrascorsi": 915
   }
 }

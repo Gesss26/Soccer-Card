@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T14:10:59.299Z",
+  "data": "2026-10-28T14:12:14.290Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3053,7 +3053,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793196655294,
+    "timestamp": 1793196730286,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "genoa",
@@ -4780,6 +4780,6 @@
         "classe": "highlight"
       }
     ],
-    "secondiTrascorsi": 465
+    "secondiTrascorsi": 540
   }
 }

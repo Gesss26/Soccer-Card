@@ -455,7 +455,6 @@ function pescaUnaCarta(sq) {
     tentativi++;
     if (stato.mazzi[sq].length === 0) {
       if (stato.scarti[sq].length === 0) return;
-      // Rimescola gli scarti e li rende il nuovo mazzo
       stato.mazzi[sq] = mescola(stato.mazzi[sq].concat(stato.scarti[sq]));
       stato.scarti[sq] = [];
     }
@@ -473,7 +472,20 @@ function calcolaMinutoTotale() { if (stato.tempo === 1) return calcolaMinutoParz
 function log(msg, classe) { stato.logCompleto.push({ msg:msg, classe:classe||'' }); }
 
 function creaPalloneSVG() {
-  return '<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="pg" cx="35%" cy="30%" r="75%"><stop offset="0%" stop-color="#fff"/><stop offset="60%" stop-color="#f0f0f0"/><stop offset="100%" stop-color="#c8c8c8"/></radialGradient></defs><circle cx="20" cy="20" r="19" fill="url(#pg)" stroke="#1a1a1a" stroke-width="1.5"/><polygon points="20,10 26.5,14.7 24,22.3 16,22.3 13.5,14.7" fill="#1a1a1a"/><polygon points="32,8 37,14 34,20 28,17 29,10" fill="#1a1a1a" opacity="0.9"/><polygon points="8,8 3,14 6,20 12,17 11,10" fill="#1a1a1a" opacity="0.9"/><polygon points="34,26 39,32 34,38 28,35 30,28" fill="#1a1a1a" opacity="0.9"/><polygon points="6,26 1,32 6,38 12,35 10,28" fill="#1a1a1a" opacity="0.9"/><ellipse cx="13" cy="11" rx="5" ry="3.5" fill="#fff" opacity="0.55"/></svg>';
+  return '<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">' +
+    '<defs><radialGradient id="pg" cx="35%" cy="30%" r="75%">' +
+    '<stop offset="0%" stop-color="#fff"/>' +
+    '<stop offset="60%" stop-color="#f0f0f0"/>' +
+    '<stop offset="100%" stop-color="#c8c8c8"/>' +
+    '</radialGradient></defs>' +
+    '<circle cx="20" cy="20" r="18.5" fill="url(#pg)" stroke="#1a1a1a" stroke-width="1.5"/>' +
+    '<polygon points="20,12 25.5,16 23.5,22 16.5,22 14.5,16" fill="#1a1a1a"/>' +
+    '<polygon points="30,11 34,16 31.5,21 26.5,18.5 27.5,13" fill="#1a1a1a" opacity="0.9"/>' +
+    '<polygon points="10,11 6,16 8.5,21 13.5,18.5 12.5,13" fill="#1a1a1a" opacity="0.9"/>' +
+    '<polygon points="31,25 35,29.5 31,34 26,31.5 28,26.5" fill="#1a1a1a" opacity="0.9"/>' +
+    '<polygon points="9,25 5,29.5 9,34 14,31.5 12,26.5" fill="#1a1a1a" opacity="0.9"/>' +
+    '<ellipse cx="13" cy="11" rx="4.5" ry="3" fill="#fff" opacity="0.55"/>' +
+    '</svg>';
 }
 
 function tuASinistra() { if (stato.tuECasa) return !stato.invertiCoppie; else return stato.invertiCoppie; }
@@ -1540,32 +1552,45 @@ function mostraSceltaSettoriTU(callback) {
     ov.appendChild(gruppo);
   }
 
-  var btnWrap = document.createElement('div');
-  btnWrap.style.gridColumn = '1 / 4';
-  btnWrap.style.gridRow = '3 / 4';
-  btnWrap.style.display = 'flex';
-  btnWrap.style.alignItems = 'center';
-  btnWrap.style.justifyContent = 'center';
-  btnWrap.style.pointerEvents = 'auto';
-  btnWrap.style.zIndex = '20';
-
+  // Rimuoviamo eventuale pulsante precedente
+  var vecchioBtn = document.getElementById('btn-conferma-settore-wrap');
+  if (vecchioBtn) vecchioBtn.remove();
+  
+  // Creiamo il pulsante e lo mettiamo nella colonna sinistra, sotto i dadi
+  var wrapBtn = document.createElement('div');
+  wrapBtn.id = 'btn-conferma-settore-wrap';
+  wrapBtn.style.marginTop = '8px';
+  wrapBtn.style.display = 'flex';
+  wrapBtn.style.justifyContent = 'flex-start';
+  wrapBtn.style.padding = '0 4px';
+  
   var btn = document.createElement('button');
   btn.id = 'btn-conferma-settore';
   btn.textContent = '✅ CONFERMA';
   btn.disabled = true;
   btn.className = 'primario';
-  btn.style.fontSize = 'clamp(12px, 1.5vw, 18px)';
-  btn.style.padding = '8px 24px';
+  btn.style.fontSize = 'clamp(12px, 1.4vw, 18px)';
+  btn.style.padding = '10px 20px';
   btn.style.borderRadius = '10px';
+  btn.style.width = 'auto';
   btn.onclick = function() {
     if (!window._gruppoScelto) return;
     var g = window._gruppoScelto;
     window._gruppoScelto = null;
     nascondiSettori();
+    var w = document.getElementById('btn-conferma-settore-wrap');
+    if (w) w.remove();
     callback(g);
   };
-  btnWrap.appendChild(btn);
-  ov.appendChild(btnWrap);
+  wrapBtn.appendChild(btn);
+  
+  var dadiEl = document.getElementById('tiro-dadi-info');
+  if (dadiEl && dadiEl.parentNode) {
+    dadiEl.parentNode.insertBefore(wrapBtn, dadiEl.nextSibling);
+  } else {
+    ov.appendChild(wrapBtn);
+  }
+  
   window._gruppoScelto = null;
 }
 

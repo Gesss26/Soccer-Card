@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T14:35:39.854Z",
+  "data": "2026-10-28T14:36:43.317Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3065,7 +3065,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793198135851,
+    "timestamp": 1793198199313,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "genoa",
@@ -3084,15 +3084,15 @@
       }
     },
     "tempo": 2,
-    "mano": 16,
+    "mano": 19,
     "maxMani": 23,
     "punteggio": {
       "tu": 4,
       "cpu": 0
     },
-    "zonaPalla": 1,
+    "zonaPalla": 3,
     "possessore": "tu",
-    "giocatorePalla": "tu_9",
+    "giocatorePalla": "tu_5",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3137,24 +3137,6 @@
           "seme": "bandierina",
           "valore": 9,
           "label": "9"
-        },
-        {
-          "id": "c40",
-          "seme": "bandierina",
-          "valore": 13,
-          "label": "K"
-        },
-        {
-          "id": "c35",
-          "seme": "guantone",
-          "valore": 5,
-          "label": "5"
-        },
-        {
-          "id": "c47",
-          "seme": "bandierina",
-          "valore": 6,
-          "label": "6"
         }
       ],
       "cpu": [
@@ -3199,24 +3181,6 @@
           "seme": "bandierina",
           "valore": 6,
           "label": "6"
-        },
-        {
-          "id": "c35",
-          "seme": "guantone",
-          "valore": 5,
-          "label": "5"
-        },
-        {
-          "id": "c36",
-          "seme": "guantone",
-          "valore": 4,
-          "label": "4"
-        },
-        {
-          "id": "c27",
-          "seme": "guantone",
-          "valore": 13,
-          "label": "K"
         }
       ]
     },
@@ -3449,6 +3413,24 @@
           "seme": "guantone",
           "valore": 13,
           "label": "K"
+        },
+        {
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c24",
+          "seme": "coppa",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c47",
+          "seme": "bandierina",
+          "valore": 6,
+          "label": "6"
         }
       ],
       "cpu": [
@@ -3673,6 +3655,30 @@
           "seme": "palla",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c27",
+          "seme": "guantone",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c18",
+          "seme": "coppa",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c19",
+          "seme": "coppa",
+          "valore": 8,
+          "label": "8"
         }
       ]
     },
@@ -3683,17 +3689,10 @@
       "parata-super",
       "parata-super",
       "parata-super",
-      "contrasto-sicuro",
-      "tiro-fuori-area"
+      "contrasto-sicuro"
     ],
     "mani": {
       "tu": [
-        {
-          "id": "c24",
-          "seme": "coppa",
-          "valore": 3,
-          "label": "3"
-        },
         {
           "id": "c42",
           "seme": "bandierina",
@@ -3701,16 +3700,22 @@
           "label": "J"
         },
         {
-          "id": "c37",
-          "seme": "guantone",
-          "valore": 3,
-          "label": "3"
-        },
-        {
           "id": "c30",
           "seme": "guantone",
           "valore": 10,
           "label": "10"
+        },
+        {
+          "id": "c35",
+          "seme": "guantone",
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c40",
+          "seme": "bandierina",
+          "valore": 13,
+          "label": "K"
         }
       ],
       "cpu": [
@@ -3727,22 +3732,16 @@
           "label": "3"
         },
         {
-          "id": "c37",
+          "id": "c36",
           "seme": "guantone",
-          "valore": 3,
-          "label": "3"
+          "valore": 4,
+          "label": "4"
         },
         {
-          "id": "c18",
-          "seme": "coppa",
-          "valore": 9,
-          "label": "9"
-        },
-        {
-          "id": "c19",
-          "seme": "coppa",
-          "valore": 8,
-          "label": "8"
+          "id": "c35",
+          "seme": "guantone",
+          "valore": 5,
+          "label": "5"
         }
       ]
     },
@@ -3754,7 +3753,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3810,7 +3809,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3824,7 +3823,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3880,7 +3879,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3910,7 +3909,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3980,7 +3979,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4022,7 +4021,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4050,7 +4049,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4258,7 +4257,7 @@
         "contrasto-sicuro"
       ],
       "cpu": [
-        "gol-super"
+        "tiro-fuori-area"
       ]
     },
     "streak": {
@@ -4268,12 +4267,12 @@
     "statistiche": {
       "tu": {
         "gol": 4,
-        "tiri": 6,
-        "parate": 3,
+        "tiri": 7,
+        "parate": 4,
         "angoli": 0,
         "pali": 1,
         "contese": 23,
-        "vinte": 24,
+        "vinte": 25,
         "falli": 5,
         "ammonizioni": 2,
         "espulsioni": 1,
@@ -4300,17 +4299,17 @@
       },
       "cpu": {
         "gol": 0,
-        "tiri": 3,
-        "parate": 1,
+        "tiri": 4,
+        "parate": 2,
         "angoli": 0,
         "pali": 0,
-        "contese": 16,
-        "vinte": 13,
+        "contese": 19,
+        "vinte": 16,
         "falli": 9,
         "ammonizioni": 2,
         "espulsioni": 1,
         "sostituzioni": 0,
-        "bonusGuadagnati": 2,
+        "bonusGuadagnati": 3,
         "marcatori": []
       }
     },
@@ -5598,8 +5597,132 @@
       {
         "msg": "🎙️ Woltemade gioca K🧤 e impone il seme guida: Guantone",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ostigard risponde con 3🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade K🧤 vs Ostigard 3🧤 → vince Woltemade (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Woltemade vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Bijlow si prepara al tiro (stamina 6/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 2 → settori 2,3,5,6.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 2 → settori 2,3,5,6.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Woltemade: dado 2 (casella 2).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Woltemade.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 superiore: Frendrup (CPU) contro Douglas Luiz (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Frendrup gioca K🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz risponde con 3🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Frendrup K🧤 vs Douglas Luiz 3🧤 → vince Frendrup (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Frendrup vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Frendrup serve Ellertsson in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 inferiore: Ellertsson (CPU) contro Celik (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Ellertsson gioca 9🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Celik risponde con 3🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Ellertsson 9🏆 vs Celik 3🏆 → vince Ellertsson (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ellertsson vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ellertsson serve Colombo in Z5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Colombo (CPU) contro Bremer (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Colombo gioca 8🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bremer risponde con 6🚩 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Colombo 8🏆 vs Bremer 6🚩 → vince Colombo (⚠️ FALLO DIFENSORE · vince l'attaccante)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Colombo vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 8/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Colombo va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Colombo: dado 5 (casella 5).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Colombo.",
+        "classe": "parata"
       }
     ],
-    "secondiTrascorsi": 1185
+    "secondiTrascorsi": 1245
   }
 }

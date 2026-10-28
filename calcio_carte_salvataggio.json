@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T16:31:42.467Z",
+  "data": "2026-10-28T16:32:55.437Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3140,7 +3140,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793205098464,
+    "timestamp": 1793205171436,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "cagliari",
@@ -3159,15 +3159,15 @@
       }
     },
     "tempo": 1,
-    "mano": 18,
+    "mano": 21,
     "maxMani": 23,
     "punteggio": {
       "tu": 1,
       "cpu": 0
     },
-    "zonaPalla": 1,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_10",
+    "zonaPalla": 4,
+    "possessore": "tu",
+    "giocatorePalla": "tu_8",
     "metaContesa": "inf",
     "mazzi": {
       "tu": [
@@ -3332,30 +3332,6 @@
           "seme": "bandierina",
           "valore": 12,
           "label": "Q"
-        },
-        {
-          "id": "c18",
-          "seme": "coppa",
-          "valore": 9,
-          "label": "9"
-        },
-        {
-          "id": "c26",
-          "seme": "guantone",
-          "valore": 14,
-          "label": "A"
-        },
-        {
-          "id": "c3",
-          "seme": "palla",
-          "valore": 11,
-          "label": "J"
-        },
-        {
-          "id": "c32",
-          "seme": "guantone",
-          "valore": 8,
-          "label": "8"
         }
       ],
       "cpu": [
@@ -3514,30 +3490,6 @@
           "seme": "bandierina",
           "valore": 2,
           "label": "2"
-        },
-        {
-          "id": "c14",
-          "seme": "coppa",
-          "valore": 13,
-          "label": "K"
-        },
-        {
-          "id": "c5",
-          "seme": "palla",
-          "valore": 9,
-          "label": "9"
-        },
-        {
-          "id": "c13",
-          "seme": "coppa",
-          "valore": 14,
-          "label": "A"
-        },
-        {
-          "id": "c49",
-          "seme": "bandierina",
-          "valore": 4,
-          "label": "4"
         }
       ]
     },
@@ -3644,6 +3596,24 @@
           "seme": "guantone",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c29",
+          "seme": "guantone",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c32",
+          "seme": "guantone",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c3",
+          "seme": "palla",
+          "valore": 11,
+          "label": "J"
         }
       ],
       "cpu": [
@@ -3754,6 +3724,24 @@
           "seme": "guantone",
           "valore": 12,
           "label": "Q"
+        },
+        {
+          "id": "c32",
+          "seme": "guantone",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c36",
+          "seme": "guantone",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c5",
+          "seme": "palla",
+          "valore": 9,
+          "label": "9"
         }
       ]
     },
@@ -3768,8 +3756,7 @@
       "parata-super",
       "passaggio-lungo",
       "tiro-fuori-area",
-      "gol-super",
-      "tiro-fuori-area"
+      "gol-super"
     ],
     "mani": {
       "tu": [
@@ -3792,10 +3779,16 @@
           "label": "2"
         },
         {
-          "id": "c29",
+          "id": "c26",
           "seme": "guantone",
-          "valore": 11,
-          "label": "J"
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c18",
+          "seme": "coppa",
+          "valore": 9,
+          "label": "9"
         }
       ],
       "cpu": [
@@ -3806,22 +3799,28 @@
           "label": "5"
         },
         {
-          "id": "c32",
-          "seme": "guantone",
-          "valore": 8,
-          "label": "8"
-        },
-        {
-          "id": "c36",
-          "seme": "guantone",
-          "valore": 4,
-          "label": "4"
-        },
-        {
           "id": "c12",
           "seme": "palla",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c49",
+          "seme": "bandierina",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c13",
+          "seme": "coppa",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c14",
+          "seme": "coppa",
+          "valore": 13,
+          "label": "K"
         }
       ]
     },
@@ -3861,7 +3860,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3875,7 +3874,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 4,
+          "stamina": 3,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -3903,7 +3902,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4059,7 +4058,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4087,7 +4086,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 3,
+          "stamina": 2,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 0,
@@ -4129,7 +4128,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4335,7 +4334,8 @@
     "bonus": {
       "tu": [
         "parata-super",
-        "contrasto-sicuro"
+        "contrasto-sicuro",
+        "tiro-fuori-area"
       ],
       "cpu": [
         "gol-super"
@@ -4343,7 +4343,7 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 2
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
@@ -4352,13 +4352,13 @@
         "parate": 0,
         "angoli": 0,
         "pali": 0,
-        "contese": 8,
-        "vinte": 9,
+        "contese": 11,
+        "vinte": 12,
         "falli": 2,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 2,
+        "bonusGuadagnati": 3,
         "marcatori": [
           {
             "nome": "Woltemade",
@@ -4372,7 +4372,7 @@
         "parate": 0,
         "angoli": 0,
         "pali": 0,
-        "contese": 8,
+        "contese": 9,
         "vinte": 6,
         "falli": 2,
         "ammonizioni": 0,
@@ -4866,8 +4866,88 @@
       {
         "msg": "🎙️ Romano serve Fazzini in Z1.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 inferiore: Fazzini (CPU) contro Bremer (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Fazzini gioca 8🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bremer risponde con J🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Fazzini 8🧤 vs Bremer J🧤 → vince Bremer (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bremer vince il contrasto in Z1 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Bremer AI DANNI DI Fazzini!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Bremer serve Lucumì in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Lucumì (TU) contro Romano (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Lucumì gioca 8🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Romano risponde con 4🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Lucumì 8🧤 vs Romano 4🧤 → vince Lucumì (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì serve Douglas Luiz in Z3.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z3 superiore: Douglas Luiz (TU) contro Adopo (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz gioca J⚽ e impone il seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Adopo risponde con 9⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz J⚽ vs Adopo 9⚽ → vince Douglas Luiz (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz serve Yildiz in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 inferiore: Yildiz (TU) contro Obert (CPU).",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 272
+    "secondiTrascorsi": 345
   }
 }

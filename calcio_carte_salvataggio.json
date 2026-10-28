@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T14:15:29.299Z",
+  "data": "2026-10-28T14:16:44.289Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -729,7 +729,7 @@
             "squalificato": false
           },
           "Bremer": {
-            "gialli": 1,
+            "gialli": 2,
             "squalificato": false
           }
         },
@@ -3061,7 +3061,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793196925295,
+    "timestamp": 1793197000285,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "genoa",
@@ -3080,16 +3080,16 @@
       }
     },
     "tempo": 2,
-    "mano": 3,
+    "mano": 4,
     "maxMani": 23,
     "punteggio": {
       "tu": 3,
       "cpu": 0
     },
-    "zonaPalla": 5,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_10",
-    "metaContesa": "inf",
+    "zonaPalla": 2,
+    "possessore": "tu",
+    "giocatorePalla": "tu_7",
+    "metaContesa": "sup",
     "mazzi": {
       "tu": [
         {
@@ -3223,18 +3223,6 @@
           "seme": "coppa",
           "valore": 2,
           "label": "2"
-        },
-        {
-          "id": "c24",
-          "seme": "coppa",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c8",
-          "seme": "palla",
-          "valore": 6,
-          "label": "6"
         }
       ],
       "cpu": [
@@ -3369,18 +3357,6 @@
           "seme": "palla",
           "valore": 9,
           "label": "9"
-        },
-        {
-          "id": "c24",
-          "seme": "coppa",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c17",
-          "seme": "coppa",
-          "valore": 10,
-          "label": "10"
         }
       ]
     },
@@ -3523,6 +3499,18 @@
           "seme": "palla",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c38",
+          "seme": "guantone",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c41",
+          "seme": "bandierina",
+          "valore": 12,
+          "label": "Q"
         }
       ],
       "cpu": [
@@ -3669,6 +3657,12 @@
           "seme": "palla",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c51",
+          "seme": "bandierina",
+          "valore": 2,
+          "label": "2"
         }
       ]
     },
@@ -3688,12 +3682,6 @@
     "mani": {
       "tu": [
         {
-          "id": "c38",
-          "seme": "guantone",
-          "valore": 2,
-          "label": "2"
-        },
-        {
           "id": "c33",
           "seme": "guantone",
           "valore": 7,
@@ -3712,19 +3700,19 @@
           "label": "8"
         },
         {
-          "id": "c41",
-          "seme": "bandierina",
-          "valore": 12,
-          "label": "Q"
+          "id": "c8",
+          "seme": "palla",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c24",
+          "seme": "coppa",
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
-        {
-          "id": "c51",
-          "seme": "bandierina",
-          "valore": 2,
-          "label": "2"
-        },
         {
           "id": "c38",
           "seme": "guantone",
@@ -3742,6 +3730,18 @@
           "seme": "coppa",
           "valore": 6,
           "label": "6"
+        },
+        {
+          "id": "c17",
+          "seme": "coppa",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c24",
+          "seme": "coppa",
+          "valore": 3,
+          "label": "3"
         }
       ]
     },
@@ -3753,7 +3753,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3781,12 +3781,12 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
-          "falli": 1,
-          "falliArea": 1,
+          "falli": 2,
+          "falliArea": 2,
           "ammonito": true,
-          "espulso": false,
+          "espulso": true,
           "nome": "Bremer"
         },
         {
@@ -3823,7 +3823,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3979,7 +3979,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4049,7 +4049,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4257,21 +4257,21 @@
       "cpu": []
     },
     "streak": {
-      "tu": 0,
-      "cpu": 1
+      "tu": 1,
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
         "gol": 3,
         "tiri": 5,
-        "parate": 2,
+        "parate": 3,
         "angoli": 0,
         "pali": 1,
-        "contese": 13,
-        "vinte": 15,
-        "falli": 3,
+        "contese": 15,
+        "vinte": 16,
+        "falli": 4,
         "ammonizioni": 1,
-        "espulsioni": 0,
+        "espulsioni": 1,
         "sostituzioni": 0,
         "bonusGuadagnati": 3,
         "marcatori": [
@@ -4291,12 +4291,12 @@
       },
       "cpu": {
         "gol": 0,
-        "tiri": 2,
+        "tiri": 3,
         "parate": 1,
         "angoli": 0,
         "pali": 0,
         "contese": 11,
-        "vinte": 8,
+        "vinte": 9,
         "falli": 7,
         "ammonizioni": 2,
         "espulsioni": 1,
@@ -5149,8 +5149,76 @@
       {
         "msg": "🎙️ Colombo gioca J⚽ → seme guida: Palla",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bremer risponde con 2🧤 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Colombo J⚽ vs Bremer 2🧤 → vince Colombo (⚠️ FALLO DIFENSORE · vince l'attaccante)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟥 ESPULSIONE per Bremer (2 falli in area)!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Colombo vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 9/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Colombo va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Colombo: dado 5 (casella 5).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 2 → settori 2,3,5,6.",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Colombo.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 superiore: Douglas Luiz (TU) contro Frendrup (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz gioca Q🚩 e impone il seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Frendrup risponde con 2🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz Q🚩 vs Frendrup 2🚩 → vince Douglas Luiz (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz serve Conceiçao in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Conceiçao (TU) contro Ehizibue (CPU).",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 735
+    "secondiTrascorsi": 810
   }
 }

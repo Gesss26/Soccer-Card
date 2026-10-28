@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T14:09:53.285Z",
+  "data": "2026-10-28T14:10:59.299Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3053,7 +3053,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793196589281,
+    "timestamp": 1793196655294,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "genoa",
@@ -3072,15 +3072,15 @@
       }
     },
     "tempo": 1,
-    "mano": 15,
+    "mano": 16,
     "maxMani": 23,
     "punteggio": {
       "tu": 2,
       "cpu": 0
     },
-    "zonaPalla": 2,
+    "zonaPalla": 1,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_7",
+    "giocatorePalla": "cpu_9",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3287,18 +3287,6 @@
           "seme": "coppa",
           "valore": 4,
           "label": "4"
-        },
-        {
-          "id": "c7",
-          "seme": "palla",
-          "valore": 7,
-          "label": "7"
-        },
-        {
-          "id": "c49",
-          "seme": "bandierina",
-          "valore": 4,
-          "label": "4"
         }
       ],
       "cpu": [
@@ -3505,18 +3493,6 @@
           "seme": "bandierina",
           "valore": 9,
           "label": "9"
-        },
-        {
-          "id": "c48",
-          "seme": "bandierina",
-          "valore": 5,
-          "label": "5"
-        },
-        {
-          "id": "c33",
-          "seme": "guantone",
-          "valore": 7,
-          "label": "7"
         }
       ]
     },
@@ -3593,6 +3569,12 @@
           "seme": "coppa",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c11",
+          "seme": "palla",
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
@@ -3667,6 +3649,18 @@
           "seme": "bandierina",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c33",
+          "seme": "guantone",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c8",
+          "seme": "palla",
+          "valore": 6,
+          "label": "6"
         }
       ]
     },
@@ -3693,12 +3687,6 @@
           "label": "9"
         },
         {
-          "id": "c11",
-          "seme": "palla",
-          "valore": 3,
-          "label": "3"
-        },
-        {
           "id": "c21",
           "seme": "coppa",
           "valore": 6,
@@ -3709,6 +3697,18 @@
           "seme": "palla",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c49",
+          "seme": "bandierina",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c7",
+          "seme": "palla",
+          "valore": 7,
+          "label": "7"
         }
       ],
       "cpu": [
@@ -3725,16 +3725,16 @@
           "label": "4"
         },
         {
-          "id": "c8",
-          "seme": "palla",
-          "valore": 6,
-          "label": "6"
-        },
-        {
           "id": "c38",
           "seme": "guantone",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c48",
+          "seme": "bandierina",
+          "valore": 5,
+          "label": "5"
         }
       ]
     },
@@ -3788,9 +3788,9 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 6,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4000,7 +4000,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4250,8 +4250,8 @@
       "cpu": []
     },
     "streak": {
-      "tu": 1,
-      "cpu": 0
+      "tu": 0,
+      "cpu": 1
     },
     "statistiche": {
       "tu": {
@@ -4262,7 +4262,7 @@
         "pali": 0,
         "contese": 8,
         "vinte": 9,
-        "falli": 0,
+        "falli": 1,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4284,8 +4284,8 @@
         "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 5,
-        "vinte": 4,
+        "contese": 7,
+        "vinte": 5,
         "falli": 4,
         "ammonizioni": 1,
         "espulsioni": 1,
@@ -4738,8 +4738,48 @@
       {
         "msg": "🎙️ Sow serve Baldanzi in Z2.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Baldanzi (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Baldanzi gioca 7🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 3⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Baldanzi 7🧤 vs Lucumì 3⚽ → vince Baldanzi (⚠️ FALLO DIFENSORE · vince l'attaccante)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Lucumì (1)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Baldanzi vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Baldanzi serve Osmajic in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 superiore: Osmajic (CPU) contro Kalulu (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Osmajic gioca 6⚽ → seme guida: Palla",
+        "classe": "highlight"
       }
     ],
-    "secondiTrascorsi": 398
+    "secondiTrascorsi": 465
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T21:33:49.191Z",
+  "data": "2026-10-28T21:34:49.182Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -741,6 +741,10 @@
             "squalificato": false
           },
           "Kalulu": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Gatti": {
             "gialli": 1,
             "squalificato": false
           }
@@ -3207,7 +3211,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793223225185,
+    "timestamp": 1793223285180,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "milan",
@@ -3228,16 +3232,16 @@
       }
     },
     "tempo": 2,
-    "mano": 2,
+    "mano": 4,
     "maxMani": 23,
     "punteggio": {
       "tu": 2,
       "cpu": 0
     },
-    "zonaPalla": 2,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_7",
-    "metaContesa": "sup",
+    "zonaPalla": 4,
+    "possessore": "tu",
+    "giocatorePalla": "tu_8",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -3359,24 +3363,6 @@
           "seme": "bandierina",
           "valore": 10,
           "label": "10"
-        },
-        {
-          "id": "c38",
-          "seme": "guantone",
-          "valore": 2,
-          "label": "2"
-        },
-        {
-          "id": "c39",
-          "seme": "bandierina",
-          "valore": 14,
-          "label": "A"
-        },
-        {
-          "id": "c34",
-          "seme": "guantone",
-          "valore": 6,
-          "label": "6"
         }
       ],
       "cpu": [
@@ -3499,24 +3485,6 @@
           "seme": "guantone",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c51",
-          "seme": "bandierina",
-          "valore": 2,
-          "label": "2"
-        },
-        {
-          "id": "c19",
-          "seme": "coppa",
-          "valore": 8,
-          "label": "8"
-        },
-        {
-          "id": "c21",
-          "seme": "coppa",
-          "valore": 6,
-          "label": "6"
         }
       ]
     },
@@ -3665,6 +3633,24 @@
           "seme": "palla",
           "valore": 10,
           "label": "10"
+        },
+        {
+          "id": "c23",
+          "seme": "coppa",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c34",
+          "seme": "guantone",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c13",
+          "seme": "coppa",
+          "valore": 14,
+          "label": "A"
         }
       ],
       "cpu": [
@@ -3817,6 +3803,18 @@
           "seme": "bandierina",
           "valore": 10,
           "label": "10"
+        },
+        {
+          "id": "c47",
+          "seme": "bandierina",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c19",
+          "seme": "coppa",
+          "valore": 8,
+          "label": "8"
         }
       ]
     },
@@ -3834,12 +3832,6 @@
     ],
     "mani": {
       "tu": [
-        {
-          "id": "c23",
-          "seme": "coppa",
-          "valore": 4,
-          "label": "4"
-        },
         {
           "id": "c6",
           "seme": "palla",
@@ -3859,10 +3851,16 @@
           "label": "7"
         },
         {
-          "id": "c13",
-          "seme": "coppa",
+          "id": "c39",
+          "seme": "bandierina",
           "valore": 14,
           "label": "A"
+        },
+        {
+          "id": "c38",
+          "seme": "guantone",
+          "valore": 2,
+          "label": "2"
         }
       ],
       "cpu": [
@@ -3871,12 +3869,6 @@
           "seme": "guantone",
           "valore": 4,
           "label": "4"
-        },
-        {
-          "id": "c47",
-          "seme": "bandierina",
-          "valore": 6,
-          "label": "6"
         },
         {
           "id": "c34",
@@ -3889,6 +3881,18 @@
           "seme": "coppa",
           "valore": 5,
           "label": "5"
+        },
+        {
+          "id": "c21",
+          "seme": "coppa",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c51",
+          "seme": "bandierina",
+          "valore": 2,
+          "label": "2"
         }
       ]
     },
@@ -3900,7 +3904,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3928,11 +3932,11 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
-          "ammonito": false,
+          "falli": 1,
+          "falliArea": 1,
+          "ammonito": true,
           "espulso": false,
           "nome": "Gatti"
         },
@@ -3942,9 +3946,9 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 7,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -3984,7 +3988,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4140,7 +4144,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4154,7 +4158,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4196,7 +4200,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4400,28 +4404,26 @@
     "invertiCoppie": true,
     "tuECasa": false,
     "bonus": {
-      "tu": [
-        "parata-super"
-      ],
+      "tu": [],
       "cpu": [
         "tiro-fuori-area"
       ]
     },
     "streak": {
-      "tu": 0,
+      "tu": 1,
       "cpu": 0
     },
     "statistiche": {
       "tu": {
         "gol": 2,
         "tiri": 4,
-        "parate": 1,
+        "parate": 2,
         "angoli": 0,
         "pali": 0,
-        "contese": 13,
-        "vinte": 15,
-        "falli": 1,
-        "ammonizioni": 1,
+        "contese": 15,
+        "vinte": 16,
+        "falli": 3,
+        "ammonizioni": 2,
         "espulsioni": 0,
         "sostituzioni": 1,
         "bonusGuadagnati": 4,
@@ -4438,12 +4440,12 @@
       },
       "cpu": {
         "gol": 0,
-        "tiri": 1,
+        "tiri": 2,
         "parate": 2,
         "angoli": 0,
         "pali": 0,
-        "contese": 10,
-        "vinte": 7,
+        "contese": 11,
+        "vinte": 9,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -5220,8 +5222,104 @@
       {
         "msg": "🎙️ Chukwueze gioca 10🚩 → seme guida: Bandierina",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 4🏆 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Chukwueze 10🚩 vs Lucumì 4🏆 → vince Chukwueze (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Lucumì (1)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Chukwueze vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Chukwueze serve Ramos in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 inferiore: Ramos (CPU) contro Gatti (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Ramos gioca 6🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Gatti risponde con 6🧤 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Ramos 6🚩 vs Gatti 6🧤 → vince Ramos (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 AMMONIZIONE per Gatti (fallo in area: 1/2)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Ramos vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 9/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Ramos va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Ramos: dado 6 (casella 6).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Ramos.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: McKennie (TU) contro Rabiot (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie gioca A🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Rabiot risponde con 8🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie A🏆 vs Rabiot 8🏆 → vince McKennie (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie serve Yildiz in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 inferiore: Yildiz (TU) contro Moreira (CPU).",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 375
+    "secondiTrascorsi": 435
   }
 }

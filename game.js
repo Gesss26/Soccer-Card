@@ -93,7 +93,7 @@ document.addEventListener('fullscreenchange', function() { aggiornaIconaFullscre
 document.addEventListener('webkitfullscreenchange', function() { aggiornaIconaFullscreen(); setTimeout(adattaScena, 200); });
 
 /* ============================================================
-   ZOOM — palla sempre al centro, scala 2x su tutti i device
+   ZOOM
    ============================================================ */
 var zoomState = {
   modalita: 'palla2x', scalaTarget: 1, scalaCorrente: 1,
@@ -129,7 +129,6 @@ function aggiornaTargetZoom() {
   if (w === 0 || h === 0) return;
 
   var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
-
   var scala = scalaFit * 2;
 
   var p = getPosizionePallaScena();
@@ -456,6 +455,7 @@ function pescaUnaCarta(sq) {
     tentativi++;
     if (stato.mazzi[sq].length === 0) {
       if (stato.scarti[sq].length === 0) return;
+      // Rimescola gli scarti e li rende il nuovo mazzo
       stato.mazzi[sq] = mescola(stato.mazzi[sq].concat(stato.scarti[sq]));
       stato.scarti[sq] = [];
     }
@@ -1206,8 +1206,8 @@ function renderPannelloContrasto() {
   if (tuNonHaSeme) { avviso = '<div style="background:#8B2020;color:#fff;padding:14px;border-radius:10px;font-weight:bold;font-size:18px;text-align:center">⚠️ Non hai il seme ' + SEMI[c.semeGuida].emoji + ' ' + SEMI[c.semeGuida].nome + ' — qualsiasi carta giochi sarà FALLO</div>'; }
   else if (tuDeveRispondereAlSeme || (c.attaccante === 'tu' && c.turni > 0)) { avviso = '<div style="background:rgba(255,215,0,0.15);color:#ffd700;padding:10px;border-radius:10px;font-size:15px;text-align:center">Hai il seme guida. Se scegli una carta fuori seme commetterai fallo.</div>'; }
   renderPilaMazzo(); renderPilaScarti(); renderPilaBonus(); renderBonusSlots();
-  document.getElementById('info-mazzo').textContent = 'TU ' + stato.mazzi.tu.length + ' / CPU ' + stato.mazzi.cpu.length;
-  document.getElementById('info-scarti').textContent = 'TU ' + stato.scarti.tu.length + ' / CPU ' + stato.scarti.cpu.length;
+  document.getElementById('info-mazzo').textContent = 'TU ' + stato.mazzi.tu.length;
+  document.getElementById('info-scarti').textContent = 'TU ' + stato.scarti.tu.length;
   document.getElementById('info-streak').textContent = stato.streak.tu;
   renderBonusCpuInfo();
   var azioni = '';
@@ -1442,7 +1442,10 @@ function animaTackle(gVincitore, gPerdente) {
   setTimeout(function() { pedinaV.classList.remove('pg-in-tackle-dx', 'pg-in-tackle-sx'); }, DURATA_SCIVOLATA + 80);
 }
 
-/* TIRO */
+/* ============================================================
+   TIRO - FUNZIONI CORRETTE
+   ============================================================ */
+
 function posizionaPortiereSu(cx, cy, istantaneo) {
   var pt = document.getElementById('tiro-portiere'); if (!pt) return;
   var wPerc = PORTA_W / 3; var hPerc = PORTA_H * 2 / 3; var offsetY = hPerc * 0.46;
@@ -1450,13 +1453,20 @@ function posizionaPortiereSu(cx, cy, istantaneo) {
   pt.style.left = (cx - wPerc / 2) + '%'; pt.style.top = (cy - offsetY) + '%';
   if (istantaneo) { void pt.offsetWidth; pt.style.transition = ''; }
 }
-function casellaToPos(numero) { var col = (numero - 1) % 3; var row = Math.floor((numero - 1) / 3); return { cx: PORTA_LEFT + (col + 0.5) * PORTA_W / 3, cy: PORTA_TOP + (row + 0.5) * PORTA_H / 3 }; }
+
+function casellaToPos(numero) { 
+  var col = (numero - 1) % 3; 
+  var row = Math.floor((numero - 1) / 3); 
+  return { cx: PORTA_LEFT + (col + 0.5) * PORTA_W / 3, cy: PORTA_TOP + (row + 0.5) * PORTA_H / 3 }; 
+}
+
 function resetPortiere() {
   var pt = document.getElementById('tiro-portiere'); if (!pt) return;
   pt.classList.remove('pg-braccia-alte', 'pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro');
   var pos8 = casellaToPos(8); posizionaPortiereSu(pos8.cx, pos8.cy, true);
   var t = pt.querySelector('.pg-testa'); if (t) t.style.transform = 'rotate(0deg) translateY(0)';
 }
+
 function orientaPortiereVerso(c) {
   var pt = document.getElementById('tiro-portiere'); if (!pt) return;
   var t = pt.querySelector('.pg-testa'); if (!t) return;
@@ -1465,6 +1475,7 @@ function orientaPortiereVerso(c) {
   var dy = 0; if (y < 40) dy = -2; else if (y > 60) dy = 2;
   t.style.transform = 'rotate(' + dx + 'deg) translateY(' + dy + 'px)';
 }
+
 function mostraSettoriPortiere(dadoPortiere) {
   var ov = document.getElementById('tiro-settori-overlay'); if (!ov) return;
   ov.innerHTML = ''; ov.classList.add('attivo');
@@ -1476,11 +1487,9 @@ function mostraSettoriPortiere(dadoPortiere) {
     ov.appendChild(s);
   }
 }
+
 function nascondiSettori() { var ov = document.getElementById('tiro-settori-overlay'); if (ov) ov.classList.remove('attivo'); }
 
-/* ============================================================
-   SCELTA MANUALE SETTORI PORTIERE (per TU)
-   ============================================================ */
 function mostraSceltaSettoriTU(callback) {
   var ov = document.getElementById('tiro-settori-overlay');
   if (!ov) return;
@@ -1648,7 +1657,12 @@ function apriOverlayTiro(att, dif, isRigore) {
   var sqP = dif === 'tu' ? stato.squadraTU : stato.squadraCPU;
   pt.innerHTML = creaGiocatoreSVG(SQUADRE[sqP].portiere, 'fermo', '');
   pw.appendChild(pt);
-  var pa = document.createElement('div'); pa.className = 'tiro-palla iniziale' + (isRigore ? ' rigore' : ''); pa.id = 'tiro-palla'; pw.appendChild(pa);
+  
+  // Palla iniziale con pallone SVG
+  var pa = document.createElement('div'); pa.className = 'tiro-palla iniziale' + (isRigore ? ' rigore' : ''); pa.id = 'tiro-palla'; 
+  pa.innerHTML = '<div class="palla-svg-wrap">' + creaPalloneSVG() + '</div>';
+  pw.appendChild(pa);
+  
   colDx.appendChild(pw); layout.appendChild(colDx);
   ov.appendChild(layout);
   var esito = document.createElement('div'); esito.className = 'tiro-esito'; esito.id = 'tiro-esito'; ov.appendChild(esito);
@@ -1679,6 +1693,7 @@ function popolaBonusTiro(att, dif, isRigore) {
   if (cpuVuole) { bc.innerHTML = '<div style="color:#ffd700;text-align:center;padding:14px">🤖 ' + NOMI_BONUS[cpuTipoBonus].nome + '</div>'; setTimeout(function() { consumaBonus('cpu', cpuTipoBonus); stato.bonusUsatoQuestoTiro.cpu = cpuTipoBonus; setTimeout(function() { eseguiTiroConGrafica(att, dif, isRigore); }, 800); }, 600); }
   else { bc.innerHTML = '<div style="color:#aaa;text-align:center;padding:14px">Nessun bonus</div>'; setTimeout(function() { eseguiTiroConGrafica(att, dif, isRigore); }, 400); }
 }
+
 function cpuVuoleUsareBonusTiro(tipo, isRigore) {
   var staPerdendo = stato.punteggio.cpu < stato.punteggio.tu;
   var staVincendo = stato.punteggio.cpu > stato.punteggio.tu;
@@ -1694,7 +1709,15 @@ function mostraDadiTiro(dA, dP) {
   if (dP !== null && dP !== undefined) h += '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🧤 Portiere:</span><div class="tiro-dado portiere">' + dP + '</div></div>';
   c.innerHTML = h;
 }
-function evidenziaCaselle(caselle) { var tutti = document.querySelectorAll('.tiro-casella'); for (var i=0;i<tutti.length;i++) tutti[i].classList.remove('colpita'); for (var j=0;j<caselle.length;j++) { var cel = document.querySelector('.tiro-casella[data-numero="' + caselle[j] + '"]'); if (cel) cel.classList.add('colpita'); } }
+
+function evidenziaCaselle(caselle) { 
+  var tutti = document.querySelectorAll('.tiro-casella'); 
+  for (var i=0;i<tutti.length;i++) tutti[i].classList.remove('colpita'); 
+  for (var j=0;j<caselle.length;j++) { 
+    var cel = document.querySelector('.tiro-casella[data-numero="' + caselle[j] + '"]'); 
+    if (cel) cel.classList.add('colpita'); 
+  } 
+}
 
 function animaRollDado(targetVal, maxVal, elementId, tipo) {
   return new Promise(function(resolve) {
@@ -1715,6 +1738,36 @@ function animaRollDado(targetVal, maxVal, elementId, tipo) {
   });
 }
 
+function muoviPallaVerso(targetPercX, targetPercY, durata, callback) {
+  var pa = document.getElementById('tiro-palla');
+  if (!pa) { if (callback) callback(); return; }
+  
+  var rect = pa.getBoundingClientRect();
+  var wrapper = document.querySelector('.tiro-porta-wrapper');
+  if (!wrapper) { if (callback) callback(); return; }
+  var wRect = wrapper.getBoundingClientRect();
+  
+  var startX = ((rect.left + rect.width / 2 - wRect.left) / wRect.width) * 100;
+  var startY = ((rect.top + rect.height / 2 - wRect.top) / wRect.height) * 100;
+  
+  var dx = targetPercX - startX;
+  var dy = targetPercY - startY;
+  
+  pa.style.transition = 'none';
+  pa.style.left = startX + '%';
+  pa.style.top = startY + '%';
+  pa.style.bottom = 'auto';
+  void pa.offsetWidth;
+  
+  pa.style.transition = 'left ' + (durata/1000) + 's cubic-bezier(0.25, 0.46, 0.45, 0.94), top ' + (durata/1000) + 's cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+  pa.style.left = targetPercX + '%';
+  pa.style.top = targetPercY + '%';
+  
+  setTimeout(function() {
+    if (callback) callback();
+  }, durata);
+}
+
 async function eseguiTiroConGrafica(att, dif, isRigore) {
   if (stato.partitaFinita) return;
   resetPortiere();
@@ -1725,8 +1778,6 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
   if (golSuperAtt || parataSuperAtt) {
     var dT = Math.floor(Math.random() * 9) + 1;
     var pos = CASELLE_PERC[dT];
-    var pa = document.getElementById('tiro-palla');
-    if (pa) { pa.classList.remove('iniziale', 'rigore'); pa.style.left = (PORTA_LEFT + (pos.x / 100) * PORTA_W) + '%'; pa.style.top = (PORTA_TOP + (pos.y / 100) * PORTA_H) + '%'; pa.style.bottom = 'auto'; }
     document.getElementById('tiro-info').textContent = "FASE 1 — Tiro dell'attaccante";
     document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante" id="dado-att">-</div></div>';
     orientaPortiereVerso(dT);
@@ -1734,8 +1785,10 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
     var nomeTir = (trovaGiocatorePerId(att, stato.giocatorePalla)||{}).nome || 'Attaccante';
     log('🎙️ Tiro di ' + nomeTir + ': dado ' + dT + ' (casella ' + dT + ').', '');
 
-    setTimeout(function() {
+    // Sposta la palla verso la casella
+    muoviPallaVerso(PORTA_LEFT + (pos.x / 100) * PORTA_W, PORTA_TOP + (pos.y / 100) * PORTA_H, 700, function() {
       if (stato.partitaFinita) return;
+      
       if (golSuperAtt) {
         var dP11 = Math.floor(Math.random() * 11) + 1;
         var coppia = COPPIE_11[dP11]; var parataGS = coppia.indexOf(dT) > -1;
@@ -1764,7 +1817,7 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
           }, 2200);
         }); return;
       }
-    }, 500);
+    });
     return;
   }
 
@@ -1775,54 +1828,48 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
     document.getElementById('tiro-info').textContent = 'FASE 2 — L\'attaccante si prepara a calciare...';
     
     // Tuffo del portiere verso il centro del gruppo scelto
-    eseguiTuffoPortiere(8, false, gruppoEffettivo); // 8 è un placeholder, tanto non para
+    eseguiTuffoPortiere(8, false, gruppoEffettivo);
     
     setTimeout(function() {
       if (stato.partitaFinita) return;
       // ORA l'attaccante tira
       var dT = Math.floor(Math.random() * 9) + 1;
       var pos = CASELLE_PERC[dT];
-      var pa = document.getElementById('tiro-palla');
-      if (pa) { 
-        pa.style.transition = 'none';
-        pa.classList.remove('iniziale', 'rigore'); 
-        pa.style.left = (PORTA_LEFT + (pos.x / 100) * PORTA_W) + '%'; 
-        pa.style.top = (PORTA_TOP + (pos.y / 100) * PORTA_H) + '%'; 
-        pa.style.bottom = 'auto'; 
-        void pa.offsetWidth;
-        pa.style.transition = 'left 0.7s ease-out, top 0.7s ease-out';
-      }
+      
       document.getElementById('tiro-info').textContent = "FASE 3 — Tiro dell'attaccante";
       document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante" id="dado-att">-</div></div>';
       
       var nomeTir = (trovaGiocatorePerId(att, stato.giocatorePalla)||{}).nome || 'Attaccante';
       
-      animaRollDado(dT, 9, 'dado-att').then(function() {
-        log('🎙️ Tiro di ' + nomeTir + ': dado ' + dT + ' (casella ' + dT + ').', '');
-        var parataNormale = zonaPortiere.indexOf(dT) > -1;
-        
-        // Se il portiere ha indovinato, si tuffa esattamente sulla palla. Altrimenti resta nella sua zona.
-        if (parataNormale) {
-          var target = casellaToPos(dT);
-          var pt = document.getElementById('tiro-portiere');
-          if (pt) {
-            posizionaPortiereSu(target.cx, target.cy, false);
-            var pos8 = casellaToPos(8);
-            var deltaX = target.cx - pos8.cx;
-            pt.classList.remove('pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro');
-            if (deltaX < -5) pt.classList.add('pg-tuffo-sx');
-            else if (deltaX > 5) pt.classList.add('pg-tuffo-dx');
-            else pt.classList.add('pg-tuffo-centro');
+      // Muovi la palla verso la casella
+      muoviPallaVerso(PORTA_LEFT + (pos.x / 100) * PORTA_W, PORTA_TOP + (pos.y / 100) * PORTA_H, 600, function() {
+        animaRollDado(dT, 9, 'dado-att').then(function() {
+          log('🎙️ Tiro di ' + nomeTir + ': dado ' + dT + ' (casella ' + dT + ').', '');
+          var parataNormale = zonaPortiere.indexOf(dT) > -1;
+          
+          // Se il portiere ha indovinato, si tuffa esattamente sulla palla. Altrimenti resta nella sua zona.
+          if (parataNormale) {
+            var target = casellaToPos(dT);
+            var pt = document.getElementById('tiro-portiere');
+            if (pt) {
+              posizionaPortiereSu(target.cx, target.cy, false);
+              var pos8 = casellaToPos(8);
+              var deltaX = target.cx - pos8.cx;
+              pt.classList.remove('pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro');
+              if (deltaX < -5) pt.classList.add('pg-tuffo-sx');
+              else if (deltaX > 5) pt.classList.add('pg-tuffo-dx');
+              else pt.classList.add('pg-tuffo-centro');
+            }
           }
-        }
-        
-        setTimeout(function() {
-          nascondiSettori();
-          if (parataNormale) { mostraEsitoTiroConGrafica('parata', dT, att, dif, '🧤 PARATA!'); }
-          else {
-            if (isRigore) fase3RigoreConGrafica(dT, att, dif); else fase3TiroConGrafica(dT, att, dif);
-          }
-        }, 1000);
+          
+          setTimeout(function() {
+            nascondiSettori();
+            if (parataNormale) { mostraEsitoTiroConGrafica('parata', dT, att, dif, '🧤 PARATA!'); }
+            else {
+              if (isRigore) fase3RigoreConGrafica(dT, att, dif); else fase3TiroConGrafica(dT, att, dif);
+            }
+          }, 1000);
+        });
       });
     }, 1000); // Pausa per far vedere il tuffo del portiere
   }
@@ -1870,6 +1917,7 @@ function fase3TiroConGrafica(dT, att, dif) {
     }, 800);
   });
 }
+
 function fase3RigoreConGrafica(dT, att, dif) {
   var cs = mescola([1,2,3,4,5,6,7,8,9]); var cP = cs[0], cA = cs[1], cF = cs[2];
   document.getElementById('tiro-info').textContent = 'FASE 3 — Esito del rigore...';

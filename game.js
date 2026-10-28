@@ -130,7 +130,6 @@ function aggiornaTargetZoom() {
 
   var scalaFit = Math.min(w / SCENA_W, h / SCENA_H);
 
-  // SEMPRE 2x (camera on ball) — uguale su PC e mobile
   var scala = scalaFit * 2;
 
   var p = getPosizionePallaScena();
@@ -154,7 +153,6 @@ function applicaTransformScena() {
 
 function loopZoom() {
   aggiornaTargetZoom();
-  // Se stiamo seguendo la palla in movimento, snap istantaneo (campo scorre sotto)
   var s = zoomState.seguiIstantaneo ? 1.0 : zoomState.smoothing;
   zoomState.scalaCorrente     += (zoomState.scalaTarget     - zoomState.scalaCorrente)     * s;
   zoomState.offsetCorrenteX   += (zoomState.offsetTargetX   - zoomState.offsetCorrenteX)   * s;
@@ -819,9 +817,7 @@ function mostraAnimazioneMoneta(vincente, cb) {
 
 function animaPallaInZona(gDa, gA, cb, saltaZone) {
   suonaCalcio();
-  // Segui istantaneamente la palla durante l'animazione (campo scorre sotto)
   zoomState.seguiIstantaneo = true;
-
   var scena = document.getElementById('scena'); var box = scena.getBoundingClientRect();
   var wrapperD = document.querySelector('[data-giocatore-id="' + gDa.id + '"]');
   var wrapperA = document.querySelector('[data-giocatore-id="' + gA.id + '"]');
@@ -1224,8 +1220,8 @@ function renderPannelloContrasto() {
 }
 
 function creaCartaEl(carta) { var el = document.createElement('div'); el.className = 'carta'; el.innerHTML = '<div class="valore-alto">' + carta.label + '</div><div class="seme-centro">' + SEMI[carta.seme].emoji + '</div><div class="valore-basso">' + carta.label + '</div>'; return el; }
-function renderPilaMazzo() { var mp = document.getElementById('mazzo-pila'); if (!mp) return; mp.innerHTML = ''; var tot = stato.mazzi.tu.length + stato.mazzi.cpu.length; var n = Math.min(tot, 4); for (var i = 0; i < n; i++) { var el = document.createElement('div'); el.className = 'pila-carta dietro'; el.style.left = (i * 2) + 'px'; el.style.top = (i * 2) + 'px'; mp.appendChild(el); } var mc = document.getElementById('mazzo-count'); if (mc) mc.textContent = tot; }
-function renderPilaScarti() { var sp = document.getElementById('scarti-pila'); if (!sp) return; sp.innerHTML = ''; var tot = stato.scarti.tu.length + stato.scarti.cpu.length; var n = Math.min(tot, 4); for (var i = 0; i < n; i++) { var el = document.createElement('div'); el.className = 'pila-carta scarto'; el.style.left = (i * 2) + 'px'; el.style.top = (i * 2) + 'px'; sp.appendChild(el); } var sc = document.getElementById('scarti-count'); if (sc) sc.textContent = tot; }
+function renderPilaMazzo() { var mp = document.getElementById('mazzo-pila'); if (!mp) return; mp.innerHTML = ''; var tot = stato.mazzi.tu.length; var n = Math.min(tot, 4); for (var i = 0; i < n; i++) { var el = document.createElement('div'); el.className = 'pila-carta dietro'; el.style.left = (i * 2) + 'px'; el.style.top = (i * 2) + 'px'; mp.appendChild(el); } var mc = document.getElementById('mazzo-count'); if (mc) mc.textContent = tot; }
+function renderPilaScarti() { var sp = document.getElementById('scarti-pila'); if (!sp) return; sp.innerHTML = ''; var tot = stato.scarti.tu.length; var n = Math.min(tot, 4); for (var i = 0; i < n; i++) { var el = document.createElement('div'); el.className = 'pila-carta scarto'; el.style.left = (i * 2) + 'px'; el.style.top = (i * 2) + 'px'; sp.appendChild(el); } var sc = document.getElementById('scarti-count'); if (sc) sc.textContent = tot; }
 function renderPilaBonus() { var bp = document.getElementById('bonus-pila'); if (!bp) return; bp.innerHTML = ''; var n = Math.min(stato.mazzoBonus.length, 4); for (var i=0;i<n;i++) { var el = document.createElement('div'); el.className = 'pila-carta bonus'; el.style.left = (i*2) + 'px'; el.style.top = (i*2) + 'px'; bp.appendChild(el); } var bc = document.getElementById('bonus-count'); if (bc) bc.textContent = stato.mazzoBonus.length; }
 function renderBonusSlots() { var slots = document.querySelectorAll('#bonus-slots-tu .bonus-slot'); for (var i=0;i<slots.length;i++) { var s = slots[i]; s.innerHTML = ''; s.classList.remove('pieno'); if (i < stato.bonus.tu.length) { var tipo = stato.bonus.tu[i]; s.classList.add('pieno'); var info = NOMI_BONUS[tipo]; var c = document.createElement('div'); c.className = 'bonus-carta ' + tipo; c.innerHTML = '<span>' + info.icona + '</span>'; s.appendChild(c); } } }
 function selezionaCartaTu(idx) { if (stato.contrasto.risolto) return; if (!stato.sostBloccate) stato.sostBloccate = true; selezioneCarta = idx; renderPannelloContrasto(); }
@@ -1484,8 +1480,6 @@ function nascondiSettori() { var ov = document.getElementById('tiro-settori-over
 
 /* ============================================================
    SCELTA MANUALE SETTORI PORTIERE (per TU)
-   Mostra 4 gruppi cliccabili. L'utente seleziona il gruppo
-   in cui vuole far tuffare il portiere e conferma.
    ============================================================ */
 function mostraSceltaSettoriTU(callback) {
   var ov = document.getElementById('tiro-settori-overlay');
@@ -1537,7 +1531,6 @@ function mostraSceltaSettoriTU(callback) {
     ov.appendChild(gruppo);
   }
 
-  // Pulsante conferma
   var btnWrap = document.createElement('div');
   btnWrap.style.gridColumn = '1 / 4';
   btnWrap.style.gridRow = '3 / 4';
@@ -1728,92 +1721,136 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
   var bonusAtt = stato.bonusUsatoQuestoTiro[att]; var bonusDif = stato.bonusUsatoQuestoTiro[dif];
   var golSuperAtt = (bonusAtt === 'gol-super'); var parataSuperAtt = (bonusDif === 'parata-super');
 
-  var dT = Math.floor(Math.random() * 9) + 1;
-  var pos = CASELLE_PERC[dT];
-  var pa = document.getElementById('tiro-palla');
-  if (pa) { pa.classList.remove('iniziale', 'rigore'); pa.style.left = (PORTA_LEFT + (pos.x / 100) * PORTA_W) + '%'; pa.style.top = (PORTA_TOP + (pos.y / 100) * PORTA_H) + '%'; pa.style.bottom = 'auto'; }
-  document.getElementById('tiro-info').textContent = "FASE 1 — Tiro dell'attaccante";
-  document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante" id="dado-att">-</div></div>';
-  orientaPortiereVerso(dT);
+  // Se si usano i bonus (Gol Super o Parata Super), si tira prima il dado dell'attaccante
+  if (golSuperAtt || parataSuperAtt) {
+    var dT = Math.floor(Math.random() * 9) + 1;
+    var pos = CASELLE_PERC[dT];
+    var pa = document.getElementById('tiro-palla');
+    if (pa) { pa.classList.remove('iniziale', 'rigore'); pa.style.left = (PORTA_LEFT + (pos.x / 100) * PORTA_W) + '%'; pa.style.top = (PORTA_TOP + (pos.y / 100) * PORTA_H) + '%'; pa.style.bottom = 'auto'; }
+    document.getElementById('tiro-info').textContent = "FASE 1 — Tiro dell'attaccante";
+    document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante" id="dado-att">-</div></div>';
+    orientaPortiereVerso(dT);
+    await animaRollDado(dT, 9, 'dado-att', 'attaccante');
+    var nomeTir = (trovaGiocatorePerId(att, stato.giocatorePalla)||{}).nome || 'Attaccante';
+    log('🎙️ Tiro di ' + nomeTir + ': dado ' + dT + ' (casella ' + dT + ').', '');
 
-  await animaRollDado(dT, 9, 'dado-att', 'attaccante');
+    setTimeout(function() {
+      if (stato.partitaFinita) return;
+      if (golSuperAtt) {
+        var dP11 = Math.floor(Math.random() * 11) + 1;
+        var coppia = COPPIE_11[dP11]; var parataGS = coppia.indexOf(dT) > -1;
+        document.getElementById('tiro-info').textContent = 'FASE 2 — Portiere (Gol Super) tira 1d11...';
+        document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante">' + dT + '</div></div><div class="tiro-dadi-riga"><span class="tiro-dado-label">🧤 Portiere:</span><div class="tiro-dado portiere" id="dado-por">-</div></div>';
+        animaRollDado(dP11, 11, 'dado-por').then(function() {
+          evidenziaCaselle(coppia);
+          eseguiTuffoPortiere(dT, parataGS);
+          setTimeout(function() {
+            if (parataGS) mostraEsitoTiroConGrafica('parata', dT, att, dif, '🧤 PARATA (Gol Super)!');
+            else mostraEsitoTiroConGrafica('goal', dT, att, dif, '⚽ GOAL SUPER!');
+          }, 2200);
+        }); return;
+      }
+      if (parataSuperAtt) {
+        var dP11b = Math.floor(Math.random() * 11) + 1;
+        var coppiaB = COPPIE_11[dP11b]; var parataPS = coppiaB.indexOf(dT) === -1;
+        document.getElementById('tiro-info').textContent = 'FASE 2 — Portiere (Parata Super) tira 1d11...';
+        document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante">' + dT + '</div></div><div class="tiro-dadi-riga"><span class="tiro-dado-label">🧤 Portiere:</span><div class="tiro-dado portiere" id="dado-por">-</div></div>';
+        animaRollDado(dP11b, 11, 'dado-por').then(function() {
+          var tutte = [1,2,3,4,5,6,7,8,9]; var coperte = tutte.filter(function(n) { return coppiaB.indexOf(n) === -1; });
+          evidenziaCaselle(coperte); eseguiTuffoPortiere(dT, parataPS);
+          setTimeout(function() {
+            if (parataPS) mostraEsitoTiroConGrafica('parata', dT, att, dif, '🧤 PARATA SUPER!');
+            else mostraEsitoTiroConGrafica('goal', dT, att, dif, '⚽ GOAL!');
+          }, 2200);
+        }); return;
+      }
+    }, 500);
+    return;
+  }
 
-  var nomeTir = (trovaGiocatorePerId(att, stato.giocatorePalla)||{}).nome || 'Attaccante';
-  log('🎙️ Tiro di ' + nomeTir + ': dado ' + dT + ' (casella ' + dT + ').', '');
-
-  setTimeout(function() {
-    if (stato.partitaFinita) return;
-    if (golSuperAtt) {
-      var dP11 = Math.floor(Math.random() * 11) + 1;
-      var coppia = COPPIE_11[dP11]; var parataGS = coppia.indexOf(dT) > -1;
-      document.getElementById('tiro-info').textContent = 'FASE 2 — Portiere (Gol Super) tira 1d11...';
-      document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante">' + dT + '</div></div><div class="tiro-dadi-riga"><span class="tiro-dado-label">🧤 Portiere:</span><div class="tiro-dado portiere" id="dado-por">-</div></div>';
-      animaRollDado(dP11, 11, 'dado-por').then(function() {
-        evidenziaCaselle(coppia);
-        eseguiTuffoPortiere(dT, parataGS);
-        setTimeout(function() {
-          if (parataGS) mostraEsitoTiroConGrafica('parata', dT, att, dif, '🧤 PARATA (Gol Super)!');
-          else mostraEsitoTiroConGrafica('goal', dT, att, dif, '⚽ GOAL SUPER!');
-        }, 2200);
-      }); return;
-    }
-    if (parataSuperAtt) {
-      var dP11b = Math.floor(Math.random() * 11) + 1;
-      var coppiaB = COPPIE_11[dP11b]; var parataPS = coppiaB.indexOf(dT) === -1;
-      document.getElementById('tiro-info').textContent = 'FASE 2 — Portiere (Parata Super) tira 1d11...';
-      document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante">' + dT + '</div></div><div class="tiro-dadi-riga"><span class="tiro-dado-label">🧤 Portiere:</span><div class="tiro-dado portiere" id="dado-por">-</div></div>';
-      animaRollDado(dP11b, 11, 'dado-por').then(function() {
-        var tutte = [1,2,3,4,5,6,7,8,9]; var coperte = tutte.filter(function(n) { return coppiaB.indexOf(n) === -1; });
-        evidenziaCaselle(coperte); eseguiTuffoPortiere(dT, parataPS);
-        setTimeout(function() {
-          if (parataPS) mostraEsitoTiroConGrafica('parata', dT, att, dif, '🧤 PARATA SUPER!');
-          else mostraEsitoTiroConGrafica('goal', dT, att, dif, '⚽ GOAL!');
-        }, 2200);
-      }); return;
-    }
-
-    // === SCELTA SETTORI PORTIERE ===
-    // Se il portiere è TU → scelta manuale. Se è CPU → dado 1d4.
-    function eseguiFase2ConGruppo(gruppoEffettivo) {
-      var zonaPortiere = ZONE_PORTIERE_4[gruppoEffettivo];
-      var parataNormale = zonaPortiere.indexOf(dT) > -1;
-      log('🎙️ Portiere sceglie gruppo ' + gruppoEffettivo + ' → settori ' + ZONE_PORTIERE_4[gruppoEffettivo].join(',') + '.', '');
-      document.getElementById('tiro-info').textContent = parataNormale ? 'FASE 3 — Il portiere si tuffa verso la palla!' : 'FASE 3 — Il portiere si tuffa al centro dei settori!';
-      eseguiTuffoPortiere(dT, parataNormale, gruppoEffettivo);
-      setTimeout(function() {
-        nascondiSettori();
-        if (parataNormale) { mostraEsitoTiroConGrafica('parata', dT, att, dif, '🧤 PARATA!'); }
-        else {
-          if (isRigore) fase3RigoreConGrafica(dT, att, dif); else fase3TiroConGrafica(dT, att, dif);
+  // === TIRO NORMALE: PRIMA SCEGLIE IL PORTIERE, POI TIRA ===
+  function eseguiFase2ConGruppo(gruppoEffettivo) {
+    var zonaPortiere = ZONE_PORTIERE_4[gruppoEffettivo];
+    log('🎙️ Portiere sceglie gruppo ' + gruppoEffettivo + ' → settori ' + ZONE_PORTIERE_4[gruppoEffettivo].join(',') + '.', '');
+    document.getElementById('tiro-info').textContent = 'FASE 2 — L\'attaccante si prepara a calciare...';
+    
+    // Tuffo del portiere verso il centro del gruppo scelto
+    eseguiTuffoPortiere(8, false, gruppoEffettivo); // 8 è un placeholder, tanto non para
+    
+    setTimeout(function() {
+      if (stato.partitaFinita) return;
+      // ORA l'attaccante tira
+      var dT = Math.floor(Math.random() * 9) + 1;
+      var pos = CASELLE_PERC[dT];
+      var pa = document.getElementById('tiro-palla');
+      if (pa) { 
+        pa.style.transition = 'none';
+        pa.classList.remove('iniziale', 'rigore'); 
+        pa.style.left = (PORTA_LEFT + (pos.x / 100) * PORTA_W) + '%'; 
+        pa.style.top = (PORTA_TOP + (pos.y / 100) * PORTA_H) + '%'; 
+        pa.style.bottom = 'auto'; 
+        void pa.offsetWidth;
+        pa.style.transition = 'left 0.7s ease-out, top 0.7s ease-out';
+      }
+      document.getElementById('tiro-info').textContent = "FASE 3 — Tiro dell'attaccante";
+      document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante" id="dado-att">-</div></div>';
+      
+      var nomeTir = (trovaGiocatorePerId(att, stato.giocatorePalla)||{}).nome || 'Attaccante';
+      
+      animaRollDado(dT, 9, 'dado-att').then(function() {
+        log('🎙️ Tiro di ' + nomeTir + ': dado ' + dT + ' (casella ' + dT + ').', '');
+        var parataNormale = zonaPortiere.indexOf(dT) > -1;
+        
+        // Se il portiere ha indovinato, si tuffa esattamente sulla palla. Altrimenti resta nella sua zona.
+        if (parataNormale) {
+          var target = casellaToPos(dT);
+          var pt = document.getElementById('tiro-portiere');
+          if (pt) {
+            posizionaPortiereSu(target.cx, target.cy, false);
+            var pos8 = casellaToPos(8);
+            var deltaX = target.cx - pos8.cx;
+            pt.classList.remove('pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro');
+            if (deltaX < -5) pt.classList.add('pg-tuffo-sx');
+            else if (deltaX > 5) pt.classList.add('pg-tuffo-dx');
+            else pt.classList.add('pg-tuffo-centro');
+          }
         }
-      }, 1200);
-    }
+        
+        setTimeout(function() {
+          nascondiSettori();
+          if (parataNormale) { mostraEsitoTiroConGrafica('parata', dT, att, dif, '🧤 PARATA!'); }
+          else {
+            if (isRigore) fase3RigoreConGrafica(dT, att, dif); else fase3TiroConGrafica(dT, att, dif);
+          }
+        }, 1000);
+      });
+    }, 1000); // Pausa per far vedere il tuffo del portiere
+  }
 
-    if (dif === 'tu') {
-      // Scelta manuale del portiere umano
-      document.getElementById('tiro-info').textContent = 'FASE 2 — SCEGLI IL GRUPPO DI SETTORI DA COPRIRARE';
-      document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante">' + dT + '</div></div><div style="color:#ffd700;font-size:clamp(10px,1.2vw,14px);margin-top:6px">Clicca un gruppo, poi CONFERMA</div>';
+  if (dif === 'tu') {
+    // Scelta manuale del portiere umano PRIMA del tiro
+    document.getElementById('tiro-info').textContent = 'FASE 1 — SCEGLI IL GRUPPO DI SETTORI DA COPRIRARE';
+    document.getElementById('tiro-dadi-info').innerHTML = '<div style="color:#ffd700;font-size:clamp(10px,1.2vw,14px);margin-top:6px">Clicca un gruppo, poi CONFERMA</div>';
+    setTimeout(function() {
+      if (stato.partitaFinita) return;
+      mostraSceltaSettoriTU(function(gruppoScelto) {
+        eseguiFase2ConGruppo(gruppoScelto);
+      });
+    }, 600);
+  } else {
+    // CPU: dado 1d4 PRIMA del tiro
+    var dP4 = Math.floor(Math.random() * 4) + 1;
+    document.getElementById('tiro-info').textContent = 'FASE 1 — Il portiere tira 1d4...';
+    document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🧤 Portiere:</span><div class="tiro-dado portiere" id="dado-por">-</div></div>';
+    animaRollDado(dP4, 4, 'dado-por').then(function() {
+      log('🎙️ Portiere tira ' + dP4 + ' → settori ' + ZONE_PORTIERE_4[dP4].join(',') + '.', '');
+      mostraSettoriPortiere(dP4);
       setTimeout(function() {
         if (stato.partitaFinita) return;
-        mostraSceltaSettoriTU(function(gruppoScelto) {
-          eseguiFase2ConGruppo(gruppoScelto);
-        });
-      }, 600);
-    } else {
-      // CPU: dado 1d4 come prima
-      var dP4 = Math.floor(Math.random() * 4) + 1;
-      document.getElementById('tiro-info').textContent = 'FASE 2 — Il portiere tira 1d4...';
-      document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante">' + dT + '</div></div><div class="tiro-dadi-riga"><span class="tiro-dado-label">🧤 Portiere:</span><div class="tiro-dado portiere" id="dado-por">-</div></div>';
-      animaRollDado(dP4, 4, 'dado-por').then(function() {
-        log('🎙️ Portiere tira ' + dP4 + ' → settori ' + ZONE_PORTIERE_4[dP4].join(',') + '.', '');
-        mostraSettoriPortiere(dP4);
-        setTimeout(function() {
-          if (stato.partitaFinita) return;
-          eseguiFase2ConGruppo(dP4);
-        }, 1500);
-      });
-    }
-  }, 500);
+        eseguiFase2ConGruppo(dP4);
+      }, 1500);
+    });
+  }
 }
 
 function fase3TiroConGrafica(dT, att, dif) {
@@ -2024,9 +2061,20 @@ function renderModaleSostituzioni() {
   var sq = 'tu'; var h = '<h2>🔄 Sostituzioni</h2>';
   h += '<div style="background:rgba(0,0,0,0.3);border-radius:12px;padding:16px;margin:20px 0"><h3 style="color:#ffd700">In campo</h3><div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">';
   var gs = stato.giocatori[sq].filter(function(g){ return !g.espulso; });
-  for (var i=0;i<gs.length;i++) { var g = gs[i]; var sel = selezioneSost.campo === g.id ? 'background:#ffd700;color:#16213e;' : 'background:#0f3460;color:#fff;'; h += '<div style="' + sel + 'border:2px solid #4dabf7;border-radius:8px;padding:10px 16px;cursor:pointer" onclick="selezionaSostCampo(\'' + g.id + '\')"><div>' + g.nome + '</div><div>⚡' + g.stamina + '/10</div></div>'; }
+  for (var i=0;i<gs.length;i++) { 
+    var g = gs[i]; 
+    var sel = selezioneSost.campo === g.id ? 'background:#ffd700;color:#16213e;' : 'background:#0f3460;color:#fff;'; 
+    var cartellino = g.espulso ? '🟥' : (g.ammonito ? '🟨' : '');
+    h += '<div style="' + sel + 'border:2px solid #4dabf7;border-radius:8px;padding:10px 16px;cursor:pointer" onclick="selezionaSostCampo(\'' + g.id + '\')"><div>' + g.nome + ' ' + cartellino + '</div><div>⚡' + g.stamina + '/10</div></div>'; 
+  }
   h += '</div></div><div style="background:rgba(0,0,0,0.3);border-radius:12px;padding:16px;margin:20px 0"><h3 style="color:#ffd700">Panchina</h3><div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">';
-  for (var k=0;k<stato.panchina[sq].length;k++) { var p = stato.panchina[sq][k]; var sel2 = selezioneSost.panchina === p.id ? 'background:#ffd700;color:#16213e;' : 'background:#0f3460;color:#fff;'; var dis = p.entrato ? 'opacity:0.35;cursor:not-allowed;' : 'cursor:pointer;'; h += '<div style="' + sel2 + dis + 'border:2px solid #4dabf7;border-radius:8px;padding:10px 16px" onclick="selezionaSostPanchina(\'' + p.id + '\')"><div>' + p.nome + ' (' + p.ruolo + ')</div><div>⚡' + p.stamina + '/10</div></div>'; }
+  for (var k=0;k<stato.panchina[sq].length;k++) { 
+    var p = stato.panchina[sq][k]; 
+    var sel2 = selezioneSost.panchina === p.id ? 'background:#ffd700;color:#16213e;' : 'background:#0f3460;color:#fff;'; 
+    var dis = p.entrato ? 'opacity:0.35;cursor:not-allowed;' : 'cursor:pointer;'; 
+    var cartellinoPan = p.espulso ? '🟥' : (p.ammonito ? '🟨' : '');
+    h += '<div style="' + sel2 + dis + 'border:2px solid #4dabf7;border-radius:8px;padding:10px 16px" onclick="selezionaSostPanchina(\'' + p.id + '\')"><div>' + p.nome + ' (' + p.ruolo + ') ' + cartellinoPan + '</div><div>⚡' + p.stamina + '/10</div></div>'; 
+  }
   h += '</div></div><div style="margin-top:20px">';
   if (selezioneSost.campo && selezioneSost.panchina) h += '<button class="primario" onclick="confermaSostituzione()">CONFERMA</button>';
   h += '<button onclick="chiudiModale()">CHIUDI</button></div>';

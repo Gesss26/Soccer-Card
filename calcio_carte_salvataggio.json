@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T14:14:29.289Z",
+  "data": "2026-10-28T14:15:29.299Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3061,7 +3061,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793196865285,
+    "timestamp": 1793196925295,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "genoa",
@@ -3079,14 +3079,14 @@
         "calzettoni": "#991b1b"
       }
     },
-    "tempo": 1,
-    "mano": 23,
+    "tempo": 2,
+    "mano": 3,
     "maxMani": 23,
     "punteggio": {
       "tu": 3,
       "cpu": 0
     },
-    "zonaPalla": 1,
+    "zonaPalla": 5,
     "possessore": "cpu",
     "giocatorePalla": "cpu_10",
     "metaContesa": "inf",
@@ -3235,30 +3235,6 @@
           "seme": "palla",
           "valore": 6,
           "label": "6"
-        },
-        {
-          "id": "c41",
-          "seme": "bandierina",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
-          "id": "c19",
-          "seme": "coppa",
-          "valore": 8,
-          "label": "8"
-        },
-        {
-          "id": "c34",
-          "seme": "guantone",
-          "valore": 6,
-          "label": "6"
-        },
-        {
-          "id": "c33",
-          "seme": "guantone",
-          "valore": 7,
-          "label": "7"
         }
       ],
       "cpu": [
@@ -3405,30 +3381,6 @@
           "seme": "coppa",
           "valore": 10,
           "label": "10"
-        },
-        {
-          "id": "c3",
-          "seme": "palla",
-          "valore": 11,
-          "label": "J"
-        },
-        {
-          "id": "c21",
-          "seme": "coppa",
-          "valore": 6,
-          "label": "6"
-        },
-        {
-          "id": "c1",
-          "seme": "palla",
-          "valore": 13,
-          "label": "K"
-        },
-        {
-          "id": "c39",
-          "seme": "bandierina",
-          "valore": 14,
-          "label": "A"
         }
       ]
     },
@@ -3553,6 +3505,24 @@
           "seme": "bandierina",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c39",
+          "seme": "bandierina",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c49",
+          "seme": "bandierina",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c10",
+          "seme": "palla",
+          "valore": 4,
+          "label": "4"
         }
       ],
       "cpu": [
@@ -3675,6 +3645,30 @@
           "seme": "coppa",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c39",
+          "seme": "bandierina",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c1",
+          "seme": "palla",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c3",
+          "seme": "palla",
+          "valore": 11,
+          "label": "J"
         }
       ]
     },
@@ -3694,28 +3688,34 @@
     "mani": {
       "tu": [
         {
-          "id": "c10",
-          "seme": "palla",
-          "valore": 4,
-          "label": "4"
-        },
-        {
-          "id": "c49",
-          "seme": "bandierina",
-          "valore": 4,
-          "label": "4"
-        },
-        {
           "id": "c38",
           "seme": "guantone",
           "valore": 2,
           "label": "2"
         },
         {
-          "id": "c39",
+          "id": "c33",
+          "seme": "guantone",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c34",
+          "seme": "guantone",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c19",
+          "seme": "coppa",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c41",
           "seme": "bandierina",
-          "valore": 14,
-          "label": "A"
+          "valore": 12,
+          "label": "Q"
         }
       ],
       "cpu": [
@@ -3738,10 +3738,10 @@
           "label": "2"
         },
         {
-          "id": "c50",
-          "seme": "bandierina",
-          "valore": 3,
-          "label": "3"
+          "id": "c21",
+          "seme": "coppa",
+          "valore": 6,
+          "label": "6"
         }
       ]
     },
@@ -3753,7 +3753,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 8,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3767,7 +3767,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3781,7 +3781,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 1,
@@ -3795,7 +3795,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 3,
+          "stamina": 5,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 0,
@@ -3809,7 +3809,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3823,7 +3823,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3837,7 +3837,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3851,7 +3851,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3879,7 +3879,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3893,7 +3893,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3909,7 +3909,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 5,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3923,7 +3923,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 2,
@@ -3937,7 +3937,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3951,7 +3951,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 4,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 3,
           "falliArea": 0,
@@ -3979,7 +3979,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 6,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -3993,7 +3993,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4007,7 +4007,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 4,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4021,7 +4021,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4035,7 +4035,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4049,7 +4049,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4249,8 +4249,8 @@
     },
     "monetaVinta": "tu",
     "partitaFinita": false,
-    "direzioneAttaccoTU": 1,
-    "invertiCoppie": false,
+    "direzioneAttaccoTU": -1,
+    "invertiCoppie": true,
     "tuECasa": true,
     "bonus": {
       "tu": [],
@@ -4258,17 +4258,17 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 2
+      "cpu": 1
     },
     "statistiche": {
       "tu": {
         "gol": 3,
         "tiri": 5,
-        "parate": 1,
+        "parate": 2,
         "angoli": 0,
         "pali": 1,
-        "contese": 12,
-        "vinte": 14,
+        "contese": 13,
+        "vinte": 15,
         "falli": 3,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -4295,8 +4295,8 @@
         "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 9,
-        "vinte": 7,
+        "contese": 11,
+        "vinte": 8,
         "falli": 7,
         "ammonizioni": 2,
         "espulsioni": 1,
@@ -5061,8 +5061,96 @@
       {
         "msg": "🎙️ Tiro di Colombo: dado 7 (casella 7).",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 3 → settori 4,5,7,8.",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Colombo.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: McKennie (TU) contro Sow (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie gioca A🚩 e impone il seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Sow risponde con A🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie A🚩 vs Sow A🚩 → PAREGGIO (Carte di pari valore)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie gioca 4🚩",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Sow risponde con 3🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie 4🚩 vs Sow 3🚩 → vince McKennie (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie serve Yildiz in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "⏸️ FINE PRIMO TEMPO. Risultato: 3-0",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Calcio d'inizio! CPU batte dal centro con Sow.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Sow serve Baldanzi in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 superiore: Baldanzi (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Baldanzi gioca K⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 4⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Baldanzi K⚽ vs Lucumì 4⚽ → vince Baldanzi (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Baldanzi vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Baldanzi serve Colombo in Z5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Colombo (CPU) contro Bremer (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Colombo gioca J⚽ → seme guida: Palla",
+        "classe": "highlight"
       }
     ],
-    "secondiTrascorsi": 675
+    "secondiTrascorsi": 735
   }
 }

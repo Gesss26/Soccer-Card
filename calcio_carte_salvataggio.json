@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T14:04:29.472Z",
+  "data": "2026-10-28T14:05:44.289Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3053,7 +3053,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793196265470,
+    "timestamp": 1793196340285,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "genoa",
@@ -3072,15 +3072,15 @@
       }
     },
     "tempo": 1,
-    "mano": 5,
+    "mano": 6,
     "maxMani": 23,
     "punteggio": {
       "tu": 0,
       "cpu": 0
     },
-    "zonaPalla": 1,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_10",
+    "zonaPalla": 3,
+    "possessore": "tu",
+    "giocatorePalla": "tu_6",
     "metaContesa": "inf",
     "mazzi": {
       "tu": [
@@ -3335,18 +3335,6 @@
           "seme": "guantone",
           "valore": 14,
           "label": "A"
-        },
-        {
-          "id": "c21",
-          "seme": "coppa",
-          "valore": 6,
-          "label": "6"
-        },
-        {
-          "id": "c15",
-          "seme": "coppa",
-          "valore": 12,
-          "label": "Q"
         }
       ],
       "cpu": [
@@ -3601,18 +3589,6 @@
           "seme": "guantone",
           "valore": 12,
           "label": "Q"
-        },
-        {
-          "id": "c6",
-          "seme": "palla",
-          "valore": 8,
-          "label": "8"
-        },
-        {
-          "id": "c7",
-          "seme": "palla",
-          "valore": 7,
-          "label": "7"
         }
       ]
     },
@@ -3641,6 +3617,12 @@
           "seme": "coppa",
           "valore": 5,
           "label": "5"
+        },
+        {
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
@@ -3667,6 +3649,12 @@
           "seme": "coppa",
           "valore": 13,
           "label": "K"
+        },
+        {
+          "id": "c43",
+          "seme": "bandierina",
+          "valore": 10,
+          "label": "10"
         }
       ]
     },
@@ -3684,8 +3672,7 @@
       "gol-super",
       "tiro-fuori-area",
       "passaggio-lungo",
-      "gol-super",
-      "contrasto-sicuro"
+      "gol-super"
     ],
     "mani": {
       "tu": [
@@ -3702,25 +3689,25 @@
           "label": "10"
         },
         {
-          "id": "c50",
-          "seme": "bandierina",
-          "valore": 3,
-          "label": "3"
-        },
-        {
           "id": "c11",
           "seme": "palla",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c15",
+          "seme": "coppa",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c21",
+          "seme": "coppa",
+          "valore": 6,
+          "label": "6"
         }
       ],
       "cpu": [
-        {
-          "id": "c43",
-          "seme": "bandierina",
-          "valore": 10,
-          "label": "10"
-        },
         {
           "id": "c34",
           "seme": "guantone",
@@ -3738,6 +3725,18 @@
           "seme": "bandierina",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c7",
+          "seme": "palla",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c6",
+          "seme": "palla",
+          "valore": 8,
+          "label": "8"
         }
       ]
     },
@@ -3749,7 +3748,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3777,7 +3776,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4045,7 +4044,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4250,20 +4249,22 @@
     "tuECasa": true,
     "bonus": {
       "tu": [],
-      "cpu": []
+      "cpu": [
+        "contrasto-sicuro"
+      ]
     },
     "streak": {
       "tu": 0,
-      "cpu": 2
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
         "gol": 0,
         "tiri": 1,
-        "parate": 0,
+        "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 2,
+        "contese": 3,
         "vinte": 2,
         "falli": 0,
         "ammonizioni": 0,
@@ -4274,17 +4275,17 @@
       },
       "cpu": {
         "gol": 0,
-        "tiri": 0,
+        "tiri": 1,
         "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 2,
-        "vinte": 2,
+        "contese": 3,
+        "vinte": 3,
         "falli": 2,
         "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 0,
+        "bonusGuadagnati": 1,
         "marcatori": []
       }
     },
@@ -4428,8 +4429,52 @@
       {
         "msg": "🎙️ Baldanzi serve Colombo in Z1.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 inferiore: Colombo (CPU) contro Bremer (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Colombo gioca 10🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bremer risponde con 3🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Colombo 10🚩 vs Bremer 3🚩 → vince Colombo (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Colombo vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 9/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Colombo va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Colombo: dado 6 (casella 6).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 4 → settori 5,6,8,9.",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Colombo.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: McKennie (TU) contro Sow (CPU).",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 75
+    "secondiTrascorsi": 150
   }
 }

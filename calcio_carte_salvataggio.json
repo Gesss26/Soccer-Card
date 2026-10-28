@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T06:05:59.548Z",
+  "data": "2026-10-28T06:07:13.972Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -725,7 +725,7 @@
             "squalificato": false
           },
           "Bremer": {
-            "gialli": 1,
+            "gialli": 2,
             "squalificato": false
           }
         },
@@ -2972,7 +2972,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793167555546,
+    "timestamp": 1793167629970,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "inter",
@@ -2993,15 +2993,15 @@
       }
     },
     "tempo": 1,
-    "mano": 21,
+    "mano": 23,
     "maxMani": 23,
     "punteggio": {
       "tu": 1,
       "cpu": 2
     },
-    "zonaPalla": 4,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_8",
+    "zonaPalla": 2,
+    "possessore": "tu",
+    "giocatorePalla": "tu_8",
     "metaContesa": "inf",
     "mazzi": {
       "tu": [
@@ -3166,18 +3166,6 @@
           "seme": "bandierina",
           "valore": 7,
           "label": "7"
-        },
-        {
-          "id": "c47",
-          "seme": "bandierina",
-          "valore": 6,
-          "label": "6"
-        },
-        {
-          "id": "c2",
-          "seme": "palla",
-          "valore": 12,
-          "label": "Q"
         }
       ],
       "cpu": [
@@ -3330,18 +3318,6 @@
           "seme": "bandierina",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c36",
-          "seme": "guantone",
-          "valore": 4,
-          "label": "4"
-        },
-        {
-          "id": "c27",
-          "seme": "guantone",
-          "valore": 13,
-          "label": "K"
         }
       ]
     },
@@ -3460,6 +3436,18 @@
           "seme": "palla",
           "valore": 10,
           "label": "10"
+        },
+        {
+          "id": "c20",
+          "seme": "coppa",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c14",
+          "seme": "coppa",
+          "valore": 13,
+          "label": "K"
         }
       ],
       "cpu": [
@@ -3588,6 +3576,18 @@
           "seme": "palla",
           "valore": 14,
           "label": "A"
+        },
+        {
+          "id": "c27",
+          "seme": "guantone",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c22",
+          "seme": "coppa",
+          "valore": 5,
+          "label": "5"
         }
       ]
     },
@@ -3602,8 +3602,7 @@
       "passaggio-lungo",
       "gol-super",
       "parata-super",
-      "tiro-fuori-area",
-      "gol-super"
+      "tiro-fuori-area"
     ],
     "mani": {
       "tu": [
@@ -3620,16 +3619,16 @@
           "label": "9"
         },
         {
-          "id": "c20",
-          "seme": "coppa",
-          "valore": 7,
-          "label": "7"
+          "id": "c2",
+          "seme": "palla",
+          "valore": 12,
+          "label": "Q"
         },
         {
-          "id": "c14",
-          "seme": "coppa",
-          "valore": 13,
-          "label": "K"
+          "id": "c47",
+          "seme": "bandierina",
+          "valore": 6,
+          "label": "6"
         }
       ],
       "cpu": [
@@ -3652,10 +3651,10 @@
           "label": "2"
         },
         {
-          "id": "c22",
-          "seme": "coppa",
-          "valore": 5,
-          "label": "5"
+          "id": "c36",
+          "seme": "guantone",
+          "valore": 4,
+          "label": "4"
         }
       ]
     },
@@ -3667,7 +3666,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3693,13 +3692,13 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
-          "falli": 1,
+          "falli": 2,
           "ammonito": true,
-          "espulso": false,
+          "espulso": true,
           "nome": "Bremer",
-          "falliArea": 1
+          "falliArea": 2
         },
         {
           "id": "tu_3",
@@ -3720,7 +3719,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3746,7 +3745,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3892,7 +3891,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3918,7 +3917,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -3944,7 +3943,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "ammonito": false,
@@ -4148,26 +4147,24 @@
     "tuECasa": false,
     "bonus": {
       "tu": [],
-      "cpu": [
-        "contrasto-sicuro"
-      ]
+      "cpu": []
     },
     "streak": {
-      "tu": 0,
-      "cpu": 1
+      "tu": 1,
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
         "gol": 1,
         "tiri": 3,
-        "parate": 0,
+        "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 10,
-        "vinte": 9,
-        "falli": 5,
+        "contese": 11,
+        "vinte": 10,
+        "falli": 6,
         "ammonizioni": 1,
-        "espulsioni": 0,
+        "espulsioni": 1,
         "sostituzioni": 0,
         "bonusGuadagnati": 1,
         "marcatori": [
@@ -4179,17 +4176,17 @@
       },
       "cpu": {
         "gol": 2,
-        "tiri": 2,
+        "tiri": 3,
         "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 11,
-        "vinte": 9,
+        "contese": 13,
+        "vinte": 11,
         "falli": 2,
         "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 2,
+        "bonusGuadagnati": 3,
         "marcatori": [
           {
             "nome": "Thuram",
@@ -4798,8 +4795,88 @@
       {
         "msg": "🎙️ Calhanoglu serve Diouf in Z4.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 inferiore: Diouf (CPU) contro Celik (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Diouf vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Diouf serve Thuram in Z5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Thuram (CPU) contro Bremer (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Thuram gioca K🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bremer risponde con 7🏆 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Thuram K🧤 vs Bremer 7🏆 → vince Thuram (⚠️ FALLO DIFENSORE · vince l'attaccante)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟥 ESPULSIONE per Bremer (2 falli in area)!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Thuram vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 7/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Thuram va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Thuram: dado 5 (casella 5).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Thuram.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: McKennie (TU) contro Calhanoglu (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie gioca K🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Calhanoglu risponde con 5🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie K🏆 vs Calhanoglu 5🏆 → vince McKennie (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie serve Yildiz in Z2.",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 575
+    "secondiTrascorsi": 650
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-27T11:00:10.912Z",
+  "data": "2026-10-28T06:01:38.639Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -2964,7 +2964,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793098806906,
+    "timestamp": 1793167294637,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "inter",
@@ -3514,12 +3514,6 @@
           "seme": "palla",
           "valore": 10,
           "label": "10"
-        },
-        {
-          "id": "c17",
-          "seme": "coppa",
-          "valore": 10,
-          "label": "10"
         }
       ]
     },
@@ -3574,6 +3568,12 @@
           "seme": "coppa",
           "valore": 12,
           "label": "Q"
+        },
+        {
+          "id": "c3",
+          "seme": "palla",
+          "valore": 11,
+          "label": "J"
         }
       ]
     },
@@ -3629,12 +3629,6 @@
       ],
       "cpu": [
         {
-          "id": "c3",
-          "seme": "palla",
-          "valore": 11,
-          "label": "J"
-        },
-        {
           "id": "c24",
           "seme": "coppa",
           "valore": 3,
@@ -3651,6 +3645,12 @@
           "seme": "guantone",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c17",
+          "seme": "coppa",
+          "valore": 10,
+          "label": "10"
         }
       ]
     },
@@ -4174,7 +4174,7 @@
         "parate": 0,
         "angoli": 0,
         "pali": 0,
-        "contese": 3,
+        "contese": 4,
         "vinte": 1,
         "falli": 0,
         "ammonizioni": 0,
@@ -4260,8 +4260,16 @@
       {
         "msg": "🎙️ Thuram gioca Q🏆 → seme guida: Coppa",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Thuram (CPU) contro Bremer (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Thuram gioca J⚽ → seme guida: Palla",
+        "classe": "highlight"
       }
     ],
-    "secondiTrascorsi": 300
+    "secondiTrascorsi": 315
   }
 }

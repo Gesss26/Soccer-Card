@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T14:56:30.422Z",
+  "data": "2026-10-28T14:57:30.442Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3065,7 +3065,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793199386419,
+    "timestamp": 1793199446441,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "genoa",
@@ -3084,16 +3084,16 @@
       }
     },
     "tempo": 2,
-    "mano": 7,
+    "mano": 11,
     "maxMani": 23,
     "punteggio": {
       "tu": 4,
       "cpu": 0
     },
-    "zonaPalla": 5,
+    "zonaPalla": 3,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_10",
-    "metaContesa": "inf",
+    "giocatorePalla": "cpu_5",
+    "metaContesa": "sup",
     "mazzi": {
       "tu": [
         {
@@ -3221,30 +3221,6 @@
           "seme": "bandierina",
           "valore": 8,
           "label": "8"
-        },
-        {
-          "id": "c16",
-          "seme": "coppa",
-          "valore": 11,
-          "label": "J"
-        },
-        {
-          "id": "c48",
-          "seme": "bandierina",
-          "valore": 5,
-          "label": "5"
-        },
-        {
-          "id": "c44",
-          "seme": "bandierina",
-          "valore": 9,
-          "label": "9"
-        },
-        {
-          "id": "c46",
-          "seme": "bandierina",
-          "valore": 7,
-          "label": "7"
         }
       ],
       "cpu": [
@@ -3373,30 +3349,6 @@
           "seme": "guantone",
           "valore": 8,
           "label": "8"
-        },
-        {
-          "id": "c40",
-          "seme": "bandierina",
-          "valore": 13,
-          "label": "K"
-        },
-        {
-          "id": "c43",
-          "seme": "bandierina",
-          "valore": 10,
-          "label": "10"
-        },
-        {
-          "id": "c15",
-          "seme": "coppa",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
-          "id": "c50",
-          "seme": "bandierina",
-          "valore": 3,
-          "label": "3"
         }
       ]
     },
@@ -3539,6 +3491,30 @@
           "seme": "coppa",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c36",
+          "seme": "guantone",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c44",
+          "seme": "bandierina",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c46",
+          "seme": "bandierina",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c48",
+          "seme": "bandierina",
+          "valore": 5,
+          "label": "5"
         }
       ],
       "cpu": [
@@ -3679,6 +3655,30 @@
           "seme": "coppa",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c43",
+          "seme": "bandierina",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c40",
+          "seme": "bandierina",
+          "valore": 13,
+          "label": "K"
         }
       ]
     },
@@ -3709,28 +3709,22 @@
           "label": "5"
         },
         {
-          "id": "c36",
-          "seme": "guantone",
-          "valore": 4,
-          "label": "4"
-        },
-        {
           "id": "c12",
           "seme": "palla",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c16",
+          "seme": "coppa",
+          "valore": 11,
+          "label": "J"
         }
       ],
       "cpu": [
         {
           "id": "c24",
           "seme": "coppa",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c37",
-          "seme": "guantone",
           "valore": 3,
           "label": "3"
         },
@@ -3745,6 +3739,12 @@
           "seme": "guantone",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c15",
+          "seme": "coppa",
+          "valore": 12,
+          "label": "Q"
         }
       ]
     },
@@ -3756,7 +3756,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3840,7 +3840,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3854,7 +3854,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3868,7 +3868,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3882,7 +3882,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3926,7 +3926,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 1,
@@ -3954,7 +3954,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -3968,7 +3968,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3996,7 +3996,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4256,9 +4256,7 @@
     "invertiCoppie": true,
     "tuECasa": true,
     "bonus": {
-      "tu": [
-        "parata-super"
-      ],
+      "tu": [],
       "cpu": []
     },
     "streak": {
@@ -4269,11 +4267,11 @@
       "tu": {
         "gol": 4,
         "tiri": 5,
-        "parate": 1,
+        "parate": 2,
         "angoli": 0,
         "pali": 0,
-        "contese": 13,
-        "vinte": 17,
+        "contese": 16,
+        "vinte": 19,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4300,12 +4298,12 @@
       },
       "cpu": {
         "gol": 0,
-        "tiri": 2,
+        "tiri": 3,
         "parate": 1,
         "angoli": 1,
         "pali": 0,
-        "contese": 11,
-        "vinte": 7,
+        "contese": 12,
+        "vinte": 9,
         "falli": 4,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -5130,8 +5128,124 @@
       {
         "msg": "🎙️ Colombo vince il contrasto in Z5 e avanza!",
         "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 9/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Colombo va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Colombo: dado 4 (casella 4).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Colombo.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: McKennie (TU) contro Sow (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie gioca 4🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Sow risponde con 3🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie 4🧤 vs Sow 3🧤 → vince McKennie (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie serve Yildiz in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 inferiore: Yildiz (TU) contro Marcandalli (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz gioca 9🚩 e impone il seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Marcandalli risponde con 3🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz 9🚩 vs Marcandalli 3🚩 → vince Yildiz (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Yildiz vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Yildiz serve Woltemade in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 superiore: Woltemade (TU) contro Ostigard (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade gioca 7🚩 e impone il seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ostigard risponde con 10🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade 7🚩 vs Ostigard 10🚩 → vince Ostigard (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ostigard vince il contrasto in Z1 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Ostigard AI DANNI DI Woltemade!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Ostigard serve Ehizibue in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Ehizibue (CPU) contro Conceiçao (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Ehizibue gioca K🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao risponde con 5🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Ehizibue K🚩 vs Conceiçao 5🚩 → vince Ehizibue (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ehizibue vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ehizibue serve Frendrup in Z3.",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 385
+    "secondiTrascorsi": 445
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T06:32:52.188Z",
+  "data": "2026-10-28T06:33:55.183Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -2964,7 +2964,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793169168184,
+    "timestamp": 1793169231170,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "inter",
@@ -2985,15 +2985,15 @@
       }
     },
     "tempo": 2,
-    "mano": 13,
+    "mano": 16,
     "maxMani": 23,
     "punteggio": {
       "tu": 4,
-      "cpu": 2
+      "cpu": 3
     },
-    "zonaPalla": 1,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_9",
+    "zonaPalla": 5,
+    "possessore": "tu",
+    "giocatorePalla": "tu_9",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3110,18 +3110,6 @@
           "seme": "palla",
           "valore": 14,
           "label": "A"
-        },
-        {
-          "id": "c4",
-          "seme": "palla",
-          "valore": 10,
-          "label": "10"
-        },
-        {
-          "id": "c26",
-          "seme": "guantone",
-          "valore": 14,
-          "label": "A"
         }
       ],
       "cpu": [
@@ -3232,18 +3220,6 @@
           "seme": "bandierina",
           "valore": 5,
           "label": "5"
-        },
-        {
-          "id": "c3",
-          "seme": "palla",
-          "valore": 11,
-          "label": "J"
-        },
-        {
-          "id": "c41",
-          "seme": "bandierina",
-          "valore": 12,
-          "label": "Q"
         }
       ]
     },
@@ -3410,6 +3386,18 @@
           "seme": "guantone",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c49",
+          "seme": "bandierina",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c26",
+          "seme": "guantone",
+          "valore": 14,
+          "label": "A"
         }
       ],
       "cpu": [
@@ -3580,6 +3568,18 @@
           "seme": "guantone",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c41",
+          "seme": "bandierina",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c33",
+          "seme": "guantone",
+          "valore": 7,
+          "label": "7"
         }
       ]
     },
@@ -3592,8 +3592,7 @@
       "tiro-fuori-area",
       "passaggio-lungo",
       "tiro-fuori-area",
-      "passaggio-lungo",
-      "gol-super"
+      "passaggio-lungo"
     ],
     "mani": {
       "tu": [
@@ -3602,12 +3601,6 @@
           "seme": "coppa",
           "valore": 8,
           "label": "8"
-        },
-        {
-          "id": "c49",
-          "seme": "bandierina",
-          "valore": 4,
-          "label": "4"
         },
         {
           "id": "c47",
@@ -3620,6 +3613,12 @@
           "seme": "guantone",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c4",
+          "seme": "palla",
+          "valore": 10,
+          "label": "10"
         }
       ],
       "cpu": [
@@ -3636,16 +3635,16 @@
           "label": "4"
         },
         {
-          "id": "c33",
-          "seme": "guantone",
-          "valore": 7,
-          "label": "7"
-        },
-        {
           "id": "c51",
           "seme": "bandierina",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c3",
+          "seme": "palla",
+          "valore": 11,
+          "label": "J"
         }
       ]
     },
@@ -3657,7 +3656,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3671,7 +3670,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3755,7 +3754,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3855,7 +3854,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3939,7 +3938,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4163,8 +4162,8 @@
       "cpu": []
     },
     "streak": {
-      "tu": 0,
-      "cpu": 2
+      "tu": 1,
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
@@ -4173,8 +4172,8 @@
         "parate": 3,
         "angoli": 0,
         "pali": 0,
-        "contese": 13,
-        "vinte": 13,
+        "contese": 14,
+        "vinte": 14,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4200,18 +4199,18 @@
         ]
       },
       "cpu": {
-        "gol": 2,
-        "tiri": 6,
+        "gol": 3,
+        "tiri": 7,
         "parate": 1,
         "angoli": 1,
         "pali": 0,
-        "contese": 15,
-        "vinte": 14,
+        "contese": 16,
+        "vinte": 15,
         "falli": 2,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 2,
+        "bonusGuadagnati": 3,
         "marcatori": [
           {
             "nome": "Thuram",
@@ -4220,6 +4219,10 @@
           {
             "nome": "Lautaro",
             "minuto": 44
+          },
+          {
+            "nome": "Lautaro",
+            "minuto": 71
           }
         ]
       }
@@ -5188,8 +5191,84 @@
       {
         "msg": "🎙️ Diouf serve Lautaro in Z1.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 superiore: Lautaro (CPU) contro Kalulu (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Lautaro gioca Q🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kalulu risponde con 4🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Lautaro Q🚩 vs Kalulu 4🚩 → vince Lautaro (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lautaro vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 6/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Lautaro va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Lautaro: dado 9 (casella 9).",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Lautaro batte il portiere!",
+        "classe": "goal"
+      },
+      {
+        "msg": "⚽ GOAL di Lautaro al 71'!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Lautaro esulta! CPU 3-4 TU.",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Calcio d'inizio! TU batte dal centro con McKennie.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie serve Conceiçao in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 superiore: Conceiçao (TU) contro Bisseck (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao gioca A🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bisseck risponde con 7🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao A🧤 vs Bisseck 7🧤 → vince Conceiçao (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao serve Woltemade in Z5.",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 525
+    "secondiTrascorsi": 588
   }
 }

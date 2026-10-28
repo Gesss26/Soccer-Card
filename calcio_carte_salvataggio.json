@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T14:08:48.310Z",
+  "data": "2026-10-28T14:09:53.285Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -553,7 +553,7 @@
             "squalificato": false
           },
           "Ostigard": {
-            "gialli": 1,
+            "gialli": 2,
             "squalificato": false
           }
         },
@@ -3053,7 +3053,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793196524306,
+    "timestamp": 1793196589281,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "genoa",
@@ -3072,15 +3072,15 @@
       }
     },
     "tempo": 1,
-    "mano": 11,
+    "mano": 15,
     "maxMani": 23,
     "punteggio": {
-      "tu": 1,
+      "tu": 2,
       "cpu": 0
     },
-    "zonaPalla": 1,
+    "zonaPalla": 2,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_9",
+    "giocatorePalla": "cpu_7",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3299,24 +3299,6 @@
           "seme": "bandierina",
           "valore": 4,
           "label": "4"
-        },
-        {
-          "id": "c16",
-          "seme": "coppa",
-          "valore": 11,
-          "label": "J"
-        },
-        {
-          "id": "c29",
-          "seme": "guantone",
-          "valore": 11,
-          "label": "J"
-        },
-        {
-          "id": "c2",
-          "seme": "palla",
-          "valore": 12,
-          "label": "Q"
         }
       ],
       "cpu": [
@@ -3535,24 +3517,6 @@
           "seme": "guantone",
           "valore": 7,
           "label": "7"
-        },
-        {
-          "id": "c38",
-          "seme": "guantone",
-          "valore": 2,
-          "label": "2"
-        },
-        {
-          "id": "c8",
-          "seme": "palla",
-          "valore": 6,
-          "label": "6"
-        },
-        {
-          "id": "c30",
-          "seme": "guantone",
-          "valore": 10,
-          "label": "10"
         }
       ]
     },
@@ -3605,6 +3569,30 @@
           "seme": "guantone",
           "valore": 14,
           "label": "A"
+        },
+        {
+          "id": "c5",
+          "seme": "palla",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c2",
+          "seme": "palla",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c29",
+          "seme": "guantone",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c16",
+          "seme": "coppa",
+          "valore": 11,
+          "label": "J"
         }
       ],
       "cpu": [
@@ -3655,6 +3643,30 @@
           "seme": "guantone",
           "valore": 6,
           "label": "6"
+        },
+        {
+          "id": "c6",
+          "seme": "palla",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c7",
+          "seme": "palla",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c30",
+          "seme": "guantone",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c45",
+          "seme": "bandierina",
+          "valore": 8,
+          "label": "8"
         }
       ]
     },
@@ -3670,8 +3682,7 @@
       "passaggio-lungo",
       "contrasto-sicuro",
       "gol-super",
-      "tiro-fuori-area",
-      "passaggio-lungo"
+      "tiro-fuori-area"
     ],
     "mani": {
       "tu": [
@@ -3694,12 +3705,6 @@
           "label": "6"
         },
         {
-          "id": "c5",
-          "seme": "palla",
-          "valore": 9,
-          "label": "9"
-        },
-        {
           "id": "c10",
           "seme": "palla",
           "valore": 4,
@@ -3714,28 +3719,22 @@
           "label": "2"
         },
         {
-          "id": "c7",
-          "seme": "palla",
-          "valore": 7,
-          "label": "7"
-        },
-        {
-          "id": "c6",
-          "seme": "palla",
-          "valore": 8,
-          "label": "8"
-        },
-        {
           "id": "c49",
           "seme": "bandierina",
           "valore": 4,
           "label": "4"
         },
         {
-          "id": "c45",
-          "seme": "bandierina",
-          "valore": 8,
-          "label": "8"
+          "id": "c8",
+          "seme": "palla",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c38",
+          "seme": "guantone",
+          "valore": 2,
+          "label": "2"
         }
       ]
     },
@@ -3761,7 +3760,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3803,7 +3802,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3817,7 +3816,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3873,7 +3872,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3903,7 +3902,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3917,12 +3916,12 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
-          "falli": 1,
-          "falliArea": 1,
+          "falli": 2,
+          "falliArea": 2,
           "ammonito": true,
-          "espulso": false,
+          "espulso": true,
           "nome": "Ostigard"
         },
         {
@@ -3973,7 +3972,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4015,7 +4014,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4029,7 +4028,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4251,27 +4250,31 @@
       "cpu": []
     },
     "streak": {
-      "tu": 0,
-      "cpu": 2
+      "tu": 1,
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
-        "gol": 1,
-        "tiri": 2,
+        "gol": 2,
+        "tiri": 3,
         "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 5,
-        "vinte": 5,
+        "contese": 8,
+        "vinte": 9,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 1,
+        "bonusGuadagnati": 2,
         "marcatori": [
           {
             "nome": "Kolo Muani",
             "minuto": 16
+          },
+          {
+            "nome": "Woltemade",
+            "minuto": 26
           }
         ]
       },
@@ -4281,11 +4284,11 @@
         "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 4,
+        "contese": 5,
         "vinte": 4,
-        "falli": 3,
+        "falli": 4,
         "ammonizioni": 1,
-        "espulsioni": 0,
+        "espulsioni": 1,
         "sostituzioni": 0,
         "bonusGuadagnati": 1,
         "marcatori": []
@@ -4591,8 +4594,152 @@
       {
         "msg": "🎙️ Baldanzi serve Osmajic in Z1.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 superiore: Osmajic (CPU) contro Kalulu (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Osmajic gioca 8⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kalulu risponde con 9⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Osmajic 8⚽ vs Kalulu 9⚽ → vince Kalulu (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kalulu vince il contrasto in Z1 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Kalulu AI DANNI DI Osmajic!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kalulu serve Celik in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 inferiore: Celik (TU) contro Ellertsson (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Celik gioca Q⚽ e impone il seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ellertsson risponde con 7⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Celik Q⚽ vs Ellertsson 7⚽ → vince Celik (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Celik vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Celik serve Douglas Luiz in Z3.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z3 superiore: Douglas Luiz (TU) contro Frendrup (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz gioca J🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Frendrup risponde con 10🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz J🧤 vs Frendrup 10🧤 → vince Douglas Luiz (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz serve Woltemade in Z5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 superiore: Woltemade (TU) contro Ostigard (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade gioca J🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ostigard risponde con 8🚩 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Woltemade J🏆 vs Ostigard 8🚩 → vince Woltemade (⚠️ FALLO DIFENSORE · vince l'attaccante)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟥 ESPULSIONE per Ostigard (2 falli in area)!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Woltemade vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Bijlow si prepara al tiro (stamina 7/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Woltemade: dado 3 (casella 3).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere tira 4 → settori 5,6,8,9.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 4 → settori 5,6,8,9.",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Woltemade batte il portiere!",
+        "classe": "goal"
+      },
+      {
+        "msg": "⚽ GOAL di Woltemade al 26'!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Woltemade esulta! TU 2-0 CPU.",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Calcio d'inizio! CPU batte dal centro con Sow.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Sow serve Baldanzi in Z2.",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 334
+    "secondiTrascorsi": 398
   }
 }

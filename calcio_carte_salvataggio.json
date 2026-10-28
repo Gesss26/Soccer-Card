@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T16:27:17.240Z",
+  "data": "2026-10-28T16:28:20.718Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3140,7 +3140,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793204833236,
+    "timestamp": 1793204896716,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "cagliari",
@@ -3159,15 +3159,15 @@
       }
     },
     "tempo": 1,
-    "mano": 2,
+    "mano": 5,
     "maxMani": 23,
     "punteggio": {
       "tu": 0,
       "cpu": 0
     },
-    "zonaPalla": 2,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_7",
+    "zonaPalla": 3,
+    "possessore": "tu",
+    "giocatorePalla": "tu_5",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3440,18 +3440,6 @@
           "seme": "palla",
           "valore": 12,
           "label": "Q"
-        },
-        {
-          "id": "c42",
-          "seme": "bandierina",
-          "valore": 11,
-          "label": "J"
-        },
-        {
-          "id": "c16",
-          "seme": "coppa",
-          "valore": 11,
-          "label": "J"
         }
       ],
       "cpu": [
@@ -3718,35 +3706,54 @@
           "seme": "bandierina",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c34",
-          "seme": "guantone",
-          "valore": 6,
-          "label": "6"
-        },
-        {
-          "id": "c38",
-          "seme": "guantone",
-          "valore": 2,
-          "label": "2"
-        },
-        {
-          "id": "c17",
-          "seme": "coppa",
-          "valore": 10,
-          "label": "10"
         }
       ]
     },
     "scarti": {
-      "tu": [],
+      "tu": [
+        {
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c16",
+          "seme": "coppa",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c42",
+          "seme": "bandierina",
+          "valore": 11,
+          "label": "J"
+        }
+      ],
       "cpu": [
         {
           "id": "c27",
           "seme": "guantone",
           "valore": 13,
           "label": "K"
+        },
+        {
+          "id": "c2",
+          "seme": "palla",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c17",
+          "seme": "coppa",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c6",
+          "seme": "palla",
+          "valore": 8,
+          "label": "8"
         }
       ]
     },
@@ -3788,12 +3795,6 @@
           "label": "K"
         },
         {
-          "id": "c50",
-          "seme": "bandierina",
-          "valore": 3,
-          "label": "3"
-        },
-        {
           "id": "c44",
           "seme": "bandierina",
           "valore": 9,
@@ -3801,12 +3802,6 @@
         }
       ],
       "cpu": [
-        {
-          "id": "c2",
-          "seme": "palla",
-          "valore": 12,
-          "label": "Q"
-        },
         {
           "id": "c11",
           "seme": "palla",
@@ -3820,10 +3815,16 @@
           "label": "5"
         },
         {
-          "id": "c6",
-          "seme": "palla",
-          "valore": 8,
-          "label": "8"
+          "id": "c38",
+          "seme": "guantone",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c34",
+          "seme": "guantone",
+          "valore": 6,
+          "label": "6"
         }
       ]
     },
@@ -3863,7 +3864,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3877,9 +3878,9 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 7,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4089,9 +4090,9 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 7,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4131,7 +4132,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4339,7 +4340,7 @@
       "cpu": []
     },
     "streak": {
-      "tu": 0,
+      "tu": 2,
       "cpu": 0
     },
     "statistiche": {
@@ -4349,9 +4350,9 @@
         "parate": 0,
         "angoli": 0,
         "pali": 0,
-        "contese": 0,
-        "vinte": 0,
-        "falli": 0,
+        "contese": 1,
+        "vinte": 2,
+        "falli": 1,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4364,9 +4365,9 @@
         "parate": 0,
         "angoli": 0,
         "pali": 0,
-        "contese": 1,
-        "vinte": 0,
-        "falli": 0,
+        "contese": 3,
+        "vinte": 1,
+        "falli": 1,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4390,8 +4391,100 @@
       {
         "msg": "🎙️ Romano gioca K🧤 → seme guida: Guantone",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Romano (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Romano gioca Q⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 3🚩 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Romano Q⚽ vs Lucumì 3🚩 → vince Romano (⚠️ FALLO DIFENSORE · vince l'attaccante)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Lucumì (1)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Romano vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Romano serve Fazzini in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 inferiore: Fazzini (CPU) contro Bremer (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Fazzini gioca 10🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bremer risponde con J🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Fazzini 10🏆 vs Bremer J🏆 → vince Bremer (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bremer vince il contrasto in Z1 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Bremer AI DANNI DI Fazzini!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Bremer serve Lucumì in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Lucumì (TU) contro Romano (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Lucumì gioca J🚩 e impone il seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Romano risponde con 8⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Lucumì J🚩 vs Romano 8⚽ → vince Lucumì (⚠️ FALLO DIFENSORE · vince l'attaccante)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Romano (1)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Lucumì vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Lucumì serve Douglas Luiz in Z3.",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 6
+    "secondiTrascorsi": 70
   }
 }

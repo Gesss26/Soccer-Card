@@ -237,14 +237,16 @@ async function ghScriviFile(oggetto) {
 }
 var ghSalvataggioInCorso = false;
 async function salvaSuGitHub() {
-  if (!GH.abilitato || ghSalvataggioInCorso) return;
+  if (!GH.abilitato) return false;
+  if (ghSalvataggioInCorso) return false;
   ghSalvataggioInCorso = true;
   try {
     var dati = { versione: 1, data: new Date().toISOString(), ammonizioni: (typeof ammonizioni !== 'undefined') ? ammonizioni : null };
     var c = localStorage.getItem('seriea2027_v1'); if (c) dati.campionato = JSON.parse(c);
     var partita = localStorage.getItem('calcio_carte_partita_in_corso_v2'); if (partita) dati.partitaInCorso = JSON.parse(partita);
     await ghScriviFile(dati);
-  } catch(e) {} finally { ghSalvataggioInCorso = false; }
+    return true;
+  } catch(e) { return false; } finally { ghSalvataggioInCorso = false; }
 }
 async function caricaDaGitHub() {
   if (!GH.abilitato) return false;
@@ -578,7 +580,7 @@ function apriImpostazioni() {
     '<div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">' +
       '<button class="primario" onclick="ghSalvaConfig(document.getElementById(\'gh-token-input\').value);alert(\'Token salvato!\');apriImpostazioni();">💾 Salva token</button>' +
       '<button onclick="ghSalvaConfig(null);alert(\'Rimosso.\');apriImpostazioni();">🗑 Rimuovi</button>' +
-      '<button onclick="salvaSuGitHub()">☁️ Salva ora</button>' +
+      '<button onclick="salvaSuGitHub().then(function(ok){alert(ok?\'Salvato su GitHub!\':\'Errore salvataggio GitHub\')})">☁️ Salva ora</button>' +
       '<button onclick="caricaDaGitHub().then(function(ok){alert(ok?\'Caricato!\':\'Errore\')})">⬇️ Carica ora</button>' +
     '</div>' +
     '<h3 style="color:#ffd700;margin:24px 0 12px">🔊 Volume</h3>' +
@@ -623,11 +625,15 @@ function cambiaVolume(tipo, valore) {
 function gestisciFileCampionato(ev) { var f = ev.target.files[0]; if (!f) return; importaCampionato(f); ev.target.value = ''; }
 function chiudiModale() { document.getElementById('modale').classList.add('nascosto'); }
 function apriLog() {
-  var html = '<h2>📋 Cronaca</h2><div style="background:#0a0a15;border-radius:12px;padding:20px;max-height:70vh;overflow-y:auto;font-size:16px;text-align:left;font-family:monospace">';
+  var html = '<h2>📋 Cronaca</h2><div id="log-scroll" style="background:#0a0a15;border-radius:12px;padding:20px;max-height:70vh;overflow-y:auto;font-size:16px;text-align:left;font-family:monospace">';
   for (var i=0;i<stato.logCompleto.length;i++) { var l = stato.logCompleto[i]; html += '<p class="' + (l.classe||'') + '" style="margin:6px 0">' + l.msg + '</p>'; }
   html += '</div><button class="primario" onclick="chiudiModale()" style="margin-top:20px">CHIUDI</button>';
   document.getElementById('modale-box').innerHTML = html;
   document.getElementById('modale').classList.remove('nascosto');
+  setTimeout(function() {
+    var logDiv = document.getElementById('log-scroll');
+    if (logDiv) logDiv.scrollTop = logDiv.scrollHeight;
+  }, 50);
 }
 
 /* RENDER */
@@ -1051,12 +1057,34 @@ function risolviTurnoContrasto() {
   var attHaSeme = cartaAtt.seme === c.semeGuida;
   var difHaSeme = cartaDif.seme === c.semeGuida;
   var esito, motivo;
-  if (c.falloAttaccante && c.falloDifensore) { esito = cartaAtt.valore >= cartaDif.valore ? 'attaccante' : 'difensore'; motivo = '⚠️ ENTRAMBI IN FALLO'; }
-  else if (c.falloAttaccante) { esito = 'difensore'; motivo = '⚠️ FALLO ATTACCANTE · vince il difensore'; }
-  else if (c.falloDifensore) { esito = 'attaccante'; motivo = '⚠️ FALLO DIFENSORE · vince l\'attaccante'; }
-  else if (attHaSeme && !difHaSeme) { esito = 'attaccante'; motivo = 'Attaccante col seme guida'; }
-  else if (!attHaSeme && difHaSeme) { esito = 'difensore'; motivo = 'Difensore col seme guida'; }
-  else { if (cartaAtt.valore > cartaDif.valore) { esito = 'attaccante'; motivo = 'Valore più alto'; } else if (cartaDif.valore > cartaAtt.valore) { esito = 'difensore'; motivo = 'Valore più alto'; } else { esito = 'pareggio'; motivo = 'Carte di pari valore'; } }
+
+  // Regola: dalla seconda mano in poi (turni > 0)
+  if (c.turni === 0) {
+    // Prima mano: chi ha il seme guida vince, altrimenti valore più alto
+    if (attHaSeme && !difHaSeme) { esito = 'attaccante'; motivo = 'Attaccante col seme guida'; }
+    else if (!attHaSeme && difHaSeme) { esito = 'difensore'; motivo = 'Difensore col seme guida'; }
+    else if (cartaAtt.valore > cartaDif.valore) { esito = 'attaccante'; motivo = 'Valore più alto'; }
+    else if (cartaDif.valore > cartaAtt.valore) { esito = 'difensore'; motivo = 'Valore più alto'; }
+    else { esito = 'pareggio'; motivo = 'Carte di pari valore'; }
+  } else {
+    // Dalla seconda mano in poi
+    if (attHaSeme && !difHaSeme) { esito = 'attaccante'; motivo = 'Attaccante col seme guida — FALLO DIFENSORE'; c.falloDifensore = true; }
+    else if (!attHaSeme && difHaSeme) { esito = 'difensore'; motivo = 'Difensore col seme guida — FALLO ATTACCANTE'; c.falloAttaccante = true; }
+    else if (!attHaSeme && !difHaSeme) {
+      // Nessuno ha il seme: vince chi ha la carta più alta, fino ad esaurimento
+      if (cartaAtt.valore > cartaDif.valore) { esito = 'attaccante'; motivo = 'Nessuno ha il seme — valore più alto'; }
+      else if (cartaDif.valore > cartaAtt.valore) { esito = 'difensore'; motivo = 'Nessuno ha il seme — valore più alto'; }
+      else { esito = 'pareggio'; motivo = 'Nessuno ha il seme — pari valore'; }
+    }
+    // Se entrambi hanno il seme, vince chi ha il valore più alto
+    else { // attHaSeme && difHaSeme
+      if (cartaAtt.valore > cartaDif.valore) { esito = 'attaccante'; motivo = 'Entrambi col seme — valore più alto'; }
+      else if (cartaDif.valore > cartaAtt.valore) { esito = 'difensore'; motivo = 'Entrambi col seme — valore più alto'; }
+      else { esito = 'pareggio'; motivo = 'Entrambi col seme — pari valore'; }
+    }
+  }
+
+  // Applica i falli (già impostati sopra)
   c.storico.push({ att: cartaAtt, dif: cartaDif, esito: esito, fAtt: c.falloAttaccante, fDif: c.falloDifensore });
 
   var nomeAtt = (trovaGiocatorePerId(c.attaccante, c.giocatorePoss)||{}).nome || c.attaccante;
@@ -1301,14 +1329,18 @@ function risolviContrastoLogica(vincente, c) {
   if (c.falloAttaccante) { var gAtt = trovaGiocatorePerId(c.attaccante, c.giocatorePoss); if (gAtt) applicaFallo(c.attaccante, gAtt, false); }
   if (c.falloDifensore) { var gDif = trovaGiocatorePerId(c.difensore, c.giocatoreAvv); if (gDif) applicaFallo(c.difensore, gDif, falloInArea); }
 
+  // Stamina: ogni mano costa 1 a entrambi i giocatori
+  var gP0 = trovaGiocatorePerId(c.attaccante, c.giocatorePoss);
+  var gA0 = trovaGiocatorePerId(c.difensore, c.giocatoreAvv);
+  if (gP0 && !gP0.portiere && !gP0.espulso) gP0.stamina = Math.max(0, gP0.stamina - 1);
+  if (gA0 && !gA0.portiere && !gA0.espulso) gA0.stamina = Math.max(0, gA0.stamina - 1);
+
   if (vincente === 'tu') { stato.streak.tu++; stato.streak.cpu = 0; if (stato.streak.tu >= STREAK_PER_BONUS) { stato.streak.tu = 0; assegnaBonus('tu'); } }
   else { stato.streak.cpu++; stato.streak.tu = 0; if (stato.streak.cpu >= STREAK_PER_BONUS) { stato.streak.cpu = 0; assegnaBonus('cpu'); } }
   flashVincitore(vincente); stato.statistiche[vincente].vinte++;
 
   var gP = trovaGiocatorePerId(c.attaccante, c.giocatorePoss);
   var gA = trovaGiocatorePerId(c.difensore, c.giocatoreAvv);
-  if (gP && !gP.portiere && !gP.espulso) gP.stamina = Math.max(0, gP.stamina - 1);
-  if (gA && !gA.portiere && !gA.espulso) gA.stamina = Math.max(0, gA.stamina - 1);
 
   var nomeV = (trovaGiocatorePerId(vincente, vincente===c.attaccante?c.giocatorePoss:c.giocatoreAvv)||{}).nome || vincente;
   var haRubato = (vincente === c.difensore);
@@ -1552,11 +1584,9 @@ function mostraSceltaSettoriTU(callback) {
     ov.appendChild(gruppo);
   }
 
-  // Rimuoviamo eventuale pulsante precedente
   var vecchioBtn = document.getElementById('btn-conferma-settore-wrap');
   if (vecchioBtn) vecchioBtn.remove();
   
-  // Creiamo il pulsante e lo mettiamo nella colonna sinistra, sotto i dadi
   var wrapBtn = document.createElement('div');
   wrapBtn.id = 'btn-conferma-settore-wrap';
   wrapBtn.style.marginTop = '8px';
@@ -1683,7 +1713,6 @@ function apriOverlayTiro(att, dif, isRigore) {
   pt.innerHTML = creaGiocatoreSVG(SQUADRE[sqP].portiere, 'fermo', '');
   pw.appendChild(pt);
   
-  // Palla iniziale con pallone SVG
   var pa = document.createElement('div'); pa.className = 'tiro-palla iniziale' + (isRigore ? ' rigore' : ''); pa.id = 'tiro-palla'; 
   pa.innerHTML = '<div class="palla-svg-wrap">' + creaPalloneSVG() + '</div>';
   pw.appendChild(pa);
@@ -1799,7 +1828,6 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
   var bonusAtt = stato.bonusUsatoQuestoTiro[att]; var bonusDif = stato.bonusUsatoQuestoTiro[dif];
   var golSuperAtt = (bonusAtt === 'gol-super'); var parataSuperAtt = (bonusDif === 'parata-super');
 
-  // Se si usano i bonus (Gol Super o Parata Super), si tira prima il dado dell'attaccante
   if (golSuperAtt || parataSuperAtt) {
     var dT = Math.floor(Math.random() * 9) + 1;
     var pos = CASELLE_PERC[dT];
@@ -1810,7 +1838,6 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
     var nomeTir = (trovaGiocatorePerId(att, stato.giocatorePalla)||{}).nome || 'Attaccante';
     log('🎙️ Tiro di ' + nomeTir + ': dado ' + dT + ' (casella ' + dT + ').', '');
 
-    // Sposta la palla verso la casella
     muoviPallaVerso(PORTA_LEFT + (pos.x / 100) * PORTA_W, PORTA_TOP + (pos.y / 100) * PORTA_H, 700, function() {
       if (stato.partitaFinita) return;
       
@@ -1846,18 +1873,15 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
     return;
   }
 
-  // === TIRO NORMALE: PRIMA SCEGLIE IL PORTIERE, POI TIRA ===
   function eseguiFase2ConGruppo(gruppoEffettivo) {
     var zonaPortiere = ZONE_PORTIERE_4[gruppoEffettivo];
     log('🎙️ Portiere sceglie gruppo ' + gruppoEffettivo + ' → settori ' + ZONE_PORTIERE_4[gruppoEffettivo].join(',') + '.', '');
     document.getElementById('tiro-info').textContent = 'FASE 2 — L\'attaccante si prepara a calciare...';
     
-    // Tuffo del portiere verso il centro del gruppo scelto
     eseguiTuffoPortiere(8, false, gruppoEffettivo);
     
     setTimeout(function() {
       if (stato.partitaFinita) return;
-      // ORA l'attaccante tira
       var dT = Math.floor(Math.random() * 9) + 1;
       var pos = CASELLE_PERC[dT];
       
@@ -1866,13 +1890,11 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
       
       var nomeTir = (trovaGiocatorePerId(att, stato.giocatorePalla)||{}).nome || 'Attaccante';
       
-      // Muovi la palla verso la casella
       muoviPallaVerso(PORTA_LEFT + (pos.x / 100) * PORTA_W, PORTA_TOP + (pos.y / 100) * PORTA_H, 600, function() {
         animaRollDado(dT, 9, 'dado-att').then(function() {
           log('🎙️ Tiro di ' + nomeTir + ': dado ' + dT + ' (casella ' + dT + ').', '');
           var parataNormale = zonaPortiere.indexOf(dT) > -1;
           
-          // Se il portiere ha indovinato, si tuffa esattamente sulla palla. Altrimenti resta nella sua zona.
           if (parataNormale) {
             var target = casellaToPos(dT);
             var pt = document.getElementById('tiro-portiere');
@@ -1896,11 +1918,10 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
           }, 1000);
         });
       });
-    }, 1000); // Pausa per far vedere il tuffo del portiere
+    }, 1000);
   }
 
   if (dif === 'tu') {
-    // Scelta manuale del portiere umano PRIMA del tiro
     document.getElementById('tiro-info').textContent = 'FASE 1 — SCEGLI IL GRUPPO DI SETTORI DA COPRIRARE';
     document.getElementById('tiro-dadi-info').innerHTML = '<div style="color:#ffd700;font-size:clamp(10px,1.2vw,14px);margin-top:6px">Clicca un gruppo, poi CONFERMA</div>';
     setTimeout(function() {
@@ -1910,7 +1931,6 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
       });
     }, 600);
   } else {
-    // CPU: dado 1d4 PRIMA del tiro
     var dP4 = Math.floor(Math.random() * 4) + 1;
     document.getElementById('tiro-info').textContent = 'FASE 1 — Il portiere tira 1d4...';
     document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🧤 Portiere:</span><div class="tiro-dado portiere" id="dado-por">-</div></div>';
@@ -2080,11 +2100,17 @@ function mostraFinestraFineTempo(cb) {
   document.getElementById('modale').classList.remove('nascosto');
   setTimeout(function() { document.getElementById('modale').classList.add('nascosto'); if (cb) cb(); }, 3000);
 }
-function finePartita() {
+async function finePartita() {
   stato.partitaFinita = true; eliminaSalvataggio();
   suonaFischietto('fine-partita'); fermaSottofondo(); salvaAmmonizioniInLocalStorage();
   nascondiEntrambiBanner(); chiudiBonusChoice();
   if (timerPartita) { clearInterval(timerPartita); timerPartita = null; }
+
+  // Salva su GitHub e cattura esito
+  var salvataggioOk = false;
+  if (GH.abilitato) {
+    salvataggioOk = await salvaSuGitHub();
+  }
 
   if (TORNEO_MODE === 'seriea') {
     salvaRisultatoTorneo();
@@ -2095,7 +2121,17 @@ function finePartita() {
   var marcatoriTU = stato.statistiche.tu.marcatori.map(function(m){ return m.nome + ' (' + m.minuto + '\')'; }).join(', ') || 'Nessuno';
   var marcatoriCPU = stato.statistiche.cpu.marcatori.map(function(m){ return m.nome + ' (' + m.minuto + '\')'; }).join(', ') || 'Nessuno';
 
+  var bannerSalvataggio = '';
+  if (GH.abilitato) {
+    bannerSalvataggio = salvataggioOk
+      ? '<div style="background:rgba(74,222,128,0.15);border:2px solid #4ade80;border-radius:12px;padding:16px;margin:20px 0;text-align:center;color:#4ade80;font-weight:bold;font-size:20px">✅ Salvataggio su GitHub riuscito!</div>'
+      : '<div style="background:rgba(239,68,68,0.15);border:2px solid #ef4444;border-radius:12px;padding:16px;margin:20px 0;text-align:center;color:#ef4444;font-weight:bold;font-size:20px">❌ Salvataggio su GitHub FALLITO!</div>';
+  } else {
+    bannerSalvataggio = '<div style="background:rgba(170,170,170,0.15);border:2px solid #aaa;border-radius:12px;padding:16px;margin:20px 0;text-align:center;color:#aaa;font-weight:bold;font-size:18px">☁️ GitHub non configurato</div>';
+  }
+
   var html = '<h2>FINE PARTITA</h2><p style="font-size:72px;font-weight:bold;margin:20px 0"><span style="color:#4dabf7">' + stato.punteggio.tu + '</span> - <span style="color:#ff6b6b">' + stato.punteggio.cpu + '</span></p><p style="font-size:32px;color:#ffd700;margin:24px 0">' + msg + '</p>' +
+    bannerSalvataggio +
     '<div style="background:rgba(0,0,0,0.4);border-radius:12px;padding:20px;margin:24px 0;text-align:left;font-size:16px"><h3 style="color:#ffd700;margin-bottom:14px;text-align:center">📊 Statistiche</h3><table style="width:100%;border-collapse:collapse;color:#eee"><tr style="border-bottom:1px solid #444"><th style="text-align:left;padding:6px">Stat</th><th style="text-align:center;padding:6px;color:#4dabf7">TU</th><th style="text-align:center;padding:6px;color:#ff6b6b">CPU</th></tr>' +
     '<tr><td style="padding:6px">Gol</td><td style="text-align:center">' + stato.statistiche.tu.gol + '</td><td style="text-align:center">' + stato.statistiche.cpu.gol + '</td></tr>' +
     '<tr><td style="padding:6px">Tiri in porta</td><td style="text-align:center">' + stato.statistiche.tu.tiri + '</td><td style="text-align:center">' + stato.statistiche.cpu.tiri + '</td></tr>' +

@@ -1482,17 +1482,100 @@ function mostraSettoriPortiere(dadoPortiere) {
 }
 function nascondiSettori() { var ov = document.getElementById('tiro-settori-overlay'); if (ov) ov.classList.remove('attivo'); }
 
+/* ============================================================
+   SCELTA MANUALE SETTORI PORTIERE (per TU)
+   Mostra 4 gruppi cliccabili. L'utente seleziona il gruppo
+   in cui vuole far tuffare il portiere e conferma.
+   ============================================================ */
+function mostraSceltaSettoriTU(callback) {
+  var ov = document.getElementById('tiro-settori-overlay');
+  if (!ov) return;
+  ov.innerHTML = '';
+  ov.classList.add('attivo');
+
+  var mappaSettori = { 1: { col: '1 / 3', row: '1 / 3' }, 2: { col: '2 / 4', row: '1 / 3' }, 3: { col: '1 / 3', row: '2 / 4' }, 4: { col: '2 / 4', row: '2 / 4' } };
+
+  for (var i = 1; i <= 4; i++) {
+    var gruppo = document.createElement('div');
+    gruppo.className = 'tiro-settore scelta-gruppo';
+    gruppo.dataset.gruppo = i;
+    gruppo.style.gridColumn = mappaSettori[i].col;
+    gruppo.style.gridRow = mappaSettori[i].row;
+    gruppo.style.display = 'flex';
+    gruppo.style.flexDirection = 'column';
+    gruppo.style.alignItems = 'center';
+    gruppo.style.justifyContent = 'center';
+    gruppo.style.cursor = 'pointer';
+    gruppo.style.pointerEvents = 'auto';
+
+    var label = document.createElement('div');
+    label.textContent = 'Gruppo ' + i;
+    label.style.fontSize = 'clamp(10px, 1.2vw, 16px)';
+    label.style.fontWeight = '900';
+    label.style.marginBottom = '4px';
+    gruppo.appendChild(label);
+
+    var settoriLabel = document.createElement('div');
+    settoriLabel.textContent = ZONE_PORTIERE_4[i].join('-');
+    settoriLabel.style.fontSize = 'clamp(12px, 1.6vw, 22px)';
+    settoriLabel.style.fontWeight = '900';
+    gruppo.appendChild(settoriLabel);
+
+    gruppo.onclick = (function(g) {
+      return function() {
+        var tutti = ov.querySelectorAll('.scelta-gruppo');
+        for (var k = 0; k < tutti.length; k++) {
+          tutti[k].classList.remove('evidenziato');
+        }
+        var selezionati = ov.querySelectorAll('.scelta-gruppo[data-gruppo="' + g + '"]');
+        for (var j = 0; j < selezionati.length; j++) selezionati[j].classList.add('evidenziato');
+        window._gruppoScelto = g;
+        var btn = document.getElementById('btn-conferma-settore');
+        if (btn) btn.disabled = false;
+      };
+    })(i);
+    ov.appendChild(gruppo);
+  }
+
+  // Pulsante conferma
+  var btnWrap = document.createElement('div');
+  btnWrap.style.gridColumn = '1 / 4';
+  btnWrap.style.gridRow = '3 / 4';
+  btnWrap.style.display = 'flex';
+  btnWrap.style.alignItems = 'center';
+  btnWrap.style.justifyContent = 'center';
+  btnWrap.style.pointerEvents = 'auto';
+  btnWrap.style.zIndex = '20';
+
+  var btn = document.createElement('button');
+  btn.id = 'btn-conferma-settore';
+  btn.textContent = '✅ CONFERMA';
+  btn.disabled = true;
+  btn.className = 'primario';
+  btn.style.fontSize = 'clamp(12px, 1.5vw, 18px)';
+  btn.style.padding = '8px 24px';
+  btn.style.borderRadius = '10px';
+  btn.onclick = function() {
+    if (!window._gruppoScelto) return;
+    var g = window._gruppoScelto;
+    window._gruppoScelto = null;
+    nascondiSettori();
+    callback(g);
+  };
+  btnWrap.appendChild(btn);
+  ov.appendChild(btnWrap);
+  window._gruppoScelto = null;
+}
+
 function eseguiTuffoPortiere(casellaTiro, parata, dadoPortiere) {
   var pt = document.getElementById('tiro-portiere'); if (!pt) return;
   pt.classList.remove('pg-braccia-alte', 'pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro');
   
-  // Posizione di partenza (centro della porta)
   var pos8 = casellaToPos(8); 
   posizionaPortiereSu(pos8.cx, pos8.cy, true); 
   void pt.offsetWidth;
   pt.classList.add('pg-braccia-alte');
 
-  // Se c'è stata una parata, si tuffa sulla casella esatta
   if (parata) {
     var target = casellaToPos(casellaTiro);
     setTimeout(function() {
@@ -1503,12 +1586,8 @@ function eseguiTuffoPortiere(casellaTiro, parata, dadoPortiere) {
       else pt.classList.add('pg-tuffo-centro');
     }, 100);
   } 
-  // Se NON para, si tuffa al centro dei settori del dado (es. dado 2 -> centro dei settori 2-3-5-6)
   else if (dadoPortiere) {
-    // Prendiamo i settori del dado (es. 2 -> [2,3,5,6])
     var settori = ZONE_PORTIERE_4[dadoPortiere];
-    
-    // Troviamo il centro di questi 4 settori sulla griglia della porta
     var colMin = 3, colMax = 1, rowMin = 3, rowMax = 1;
     for (var i = 0; i < settori.length; i++) {
       var s = settori[i];
@@ -1519,11 +1598,8 @@ function eseguiTuffoPortiere(casellaTiro, parata, dadoPortiere) {
       if (row < rowMin) rowMin = row;
       if (row > rowMax) rowMax = row;
     }
-    
-    // Calcoliamo il centro geometrico dei 4 settori (in percentuale)
     var cx = PORTA_LEFT + ((colMin + colMax + 1) / 2) * (PORTA_W / 3);
     var cy = PORTA_TOP + ((rowMin + rowMax + 1) / 2) * (PORTA_H / 3);
-    
     setTimeout(function() {
       posizionaPortiereSu(cx, cy, false);
       var deltaX = cx - pos8.cx;
@@ -1695,26 +1771,48 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
         }, 2200);
       }); return;
     }
-    var dP4 = Math.floor(Math.random() * 4) + 1;
-    var zonaPortiere = ZONE_PORTIERE_4[dP4]; var parataNormale = zonaPortiere.indexOf(dT) > -1;
-    document.getElementById('tiro-info').textContent = 'FASE 2 — Il portiere tira 1d4...';
-    document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante">' + dT + '</div></div><div class="tiro-dadi-riga"><span class="tiro-dado-label">🧤 Portiere:</span><div class="tiro-dado portiere" id="dado-por">-</div></div>';
-    animaRollDado(dP4, 4, 'dado-por').then(function() {
-      log('🎙️ Portiere tira ' + dP4 + ' → settori ' + ZONE_PORTIERE_4[dP4].join(',') + '.', '');
-      mostraSettoriPortiere(dP4);
+
+    // === SCELTA SETTORI PORTIERE ===
+    // Se il portiere è TU → scelta manuale. Se è CPU → dado 1d4.
+    function eseguiFase2ConGruppo(gruppoEffettivo) {
+      var zonaPortiere = ZONE_PORTIERE_4[gruppoEffettivo];
+      var parataNormale = zonaPortiere.indexOf(dT) > -1;
+      log('🎙️ Portiere sceglie gruppo ' + gruppoEffettivo + ' → settori ' + ZONE_PORTIERE_4[gruppoEffettivo].join(',') + '.', '');
+      document.getElementById('tiro-info').textContent = parataNormale ? 'FASE 3 — Il portiere si tuffa verso la palla!' : 'FASE 3 — Il portiere si tuffa al centro dei settori!';
+      eseguiTuffoPortiere(dT, parataNormale, gruppoEffettivo);
+      setTimeout(function() {
+        nascondiSettori();
+        if (parataNormale) { mostraEsitoTiroConGrafica('parata', dT, att, dif, '🧤 PARATA!'); }
+        else {
+          if (isRigore) fase3RigoreConGrafica(dT, att, dif); else fase3TiroConGrafica(dT, att, dif);
+        }
+      }, 1200);
+    }
+
+    if (dif === 'tu') {
+      // Scelta manuale del portiere umano
+      document.getElementById('tiro-info').textContent = 'FASE 2 — SCEGLI IL GRUPPO DI SETTORI DA COPRIRARE';
+      document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante">' + dT + '</div></div><div style="color:#ffd700;font-size:clamp(10px,1.2vw,14px);margin-top:6px">Clicca un gruppo, poi CONFERMA</div>';
       setTimeout(function() {
         if (stato.partitaFinita) return;
-        document.getElementById('tiro-info').textContent = parataNormale ? 'FASE 3 — Il portiere si tuffa verso la palla!' : 'FASE 3 — Il portiere si tuffa al centro dei settori!';
-        eseguiTuffoPortiere(dT, parataNormale, dP4);
+        mostraSceltaSettoriTU(function(gruppoScelto) {
+          eseguiFase2ConGruppo(gruppoScelto);
+        });
+      }, 600);
+    } else {
+      // CPU: dado 1d4 come prima
+      var dP4 = Math.floor(Math.random() * 4) + 1;
+      document.getElementById('tiro-info').textContent = 'FASE 2 — Il portiere tira 1d4...';
+      document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante">' + dT + '</div></div><div class="tiro-dadi-riga"><span class="tiro-dado-label">🧤 Portiere:</span><div class="tiro-dado portiere" id="dado-por">-</div></div>';
+      animaRollDado(dP4, 4, 'dado-por').then(function() {
+        log('🎙️ Portiere tira ' + dP4 + ' → settori ' + ZONE_PORTIERE_4[dP4].join(',') + '.', '');
+        mostraSettoriPortiere(dP4);
         setTimeout(function() {
-          nascondiSettori();
-          if (parataNormale) { mostraEsitoTiroConGrafica('parata', dT, att, dif, '🧤 PARATA!'); }
-          else {
-            if (isRigore) fase3RigoreConGrafica(dT, att, dif); else fase3TiroConGrafica(dT, att, dif);
-          }
-        }, 1200);
-      }, 1500);
-    });
+          if (stato.partitaFinita) return;
+          eseguiFase2ConGruppo(dP4);
+        }, 1500);
+      });
+    }
   }, 500);
 }
 
@@ -1857,12 +1955,10 @@ function fineTempoOPartita() {
     stato.invertiCoppie = !stato.invertiCoppie;
     stato.direzioneAttaccoTU = -stato.direzioneAttaccoTU;
     log('⏸️ FINE PRIMO TEMPO. Risultato: ' + stato.punteggio.tu + '-' + stato.punteggio.cpu, 'goal');
-    // Intervallo: +3 stamina a tutti, ma falli, falliArea, ammonizioni ed espulsioni RESTANO
     ['tu','cpu'].forEach(function(sq) {
       for (var i = 0; i < stato.giocatori[sq].length; i++) {
         var g = stato.giocatori[sq][i];
         g.stamina = Math.min(g.staminaMax, g.stamina + 3);
-        // NON azzerare: g.falli, g.falliArea, g.ammonito, g.espulso
       }
     });
     riempiMano('tu'); riempiMano('cpu'); renderHeader(); salvaPartita();

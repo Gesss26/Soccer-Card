@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T21:39:04.184Z",
+  "data": "2026-10-28T21:40:04.180Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3215,7 +3215,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793223540180,
+    "timestamp": 1793223600180,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "milan",
@@ -3236,15 +3236,15 @@
       }
     },
     "tempo": 2,
-    "mano": 20,
+    "mano": 21,
     "maxMani": 23,
     "punteggio": {
       "tu": 2,
       "cpu": 1
     },
-    "zonaPalla": 2,
+    "zonaPalla": 1,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_7",
+    "giocatorePalla": "cpu_9",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3259,12 +3259,6 @@
           "seme": "guantone",
           "valore": 7,
           "label": "7"
-        },
-        {
-          "id": "c9",
-          "seme": "palla",
-          "valore": 5,
-          "label": "5"
         }
       ],
       "cpu": [
@@ -3279,12 +3273,6 @@
           "seme": "guantone",
           "valore": 5,
           "label": "5"
-        },
-        {
-          "id": "c16",
-          "seme": "coppa",
-          "valore": 11,
-          "label": "J"
         }
       ]
     },
@@ -3553,6 +3541,12 @@
           "seme": "guantone",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c48",
+          "seme": "bandierina",
+          "valore": 5,
+          "label": "5"
         }
       ],
       "cpu": [
@@ -3825,6 +3819,12 @@
           "seme": "bandierina",
           "valore": 12,
           "label": "Q"
+        },
+        {
+          "id": "c16",
+          "seme": "coppa",
+          "valore": 11,
+          "label": "J"
         }
       ]
     },
@@ -3837,12 +3837,6 @@
     ],
     "mani": {
       "tu": [
-        {
-          "id": "c48",
-          "seme": "bandierina",
-          "valore": 5,
-          "label": "5"
-        },
         {
           "id": "c45",
           "seme": "bandierina",
@@ -3866,6 +3860,12 @@
           "seme": "bandierina",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c9",
+          "seme": "palla",
+          "valore": 5,
+          "label": "5"
         }
       ],
       "cpu": [
@@ -3945,7 +3945,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 6,
+          "stamina": 5,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4157,7 +4157,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 6,
+          "stamina": 5,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4413,7 +4413,7 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 1
+      "cpu": 2
     },
     "statistiche": {
       "tu": {
@@ -4446,8 +4446,8 @@
         "parate": 5,
         "angoli": 0,
         "pali": 0,
-        "contese": 20,
-        "vinte": 16,
+        "contese": 21,
+        "vinte": 17,
         "falli": 9,
         "ammonizioni": 2,
         "espulsioni": 1,
@@ -5869,8 +5869,32 @@
       {
         "msg": "🎙️ Chukwueze gioca Q🚩 → seme guida: Bandierina",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 5🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Chukwueze Q🚩 vs Lucumì 5🚩 → vince Chukwueze (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Chukwueze vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Chukwueze serve Cissé in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 superiore: Cissé (CPU) contro Kalulu (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Cissé gioca J🏆 → seme guida: Coppa",
+        "classe": "highlight"
       }
     ],
-    "secondiTrascorsi": 690
+    "secondiTrascorsi": 750
   }
 }

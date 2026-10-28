@@ -1577,7 +1577,7 @@ function cpuVuoleUsareBonusTiro(tipo, isRigore) {
   var staPerdendo = stato.punteggio.cpu < stato.punteggio.tu;
   var staVincendo = stato.punteggio.cpu > stato.punteggio.tu;
   var minuto = calcolaMinutoTotale(); var ultimiMin = minuto >= 75;
-  if (tipo === 'gol-super') return isRigore || staPerdendo || (ultimiMin && !staVincendo);
+  if (tipo === 'gol-super') return isRigore || staPerdendo || (ultimiMin && !stato.punteggio.cpu > stato.punteggio.tu);
   if (tipo === 'parata-super') return staVincendo || staPerdendo;
   return false;
 }
@@ -1820,7 +1820,14 @@ function fineTempoOPartita() {
     stato.invertiCoppie = !stato.invertiCoppie;
     stato.direzioneAttaccoTU = -stato.direzioneAttaccoTU;
     log('⏸️ FINE PRIMO TEMPO. Risultato: ' + stato.punteggio.tu + '-' + stato.punteggio.cpu, 'goal');
-    ['tu','cpu'].forEach(function(sq) { for (var i=0;i<stato.giocatori[sq].length;i++) { stato.giocatori[sq][i].stamina = Math.min(stato.giocatori[sq][i].staminaMax, stato.giocatori[sq][i].stamina + 3); stato.giocatori[sq][i].falli = 0; stato.giocatori[sq][i].falliArea = 0; stato.giocatori[sq][i].ammonito = false; } });
+    // Intervallo: +3 stamina a tutti, ma falli, falliArea, ammonizioni ed espulsioni RESTANO
+    ['tu','cpu'].forEach(function(sq) {
+      for (var i = 0; i < stato.giocatori[sq].length; i++) {
+        var g = stato.giocatori[sq][i];
+        g.stamina = Math.min(g.staminaMax, g.stamina + 3);
+        // NON azzerare: g.falli, g.falliArea, g.ammonito, g.espulso
+      }
+    });
     riempiMano('tu'); riempiMano('cpu'); renderHeader(); salvaPartita();
     mostraFinestraFineTempo(function() { if (stato.partitaFinita) return; var chiBatte = stato.monetaVinta === 'tu' ? 'cpu' : 'tu'; eseguiCalcioIniziale(chiBatte); });
   } else finePartita();

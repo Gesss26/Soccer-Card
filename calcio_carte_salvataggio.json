@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T21:31:39.001Z",
+  "data": "2026-10-28T21:32:42.558Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -733,7 +733,7 @@
             "squalificato": false
           },
           "Bremer": {
-            "gialli": 3,
+            "gialli": 4,
             "squalificato": false
           },
           "Lucumì": {
@@ -3203,7 +3203,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793223094998,
+    "timestamp": 1793223158555,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "milan",
@@ -3224,16 +3224,16 @@
       }
     },
     "tempo": 1,
-    "mano": 18,
+    "mano": 21,
     "maxMani": 23,
     "punteggio": {
       "tu": 1,
       "cpu": 0
     },
-    "zonaPalla": 1,
+    "zonaPalla": 3,
     "possessore": "tu",
-    "giocatorePalla": "tu_10",
-    "metaContesa": "inf",
+    "giocatorePalla": "tu_5",
+    "metaContesa": "sup",
     "mazzi": {
       "tu": [
         {
@@ -3397,24 +3397,6 @@
           "seme": "guantone",
           "valore": 10,
           "label": "10"
-        },
-        {
-          "id": "c2",
-          "seme": "palla",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
-          "id": "c4",
-          "seme": "palla",
-          "valore": 10,
-          "label": "10"
-        },
-        {
-          "id": "c6",
-          "seme": "palla",
-          "valore": 8,
-          "label": "8"
         }
       ],
       "cpu": [
@@ -3579,24 +3561,6 @@
           "seme": "coppa",
           "valore": 12,
           "label": "Q"
-        },
-        {
-          "id": "c26",
-          "seme": "guantone",
-          "valore": 14,
-          "label": "A"
-        },
-        {
-          "id": "c34",
-          "seme": "guantone",
-          "valore": 6,
-          "label": "6"
-        },
-        {
-          "id": "c47",
-          "seme": "bandierina",
-          "valore": 6,
-          "label": "6"
         }
       ]
     },
@@ -3709,6 +3673,24 @@
           "seme": "palla",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c51",
+          "seme": "bandierina",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c25",
+          "seme": "coppa",
+          "valore": 2,
+          "label": "2"
         }
       ],
       "cpu": [
@@ -3819,6 +3801,24 @@
           "seme": "palla",
           "valore": 9,
           "label": "9"
+        },
+        {
+          "id": "c39",
+          "seme": "bandierina",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c29",
+          "seme": "guantone",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c26",
+          "seme": "guantone",
+          "valore": 14,
+          "label": "A"
         }
       ]
     },
@@ -3833,23 +3833,10 @@
       "gol-super",
       "parata-super",
       "gol-super",
-      "parata-super",
-      "tiro-fuori-area"
+      "parata-super"
     ],
     "mani": {
       "tu": [
-        {
-          "id": "c37",
-          "seme": "guantone",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c25",
-          "seme": "coppa",
-          "valore": 2,
-          "label": "2"
-        },
         {
           "id": "c23",
           "seme": "coppa",
@@ -3857,10 +3844,22 @@
           "label": "4"
         },
         {
-          "id": "c51",
-          "seme": "bandierina",
-          "valore": 2,
-          "label": "2"
+          "id": "c6",
+          "seme": "palla",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c4",
+          "seme": "palla",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c2",
+          "seme": "palla",
+          "valore": 12,
+          "label": "Q"
         }
       ],
       "cpu": [
@@ -3877,16 +3876,16 @@
           "label": "8"
         },
         {
-          "id": "c29",
-          "seme": "guantone",
-          "valore": 11,
-          "label": "J"
+          "id": "c47",
+          "seme": "bandierina",
+          "valore": 6,
+          "label": "6"
         },
         {
-          "id": "c39",
-          "seme": "bandierina",
-          "valore": 14,
-          "label": "A"
+          "id": "c34",
+          "seme": "guantone",
+          "valore": 6,
+          "label": "6"
         }
       ]
     },
@@ -3898,7 +3897,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3926,11 +3925,11 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
-          "ammonito": false,
+          "falli": 1,
+          "falliArea": 1,
+          "ammonito": true,
           "espulso": false,
           "nome": "Bremer"
         },
@@ -3954,7 +3953,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3968,7 +3967,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4038,7 +4037,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4054,7 +4053,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4082,7 +4081,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4124,7 +4123,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4166,7 +4165,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4194,7 +4193,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4398,11 +4397,10 @@
     "invertiCoppie": false,
     "tuECasa": false,
     "bonus": {
-      "tu": [
-        "contrasto-sicuro",
-        "parata-super"
-      ],
-      "cpu": []
+      "tu": [],
+      "cpu": [
+        "tiro-fuori-area"
+      ]
     },
     "streak": {
       "tu": 0,
@@ -4411,14 +4409,14 @@
     "statistiche": {
       "tu": {
         "gol": 1,
-        "tiri": 2,
-        "parate": 0,
+        "tiri": 3,
+        "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 9,
-        "vinte": 11,
-        "falli": 0,
-        "ammonizioni": 0,
+        "contese": 10,
+        "vinte": 12,
+        "falli": 1,
+        "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 0,
         "bonusGuadagnati": 3,
@@ -4431,17 +4429,17 @@
       },
       "cpu": {
         "gol": 0,
-        "tiri": 0,
-        "parate": 1,
+        "tiri": 1,
+        "parate": 2,
         "angoli": 0,
         "pali": 0,
-        "contese": 6,
-        "vinte": 4,
+        "contese": 9,
+        "vinte": 7,
         "falli": 3,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 0,
+        "bonusGuadagnati": 1,
         "marcatori": []
       }
     },
@@ -4945,8 +4943,132 @@
       {
         "msg": "🎙️ Douglas Luiz serve Kolo Muani in Z1.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 inferiore: Kolo Muani (TU) contro Pavlovic (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Maignan si prepara al tiro (stamina 7/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 4 → settori 5,6,8,9.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 4 → settori 5,6,8,9.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 6 (casella 6).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Kolo Muani.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 superiore: Modric (CPU) contro Douglas Luiz (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Modric gioca A🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz risponde con 2🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Modric A🚩 vs Douglas Luiz 2🚩 → vince Modric (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Modric vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Modric serve Pulisic in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 inferiore: Pulisic (CPU) contro Celik (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Pulisic gioca J🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Celik risponde con 3🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Pulisic J🧤 vs Celik 3🧤 → vince Pulisic (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Pulisic vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Pulisic serve Ramos in Z5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Ramos (CPU) contro Bremer (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Ramos gioca A🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bremer risponde con 2🏆 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Ramos A🧤 vs Bremer 2🏆 → vince Ramos (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 AMMONIZIONE per Bremer (fallo in area: 1/2)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Ramos vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 9/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Ramos va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Ramos: dado 8 (casella 8).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Ramos.",
+        "classe": "parata"
       }
     ],
-    "secondiTrascorsi": 244
+    "secondiTrascorsi": 308
   }
 }

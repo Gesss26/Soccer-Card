@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T16:36:10.448Z",
+  "data": "2026-10-28T16:37:25.438Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -733,6 +733,10 @@
             "squalificato": false
           },
           "Lucumì": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Kalulu": {
             "gialli": 1,
             "squalificato": false
           }
@@ -3140,7 +3144,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793205366443,
+    "timestamp": 1793205441433,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "cagliari",
@@ -3159,15 +3163,15 @@
       }
     },
     "tempo": 2,
-    "mano": 9,
+    "mano": 12,
     "maxMani": 23,
     "punteggio": {
       "tu": 2,
       "cpu": 0
     },
-    "zonaPalla": 1,
+    "zonaPalla": 3,
     "possessore": "tu",
-    "giocatorePalla": "tu_10",
+    "giocatorePalla": "tu_6",
     "metaContesa": "inf",
     "mazzi": {
       "tu": [
@@ -3260,30 +3264,6 @@
           "seme": "guantone",
           "valore": 12,
           "label": "Q"
-        },
-        {
-          "id": "c9",
-          "seme": "palla",
-          "valore": 5,
-          "label": "5"
-        },
-        {
-          "id": "c5",
-          "seme": "palla",
-          "valore": 9,
-          "label": "9"
-        },
-        {
-          "id": "c21",
-          "seme": "coppa",
-          "valore": 6,
-          "label": "6"
-        },
-        {
-          "id": "c12",
-          "seme": "palla",
-          "valore": 2,
-          "label": "2"
         }
       ],
       "cpu": [
@@ -3370,30 +3350,6 @@
           "seme": "coppa",
           "valore": 4,
           "label": "4"
-        },
-        {
-          "id": "c39",
-          "seme": "bandierina",
-          "valore": 14,
-          "label": "A"
-        },
-        {
-          "id": "c37",
-          "seme": "guantone",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c4",
-          "seme": "palla",
-          "valore": 10,
-          "label": "10"
-        },
-        {
-          "id": "c35",
-          "seme": "guantone",
-          "valore": 5,
-          "label": "5"
         }
       ]
     },
@@ -3566,6 +3522,30 @@
           "seme": "palla",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c8",
+          "seme": "palla",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c23",
+          "seme": "coppa",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c12",
+          "seme": "palla",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c11",
+          "seme": "palla",
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
@@ -3742,6 +3722,30 @@
           "seme": "palla",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c10",
+          "seme": "palla",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c15",
+          "seme": "coppa",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c4",
+          "seme": "palla",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c35",
+          "seme": "guantone",
+          "valore": 5,
+          "label": "5"
         }
       ]
     },
@@ -3753,24 +3757,10 @@
       "passaggio-lungo",
       "parata-super",
       "contrasto-sicuro",
-      "parata-super",
-      "passaggio-lungo",
-      "tiro-fuori-area"
+      "parata-super"
     ],
     "mani": {
       "tu": [
-        {
-          "id": "c11",
-          "seme": "palla",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c23",
-          "seme": "coppa",
-          "valore": 4,
-          "label": "4"
-        },
         {
           "id": "c40",
           "seme": "bandierina",
@@ -3784,10 +3774,22 @@
           "label": "10"
         },
         {
-          "id": "c8",
-          "seme": "palla",
+          "id": "c21",
+          "seme": "coppa",
           "valore": 6,
           "label": "6"
+        },
+        {
+          "id": "c5",
+          "seme": "palla",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c9",
+          "seme": "palla",
+          "valore": 5,
+          "label": "5"
         }
       ],
       "cpu": [
@@ -3804,22 +3806,22 @@
           "label": "2"
         },
         {
-          "id": "c10",
-          "seme": "palla",
-          "valore": 4,
-          "label": "4"
-        },
-        {
-          "id": "c15",
-          "seme": "coppa",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
           "id": "c24",
           "seme": "coppa",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c39",
+          "seme": "bandierina",
+          "valore": 14,
+          "label": "A"
         }
       ]
     },
@@ -3831,7 +3833,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3845,11 +3847,11 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
-          "ammonito": false,
+          "falli": 1,
+          "falliArea": 1,
+          "ammonito": true,
           "espulso": false,
           "nome": "Kalulu"
         },
@@ -3887,7 +3889,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3915,7 +3917,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -3971,7 +3973,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3987,7 +3989,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4015,7 +4017,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4071,7 +4073,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4099,7 +4101,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4113,7 +4115,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4331,27 +4333,31 @@
     "invertiCoppie": true,
     "tuECasa": true,
     "bonus": {
-      "tu": [],
-      "cpu": []
+      "tu": [
+        "tiro-fuori-area"
+      ],
+      "cpu": [
+        "passaggio-lungo"
+      ]
     },
     "streak": {
-      "tu": 2,
+      "tu": 0,
       "cpu": 0
     },
     "statistiche": {
       "tu": {
         "gol": 2,
-        "tiri": 3,
+        "tiri": 4,
         "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 16,
-        "vinte": 18,
-        "falli": 3,
-        "ammonizioni": 0,
+        "contese": 17,
+        "vinte": 19,
+        "falli": 4,
+        "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 4,
+        "bonusGuadagnati": 5,
         "marcatori": [
           {
             "nome": "Woltemade",
@@ -4365,17 +4371,17 @@
       },
       "cpu": {
         "gol": 0,
-        "tiri": 1,
-        "parate": 1,
+        "tiri": 2,
+        "parate": 2,
         "angoli": 0,
         "pali": 0,
-        "contese": 13,
-        "vinte": 9,
+        "contese": 16,
+        "vinte": 12,
         "falli": 3,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 1,
+        "bonusGuadagnati": 2,
         "marcatori": []
       }
     },
@@ -5239,8 +5245,148 @@
       {
         "msg": "🎙️ Z1 inferiore: Kolo Muani (TU) contro Rodriguez (CPU).",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani gioca 6⚽ e impone il seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Rodriguez risponde con 4⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani 6⚽ vs Rodriguez 4⚽ → vince Kolo Muani (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kolo Muani vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Caprile si prepara al tiro (stamina 8/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 2 → settori 2,3,5,6.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 2 → settori 2,3,5,6.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 6 (casella 6).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Kolo Muani.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: Winks (CPU) contro McKennie (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Winks gioca Q🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie risponde con 4🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Winks Q🏆 vs McKennie 4🏆 → vince Winks (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Winks vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Winks serve Maldini in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 inferiore: Maldini (CPU) contro Celik (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Maldini gioca 10⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Celik risponde con 2⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Maldini 10⚽ vs Celik 2⚽ → vince Maldini (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Maldini vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Maldini serve Mendy in Z5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 superiore: Mendy (CPU) contro Kalulu (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Mendy gioca 5🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kalulu risponde con 3⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Mendy 5🧤 vs Kalulu 3⚽ → vince Mendy (⚠️ FALLO DIFENSORE · vince l'attaccante)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 AMMONIZIONE per Kalulu (fallo in area: 1/2)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Mendy vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 8/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Mendy va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 3 → settori 4,5,7,8.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Mendy: dado 9 (casella 9).",
+        "classe": ""
+      },
+      {
+        "msg": "❌ FUORI! Mendy calcia a lato.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: McKennie (TU) contro Winks (CPU).",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 540
+    "secondiTrascorsi": 615
   }
 }

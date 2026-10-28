@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T06:33:55.183Z",
+  "data": "2026-10-28T06:35:10.198Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -2964,7 +2964,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793169231170,
+    "timestamp": 1793169306192,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "inter",
@@ -2985,10 +2985,10 @@
       }
     },
     "tempo": 2,
-    "mano": 16,
+    "mano": 20,
     "maxMani": 23,
     "punteggio": {
-      "tu": 4,
+      "tu": 5,
       "cpu": 3
     },
     "zonaPalla": 5,
@@ -3098,18 +3098,6 @@
           "seme": "palla",
           "valore": 13,
           "label": "K"
-        },
-        {
-          "id": "c27",
-          "seme": "guantone",
-          "valore": 13,
-          "label": "K"
-        },
-        {
-          "id": "c0",
-          "seme": "palla",
-          "valore": 14,
-          "label": "A"
         }
       ],
       "cpu": [
@@ -3208,18 +3196,6 @@
           "seme": "bandierina",
           "valore": 11,
           "label": "J"
-        },
-        {
-          "id": "c11",
-          "seme": "palla",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c48",
-          "seme": "bandierina",
-          "valore": 5,
-          "label": "5"
         }
       ]
     },
@@ -3398,6 +3374,18 @@
           "seme": "guantone",
           "valore": 14,
           "label": "A"
+        },
+        {
+          "id": "c0",
+          "seme": "palla",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c27",
+          "seme": "guantone",
+          "valore": 13,
+          "label": "K"
         }
       ],
       "cpu": [
@@ -3580,6 +3568,18 @@
           "seme": "guantone",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c3",
+          "seme": "palla",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
         }
       ]
     },
@@ -3591,8 +3591,7 @@
       "gol-super",
       "tiro-fuori-area",
       "passaggio-lungo",
-      "tiro-fuori-area",
-      "passaggio-lungo"
+      "tiro-fuori-area"
     ],
     "mani": {
       "tu": [
@@ -3623,12 +3622,6 @@
       ],
       "cpu": [
         {
-          "id": "c37",
-          "seme": "guantone",
-          "valore": 3,
-          "label": "3"
-        },
-        {
           "id": "c23",
           "seme": "coppa",
           "valore": 4,
@@ -3641,10 +3634,16 @@
           "label": "2"
         },
         {
-          "id": "c3",
+          "id": "c48",
+          "seme": "bandierina",
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c11",
           "seme": "palla",
-          "valore": 11,
-          "label": "J"
+          "valore": 3,
+          "label": "3"
         }
       ]
     },
@@ -3698,7 +3697,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3754,7 +3753,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3782,7 +3781,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3812,7 +3811,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3826,7 +3825,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3854,7 +3853,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3910,7 +3909,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4156,29 +4155,27 @@
     "invertiCoppie": true,
     "tuECasa": false,
     "bonus": {
-      "tu": [
-        "contrasto-sicuro"
-      ],
+      "tu": [],
       "cpu": []
     },
     "streak": {
-      "tu": 1,
+      "tu": 2,
       "cpu": 0
     },
     "statistiche": {
       "tu": {
-        "gol": 4,
-        "tiri": 5,
+        "gol": 5,
+        "tiri": 6,
         "parate": 3,
         "angoli": 0,
         "pali": 0,
-        "contese": 14,
-        "vinte": 14,
+        "contese": 16,
+        "vinte": 17,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 3,
+        "bonusGuadagnati": 4,
         "marcatori": [
           {
             "nome": "Kolo Muani",
@@ -4195,6 +4192,10 @@
           {
             "nome": "Woltemade",
             "minuto": 61
+          },
+          {
+            "nome": "Woltemade",
+            "minuto": 77
           }
         ]
       },
@@ -4204,7 +4205,7 @@
         "parate": 1,
         "angoli": 1,
         "pali": 0,
-        "contese": 16,
+        "contese": 17,
         "vinte": 15,
         "falli": 2,
         "ammonizioni": 0,
@@ -5267,8 +5268,104 @@
       {
         "msg": "🎙️ Conceiçao serve Woltemade in Z5.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 superiore: Woltemade (TU) contro Akanji (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Martinez si prepara al tiro (stamina 7/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Woltemade: dado 4 (casella 4).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere tira 4 → settori 5,6,8,9.",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Woltemade batte il portiere!",
+        "classe": "goal"
+      },
+      {
+        "msg": "⚽ GOAL di Woltemade al 77'!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Woltemade esulta! TU 5-3 CPU.",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Calcio d'inizio! CPU batte dal centro con Calhanoglu.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Calhanoglu serve Zielinski in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Zielinski (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Zielinski gioca J⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con A⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Zielinski J⚽ vs Lucumì A⚽ → vince Lucumì (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì vince il contrasto in Z2 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Lucumì AI DANNI DI Zielinski!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Lucumì serve Conceiçao in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 superiore: Conceiçao (TU) contro Bisseck (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao gioca K🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bisseck risponde con 3🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao K🧤 vs Bisseck 3🧤 → vince Conceiçao (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao serve Woltemade in Z5.",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 588
+    "secondiTrascorsi": 663
   }
 }

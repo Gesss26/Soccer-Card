@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T16:32:55.437Z",
+  "data": "2026-10-28T16:33:55.449Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3140,7 +3140,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793205171436,
+    "timestamp": 1793205231443,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "cagliari",
@@ -3159,15 +3159,15 @@
       }
     },
     "tempo": 1,
-    "mano": 21,
+    "mano": 23,
     "maxMani": 23,
     "punteggio": {
       "tu": 1,
       "cpu": 0
     },
-    "zonaPalla": 4,
-    "possessore": "tu",
-    "giocatorePalla": "tu_8",
+    "zonaPalla": 2,
+    "possessore": "cpu",
+    "giocatorePalla": "cpu_8",
     "metaContesa": "inf",
     "mazzi": {
       "tu": [
@@ -3320,18 +3320,6 @@
           "seme": "palla",
           "valore": 8,
           "label": "8"
-        },
-        {
-          "id": "c23",
-          "seme": "coppa",
-          "valore": 4,
-          "label": "4"
-        },
-        {
-          "id": "c41",
-          "seme": "bandierina",
-          "valore": 12,
-          "label": "Q"
         }
       ],
       "cpu": [
@@ -3478,18 +3466,6 @@
           "seme": "guantone",
           "valore": 14,
           "label": "A"
-        },
-        {
-          "id": "c10",
-          "seme": "palla",
-          "valore": 4,
-          "label": "4"
-        },
-        {
-          "id": "c51",
-          "seme": "bandierina",
-          "valore": 2,
-          "label": "2"
         }
       ]
     },
@@ -3614,6 +3590,18 @@
           "seme": "palla",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c26",
+          "seme": "guantone",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c18",
+          "seme": "coppa",
+          "valore": 9,
+          "label": "9"
         }
       ],
       "cpu": [
@@ -3742,6 +3730,24 @@
           "seme": "palla",
           "valore": 9,
           "label": "9"
+        },
+        {
+          "id": "c13",
+          "seme": "coppa",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c14",
+          "seme": "coppa",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c9",
+          "seme": "palla",
+          "valore": 5,
+          "label": "5"
         }
       ]
     },
@@ -3779,25 +3785,19 @@
           "label": "2"
         },
         {
-          "id": "c26",
-          "seme": "guantone",
-          "valore": 14,
-          "label": "A"
+          "id": "c41",
+          "seme": "bandierina",
+          "valore": 12,
+          "label": "Q"
         },
         {
-          "id": "c18",
+          "id": "c23",
           "seme": "coppa",
-          "valore": 9,
-          "label": "9"
+          "valore": 4,
+          "label": "4"
         }
       ],
       "cpu": [
-        {
-          "id": "c9",
-          "seme": "palla",
-          "valore": 5,
-          "label": "5"
-        },
         {
           "id": "c12",
           "seme": "palla",
@@ -3811,16 +3811,16 @@
           "label": "4"
         },
         {
-          "id": "c13",
-          "seme": "coppa",
-          "valore": 14,
-          "label": "A"
+          "id": "c51",
+          "seme": "bandierina",
+          "valore": 2,
+          "label": "2"
         },
         {
-          "id": "c14",
-          "seme": "coppa",
-          "valore": 13,
-          "label": "K"
+          "id": "c10",
+          "seme": "palla",
+          "valore": 4,
+          "label": "4"
         }
       ]
     },
@@ -3902,7 +3902,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 6,
+          "stamina": 5,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3944,7 +3944,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3988,7 +3988,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4044,9 +4044,9 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 7,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4058,7 +4058,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 6,
+          "stamina": 5,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4334,8 +4334,7 @@
     "bonus": {
       "tu": [
         "parata-super",
-        "contrasto-sicuro",
-        "tiro-fuori-area"
+        "contrasto-sicuro"
       ],
       "cpu": [
         "gol-super"
@@ -4343,17 +4342,17 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 0
+      "cpu": 1
     },
     "statistiche": {
       "tu": {
         "gol": 1,
-        "tiri": 1,
+        "tiri": 2,
         "parate": 0,
         "angoli": 0,
         "pali": 0,
         "contese": 11,
-        "vinte": 12,
+        "vinte": 13,
         "falli": 2,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4369,12 +4368,12 @@
       "cpu": {
         "gol": 0,
         "tiri": 0,
-        "parate": 0,
+        "parate": 1,
         "angoli": 0,
         "pali": 0,
-        "contese": 9,
-        "vinte": 6,
-        "falli": 2,
+        "contese": 11,
+        "vinte": 7,
+        "falli": 3,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4946,8 +4945,88 @@
       {
         "msg": "🎙️ Z4 inferiore: Yildiz (TU) contro Obert (CPU).",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz gioca A🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Obert risponde con A🏆 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Yildiz A🧤 vs Obert A🏆 → vince Yildiz (⚠️ FALLO DIFENSORE · vince l'attaccante)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Obert (1)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Yildiz vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🧤 Caprile si prepara al tiro (stamina 8/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 3 → settori 4,5,7,8.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 3 → settori 4,5,7,8.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Yildiz: dado 7 (casella 7).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Yildiz.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 superiore: Adopo (CPU) contro Douglas Luiz (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Adopo gioca K🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz risponde con 9🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Adopo K🏆 vs Douglas Luiz 9🏆 → vince Adopo (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Adopo vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Adopo serve Maldini in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 inferiore: Maldini (CPU) contro Celik (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Maldini gioca 5⚽ → seme guida: Palla",
+        "classe": "highlight"
       }
     ],
-    "secondiTrascorsi": 345
+    "secondiTrascorsi": 405
   }
 }

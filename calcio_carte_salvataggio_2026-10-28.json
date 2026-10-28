@@ -1,0 +1,3050 @@
+{
+  "versione": 1,
+  "data": "2026-10-28T06:36:11.897Z",
+  "campionato": {
+    "squadraScelta": "juventus",
+    "fase": "campionato",
+    "giornataCorrente": 18,
+    "risultati": {
+      "g1_4": [
+        1,
+        2
+      ],
+      "g1_0": [
+        0,
+        0
+      ],
+      "g1_1": [
+        1,
+        2
+      ],
+      "g1_2": [
+        2,
+        0
+      ],
+      "g1_3": [
+        1,
+        0
+      ],
+      "g1_5": [
+        1,
+        0
+      ],
+      "g1_6": [
+        0,
+        2
+      ],
+      "g1_7": [
+        1,
+        0
+      ],
+      "g1_8": [
+        1,
+        0
+      ],
+      "g1_9": [
+        1,
+        1
+      ],
+      "g2_4": [
+        1,
+        1
+      ],
+      "g2_0": [
+        3,
+        1
+      ],
+      "g2_1": [
+        1,
+        0
+      ],
+      "g2_2": [
+        1,
+        0
+      ],
+      "g2_3": [
+        1,
+        3
+      ],
+      "g2_5": [
+        1,
+        2
+      ],
+      "g2_6": [
+        1,
+        2
+      ],
+      "g2_7": [
+        1,
+        3
+      ],
+      "g2_8": [
+        1,
+        0
+      ],
+      "g2_9": [
+        1,
+        1
+      ],
+      "g3_7": [
+        2,
+        2
+      ],
+      "g3_0": [
+        2,
+        0
+      ],
+      "g3_1": [
+        2,
+        3
+      ],
+      "g3_2": [
+        1,
+        1
+      ],
+      "g3_3": [
+        1,
+        0
+      ],
+      "g3_4": [
+        3,
+        1
+      ],
+      "g3_5": [
+        1,
+        0
+      ],
+      "g3_6": [
+        1,
+        3
+      ],
+      "g3_8": [
+        0,
+        1
+      ],
+      "g3_9": [
+        0,
+        1
+      ],
+      "g4_6": [
+        1,
+        1
+      ],
+      "g4_0": [
+        2,
+        0
+      ],
+      "g4_1": [
+        1,
+        1
+      ],
+      "g4_2": [
+        0,
+        2
+      ],
+      "g4_3": [
+        1,
+        1
+      ],
+      "g4_4": [
+        0,
+        3
+      ],
+      "g4_5": [
+        1,
+        2
+      ],
+      "g4_7": [
+        2,
+        1
+      ],
+      "g4_8": [
+        0,
+        1
+      ],
+      "g4_9": [
+        0,
+        1
+      ],
+      "g5_8": [
+        2,
+        1
+      ],
+      "g5_0": [
+        1,
+        0
+      ],
+      "g5_1": [
+        1,
+        0
+      ],
+      "g5_2": [
+        0,
+        0
+      ],
+      "g5_3": [
+        1,
+        1
+      ],
+      "g5_4": [
+        1,
+        0
+      ],
+      "g5_5": [
+        2,
+        2
+      ],
+      "g5_6": [
+        2,
+        0
+      ],
+      "g5_7": [
+        1,
+        3
+      ],
+      "g5_9": [
+        0,
+        1
+      ],
+      "g6_7": [
+        0,
+        1
+      ],
+      "g6_0": [
+        0,
+        1
+      ],
+      "g6_1": [
+        0,
+        0
+      ],
+      "g6_2": [
+        3,
+        1
+      ],
+      "g6_3": [
+        0,
+        1
+      ],
+      "g6_4": [
+        1,
+        1
+      ],
+      "g6_5": [
+        0,
+        0
+      ],
+      "g6_6": [
+        0,
+        1
+      ],
+      "g6_8": [
+        3,
+        3
+      ],
+      "g6_9": [
+        2,
+        2
+      ],
+      "g7_7": [
+        2,
+        1
+      ],
+      "g7_0": [
+        1,
+        0
+      ],
+      "g7_1": [
+        0,
+        2
+      ],
+      "g7_2": [
+        1,
+        1
+      ],
+      "g7_3": [
+        0,
+        1
+      ],
+      "g7_4": [
+        2,
+        0
+      ],
+      "g7_5": [
+        0,
+        0
+      ],
+      "g7_6": [
+        3,
+        1
+      ],
+      "g7_8": [
+        0,
+        0
+      ],
+      "g7_9": [
+        1,
+        1
+      ],
+      "g8_8": [
+        0,
+        0
+      ],
+      "g8_0": [
+        2,
+        2
+      ],
+      "g8_1": [
+        1,
+        0
+      ],
+      "g8_2": [
+        1,
+        1
+      ],
+      "g8_3": [
+        3,
+        0
+      ],
+      "g8_4": [
+        3,
+        3
+      ],
+      "g8_5": [
+        2,
+        0
+      ],
+      "g8_6": [
+        1,
+        1
+      ],
+      "g8_7": [
+        0,
+        1
+      ],
+      "g8_9": [
+        0,
+        0
+      ],
+      "g9_6": [
+        0,
+        3
+      ],
+      "g9_0": [
+        0,
+        1
+      ],
+      "g9_1": [
+        1,
+        1
+      ],
+      "g9_2": [
+        3,
+        0
+      ],
+      "g9_3": [
+        3,
+        1
+      ],
+      "g9_4": [
+        0,
+        1
+      ],
+      "g9_5": [
+        3,
+        2
+      ],
+      "g9_7": [
+        1,
+        3
+      ],
+      "g9_8": [
+        0,
+        0
+      ],
+      "g9_9": [
+        2,
+        1
+      ],
+      "g10_7": [
+        2,
+        0
+      ],
+      "g10_0": [
+        3,
+        0
+      ],
+      "g10_1": [
+        0,
+        3
+      ],
+      "g10_2": [
+        0,
+        1
+      ],
+      "g10_3": [
+        0,
+        3
+      ],
+      "g10_4": [
+        3,
+        3
+      ],
+      "g10_5": [
+        1,
+        1
+      ],
+      "g10_6": [
+        2,
+        0
+      ],
+      "g10_8": [
+        0,
+        3
+      ],
+      "g10_9": [
+        3,
+        1
+      ],
+      "g11_9": [
+        1,
+        2
+      ],
+      "g11_0": [
+        0,
+        2
+      ],
+      "g11_1": [
+        0,
+        1
+      ],
+      "g11_2": [
+        0,
+        1
+      ],
+      "g11_3": [
+        0,
+        1
+      ],
+      "g11_4": [
+        2,
+        2
+      ],
+      "g11_5": [
+        3,
+        1
+      ],
+      "g11_6": [
+        1,
+        0
+      ],
+      "g11_7": [
+        0,
+        0
+      ],
+      "g11_8": [
+        0,
+        1
+      ],
+      "g12_9": [
+        4,
+        2
+      ],
+      "g12_0": [
+        2,
+        1
+      ],
+      "g12_1": [
+        3,
+        1
+      ],
+      "g12_2": [
+        2,
+        1
+      ],
+      "g12_3": [
+        0,
+        1
+      ],
+      "g12_4": [
+        2,
+        1
+      ],
+      "g12_5": [
+        2,
+        0
+      ],
+      "g12_6": [
+        3,
+        0
+      ],
+      "g12_7": [
+        0,
+        0
+      ],
+      "g12_8": [
+        1,
+        3
+      ],
+      "g13_9": [
+        1,
+        1
+      ],
+      "g13_0": [
+        2,
+        0
+      ],
+      "g13_1": [
+        1,
+        1
+      ],
+      "g13_2": [
+        3,
+        1
+      ],
+      "g13_3": [
+        1,
+        1
+      ],
+      "g13_4": [
+        0,
+        0
+      ],
+      "g13_5": [
+        0,
+        1
+      ],
+      "g13_6": [
+        1,
+        1
+      ],
+      "g13_7": [
+        0,
+        1
+      ],
+      "g13_8": [
+        2,
+        2
+      ],
+      "g14_4": [
+        2,
+        0
+      ],
+      "g14_0": [
+        1,
+        3
+      ],
+      "g14_1": [
+        2,
+        1
+      ],
+      "g14_2": [
+        1,
+        3
+      ],
+      "g14_3": [
+        1,
+        0
+      ],
+      "g14_5": [
+        1,
+        1
+      ],
+      "g14_6": [
+        1,
+        3
+      ],
+      "g14_7": [
+        1,
+        1
+      ],
+      "g14_8": [
+        1,
+        0
+      ],
+      "g14_9": [
+        0,
+        1
+      ],
+      "g15_4": [
+        0,
+        0
+      ],
+      "g15_0": [
+        3,
+        1
+      ],
+      "g15_1": [
+        0,
+        2
+      ],
+      "g15_2": [
+        0,
+        1
+      ],
+      "g15_3": [
+        0,
+        3
+      ],
+      "g15_5": [
+        0,
+        1
+      ],
+      "g15_6": [
+        0,
+        1
+      ],
+      "g15_7": [
+        1,
+        1
+      ],
+      "g15_8": [
+        0,
+        1
+      ],
+      "g15_9": [
+        0,
+        2
+      ],
+      "g16_3": [
+        2,
+        0
+      ],
+      "g16_0": [
+        1,
+        2
+      ],
+      "g16_1": [
+        0,
+        0
+      ],
+      "g16_2": [
+        0,
+        1
+      ],
+      "g16_4": [
+        0,
+        0
+      ],
+      "g16_5": [
+        2,
+        0
+      ],
+      "g16_6": [
+        0,
+        1
+      ],
+      "g16_7": [
+        1,
+        0
+      ],
+      "g16_8": [
+        0,
+        1
+      ],
+      "g16_9": [
+        1,
+        0
+      ],
+      "g17_3": [
+        1,
+        1
+      ],
+      "g17_0": [
+        0,
+        0
+      ],
+      "g17_1": [
+        1,
+        2
+      ],
+      "g17_2": [
+        2,
+        0
+      ],
+      "g17_4": [
+        1,
+        1
+      ],
+      "g17_5": [
+        1,
+        2
+      ],
+      "g17_6": [
+        1,
+        0
+      ],
+      "g17_7": [
+        0,
+        1
+      ],
+      "g17_8": [
+        1,
+        1
+      ],
+      "g17_9": [
+        1,
+        0
+      ],
+      "g18_5": [
+        2,
+        2
+      ],
+      "g18_0": [
+        0,
+        3
+      ],
+      "g18_1": [
+        0,
+        1
+      ],
+      "g18_2": [
+        0,
+        3
+      ],
+      "g18_3": [
+        1,
+        1
+      ],
+      "g18_4": [
+        2,
+        1
+      ],
+      "g18_6": [
+        3,
+        0
+      ],
+      "g18_7": [
+        1,
+        2
+      ],
+      "g18_8": [
+        1,
+        0
+      ],
+      "g18_9": [
+        1,
+        3
+      ],
+      "g19_6": [
+        3,
+        6
+      ],
+      "g19_0": [
+        0,
+        0
+      ],
+      "g19_1": [
+        1,
+        3
+      ],
+      "g19_2": [
+        0,
+        0
+      ],
+      "g19_3": [
+        0,
+        0
+      ],
+      "g19_4": [
+        1,
+        1
+      ],
+      "g19_5": [
+        1,
+        0
+      ],
+      "g19_7": [
+        2,
+        0
+      ],
+      "g19_8": [
+        1,
+        3
+      ],
+      "g19_9": [
+        1,
+        1
+      ]
+    },
+    "marcatori": {
+      "Dragusin|fiorentina": {
+        "nome": "Dragusin",
+        "squadra": "fiorentina",
+        "gol": 5
+      },
+      "Woltemade|juventus": {
+        "nome": "Woltemade",
+        "squadra": "juventus",
+        "gol": 2
+      },
+      "Conceiçao|juventus": {
+        "nome": "Conceiçao",
+        "squadra": "juventus",
+        "gol": 1
+      },
+      "Davis|udinese": {
+        "nome": "Davis",
+        "squadra": "udinese",
+        "gol": 2
+      },
+      "Vojvoda|udinese": {
+        "nome": "Vojvoda",
+        "squadra": "udinese",
+        "gol": 1
+      },
+      "Monterisi|frosinone": {
+        "nome": "Monterisi",
+        "squadra": "frosinone",
+        "gol": 4
+      },
+      "Ngom|lecce": {
+        "nome": "Ngom",
+        "squadra": "lecce",
+        "gol": 3
+      },
+      "Heggem|bologna": {
+        "nome": "Heggem",
+        "squadra": "bologna",
+        "gol": 1
+      },
+      "Kone|roma": {
+        "nome": "Kone",
+        "squadra": "roma",
+        "gol": 1
+      },
+      "Mancini|roma": {
+        "nome": "Mancini",
+        "squadra": "roma",
+        "gol": 5
+      },
+      "Idzes|sassuolo": {
+        "nome": "Idzes",
+        "squadra": "sassuolo",
+        "gol": 1
+      },
+      "Berardi|sassuolo": {
+        "nome": "Berardi",
+        "squadra": "sassuolo",
+        "gol": 2
+      },
+      "Lang|napoli": {
+        "nome": "Lang",
+        "squadra": "napoli",
+        "gol": 4
+      },
+      "Di Lorenzo|napoli": {
+        "nome": "Di Lorenzo",
+        "squadra": "napoli",
+        "gol": 1
+      },
+      "Zaccagni|lazio": {
+        "nome": "Zaccagni",
+        "squadra": "lazio",
+        "gol": 2
+      },
+      "Ostigard|genoa": {
+        "nome": "Ostigard",
+        "squadra": "genoa",
+        "gol": 1
+      },
+      "Chalobah|como": {
+        "nome": "Chalobah",
+        "squadra": "como",
+        "gol": 1
+      },
+      "Yildiz|juventus": {
+        "nome": "Yildiz",
+        "squadra": "juventus",
+        "gol": 3
+      },
+      "Kolo Muani|juventus": {
+        "nome": "Kolo Muani",
+        "squadra": "juventus",
+        "gol": 3
+      },
+      "Schingtienne|venezia": {
+        "nome": "Schingtienne",
+        "squadra": "venezia",
+        "gol": 2
+      },
+      "Juan Jesus|venezia": {
+        "nome": "Juan Jesus",
+        "squadra": "venezia",
+        "gol": 1
+      },
+      "Provstgaard|lazio": {
+        "nome": "Provstgaard",
+        "squadra": "lazio",
+        "gol": 2
+      },
+      "Monteiro|lecce": {
+        "nome": "Monteiro",
+        "squadra": "lecce",
+        "gol": 2
+      },
+      "Da Cunha|como": {
+        "nome": "Da Cunha",
+        "squadra": "como",
+        "gol": 2
+      },
+      "Baturina|como": {
+        "nome": "Baturina",
+        "squadra": "como",
+        "gol": 2
+      },
+      "Maldini|cagliari": {
+        "nome": "Maldini",
+        "squadra": "cagliari",
+        "gol": 1
+      },
+      "Keita|parma": {
+        "nome": "Keita",
+        "squadra": "parma",
+        "gol": 2
+      },
+      "Romero|parma": {
+        "nome": "Romero",
+        "squadra": "parma",
+        "gol": 3
+      },
+      "Hermoso|roma": {
+        "nome": "Hermoso",
+        "squadra": "roma",
+        "gol": 1
+      },
+      "Fitz-Jim|torino": {
+        "nome": "Fitz-Jim",
+        "squadra": "torino",
+        "gol": 1
+      },
+      "Doig|sassuolo": {
+        "nome": "Doig",
+        "squadra": "sassuolo",
+        "gol": 2
+      },
+      "Leysen|sassuolo": {
+        "nome": "Leysen",
+        "squadra": "sassuolo",
+        "gol": 2
+      },
+      "Ellertsson|genoa": {
+        "nome": "Ellertsson",
+        "squadra": "genoa",
+        "gol": 1
+      },
+      "De Winter|milan": {
+        "nome": "De Winter",
+        "squadra": "milan",
+        "gol": 2
+      },
+      "Ramos|milan": {
+        "nome": "Ramos",
+        "squadra": "milan",
+        "gol": 3
+      },
+      "Ferguson|bologna": {
+        "nome": "Ferguson",
+        "squadra": "bologna",
+        "gol": 1
+      },
+      "Dovbyk|bologna": {
+        "nome": "Dovbyk",
+        "squadra": "bologna",
+        "gol": 2
+      },
+      "Theate|bologna": {
+        "nome": "Theate",
+        "squadra": "bologna",
+        "gol": 4
+      },
+      "Kouadio|monza": {
+        "nome": "Kouadio",
+        "squadra": "monza",
+        "gol": 1
+      },
+      "Jimenez|fiorentina": {
+        "nome": "Jimenez",
+        "squadra": "fiorentina",
+        "gol": 2
+      },
+      "Mastantuono|fiorentina": {
+        "nome": "Mastantuono",
+        "squadra": "fiorentina",
+        "gol": 2
+      },
+      "Romano|cagliari": {
+        "nome": "Romano",
+        "squadra": "cagliari",
+        "gol": 1
+      },
+      "Solet|udinese": {
+        "nome": "Solet",
+        "squadra": "udinese",
+        "gol": 1
+      },
+      "Kamara|udinese": {
+        "nome": "Kamara",
+        "squadra": "udinese",
+        "gol": 1
+      },
+      "Fagioli|fiorentina": {
+        "nome": "Fagioli",
+        "squadra": "fiorentina",
+        "gol": 3
+      },
+      "Varela|monza": {
+        "nome": "Varela",
+        "squadra": "monza",
+        "gol": 1
+      },
+      "Osmajic|genoa": {
+        "nome": "Osmajic",
+        "squadra": "genoa",
+        "gol": 2
+      },
+      "Troilo|parma": {
+        "nome": "Troilo",
+        "squadra": "parma",
+        "gol": 3
+      },
+      "Holm|bologna": {
+        "nome": "Holm",
+        "squadra": "bologna",
+        "gol": 2
+      },
+      "Pierotti|lecce": {
+        "nome": "Pierotti",
+        "squadra": "lecce",
+        "gol": 2
+      },
+      "Kessié|atalanta": {
+        "nome": "Kessié",
+        "squadra": "atalanta",
+        "gol": 2
+      },
+      "Kristensen|atalanta": {
+        "nome": "Kristensen",
+        "squadra": "atalanta",
+        "gol": 1
+      },
+      "Bremer|juventus": {
+        "nome": "Bremer",
+        "squadra": "juventus",
+        "gol": 2
+      },
+      "Frattesi|lazio": {
+        "nome": "Frattesi",
+        "squadra": "lazio",
+        "gol": 1
+      },
+      "Ederson|atalanta": {
+        "nome": "Ederson",
+        "squadra": "atalanta",
+        "gol": 2
+      },
+      "Hien|atalanta": {
+        "nome": "Hien",
+        "squadra": "atalanta",
+        "gol": 1
+      },
+      "Rowe|atalanta": {
+        "nome": "Rowe",
+        "squadra": "atalanta",
+        "gol": 1
+      },
+      "Gila|milan": {
+        "nome": "Gila",
+        "squadra": "milan",
+        "gol": 1
+      },
+      "Spinazzola|napoli": {
+        "nome": "Spinazzola",
+        "squadra": "napoli",
+        "gol": 1
+      },
+      "Ilic|lecce": {
+        "nome": "Ilic",
+        "squadra": "lecce",
+        "gol": 1
+      },
+      "Colombo|genoa": {
+        "nome": "Colombo",
+        "squadra": "genoa",
+        "gol": 2
+      },
+      "Wesley|roma": {
+        "nome": "Wesley",
+        "squadra": "roma",
+        "gol": 1
+      },
+      "Pedro Goncalves|fiorentina": {
+        "nome": "Pedro Goncalves",
+        "squadra": "fiorentina",
+        "gol": 1
+      },
+      "Mina|cagliari": {
+        "nome": "Mina",
+        "squadra": "cagliari",
+        "gol": 2
+      },
+      "Mendy|cagliari": {
+        "nome": "Mendy",
+        "squadra": "cagliari",
+        "gol": 1
+      },
+      "Calò|frosinone": {
+        "nome": "Calò",
+        "squadra": "frosinone",
+        "gol": 1
+      },
+      "Bastoni|inter": {
+        "nome": "Bastoni",
+        "squadra": "inter",
+        "gol": 3
+      },
+      "Adams|venezia": {
+        "nome": "Adams",
+        "squadra": "venezia",
+        "gol": 1
+      },
+      "Perrone|como": {
+        "nome": "Perrone",
+        "squadra": "como",
+        "gol": 1
+      },
+      "Nuno Tavares|lazio": {
+        "nome": "Nuno Tavares",
+        "squadra": "lazio",
+        "gol": 1
+      },
+      "Rovella|lazio": {
+        "nome": "Rovella",
+        "squadra": "lazio",
+        "gol": 1
+      },
+      "Noslin|lazio": {
+        "nome": "Noslin",
+        "squadra": "lazio",
+        "gol": 1
+      },
+      "Hainaut|venezia": {
+        "nome": "Hainaut",
+        "squadra": "venezia",
+        "gol": 1
+      },
+      "Correia|venezia": {
+        "nome": "Correia",
+        "squadra": "venezia",
+        "gol": 1
+      },
+      "Masini|frosinone": {
+        "nome": "Masini",
+        "squadra": "frosinone",
+        "gol": 2
+      },
+      "Oyono|frosinone": {
+        "nome": "Oyono",
+        "squadra": "frosinone",
+        "gol": 2
+      },
+      "Sow|genoa": {
+        "nome": "Sow",
+        "squadra": "genoa",
+        "gol": 1
+      },
+      "Comuzzo|torino": {
+        "nome": "Comuzzo",
+        "squadra": "torino",
+        "gol": 1
+      },
+      "Valeri|parma": {
+        "nome": "Valeri",
+        "squadra": "parma",
+        "gol": 1
+      },
+      "Cinquegrano|sassuolo": {
+        "nome": "Cinquegrano",
+        "squadra": "sassuolo",
+        "gol": 1
+      },
+      "Dybala|roma": {
+        "nome": "Dybala",
+        "squadra": "roma",
+        "gol": 1
+      },
+      "Piotrowski|udinese": {
+        "nome": "Piotrowski",
+        "squadra": "udinese",
+        "gol": 1
+      },
+      "Atta|fiorentina": {
+        "nome": "Atta",
+        "squadra": "fiorentina",
+        "gol": 1
+      },
+      "Adopo|cagliari": {
+        "nome": "Adopo",
+        "squadra": "cagliari",
+        "gol": 2
+      },
+      "Zeballos|monza": {
+        "nome": "Zeballos",
+        "squadra": "monza",
+        "gol": 1
+      },
+      "Celik|juventus": {
+        "nome": "Celik",
+        "squadra": "juventus",
+        "gol": 1
+      },
+      "Kabasele|udinese": {
+        "nome": "Kabasele",
+        "squadra": "udinese",
+        "gol": 1
+      },
+      "Kolasinac|atalanta": {
+        "nome": "Kolasinac",
+        "squadra": "atalanta",
+        "gol": 3
+      },
+      "Molina|roma": {
+        "nome": "Molina",
+        "squadra": "roma",
+        "gol": 1
+      },
+      "Doekhi|lazio": {
+        "nome": "Doekhi",
+        "squadra": "lazio",
+        "gol": 2
+      },
+      "Cacciamani|torino": {
+        "nome": "Cacciamani",
+        "squadra": "torino",
+        "gol": 1
+      },
+      "Basic|venezia": {
+        "nome": "Basic",
+        "squadra": "venezia",
+        "gol": 1
+      },
+      "Kike Perez|venezia": {
+        "nome": "Kike Perez",
+        "squadra": "venezia",
+        "gol": 1
+      },
+      "Lobotka|napoli": {
+        "nome": "Lobotka",
+        "squadra": "napoli",
+        "gol": 1
+      },
+      "Diao|como": {
+        "nome": "Diao",
+        "squadra": "como",
+        "gol": 2
+      },
+      "Geubbels|lecce": {
+        "nome": "Geubbels",
+        "squadra": "lecce",
+        "gol": 1
+      },
+      "Carboni|monza": {
+        "nome": "Carboni",
+        "squadra": "monza",
+        "gol": 2
+      },
+      "McKennie|juventus": {
+        "nome": "McKennie",
+        "squadra": "juventus",
+        "gol": 3
+      },
+      "Braganca|torino": {
+        "nome": "Braganca",
+        "squadra": "torino",
+        "gol": 1
+      },
+      "Belghali|torino": {
+        "nome": "Belghali",
+        "squadra": "torino",
+        "gol": 1
+      },
+      "Dimarco|inter": {
+        "nome": "Dimarco",
+        "squadra": "inter",
+        "gol": 1
+      },
+      "Diouf|inter": {
+        "nome": "Diouf",
+        "squadra": "inter",
+        "gol": 1
+      },
+      "Zielinski|inter": {
+        "nome": "Zielinski",
+        "squadra": "inter",
+        "gol": 1
+      },
+      "Abankwah|udinese": {
+        "nome": "Abankwah",
+        "squadra": "udinese",
+        "gol": 1
+      },
+      "Rrahmani|napoli": {
+        "nome": "Rrahmani",
+        "squadra": "napoli",
+        "gol": 2
+      },
+      "Birindelli|monza": {
+        "nome": "Birindelli",
+        "squadra": "monza",
+        "gol": 1
+      },
+      "Miranda|bologna": {
+        "nome": "Miranda",
+        "squadra": "bologna",
+        "gol": 1
+      },
+      "Coulibaly|lecce": {
+        "nome": "Coulibaly",
+        "squadra": "lecce",
+        "gol": 2
+      },
+      "Delprato|parma": {
+        "nome": "Delprato",
+        "squadra": "parma",
+        "gol": 1
+      },
+      "Calhanoglu|inter": {
+        "nome": "Calhanoglu",
+        "squadra": "inter",
+        "gol": 1
+      },
+      "Akanji|inter": {
+        "nome": "Akanji",
+        "squadra": "inter",
+        "gol": 1
+      },
+      "Lucumì|juventus": {
+        "nome": "Lucumì",
+        "squadra": "juventus",
+        "gol": 1
+      },
+      "Kalulu|juventus": {
+        "nome": "Kalulu",
+        "squadra": "juventus",
+        "gol": 1
+      },
+      "Douglas Luiz|juventus": {
+        "nome": "Douglas Luiz",
+        "squadra": "juventus",
+        "gol": 1
+      },
+      "Karlstrom|udinese": {
+        "nome": "Karlstrom",
+        "squadra": "udinese",
+        "gol": 1
+      },
+      "Mandragora|torino": {
+        "nome": "Mandragora",
+        "squadra": "torino",
+        "gol": 1
+      },
+      "Bernabé|parma": {
+        "nome": "Bernabé",
+        "squadra": "parma",
+        "gol": 2
+      },
+      "Cancellieri|lazio": {
+        "nome": "Cancellieri",
+        "squadra": "lazio",
+        "gol": 1
+      }
+    }
+  },
+  "ammonizioni": {
+    "versione": 1,
+    "stagione": "2026/27",
+    "dataUltimoAggiornamento": null,
+    "squadre": {
+      "atalanta": {
+        "portiere": {
+          "Carnesecchi": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Hien": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Kolasinac": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "De Roon": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ederson": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Pasalic": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Samardzic": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Sulemana": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Zalewski": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Bellanova": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Zappacosta": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Sportiello": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Scalvini": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Kossounou": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Gaetano": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Elmas": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Scamacca": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Lookman": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "bologna": {
+        "portiere": {
+          "Skorupski": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Casale": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Vitik": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Ferguson": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Pobega": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Moro": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "El Azzouzi": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Amondarain": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ilic": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Holm": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Miranda": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Pessina": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Heggem": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Zortea": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Fabbian": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Odgaard": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Dovbyk": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Orsolini": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "cagliari": {
+        "portiere": {
+          "Caprile": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Mina": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Obert": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Deiola": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Prati": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Adopo": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Fazzini": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Cavuoti": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Akarakiri": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Zappa": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Rodriguez": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Radunovic": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Idrissi": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Zé Pedro": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Winks": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Fadera": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Esposito": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Luvumbo": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "como": {
+        "portiere": {
+          "Audero": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Kempf": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Dossena": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Mazzitelli": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Caqueret": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Paz": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Da Cunha": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Milla": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Braunöder": {
+            "gialli": 1,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Van der Brempt": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Valle": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Vigorito": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Goldaniga": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Chalobah": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Perrone": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Baturina": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Morata": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Douvikas": {
+            "gialli": 1,
+            "squalificato": false
+          }
+        }
+      },
+      "fiorentina": {
+        "portiere": {
+          "De Gea": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Ranieri": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Pongracic": {
+            "gialli": 1,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Mandragora": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Fagioli": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Fabbian": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Brescianini": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ndour": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Atta": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Dodô": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Parisi": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Christensen": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Dragusin": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Jiménez": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Oulai": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ricci": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Kean": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Gudmundsson": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "frosinone": {
+        "portiere": {
+          "Pisseri": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Cittadini": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Bracaglia": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Grillitsch": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Schmid": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Calò": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Koné": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Koutsoupias": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Gelli": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Oyono": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Corrado": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Lolic": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Fayed": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Amey": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Hasa": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Cichella": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Zerbin": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Raimondo": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "genoa": {
+        "portiere": {
+          "Bijlow": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Vásquez": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Østigård": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Frendrup": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Sow": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Baldanzi": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Traorè": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ellertsson": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Masini": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Sabelli": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Martin": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Sommariva": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Matturro": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Otoa": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Amorim": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Cuenca": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Messias": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "El Shaarawy": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "inter": {
+        "portiere": {
+          "Martinez": {
+            "gialli": 1,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Bastoni": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Akanji": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Barella": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Calhanoglu": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Mkhitaryan": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Sučić": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Zielinski": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Frattesi": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Dimarco": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Pavard": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Provedel": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Bisseck": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Stones": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Asllani": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Diouf": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Thuram": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Esposito": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "juventus": {
+        "portiere": {
+          "Vicario": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Bremer": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Gatti": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Locatelli": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Koopmeiners": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Thuram": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "McKennie": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Douglas Luiz": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Miretti": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Cambiaso": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Kalulu": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Grabara": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Kelly": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Lucumí": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Sarr": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Arthur": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Kolo Muani": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Yildiz": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "lazio": {
+        "portiere": {
+          "Mandas": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Romagnoli": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Gigot": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Rovella": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Cataldi": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Vecino": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Dele-Bashiru": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Taylor": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Belahyane": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Marusic": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Tavares": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Furlanetto": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Patric": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Provstgaard": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Przyborek": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Vecino": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Dia": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Zaccagni": {
+            "gialli": 1,
+            "squalificato": false
+          }
+        }
+      },
+      "lecce": {
+        "portiere": {
+          "Falcone": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Gaspar": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Jean": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Coulibaly": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Maleh": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Berisha": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Gandelman": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Kaba": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ngom": {
+            "gialli": 1,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Gallo": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Veiga": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Penev": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Siebert": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ndaba": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Fofana": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Gorter": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Pierotti": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Stulic": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "milan": {
+        "portiere": {
+          "Maignan": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Tomori": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Pavlovic": {
+            "gialli": 1,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Modric": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Rabiot": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Fofana": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Loftus-Cheek": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ricci": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Jashari": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Estupiñán": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "De Winter": {
+            "gialli": 1,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Terracciano": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Gabbia": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Gila": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Bondo": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Musah": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ramos": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Leão": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "monza": {
+        "portiere": {
+          "Pizzignacco": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Antov": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Carboni": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Pessina": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Obiang": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ciurria": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Akinsanmiro": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Colombo": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Galazzi": {
+            "gialli": 1,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Birindelli": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Mangas": {
+            "gialli": 1,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Thiam": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ziolkowski": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Lucchesi": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ondoa": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Varela": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Cutrone": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Mota": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "napoli": {
+        "portiere": {
+          "Meret": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Rrahmani": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Buongiorno": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "De Bruyne": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "McTominay": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Lobotka": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Anguissa": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Gilmour": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Folorunsho": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Di Lorenzo": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Olivera": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Milinković-Savić": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Beukema": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Mazzocchi": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Lindstrom": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Cajuste": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Højlund": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Neres": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "parma": {
+        "portiere": {
+          "Corvi": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Balogh": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Valenti": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Bernabé": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Keita": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Nicolussi Caviglia": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Ordoñez": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Cremaschi": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Sørensen": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Delprato": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Valeri": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Daffara": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Diego Carlos": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ndiaye": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Plicco": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Kouda": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Almqvist": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Benedyczak": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "roma": {
+        "portiere": {
+          "Svilar": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Mancini": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "N'Dicka": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Cristante": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Koné": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Pellegrini": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Pisilli": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Molina": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Koulierakis": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Angeliño": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Rensch": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Gollini": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Hermoso": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ghilardi": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Baldanzi": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "El Aynaoui": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Dybala": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Soulé": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "sassuolo": {
+        "portiere": {
+          "Turati": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Idzes": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Walukiewicz": {
+            "gialli": 1,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Matic": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Thorstvedt": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Boloca": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Koné": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Lipani": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Iannoni": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Doig": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Candé": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Muric": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Odenthal": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Miranda": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Adžić": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Caligara": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Berardi": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Laurienté": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "torino": {
+        "portiere": {
+          "Israel": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Coco": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Comuzzo": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Ilic": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Casadei": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Vlasic": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Gineitis": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Anjorin": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Oristanio": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Biraghi": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Pedersen": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Paleari": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ismajli": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Rodriguez": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ilkhan": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Fitz-Jim": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Adams": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Simeone": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "udinese": {
+        "portiere": {
+          "Okoye": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Solet": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Kabasele": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Karlström": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Piotrowski": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ekkelenkamp": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Chakvetadze": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Miller": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Zarraga": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Zemura": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Zanoli": {
+            "gialli": 1,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Padelli": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Bertola": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Ebosse": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Camara": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Gómez": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Davis": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Zaniolo": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      },
+      "venezia": {
+        "portiere": {
+          "Stankovic": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori": {
+          "Bella-Kotchap": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Sverko": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "centrocampisti": {
+          "Sohm": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Busio": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Duncan": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Bohinen": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Pérez": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Fanne": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "difensori_alta": {
+          "Haps": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Correia": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        },
+        "panchina": {
+          "Grandi": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Schingtienne": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Moreno": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Basic": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Lella": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Adams": {
+            "gialli": 0,
+            "squalificato": false
+          },
+          "Yeboah": {
+            "gialli": 0,
+            "squalificato": false
+          }
+        }
+      }
+    }
+  }
+}

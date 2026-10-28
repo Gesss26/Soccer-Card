@@ -1210,8 +1210,8 @@ function renderPannelloContrasto() {
   if (tuNonHaSeme) { avviso = '<div style="background:#8B2020;color:#fff;padding:14px;border-radius:10px;font-weight:bold;font-size:18px;text-align:center">⚠️ Non hai il seme ' + SEMI[c.semeGuida].emoji + ' ' + SEMI[c.semeGuida].nome + ' — qualsiasi carta giochi sarà FALLO</div>'; }
   else if (tuDeveRispondereAlSeme || (c.attaccante === 'tu' && c.turni > 0)) { avviso = '<div style="background:rgba(255,215,0,0.15);color:#ffd700;padding:10px;border-radius:10px;font-size:15px;text-align:center">Hai il seme guida. Se scegli una carta fuori seme commetterai fallo.</div>'; }
   renderPilaMazzo(); renderPilaScarti(); renderPilaBonus(); renderBonusSlots();
-  document.getElementById('info-mazzo').textContent = stato.mazzi.tu.length + '/' + stato.mazzi.cpu.length;
-  document.getElementById('info-scarti').textContent = stato.scarti.tu.length + '/' + stato.scarti.cpu.length;
+  document.getElementById('info-mazzo').textContent = 'TU ' + stato.mazzi.tu.length + ' / CPU ' + stato.mazzi.cpu.length;
+  document.getElementById('info-scarti').textContent = 'TU ' + stato.scarti.tu.length + ' / CPU ' + stato.scarti.cpu.length;
   document.getElementById('info-streak').textContent = stato.streak.tu;
   renderBonusCpuInfo();
   var azioni = '';
@@ -1482,19 +1482,56 @@ function mostraSettoriPortiere(dadoPortiere) {
 }
 function nascondiSettori() { var ov = document.getElementById('tiro-settori-overlay'); if (ov) ov.classList.remove('attivo'); }
 
-function eseguiTuffoPortiere(casellaTiro, parata) {
+function eseguiTuffoPortiere(casellaTiro, parata, dadoPortiere) {
   var pt = document.getElementById('tiro-portiere'); if (!pt) return;
   pt.classList.remove('pg-braccia-alte', 'pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro');
-  var pos8 = casellaToPos(8); posizionaPortiereSu(pos8.cx, pos8.cy, true); void pt.offsetWidth;
+  
+  // Posizione di partenza (centro della porta)
+  var pos8 = casellaToPos(8); 
+  posizionaPortiereSu(pos8.cx, pos8.cy, true); 
+  void pt.offsetWidth;
   pt.classList.add('pg-braccia-alte');
-  var target = parata ? casellaToPos(casellaTiro) : casellaToPos(5);
-  setTimeout(function() {
-    posizionaPortiereSu(target.cx, target.cy, false);
-    var deltaX = target.cx - pos8.cx;
-    if (deltaX < -5) pt.classList.add('pg-tuffo-sx');
-    else if (deltaX > 5) pt.classList.add('pg-tuffo-dx');
-    else pt.classList.add('pg-tuffo-centro');
-  }, 100);
+
+  // Se c'è stata una parata, si tuffa sulla casella esatta
+  if (parata) {
+    var target = casellaToPos(casellaTiro);
+    setTimeout(function() {
+      posizionaPortiereSu(target.cx, target.cy, false);
+      var deltaX = target.cx - pos8.cx;
+      if (deltaX < -5) pt.classList.add('pg-tuffo-sx');
+      else if (deltaX > 5) pt.classList.add('pg-tuffo-dx');
+      else pt.classList.add('pg-tuffo-centro');
+    }, 100);
+  } 
+  // Se NON para, si tuffa al centro dei settori del dado (es. dado 2 -> centro dei settori 2-3-5-6)
+  else if (dadoPortiere) {
+    // Prendiamo i settori del dado (es. 2 -> [2,3,5,6])
+    var settori = ZONE_PORTIERE_4[dadoPortiere];
+    
+    // Troviamo il centro di questi 4 settori sulla griglia della porta
+    var colMin = 3, colMax = 1, rowMin = 3, rowMax = 1;
+    for (var i = 0; i < settori.length; i++) {
+      var s = settori[i];
+      var col = (s - 1) % 3;
+      var row = Math.floor((s - 1) / 3);
+      if (col < colMin) colMin = col;
+      if (col > colMax) colMax = col;
+      if (row < rowMin) rowMin = row;
+      if (row > rowMax) rowMax = row;
+    }
+    
+    // Calcoliamo il centro geometrico dei 4 settori (in percentuale)
+    var cx = PORTA_LEFT + ((colMin + colMax + 1) / 2) * (PORTA_W / 3);
+    var cy = PORTA_TOP + ((rowMin + rowMax + 1) / 2) * (PORTA_H / 3);
+    
+    setTimeout(function() {
+      posizionaPortiereSu(cx, cy, false);
+      var deltaX = cx - pos8.cx;
+      if (deltaX < -5) pt.classList.add('pg-tuffo-sx');
+      else if (deltaX > 5) pt.classList.add('pg-tuffo-dx');
+      else pt.classList.add('pg-tuffo-centro');
+    }, 100);
+  }
 }
 
 var tiroInAttesa = null;
@@ -1667,8 +1704,8 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
       mostraSettoriPortiere(dP4);
       setTimeout(function() {
         if (stato.partitaFinita) return;
-        document.getElementById('tiro-info').textContent = parataNormale ? 'FASE 3 — Il portiere si tuffa verso la palla!' : 'FASE 3 — Il portiere si tuffa al centro!';
-        eseguiTuffoPortiere(dT, parataNormale);
+        document.getElementById('tiro-info').textContent = parataNormale ? 'FASE 3 — Il portiere si tuffa verso la palla!' : 'FASE 3 — Il portiere si tuffa al centro dei settori!';
+        eseguiTuffoPortiere(dT, parataNormale, dP4);
         setTimeout(function() {
           nascondiSettori();
           if (parataNormale) { mostraEsitoTiroConGrafica('parata', dT, att, dif, '🧤 PARATA!'); }

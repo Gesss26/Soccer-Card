@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T14:32:27.699Z",
+  "data": "2026-10-28T14:33:30.947Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3065,7 +3065,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793197943698,
+    "timestamp": 1793198006944,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "genoa",
@@ -3084,15 +3084,15 @@
       }
     },
     "tempo": 2,
-    "mano": 8,
+    "mano": 10,
     "maxMani": 23,
     "punteggio": {
       "tu": 3,
       "cpu": 0
     },
-    "zonaPalla": 5,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_9",
+    "zonaPalla": 2,
+    "possessore": "tu",
+    "giocatorePalla": "tu_7",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3197,18 +3197,6 @@
           "seme": "palla",
           "valore": 8,
           "label": "8"
-        },
-        {
-          "id": "c31",
-          "seme": "guantone",
-          "valore": 9,
-          "label": "9"
-        },
-        {
-          "id": "c28",
-          "seme": "guantone",
-          "valore": 12,
-          "label": "Q"
         }
       ],
       "cpu": [
@@ -3313,18 +3301,6 @@
           "seme": "coppa",
           "valore": 7,
           "label": "7"
-        },
-        {
-          "id": "c11",
-          "seme": "palla",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c15",
-          "seme": "coppa",
-          "valore": 12,
-          "label": "Q"
         }
       ]
     },
@@ -3503,6 +3479,18 @@
           "seme": "bandierina",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c28",
+          "seme": "guantone",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c31",
+          "seme": "guantone",
+          "valore": 9,
+          "label": "9"
         }
       ],
       "cpu": [
@@ -3679,6 +3667,18 @@
           "seme": "bandierina",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c38",
+          "seme": "guantone",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c15",
+          "seme": "coppa",
+          "valore": 12,
+          "label": "Q"
         }
       ]
     },
@@ -3691,8 +3691,7 @@
       "parata-super",
       "contrasto-sicuro",
       "tiro-fuori-area",
-      "passaggio-lungo",
-      "contrasto-sicuro"
+      "passaggio-lungo"
     ],
     "mani": {
       "tu": [
@@ -3723,12 +3722,6 @@
       ],
       "cpu": [
         {
-          "id": "c38",
-          "seme": "guantone",
-          "valore": 2,
-          "label": "2"
-        },
-        {
           "id": "c12",
           "seme": "palla",
           "valore": 2,
@@ -3743,6 +3736,12 @@
         {
           "id": "c24",
           "seme": "coppa",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c11",
+          "seme": "palla",
           "valore": 3,
           "label": "3"
         }
@@ -3793,18 +3792,18 @@
           "nome": "Bremer"
         },
         {
-          "id": "tu_3",
+          "id": "tu_pan_1_sost",
           "squadra": "tu",
           "zona": 2,
-          "ruolo": "CEN",
+          "ruolo": "DIF",
           "portiere": false,
-          "stamina": 3,
+          "stamina": 10,
           "staminaMax": 10,
-          "falli": 3,
+          "falli": 0,
           "falliArea": 0,
-          "ammonito": true,
+          "ammonito": false,
           "espulso": false,
-          "nome": "Lucumì"
+          "nome": "Gatti"
         },
         {
           "id": "tu_4",
@@ -3840,7 +3839,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3996,9 +3995,9 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4010,7 +4009,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 5,
+          "stamina": 4,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4087,7 +4086,7 @@
           "falli": 0,
           "ammonito": false,
           "espulso": false,
-          "entrato": false,
+          "entrato": true,
           "nome": "Gatti"
         },
         {
@@ -4256,13 +4255,15 @@
     "invertiCoppie": true,
     "tuECasa": true,
     "bonus": {
-      "tu": [],
+      "tu": [
+        "contrasto-sicuro"
+      ],
       "cpu": [
         "gol-super"
       ]
     },
     "streak": {
-      "tu": 1,
+      "tu": 0,
       "cpu": 0
     },
     "statistiche": {
@@ -4272,13 +4273,13 @@
         "parate": 3,
         "angoli": 0,
         "pali": 1,
-        "contese": 16,
-        "vinte": 17,
+        "contese": 18,
+        "vinte": 19,
         "falli": 5,
         "ammonizioni": 2,
         "espulsioni": 1,
-        "sostituzioni": 0,
-        "bonusGuadagnati": 3,
+        "sostituzioni": 1,
+        "bonusGuadagnati": 4,
         "marcatori": [
           {
             "nome": "Kolo Muani",
@@ -4302,7 +4303,7 @@
         "pali": 0,
         "contese": 14,
         "vinte": 12,
-        "falli": 7,
+        "falli": 8,
         "ammonizioni": 2,
         "espulsioni": 1,
         "sostituzioni": 0,
@@ -5330,8 +5331,68 @@
       {
         "msg": "🎙️ Kalulu vince il contrasto in Z5 e RUBA PALLA!",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Kalulu AI DANNI DI Osmajic!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kalulu serve Lucumì in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 superiore: Lucumì (TU) contro Baldanzi (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ TU gioca Q🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Baldanzi risponde con 2🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ tu Q🧤 vs Baldanzi 2🧤 → vince tu (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ tu vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: McKennie (TU) contro Sow (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie gioca 9🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Sow risponde con Q🏆 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McKennie 9🧤 vs Sow Q🏆 → vince McKennie (⚠️ FALLO DIFENSORE · vince l'attaccante)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Sow (1)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McKennie vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McKennie serve Conceiçao in Z2.",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 992
+    "secondiTrascorsi": 1056
   }
 }

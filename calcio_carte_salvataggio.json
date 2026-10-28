@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-28T20:57:53.889Z",
+  "data": "2026-10-28T20:58:57.923Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3148,7 +3148,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793221069888,
+    "timestamp": 1793221133922,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "cagliari",
@@ -3167,16 +3167,16 @@
       }
     },
     "tempo": 2,
-    "mano": 17,
+    "mano": 22,
     "maxMani": 23,
     "punteggio": {
       "tu": 2,
       "cpu": 1
     },
-    "zonaPalla": 3,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_6",
-    "metaContesa": "inf",
+    "zonaPalla": 2,
+    "possessore": "tu",
+    "giocatorePalla": "tu_7",
+    "metaContesa": "sup",
     "mazzi": {
       "tu": [
         {
@@ -3214,42 +3214,6 @@
           "seme": "guantone",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c8",
-          "seme": "palla",
-          "valore": 6,
-          "label": "6"
-        },
-        {
-          "id": "c31",
-          "seme": "guantone",
-          "valore": 9,
-          "label": "9"
-        },
-        {
-          "id": "c29",
-          "seme": "guantone",
-          "valore": 11,
-          "label": "J"
-        },
-        {
-          "id": "c33",
-          "seme": "guantone",
-          "valore": 7,
-          "label": "7"
-        },
-        {
-          "id": "c25",
-          "seme": "coppa",
-          "valore": 2,
-          "label": "2"
-        },
-        {
-          "id": "c38",
-          "seme": "guantone",
-          "valore": 2,
-          "label": "2"
         }
       ],
       "cpu": [
@@ -3288,42 +3252,6 @@
           "seme": "coppa",
           "valore": 9,
           "label": "9"
-        },
-        {
-          "id": "c38",
-          "seme": "guantone",
-          "valore": 2,
-          "label": "2"
-        },
-        {
-          "id": "c14",
-          "seme": "coppa",
-          "valore": 13,
-          "label": "K"
-        },
-        {
-          "id": "c46",
-          "seme": "bandierina",
-          "valore": 7,
-          "label": "7"
-        },
-        {
-          "id": "c9",
-          "seme": "palla",
-          "valore": 5,
-          "label": "5"
-        },
-        {
-          "id": "c0",
-          "seme": "palla",
-          "valore": 14,
-          "label": "A"
-        },
-        {
-          "id": "c23",
-          "seme": "coppa",
-          "valore": 4,
-          "label": "4"
         }
       ]
     },
@@ -3544,6 +3472,36 @@
           "seme": "coppa",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c21",
+          "seme": "coppa",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c2",
+          "seme": "palla",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c38",
+          "seme": "guantone",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c43",
+          "seme": "bandierina",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c46",
+          "seme": "bandierina",
+          "valore": 7,
+          "label": "7"
         }
       ],
       "cpu": [
@@ -3762,6 +3720,36 @@
           "seme": "coppa",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c23",
+          "seme": "coppa",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c0",
+          "seme": "palla",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c9",
+          "seme": "palla",
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c46",
+          "seme": "bandierina",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
         }
       ]
     },
@@ -3776,40 +3764,40 @@
     "mani": {
       "tu": [
         {
-          "id": "c21",
+          "id": "c25",
           "seme": "coppa",
-          "valore": 6,
-          "label": "6"
+          "valore": 2,
+          "label": "2"
         },
         {
-          "id": "c46",
-          "seme": "bandierina",
+          "id": "c33",
+          "seme": "guantone",
           "valore": 7,
           "label": "7"
         },
         {
-          "id": "c43",
-          "seme": "bandierina",
-          "valore": 10,
-          "label": "10"
+          "id": "c29",
+          "seme": "guantone",
+          "valore": 11,
+          "label": "J"
         },
         {
-          "id": "c2",
+          "id": "c31",
+          "seme": "guantone",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c8",
           "seme": "palla",
-          "valore": 12,
-          "label": "Q"
+          "valore": 6,
+          "label": "6"
         }
       ],
       "cpu": [
         {
           "id": "c37",
           "seme": "guantone",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c50",
-          "seme": "bandierina",
           "valore": 3,
           "label": "3"
         },
@@ -3822,6 +3810,18 @@
         {
           "id": "c25",
           "seme": "coppa",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c14",
+          "seme": "coppa",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c38",
+          "seme": "guantone",
           "valore": 2,
           "label": "2"
         }
@@ -3877,7 +3877,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 0,
@@ -3919,9 +3919,9 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 4,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -3933,7 +3933,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 6,
+          "stamina": 5,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4033,7 +4033,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 5,
+          "stamina": 4,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 0,
@@ -4075,7 +4075,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 5,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4089,7 +4089,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4342,7 +4342,7 @@
       "cpu": []
     },
     "streak": {
-      "tu": 0,
+      "tu": 2,
       "cpu": 0
     },
     "statistiche": {
@@ -4352,9 +4352,9 @@
         "parate": 2,
         "angoli": 0,
         "pali": 0,
-        "contese": 20,
-        "vinte": 23,
-        "falli": 3,
+        "contese": 23,
+        "vinte": 26,
+        "falli": 4,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4376,8 +4376,8 @@
         "parate": 4,
         "angoli": 0,
         "pali": 1,
-        "contese": 15,
-        "vinte": 12,
+        "contese": 18,
+        "vinte": 14,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -5583,8 +5583,152 @@
       {
         "msg": "🧤 PARATA! Il portiere ferma Conceiçao.",
         "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: Winks (CPU) contro McKennie (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Winks gioca 4🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie risponde con 6🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Winks 4🏆 vs McKennie 6🏆 → vince McKennie (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie vince il contrasto in Z3 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI McKennie AI DANNI DI Winks!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McKennie serve Conceiçao in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Conceiçao (TU) contro Zè Pedro (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao gioca Q⚽ e impone il seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Zè Pedro risponde con A⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao Q⚽ vs Zè Pedro A⚽ → vince Zè Pedro (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Zè Pedro vince il contrasto in Z2 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Zè Pedro AI DANNI DI Conceiçao!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Zè Pedro serve Winks in Z3.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: Winks (CPU) contro McKennie (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Winks gioca 5⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie risponde con 2🧤 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Winks 5⚽ vs McKennie 2🧤 → vince Winks (⚠️ FALLO DIFENSORE · vince l'attaccante)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di McKennie (1)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Winks vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Winks serve Romano in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 superiore: Romano (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Romano gioca 7🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 10🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Romano 7🚩 vs Lucumì 10🚩 → vince Lucumì (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì vince il contrasto in Z4 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Lucumì AI DANNI DI Romano!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Lucumì serve McKennie in Z3.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: McKennie (TU) contro Winks (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie gioca 7🚩 e impone il seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Winks risponde con 3🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie 7🚩 vs Winks 3🚩 → vince McKennie (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie serve Conceiçao in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Conceiçao (TU) contro Zè Pedro (CPU).",
+        "classe": ""
       }
     ],
-    "secondiTrascorsi": 580
+    "secondiTrascorsi": 645
   }
 }

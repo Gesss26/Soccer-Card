@@ -1263,7 +1263,19 @@ function renderPilaScarti() { var sp = document.getElementById('scarti-pila'); i
 function renderPilaBonus() { var bp = document.getElementById('bonus-pila'); if (!bp) return; bp.innerHTML = ''; var n = Math.min(stato.mazzoBonus.length, 4); for (var i=0;i<n;i++) { var el = document.createElement('div'); el.className = 'pila-carta bonus'; el.style.left = (i*2) + 'px'; el.style.top = (i*2) + 'px'; bp.appendChild(el); } var bc = document.getElementById('bonus-count'); if (bc) bc.textContent = stato.mazzoBonus.length; }
 function renderBonusSlots() { var slots = document.querySelectorAll('#bonus-slots-tu .bonus-slot'); for (var i=0;i<slots.length;i++) { var s = slots[i]; s.innerHTML = ''; s.classList.remove('pieno'); if (i < stato.bonus.tu.length) { var tipo = stato.bonus.tu[i]; s.classList.add('pieno'); var info = NOMI_BONUS[tipo]; var c = document.createElement('div'); c.className = 'bonus-carta ' + tipo; c.innerHTML = '<span>' + info.icona + '</span>'; s.appendChild(c); } } }
 function selezionaCartaTu(idx) { if (stato.contrasto.risolto) return; if (!stato.sostBloccate) stato.sostBloccate = true; selezioneCarta = idx; renderPannelloContrasto(); }
-function usaContrastoSicuroTU() { if (!haBonus('tu', 'contrasto-sicuro')) return; consumaBonus('tu', 'contrasto-sicuro'); mostraBonusBanner('🏆 TU usi: ⭐ Contrasto Sicuro!'); document.getElementById('azioni-container').innerHTML = ''; renderBonusSlots(); nascondiEntrambiBanner(); setTimeout(function() { risolviContrastoAutomatico('tu'); }, 1500); }
+function usaContrastoSicuroTU() {
+  var c = stato.contrasto;
+  if (!c || c.risolto) return;
+  // Contrasto Sicuro: usabile in qualsiasi contrasto (attacco o difesa), solo al primo turno
+  if (c.turni !== 0) return;
+  if (!haBonus('tu', 'contrasto-sicuro')) return;
+  consumaBonus('tu', 'contrasto-sicuro');
+  mostraBonusBanner('🏆 TU usi: ⭐ Contrasto Sicuro!');
+  document.getElementById('azioni-container').innerHTML = '';
+  renderBonusSlots();
+  nascondiEntrambiBanner();
+  setTimeout(function() { risolviContrastoAutomatico('tu'); }, 1500);
+}
 
 function mostraBannerMano(v, cT, cC, seme, motivo) {
   var b = document.getElementById('banner-mano');

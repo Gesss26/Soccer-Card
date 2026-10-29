@@ -1251,10 +1251,55 @@ function renderPannelloContrasto() {
   var azioni = '';
   if (tuPuoGiocare && !c.risolto) {
     azioni += '<button class="primario" id="btn-gioca" onclick="confermaCarta()" ' + (selezioneCarta === null ? 'disabled' : '') + '>GIOCA CARTA</button>';
-    if (haBonus('tu', 'contrasto-sicuro') && c.fase === 'gioca-attaccante' && c.attaccante === 'tu' && c.turni === 0) { azioni += ' <button class="bonus-btn" onclick="usaContrastoSicuroTU()">⭐ CONTRASTO SICURO</button>'; }
+    // Contrasto Sicuro: usabile in qualsiasi contrasto (attacco o difesa), solo al primo turno
+    if (haBonus('tu', 'contrasto-sicuro') && c.turni === 0) {
+      azioni += ' <button class="bonus-btn" onclick="usaContrastoSicuroTU()">⭐ CONTRASTO SICURO</button>';
+    }
   }
   document.getElementById('azioni-container').innerHTML = avviso + azioni;
-  setTimeout(function() { mostraCarteOverlay(); }, 150);
+  setTimeout(function() {
+    mostraCarteOverlay();
+    // Anima la pesca delle carte dal mazzo (solo se la mano è stata rifornita)
+    if (stato.contrasto && stato.contrasto.turni === 0 && stato.contrasto.fase === 'gioca-attaccante') {
+      animaPescaCarte();
+    }
+  }, 150);
+}
+
+/* Animazione pesca carte dal mazzo alla mano */
+function animaPescaCarte() {
+  var contMano = document.getElementById('carte-overlay-carte');
+  var pilaMazzo = document.getElementById('mazzo-pila');
+  if (!contMano || !pilaMazzo) return;
+
+  var carteEl = contMano.querySelectorAll('.carta');
+  if (carteEl.length === 0) return;
+
+  var boxMazzo = pilaMazzo.getBoundingClientRect();
+  var mazzoX = boxMazzo.left + boxMazzo.width / 2;
+  var mazzoY = boxMazzo.top + boxMazzo.height / 2;
+
+  for (var i = 0; i < carteEl.length; i++) {
+    (function(el, idx) {
+      var r = el.getBoundingClientRect();
+      var dx = mazzoX - (r.left + r.width / 2);
+      var dy = mazzoY - (r.top + r.height / 2);
+      // Partenza: dal mazzo, scala ridotta, ruotata, opacity 0
+      el.style.transition = 'none';
+      el.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(0.4) rotate(-25deg)';
+      el.style.opacity = '0';
+      void el.offsetWidth;
+      // Arrivo: posizione originale, scala 1, ruotata 0, opacity 1
+      el.style.transition = 'transform 0.55s cubic-bezier(0.34,1.3,0.64,1) ' + (idx * 90) + 'ms, opacity 0.35s ease ' + (idx * 90) + 'ms';
+      el.style.transform = 'translate(0,0) scale(1) rotate(0deg)';
+      el.style.opacity = '1';
+      setTimeout(function() {
+        el.style.transition = '';
+        el.style.transform = '';
+        el.style.opacity = '';
+      }, 600 + idx * 90);
+    })(carteEl[i], i);
+  }
 }
 
 function creaCartaEl(carta) { var el = document.createElement('div'); el.className = 'carta'; el.innerHTML = '<div class="valore-alto">' + carta.label + '</div><div class="seme-centro">' + SEMI[carta.seme].emoji + '</div><div class="valore-basso">' + carta.label + '</div>'; return el; }
@@ -1330,29 +1375,24 @@ function applicaFallo(sq, gF, inArea) {
 }
 
 function gestisciSostituzioneCPU() {
-  var ruoliPanchina = ['POR', 'DIF', 'CEN', 'ATT'];
   for (var i = 0; i < stato.giocatori.cpu.length; i++) {
     var g = stato.giocatori.cpu[i];
     if (g.espulso) continue;
     var daSostituire = false;
     if (g.stamina <= 3) daSostituire = true;
     if (g.ammonito && g.falli >= 2) daSostituire = true;
-    
+
     if (daSostituire) {
-      // Cerca in panchina
       for (var j = 0; j < stato.panchina.cpu.length; j++) {
         var pan = stato.panchina.cpu[j];
         if (pan.entrato || pan.sostituito) continue;
-        // Mettiamo che la CPU cerchi un ruolo simile o lo stesso
         if (pan.ruolo === g.ruolo || (g.ruolo === 'ATT' && pan.ruolo === 'CEN') || (g.ruolo === 'DIF' && pan.ruolo === 'CEN')) {
-          // Effettua il cambio
-          var nuovoG = { 
-            id: pan.id + '_sost', squadra: 'cpu', zona: g.zona, ruolo: pan.ruolo, portiere: pan.portiere, 
-            stamina: STAMINA_MAX, staminaMax: STAMINA_MAX, falli: 0, falliArea: 0, ammonito: false, espulso: false, nome: pan.nome 
+          var nuovoG = {
+            id: pan.id + '_sost', squadra: 'cpu', zona: g.zona, ruolo: pan.ruolo, portiere: pan.portiere,
+            stamina: STAMINA_MAX, staminaMax: STAMINA_MAX, falli: 0, falliArea: 0, ammonito: false, espulso: false, nome: pan.nome
           };
           stato.giocatori.cpu[i] = nuovoG;
           pan.entrato = true;
-          // Anche il giocatore uscito non è più riutilizzabile
           g.sostituito = true;
           stato.panchina.cpu.push({
             id: g.id + '_usc', squadra: 'cpu', ruolo: g.ruolo, portiere: g.portiere,
@@ -1360,7 +1400,6 @@ function gestisciSostituzioneCPU() {
             ammonito: g.ammonito, espulso: g.espulso, entrato: true, sostituito: true, nome: g.nome
           });
           stato.statistiche.cpu.sostituzioni++;
-          
           stato.cambi.push({
             squadra: 'cpu',
             uscente: g.nome,
@@ -1368,9 +1407,8 @@ function gestisciSostituzioneCPU() {
             cartelliniUscente: g.espulso ? '🟥' : (g.ammonito ? '🟨' : '·'),
             entrante: pan.nome
           });
-
           log('🔄 CAMBIO CPU: ' + g.nome + ' (st ' + g.stamina + ') lascia il campo. Entra ' + pan.nome + '.', 'highlight');
-          break; // Passa al prossimo giocatore
+          break;
         }
       }
     }
@@ -1384,7 +1422,6 @@ function risolviContrastoLogica(vincente, c) {
   if (c.falloAttaccante) { var gAtt = trovaGiocatorePerId(c.attaccante, c.giocatorePoss); if (gAtt) applicaFallo(c.attaccante, gAtt, false); }
   if (c.falloDifensore) { var gDif = trovaGiocatorePerId(c.difensore, c.giocatoreAvv); if (gDif) applicaFallo(c.difensore, gDif, falloInArea); }
 
-  // Stamina: ogni mano costa 1 a entrambi i giocatori
   var gP0 = trovaGiocatorePerId(c.attaccante, c.giocatorePoss);
   var gA0 = trovaGiocatorePerId(c.difensore, c.giocatoreAvv);
   if (gP0 && !gP0.portiere && !gP0.espulso) gP0.stamina = Math.max(0, gP0.stamina - 1);
@@ -1394,9 +1431,8 @@ function risolviContrastoLogica(vincente, c) {
   else { stato.streak.cpu++; stato.streak.tu = 0; if (stato.streak.cpu >= STREAK_PER_BONUS) { stato.streak.cpu = 0; assegnaBonus('cpu'); } }
   flashVincitore(vincente); stato.statistiche[vincente].vinte++;
 
-  // Gestione sostituzioni CPU
   if (vincente === 'cpu' || c.difensore === 'cpu') {
-     gestisciSostituzioneCPU();
+    gestisciSostituzioneCPU();
   }
 
   var gP = trovaGiocatorePerId(c.attaccante, c.giocatorePoss);
@@ -1419,7 +1455,6 @@ function risolviContrastoLogica(vincente, c) {
   var zonaAttuale = c.zona;
   var zonaTiro = dirVincente > 0 ? 5 : 1;
   if (zonaAttuale === zonaTiro) {
-    stato.azioneTiroDaPalo = { zona:c.zona, giocatoreAtt:c.giocatorePoss, giocatoreDif:c.giocatoreAvv, meta:c.meta, attaccante:c.attaccante, difensore:c.difensore, possessore:vincente };
     setTimeout(function() { apriSchermataTiro(vincente); }, PAUSA_PRE_AZIONE); return;
   }
   var nz = zonaAttuale + dirVincente;
@@ -1558,10 +1593,10 @@ function posizionaPortiereSu(cx, cy, istantaneo) {
   if (istantaneo) { void pt.offsetWidth; pt.style.transition = ''; }
 }
 
-function casellaToPos(numero) { 
-  var col = (numero - 1) % 3; 
-  var row = Math.floor((numero - 1) / 3); 
-  return { cx: PORTA_LEFT + (col + 0.5) * PORTA_W / 3, cy: PORTA_TOP + (row + 0.5) * PORTA_H / 3 }; 
+function casellaToPos(numero) {
+  var col = (numero - 1) % 3;
+  var row = Math.floor((numero - 1) / 3);
+  return { cx: PORTA_LEFT + (col + 0.5) * PORTA_W / 3, cy: PORTA_TOP + (row + 0.5) * PORTA_H / 3 };
 }
 
 function resetPortiere() {
@@ -1646,14 +1681,14 @@ function mostraSceltaSettoriTU(callback) {
 
   var vecchioBtn = document.getElementById('btn-conferma-settore-wrap');
   if (vecchioBtn) vecchioBtn.remove();
-  
+
   var wrapBtn = document.createElement('div');
   wrapBtn.id = 'btn-conferma-settore-wrap';
   wrapBtn.style.marginTop = '8px';
   wrapBtn.style.display = 'flex';
   wrapBtn.style.justifyContent = 'flex-start';
   wrapBtn.style.padding = '0 4px';
-  
+
   var btn = document.createElement('button');
   btn.id = 'btn-conferma-settore';
   btn.textContent = '✅ CONFERMA';
@@ -1673,23 +1708,23 @@ function mostraSceltaSettoriTU(callback) {
     callback(g);
   };
   wrapBtn.appendChild(btn);
-  
+
   var dadiEl = document.getElementById('tiro-dadi-info');
   if (dadiEl && dadiEl.parentNode) {
     dadiEl.parentNode.insertBefore(wrapBtn, dadiEl.nextSibling);
   } else {
     ov.appendChild(wrapBtn);
   }
-  
+
   window._gruppoScelto = null;
 }
 
 function eseguiTuffoPortiere(casellaTiro, parata, dadoPortiere) {
   var pt = document.getElementById('tiro-portiere'); if (!pt) return;
   pt.classList.remove('pg-braccia-alte', 'pg-tuffo-sx', 'pg-tuffo-dx', 'pg-tuffo-centro');
-  
-  var pos8 = casellaToPos(8); 
-  posizionaPortiereSu(pos8.cx, pos8.cy, true); 
+
+  var pos8 = casellaToPos(8);
+  posizionaPortiereSu(pos8.cx, pos8.cy, true);
   void pt.offsetWidth;
   pt.classList.add('pg-braccia-alte');
 
@@ -1702,7 +1737,7 @@ function eseguiTuffoPortiere(casellaTiro, parata, dadoPortiere) {
       else if (deltaX > 5) pt.classList.add('pg-tuffo-dx');
       else pt.classList.add('pg-tuffo-centro');
     }, 100);
-  } 
+  }
   else if (dadoPortiere) {
     var settori = ZONE_PORTIERE_4[dadoPortiere];
     var colMin = 3, colMax = 1, rowMin = 3, rowMax = 1;
@@ -1733,6 +1768,32 @@ function apriSchermataTiro(att, isRigore) {
   var dif = att === 'tu' ? 'cpu' : 'tu';
   stato.statistiche[att].tiri++;
   if (isRigore) stato.statistiche[att].rigori++;
+
+  // Salva SEMPRE i dati del tiro corrente per gestire correttamente il palo.
+  // Sovrascrive eventuali dati vecchi di contrasti/rigori precedenti.
+  var c = stato.contrasto;
+  var zonaTiro = direzionePerSquadra(att) > 0 ? 5 : 1;
+  if (c && !c.risolto) {
+    stato.azioneTiroDaPalo = {
+      zona: c.zona,
+      giocatoreAtt: c.giocatorePoss,
+      giocatoreDif: c.giocatoreAvv,
+      meta: c.meta,
+      attaccante: c.attaccante,
+      difensore: c.difensore,
+      possessore: att
+    };
+  } else {
+    stato.azioneTiroDaPalo = {
+      zona: zonaTiro,
+      giocatoreAtt: stato.giocatorePalla,
+      giocatoreDif: null,
+      meta: stato.metaContesa || 'inf',
+      attaccante: att,
+      difensore: dif,
+      possessore: att
+    };
+  }
 
   var por = null;
   for (var i = 0; i < stato.giocatori[dif].length; i++) {
@@ -1773,11 +1834,11 @@ function apriOverlayTiro(att, dif, isRigore) {
   var sqP = dif === 'tu' ? stato.squadraTU : stato.squadraCPU;
   pt.innerHTML = creaGiocatoreSVG(SQUADRE[sqP].portiere, 'fermo', '');
   pw.appendChild(pt);
-  
-  var pa = document.createElement('div'); pa.className = 'tiro-palla iniziale' + (isRigore ? ' rigore' : ''); pa.id = 'tiro-palla'; 
+
+  var pa = document.createElement('div'); pa.className = 'tiro-palla iniziale' + (isRigore ? ' rigore' : ''); pa.id = 'tiro-palla';
   pa.innerHTML = '<div class="palla-svg-wrap">' + creaPalloneSVG() + '</div>';
   pw.appendChild(pa);
-  
+
   colDx.appendChild(pw); layout.appendChild(colDx);
   ov.appendChild(layout);
   var esito = document.createElement('div'); esito.className = 'tiro-esito'; esito.id = 'tiro-esito'; ov.appendChild(esito);
@@ -1825,13 +1886,13 @@ function mostraDadiTiro(dA, dP) {
   c.innerHTML = h;
 }
 
-function evidenziaCaselle(caselle) { 
-  var tutti = document.querySelectorAll('.tiro-casella'); 
-  for (var i=0;i<tutti.length;i++) tutti[i].classList.remove('colpita'); 
-  for (var j=0;j<caselle.length;j++) { 
-    var cel = document.querySelector('.tiro-casella[data-numero="' + caselle[j] + '"]'); 
-    if (cel) cel.classList.add('colpita'); 
-  } 
+function evidenziaCaselle(caselle) {
+  var tutti = document.querySelectorAll('.tiro-casella');
+  for (var i=0;i<tutti.length;i++) tutti[i].classList.remove('colpita');
+  for (var j=0;j<caselle.length;j++) {
+    var cel = document.querySelector('.tiro-casella[data-numero="' + caselle[j] + '"]');
+    if (cel) cel.classList.add('colpita');
+  }
 }
 
 function animaRollDado(targetVal, maxVal, elementId, tipo) {
@@ -1856,28 +1917,28 @@ function animaRollDado(targetVal, maxVal, elementId, tipo) {
 function muoviPallaVerso(targetPercX, targetPercY, durata, callback) {
   var pa = document.getElementById('tiro-palla');
   if (!pa) { if (callback) callback(); return; }
-  
+
   var rect = pa.getBoundingClientRect();
   var wrapper = document.querySelector('.tiro-porta-wrapper');
   if (!wrapper) { if (callback) callback(); return; }
   var wRect = wrapper.getBoundingClientRect();
-  
+
   var startX = ((rect.left + rect.width / 2 - wRect.left) / wRect.width) * 100;
   var startY = ((rect.top + rect.height / 2 - wRect.top) / wRect.height) * 100;
-  
+
   var dx = targetPercX - startX;
   var dy = targetPercY - startY;
-  
+
   pa.style.transition = 'none';
   pa.style.left = startX + '%';
   pa.style.top = startY + '%';
   pa.style.bottom = 'auto';
   void pa.offsetWidth;
-  
+
   pa.style.transition = 'left ' + (durata/1000) + 's cubic-bezier(0.25, 0.46, 0.45, 0.94), top ' + (durata/1000) + 's cubic-bezier(0.25, 0.46, 0.45, 0.94)';
   pa.style.left = targetPercX + '%';
   pa.style.top = targetPercY + '%';
-  
+
   setTimeout(function() {
     if (callback) callback();
   }, durata);
@@ -1901,7 +1962,7 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
 
     muoviPallaVerso(PORTA_LEFT + (pos.x / 100) * PORTA_W, PORTA_TOP + (pos.y / 100) * PORTA_H, 700, function() {
       if (stato.partitaFinita) return;
-      
+
       if (golSuperAtt) {
         var dP11 = Math.floor(Math.random() * 11) + 1;
         var coppia = COPPIE_11[dP11]; var parataGS = coppia.indexOf(dT) > -1;
@@ -1938,24 +1999,24 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
     var zonaPortiere = ZONE_PORTIERE_4[gruppoEffettivo];
     log('🎙️ Portiere sceglie gruppo ' + gruppoEffettivo + ' → settori ' + ZONE_PORTIERE_4[gruppoEffettivo].join(',') + '.', '');
     document.getElementById('tiro-info').textContent = 'FASE 2 — L\'attaccante si prepara a calciare...';
-    
+
     eseguiTuffoPortiere(8, false, gruppoEffettivo);
-    
+
     setTimeout(function() {
       if (stato.partitaFinita) return;
       var dT = Math.floor(Math.random() * 9) + 1;
       var pos = CASELLE_PERC[dT];
-      
+
       document.getElementById('tiro-info').textContent = "FASE 3 — Tiro dell'attaccante";
       document.getElementById('tiro-dadi-info').innerHTML = '<div class="tiro-dadi-riga"><span class="tiro-dado-label">🎲 Attaccante:</span><div class="tiro-dado attaccante" id="dado-att">-</div></div>';
-      
+
       var nomeTir = (trovaGiocatorePerId(att, stato.giocatorePalla)||{}).nome || 'Attaccante';
-      
+
       muoviPallaVerso(PORTA_LEFT + (pos.x / 100) * PORTA_W, PORTA_TOP + (pos.y / 100) * PORTA_H, 600, function() {
         animaRollDado(dT, 9, 'dado-att').then(function() {
           log('🎙️ Tiro di ' + nomeTir + ': dado ' + dT + ' (casella ' + dT + ').', '');
           var parataNormale = zonaPortiere.indexOf(dT) > -1;
-          
+
           if (parataNormale) {
             var target = casellaToPos(dT);
             var pt = document.getElementById('tiro-portiere');
@@ -1969,7 +2030,7 @@ async function eseguiTiroConGrafica(att, dif, isRigore) {
               else pt.classList.add('pg-tuffo-centro');
             }
           }
-          
+
           setTimeout(function() {
             nascondiSettori();
             if (parataNormale) { mostraEsitoTiroConGrafica('parata', dT, att, dif, '🧤 PARATA!'); }
@@ -2113,12 +2174,19 @@ function gestisciParata(att, dif) {
 function gestisciPalo(att, dif) {
   if (stato.partitaFinita) return;
   var az = stato.azioneTiroDaPalo;
-  if (!az) { setTimeout(function() { if (stato.partitaFinita) return; stato.zonaPalla = 3; stato.possessore = att; stato.metaContesa = 'inf'; renderCampo(); renderHeader(); salvaPartita(); setTimeout(function() { mostraEntrambiBanner(); setTimeout(avviaContrasto, 300); }, PAUSA_PRE_AZIONE); }, 800); return; }
   setTimeout(function() {
     if (stato.partitaFinita) return;
-    stato.zonaPalla = az.zona; stato.possessore = az.possessore; stato.metaContesa = az.meta;
-    stato.giocatorePalla = az.possessore === az.attaccante ? az.giocatoreAtt : az.giocatoreDif;
-    renderCampo(); renderHeader(); aggiornaSottofondoPerZona(az.zona);
+    if (az) {
+      stato.zonaPalla = az.zona; stato.possessore = az.possessore; stato.metaContesa = az.meta;
+      var idPalla = az.possessore === az.attaccante ? az.giocatoreAtt : az.giocatoreDif;
+      if (!idPalla) { var coppia = getCoppiaAttiva(az.zona, az.meta); idPalla = az.possessore === 'tu' ? (coppia.tu && coppia.tu.id) : (coppia.cpu && coppia.cpu.id); }
+      stato.giocatorePalla = idPalla;
+      renderCampo(); renderHeader(); aggiornaSottofondoPerZona(az.zona);
+    } else {
+      var zT = direzionePerSquadra(att) > 0 ? 5 : 1;
+      stato.zonaPalla = zT; stato.possessore = att; stato.metaContesa = 'inf';
+      renderCampo(); renderHeader(); aggiornaSottofondoPerZona(zT);
+    }
     setTimeout(function() { if (stato.partitaFinita) return; salvaPartita(); setTimeout(function() { mostraEntrambiBanner(); setTimeout(avviaContrasto, 300); }, PAUSA_PRE_AZIONE); }, 300);
   }, 800);
 }
@@ -2176,38 +2244,53 @@ function finePartita() {
   if (stato.cambi && stato.cambi.length > 0) {
     stato.cambi.forEach(function(c) {
       var colore = c.squadra === 'tu' ? '#4dabf7' : '#ff6b6b';
-      cambiHTML += '<div style="margin-bottom:4px"><span style="color:' + colore + '">' + c.uscente + '</span> (⚡' + c.staminaUscente + ' ' + c.cartelliniUscente + ') ➔ <span style="color:' + colore + '">' + c.entrante + '</span></div>';
+      cambiHTML += '<div style="margin-bottom:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><span style="color:' + colore + '">' + c.uscente + '</span> (⚡' + c.staminaUscente + ' ' + c.cartelliniUscente + ') ➔ <span style="color:' + colore + '">' + c.entrante + '</span></div>';
     });
   } else {
-    cambiHTML = '<div style="color:#aaa">Nessun cambio effettuato</div>';
+    cambiHTML = '<div style="color:#aaa">Nessun cambio</div>';
   }
 
-  var html = '<h2>FINE PARTITA</h2><p style="font-size:72px;font-weight:bold;margin:20px 0"><span style="color:#4dabf7">' + stato.punteggio.tu + '</span> - <span style="color:#ff6b6b">' + stato.punteggio.cpu + '</span></p><p style="font-size:32px;color:#ffd700;margin:24px 0">' + msg + '</p>' +
-    '<div style="background:rgba(0,0,0,0.4);border-radius:12px;padding:20px;margin:24px 0;text-align:left;font-size:16px"><h3 style="color:#ffd700;margin-bottom:14px;text-align:center">📊 Statistiche</h3><table style="width:100%;border-collapse:collapse;color:#eee"><tr style="border-bottom:1px solid #444"><th style="text-align:left;padding:6px">Stat</th><th style="text-align:center;padding:6px;color:#4dabf7">TU</th><th style="text-align:center;padding:6px;color:#ff6b6b">CPU</th></tr>' +
-    '<tr><td style="padding:6px">Gol</td><td style="text-align:center">' + stato.statistiche.tu.gol + '</td><td style="text-align:center">' + stato.statistiche.cpu.gol + '</td></tr>' +
-    '<tr><td style="padding:6px">Tiri in porta</td><td style="text-align:center">' + stato.statistiche.tu.tiri + '</td><td style="text-align:center">' + stato.statistiche.cpu.tiri + '</td></tr>' +
-    '<tr><td style="padding:6px">Pali/Traverse</td><td style="text-align:center">' + stato.statistiche.tu.pali + '</td><td style="text-align:center">' + stato.statistiche.cpu.pali + '</td></tr>' +
-    '<tr><td style="padding:6px">Fuori</td><td style="text-align:center">' + stato.statistiche.tu.fuori + '</td><td style="text-align:center">' + stato.statistiche.cpu.fuori + '</td></tr>' +
-    '<tr><td style="padding:6px">Calcio d\'angolo</td><td style="text-align:center">' + stato.statistiche.tu.angoli + '</td><td style="text-align:center">' + stato.statistiche.cpu.angoli + '</td></tr>' +
-    '<tr><td style="padding:6px">Parate</td><td style="text-align:center">' + stato.statistiche.tu.parate + '</td><td style="text-align:center">' + stato.statistiche.cpu.parate + '</td></tr>' +
-    '<tr><td style="padding:6px">Rigori</td><td style="text-align:center">' + stato.statistiche.tu.rigori + '</td><td style="text-align:center">' + stato.statistiche.cpu.rigori + '</td></tr>' +
-    '<tr><td style="padding:6px">Falli</td><td style="text-align:center">' + stato.statistiche.tu.falli + '</td><td style="text-align:center">' + stato.statistiche.cpu.falli + '</td></tr>' +
-    '<tr><td style="padding:6px">Cartellini</td><td style="text-align:center">' + stato.statistiche.tu.ammonizioni + ' 🟨 / ' + stato.statistiche.tu.espulsioni + ' 🟥</td><td style="text-align:center">' + stato.statistiche.cpu.ammonizioni + ' 🟨 / ' + stato.statistiche.cpu.espulsioni + ' 🟥</td></tr>' +
-    '<tr><td style="padding:6px">Carte Speciali</td><td style="text-align:center">' + stato.statistiche.tu.bonusUsati + ' / ' + stato.statistiche.tu.bonusGuadagnati + '</td><td style="text-align:center">' + stato.statistiche.cpu.bonusUsati + ' / ' + stato.statistiche.cpu.bonusGuadagnati + '</td></tr>' +
-    '</table>' +
-    '<div style="margin-top:20px; border-top:1px solid #444; padding-top:12px">' +
-      '<strong style="color:#4dabf7">Marcatori TU:</strong> ' + marcatoriTU + '<br>' +
-      '<strong style="color:#ff6b6b">Marcatori CPU:</strong> ' + marcatoriCPU + '<br><br>' +
-      '<strong style="color:#ffd700">Cambi:</strong><br>' + cambiHTML +
+  // Layout compatto: tutto in una schermata, niente scroll
+  var html = '<div style="display:flex;flex-direction:column;height:100%;max-height:96vh;gap:8px">' +
+    '<div style="text-align:center;flex-shrink:0"><h2 style="color:#ffd700;margin:0 0 4px 0;font-size:clamp(16px,2.2vw,26px);letter-spacing:2px">FINE PARTITA</h2>' +
+    '<div style="font-size:clamp(28px,4.5vw,56px);font-weight:900;line-height:1.1;margin:2px 0"><span style="color:#4dabf7">' + stato.punteggio.tu + '</span> - <span style="color:#ff6b6b">' + stato.punteggio.cpu + '</span></div>' +
+    '<div style="font-size:clamp(14px,1.8vw,24px);color:#ffd700;font-weight:bold;margin:2px 0">' + msg + '</div></div>' +
+    '<div style="flex:1;display:grid;grid-template-columns:1.2fr 1fr;gap:8px;min-height:0;overflow:hidden">' +
+      '<div style="background:rgba(0,0,0,0.4);border-radius:10px;padding:8px 10px;overflow:hidden;display:flex;flex-direction:column;min-height:0">' +
+        '<div style="color:#ffd700;font-weight:bold;text-align:center;font-size:clamp(11px,1.3vw,15px);margin-bottom:4px">📊 STATISTICHE</div>' +
+        '<table style="width:100%;border-collapse:collapse;color:#eee;font-size:clamp(9px,1.05vw,13px);line-height:1.35">' +
+          '<tr style="border-bottom:1px solid #444"><th style="text-align:left;padding:2px 3px;font-size:clamp(9px,1.05vw,12px)">Stat</th><th style="text-align:center;padding:2px 3px;color:#4dabf7;font-size:clamp(9px,1.05vw,12px)">TU</th><th style="text-align:center;padding:2px 3px;color:#ff6b6b;font-size:clamp(9px,1.05vw,12px)">CPU</th></tr>' +
+          '<tr><td style="padding:1px 3px">Gol</td><td style="text-align:center;font-weight:bold;color:#4ade80">' + stato.statistiche.tu.gol + '</td><td style="text-align:center;font-weight:bold;color:#4ade80">' + stato.statistiche.cpu.gol + '</td></tr>' +
+          '<tr><td style="padding:1px 3px">Tiri</td><td style="text-align:center">' + stato.statistiche.tu.tiri + '</td><td style="text-align:center">' + stato.statistiche.cpu.tiri + '</td></tr>' +
+          '<tr><td style="padding:1px 3px">Pali</td><td style="text-align:center">' + stato.statistiche.tu.pali + '</td><td style="text-align:center">' + stato.statistiche.cpu.pali + '</td></tr>' +
+          '<tr><td style="padding:1px 3px">Fuori</td><td style="text-align:center">' + stato.statistiche.tu.fuori + '</td><td style="text-align:center">' + stato.statistiche.cpu.fuori + '</td></tr>' +
+          '<tr><td style="padding:1px 3px">Angoli</td><td style="text-align:center">' + stato.statistiche.tu.angoli + '</td><td style="text-align:center">' + stato.statistiche.cpu.angoli + '</td></tr>' +
+          '<tr><td style="padding:1px 3px">Parate</td><td style="text-align:center">' + stato.statistiche.tu.parate + '</td><td style="text-align:center">' + stato.statistiche.cpu.parate + '</td></tr>' +
+          '<tr><td style="padding:1px 3px">Rigori</td><td style="text-align:center">' + stato.statistiche.tu.rigori + '</td><td style="text-align:center">' + stato.statistiche.cpu.rigori + '</td></tr>' +
+          '<tr><td style="padding:1px 3px">Falli</td><td style="text-align:center">' + stato.statistiche.tu.falli + '</td><td style="text-align:center">' + stato.statistiche.cpu.falli + '</td></tr>' +
+          '<tr><td style="padding:1px 3px">Cartellini</td><td style="text-align:center">' + stato.statistiche.tu.ammonizioni + '🟨 ' + stato.statistiche.tu.espulsioni + '🟥</td><td style="text-align:center">' + stato.statistiche.cpu.ammonizioni + '🟨 ' + stato.statistiche.cpu.espulsioni + '🟥</td></tr>' +
+          '<tr><td style="padding:1px 3px">Bonus</td><td style="text-align:center">' + stato.statistiche.tu.bonusUsati + '/' + stato.statistiche.tu.bonusGuadagnati + '</td><td style="text-align:center">' + stato.statistiche.cpu.bonusUsati + '/' + stato.statistiche.cpu.bonusGuadagnati + '</td></tr>' +
+        '</table>' +
+      '</div>' +
+      '<div style="display:flex;flex-direction:column;gap:6px;min-height:0;overflow:hidden">' +
+        '<div style="background:rgba(0,0,0,0.4);border-radius:10px;padding:6px 10px;flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0">' +
+          '<div style="color:#ffd700;font-weight:bold;font-size:clamp(10px,1.2vw,14px);margin-bottom:2px">⚽ MARCATORI</div>' +
+          '<div style="font-size:clamp(9px,1.05vw,13px);color:#4dabf7;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">TU: <span style="color:#eee">' + marcatoriTU + '</span></div>' +
+          '<div style="font-size:clamp(9px,1.05vw,13px);color:#ff6b6b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">CPU: <span style="color:#eee">' + marcatoriCPU + '</span></div>' +
+        '</div>' +
+        '<div style="background:rgba(0,0,0,0.4);border-radius:10px;padding:6px 10px;flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0">' +
+          '<div style="color:#ffd700;font-weight:bold;font-size:clamp(10px,1.2vw,14px);margin-bottom:2px">🔄 CAMBI</div>' +
+          '<div style="font-size:clamp(8px,0.95vw,12px);line-height:1.25;overflow:hidden">' + cambiHTML + '</div>' +
+        '</div>' +
+      '</div>' +
     '</div>' +
-    '</div>' +
-    '<button class="primario" onclick="confermaFinePartita()" style="font-size:24px;padding:20px 40px">CONTINUA ▶</button>';
+    '<div style="flex-shrink:0;text-align:center;padding-top:4px"><button class="primario" onclick="confermaFinePartita()" style="font-size:clamp(14px,1.8vw,22px);padding:10px 30px">CONTINUA ▶</button></div>' +
+  '</div>';
   document.getElementById('modale-box').innerHTML = html;
   document.getElementById('modale').classList.remove('nascosto');
 }
 
 async function confermaFinePartita() {
-  // 1) Salva su GitHub (o rileva che non è configurato)
   var salvataggioOk = false;
   var ghAbilitato = GH.abilitato;
   if (ghAbilitato) {
@@ -2215,7 +2298,6 @@ async function confermaFinePartita() {
     catch(e) { salvataggioOk = false; }
   }
 
-  // 2) Mostra banner salvataggio
   var bannerHTML;
   if (ghAbilitato) {
     bannerHTML = salvataggioOk
@@ -2226,7 +2308,6 @@ async function confermaFinePartita() {
   }
   document.getElementById('modale-box').innerHTML = bannerHTML;
 
-  // 3) Dopo 3 secondi: torneo → salva risultato e torna al campionato; normale → mostra menù principale
   setTimeout(function() {
     if (TORNEO_MODE === 'seriea' && PARTITA_TORNEO) {
       salvaRisultatoTorneo();
@@ -2258,22 +2339,23 @@ function renderModaleSostituzioni() {
   var sq = 'tu'; var h = '<h2>🔄 Sostituzioni</h2>';
   h += '<div style="background:rgba(0,0,0,0.3);border-radius:12px;padding:16px;margin:20px 0"><h3 style="color:#ffd700">In campo</h3><div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">';
   var gs = stato.giocatori[sq];
-  for (var i=0;i<gs.length;i++) { 
-    var g = gs[i]; 
-    var sel = selezioneSost.campo === g.id ? 'background:#ffd700;color:#16213e;' : 'background:#0f3460;color:#fff;'; 
+  for (var i=0;i<gs.length;i++) {
+    var g = gs[i];
+    var sel = selezioneSost.campo === g.id ? 'background:#ffd700;color:#16213e;' : 'background:#0f3460;color:#fff;';
     var cartellino = g.espulso ? '🟥' : (g.ammonito ? '🟨' : '');
-    h += '<div style="' + sel + 'border:2px solid #4dabf7;border-radius:8px;padding:10px 16px;cursor:pointer" onclick="selezionaSostCampo(\'' + g.id + '\')"><div>' + g.nome + ' ' + cartellino + '</div><div>⚡' + g.stamina + '/10</div></div>'; 
+    h += '<div style="' + sel + 'border:2px solid #4dabf7;border-radius:8px;padding:10px 16px;cursor:pointer" onclick="selezionaSostCampo(\'' + g.id + '\')"><div>' + g.nome + ' ' + cartellino + '</div><div>⚡' + g.stamina + '/10</div></div>';
   }
   h += '</div></div><div style="background:rgba(0,0,0,0.3);border-radius:12px;padding:16px;margin:20px 0"><h3 style="color:#ffd700">Panchina</h3><div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">';
-  for (var k=0;k<stato.panchina[sq].length;k++) { 
-    var p = stato.panchina[sq][k]; 
-    var sel2 = selezioneSost.panchina === p.id ? 'background:#ffd700;color:#16213e;' : 'background:#0f3460;color:#fff;'; 
-    // Un giocatore è non riutilizzabile se entrato o sostituito
+  for (var k=0;k<stato.panchina[sq].length;k++) {
+    var p = stato.panchina[sq][k];
+    var sel2 = selezioneSost.panchina === p.id ? 'background:#ffd700;color:#16213e;' : 'background:#0f3460;color:#fff;';
     var disabilitato = p.entrato || p.sostituito;
-    var dis = disabilitato ? 'opacity:0.35;cursor:not-allowed;' : 'cursor:pointer;'; 
+    var dis = disabilitato ? 'opacity:0.35;cursor:not-allowed;' : 'cursor:pointer;';
     var cartellinoPan = p.espulso ? '🟥' : (p.ammonito ? '🟨' : '');
     var labelStato = p.sostituito ? ' <span style="color:#ff6b6b;font-size:11px">(sostituito)</span>' : (p.entrato ? ' <span style="color:#4ade80;font-size:11px">(entrato)</span>' : '');
-    h += '<div style="' + sel2 + dis + 'border:2px solid #4dabf7;border-radius:8px;padding:10px 16px" onclick="' + (disabilitato ? '' : 'selezionaSostPanchina(\\\'' + p.id + '\\\')') + '"><div>' + p.nome + ' (' + p.ruolo + ') ' + cartellinoPan + labelStato + '</div><div>⚡' + p.stamina + '/10</div></div>'; 
+    // FIX: onclick con doppi apici HTML e apici singoli JS
+    var onclickAttr = disabilitato ? '' : ' onclick="selezionaSostPanchina(\'' + p.id + '\')"';
+    h += '<div style="' + sel2 + dis + 'border:2px solid #4dabf7;border-radius:8px;padding:10px 16px"' + onclickAttr + '><div>' + p.nome + ' (' + p.ruolo + ') ' + cartellinoPan + labelStato + '</div><div>⚡' + p.stamina + '/10</div></div>';
   }
   h += '</div></div><div style="margin-top:20px">';
   if (selezioneSost.campo && selezioneSost.panchina) h += '<button class="primario" onclick="confermaSostituzione()">CONFERMA</button>';
@@ -2291,7 +2373,6 @@ function confermaSostituzione() {
   var idx = stato.giocatori[sq].indexOf(campo); stato.giocatori[sq][idx] = n;
   pan.entrato = true; stato.statistiche[sq].sostituzioni++;
 
-  // Il giocatore uscito va in panchina come non più riutilizzabile
   campo.sostituito = true;
   stato.panchina[sq].push({
     id: campo.id + '_usc', squadra: sq, ruolo: campo.ruolo, portiere: campo.portiere,
@@ -2313,7 +2394,6 @@ function confermaSostituzione() {
 
 /* RIAVVIO RAPIDO — F9 / PrintScreen */
 function mostraBannerRiavvio() {
-  // Su F9/PrintScreen: esci subito dalla partita, annulla quella in corso e torna al menu
   if (stato.partitaFinita) return;
   stato.partitaFinita = true;
   eliminaSalvataggio();
@@ -2330,7 +2410,6 @@ function eseguiRiavvio() { localStorage.removeItem(CHIAVE_SALVATAGGIO); location
 window.addEventListener('keydown', function(e) {
   if (e.key === 'PrintScreen' || e.key === 'F9') {
     e.preventDefault();
-    // F9 / PrintScreen: annulla la partita in corso e torna al menu principale
     if (stato.giocatori && stato.giocatori.tu && stato.giocatori.tu.length > 0 && !stato.partitaFinita) {
       mostraBannerRiavvio();
     }

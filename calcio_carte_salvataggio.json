@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-29T05:24:57.716Z",
+  "data": "2026-10-29T05:26:09.859Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -737,7 +737,7 @@
             "squalificato": false
           },
           "Lucumì": {
-            "gialli": 1,
+            "gialli": 2,
             "squalificato": false
           },
           "Kalulu": {
@@ -3274,7 +3274,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793251493711,
+    "timestamp": 1793251565858,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "sassuolo",
@@ -3293,15 +3293,15 @@
       }
     },
     "tempo": 1,
-    "mano": 16,
+    "mano": 19,
     "maxMani": 23,
     "punteggio": {
-      "tu": 0,
+      "tu": 1,
       "cpu": 2
     },
-    "zonaPalla": 3,
+    "zonaPalla": 1,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_5",
+    "giocatorePalla": "cpu_9",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3484,24 +3484,6 @@
           "seme": "guantone",
           "valore": 6,
           "label": "6"
-        },
-        {
-          "id": "c23",
-          "seme": "coppa",
-          "valore": 4,
-          "label": "4"
-        },
-        {
-          "id": "c9",
-          "seme": "palla",
-          "valore": 5,
-          "label": "5"
-        },
-        {
-          "id": "c45",
-          "seme": "bandierina",
-          "valore": 8,
-          "label": "8"
         }
       ],
       "cpu": [
@@ -3684,24 +3666,6 @@
           "seme": "coppa",
           "valore": 14,
           "label": "A"
-        },
-        {
-          "id": "c6",
-          "seme": "palla",
-          "valore": 8,
-          "label": "8"
-        },
-        {
-          "id": "c49",
-          "seme": "bandierina",
-          "valore": 4,
-          "label": "4"
-        },
-        {
-          "id": "c37",
-          "seme": "guantone",
-          "valore": 3,
-          "label": "3"
         }
       ]
     },
@@ -3796,6 +3760,18 @@
           "seme": "palla",
           "valore": 14,
           "label": "A"
+        },
+        {
+          "id": "c1",
+          "seme": "palla",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c11",
+          "seme": "palla",
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
@@ -3888,6 +3864,24 @@
           "seme": "palla",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c8",
+          "seme": "palla",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c43",
+          "seme": "bandierina",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c6",
+          "seme": "palla",
+          "valore": 8,
+          "label": "8"
         }
       ]
     },
@@ -3907,12 +3901,6 @@
     "mani": {
       "tu": [
         {
-          "id": "c1",
-          "seme": "palla",
-          "valore": 13,
-          "label": "K"
-        },
-        {
           "id": "c2",
           "seme": "palla",
           "valore": 12,
@@ -3925,10 +3913,22 @@
           "label": "3"
         },
         {
-          "id": "c11",
+          "id": "c45",
+          "seme": "bandierina",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c9",
           "seme": "palla",
-          "valore": 3,
-          "label": "3"
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c23",
+          "seme": "coppa",
+          "valore": 4,
+          "label": "4"
         }
       ],
       "cpu": [
@@ -3945,16 +3945,16 @@
           "label": "4"
         },
         {
-          "id": "c43",
-          "seme": "bandierina",
-          "valore": 10,
-          "label": "10"
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
         },
         {
-          "id": "c8",
-          "seme": "palla",
-          "valore": 6,
-          "label": "6"
+          "id": "c49",
+          "seme": "bandierina",
+          "valore": 4,
+          "label": "4"
         }
       ]
     },
@@ -4008,11 +4008,11 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 6,
+          "stamina": 4,
           "staminaMax": 10,
-          "falli": 2,
+          "falli": 4,
           "falliArea": 0,
-          "ammonito": false,
+          "ammonito": true,
           "espulso": false,
           "nome": "Lucumì"
         },
@@ -4092,7 +4092,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4122,7 +4122,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4136,7 +4136,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4220,7 +4220,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4466,10 +4466,7 @@
     "invertiCoppie": false,
     "tuECasa": true,
     "bonus": {
-      "tu": [
-        "passaggio-lungo",
-        "gol-super"
-      ],
+      "tu": [],
       "cpu": [
         "tiro-fuori-area",
         "passaggio-lungo"
@@ -4477,26 +4474,31 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 0
+      "cpu": 1
     },
     "statistiche": {
       "tu": {
-        "gol": 0,
-        "tiri": 3,
+        "gol": 1,
+        "tiri": 4,
         "parate": 0,
         "angoli": 0,
         "pali": 0,
         "fuori": 0,
         "rigori": 1,
-        "contese": 8,
-        "vinte": 9,
-        "falli": 4,
-        "ammonizioni": 2,
+        "contese": 9,
+        "vinte": 10,
+        "falli": 5,
+        "ammonizioni": 3,
         "espulsioni": 0,
         "sostituzioni": 1,
         "bonusGuadagnati": 2,
-        "bonusUsati": 0,
-        "marcatori": []
+        "bonusUsati": 2,
+        "marcatori": [
+          {
+            "nome": "Woltemade",
+            "minuto": 32
+          }
+        ]
       },
       "cpu": {
         "gol": 2,
@@ -4506,8 +4508,8 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 2,
-        "contese": 8,
-        "vinte": 6,
+        "contese": 10,
+        "vinte": 7,
         "falli": 1,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -5066,6 +5068,110 @@
       {
         "msg": "🎙️ Douglas Luiz vince il contrasto in Z3 e RUBA PALLA!",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Douglas Luiz AI DANNI DI Bakola!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz serve Woltemade in Z5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 superiore: Woltemade (TU) contro Obrador (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade gioca K⚽ e impone il seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Obrador risponde con 6⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade K⚽ vs Obrador 6⚽ → vince Woltemade (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Woltemade vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Muric si prepara al tiro (stamina 6/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Woltemade: dado 4 (casella 4).",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Woltemade batte il portiere!",
+        "classe": "goal"
+      },
+      {
+        "msg": "⚽ GOAL di Woltemade al 32'!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Woltemade esulta! TU 1-2 CPU.",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Calcio d'inizio! CPU batte dal centro con Matic.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Matic serve Thorstvedt in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Thorstvedt (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Thorstvedt gioca 10🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 3⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Thorstvedt 10🚩 vs Lucumì 3⚽ → vince Thorstvedt (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Lucumì (4)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🟨 AMMONIZIONE per Lucumì",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Thorstvedt vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Thorstvedt serve Esposito in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 superiore: Esposito (CPU) contro Kalulu (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Esposito gioca 8⚽ → seme guida: Palla",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -5084,6 +5190,6 @@
         "entrante": "Gatti"
       }
     ],
-    "secondiTrascorsi": 332
+    "secondiTrascorsi": 405
   }
 }

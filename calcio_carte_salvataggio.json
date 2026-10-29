@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-29T05:27:24.850Z",
+  "data": "2026-10-29T05:28:35.363Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3274,7 +3274,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793251640847,
+    "timestamp": 1793251711353,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "sassuolo",
@@ -3654,18 +3654,6 @@
           "seme": "bandierina",
           "valore": 8,
           "label": "8"
-        },
-        {
-          "id": "c11",
-          "seme": "palla",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c13",
-          "seme": "coppa",
-          "valore": 14,
-          "label": "A"
         }
       ]
     },
@@ -3882,6 +3870,18 @@
           "seme": "palla",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c13",
+          "seme": "coppa",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c10",
+          "seme": "palla",
+          "valore": 4,
+          "label": "4"
         }
       ]
     },
@@ -3933,12 +3933,6 @@
       ],
       "cpu": [
         {
-          "id": "c10",
-          "seme": "palla",
-          "valore": 4,
-          "label": "4"
-        },
-        {
           "id": "c23",
           "seme": "coppa",
           "valore": 4,
@@ -3955,6 +3949,12 @@
           "seme": "bandierina",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c11",
+          "seme": "palla",
+          "valore": 3,
+          "label": "3"
         }
       ]
     },
@@ -4508,7 +4508,7 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 2,
-        "contese": 10,
+        "contese": 12,
         "vinte": 7,
         "falli": 1,
         "ammonizioni": 1,
@@ -5172,6 +5172,22 @@
       {
         "msg": "🎙️ Esposito gioca 8⚽ → seme guida: Palla",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Z1 superiore: Esposito (CPU) contro Kalulu (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Esposito gioca A🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Z1 superiore: Esposito (CPU) contro Kalulu (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Esposito gioca 4⚽ → seme guida: Palla",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -5190,6 +5206,6 @@
         "entrante": "Gatti"
       }
     ],
-    "secondiTrascorsi": 480
+    "secondiTrascorsi": 540
   }
 }

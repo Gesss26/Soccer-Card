@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-29T05:32:35.343Z",
+  "data": "2026-10-29T05:33:35.351Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3274,7 +3274,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793251951340,
+    "timestamp": 1793252011350,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "sassuolo",
@@ -5206,6 +5206,6 @@
         "entrante": "Gatti"
       }
     ],
-    "secondiTrascorsi": 780
+    "secondiTrascorsi": 840
   }
 }

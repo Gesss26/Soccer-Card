@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-29T05:22:39.856Z",
+  "data": "2026-10-29T05:23:54.859Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -741,7 +741,7 @@
             "squalificato": false
           },
           "Kalulu": {
-            "gialli": 1,
+            "gialli": 2,
             "squalificato": false
           },
           "Gatti": {
@@ -3274,7 +3274,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793251355848,
+    "timestamp": 1793251430858,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "sassuolo",
@@ -3293,15 +3293,15 @@
       }
     },
     "tempo": 1,
-    "mano": 12,
+    "mano": 13,
     "maxMani": 23,
     "punteggio": {
       "tu": 0,
-      "cpu": 1
+      "cpu": 2
     },
-    "zonaPalla": 1,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_9",
+    "zonaPalla": 4,
+    "possessore": "tu",
+    "giocatorePalla": "tu_7",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3514,12 +3514,6 @@
           "seme": "palla",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c24",
-          "seme": "coppa",
-          "valore": 3,
-          "label": "3"
         }
       ],
       "cpu": [
@@ -3732,12 +3726,6 @@
           "seme": "bandierina",
           "valore": 10,
           "label": "10"
-        },
-        {
-          "id": "c3",
-          "seme": "palla",
-          "valore": 11,
-          "label": "J"
         }
       ]
     },
@@ -3808,6 +3796,12 @@
           "seme": "bandierina",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c47",
+          "seme": "bandierina",
+          "valore": 6,
+          "label": "6"
         }
       ],
       "cpu": [
@@ -3876,6 +3870,12 @@
           "seme": "coppa",
           "valore": 5,
           "label": "5"
+        },
+        {
+          "id": "c18",
+          "seme": "coppa",
+          "valore": 9,
+          "label": "9"
         }
       ]
     },
@@ -3891,17 +3891,10 @@
       "contrasto-sicuro",
       "tiro-fuori-area",
       "parata-super",
-      "gol-super",
-      "passaggio-lungo"
+      "gol-super"
     ],
     "mani": {
       "tu": [
-        {
-          "id": "c47",
-          "seme": "bandierina",
-          "valore": 6,
-          "label": "6"
-        },
         {
           "id": "c1",
           "seme": "palla",
@@ -3925,6 +3918,12 @@
           "seme": "guantone",
           "valore": 14,
           "label": "A"
+        },
+        {
+          "id": "c24",
+          "seme": "coppa",
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
@@ -3953,10 +3952,10 @@
           "label": "2"
         },
         {
-          "id": "c18",
-          "seme": "coppa",
-          "valore": 9,
-          "label": "9"
+          "id": "c3",
+          "seme": "palla",
+          "valore": 11,
+          "label": "J"
         }
       ]
     },
@@ -3968,7 +3967,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3982,11 +3981,11 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
-          "ammonito": false,
+          "falli": 2,
+          "falliArea": 1,
+          "ammonito": true,
           "espulso": false,
           "nome": "Kalulu"
         },
@@ -4250,7 +4249,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4472,12 +4471,13 @@
         "passaggio-lungo"
       ],
       "cpu": [
-        "tiro-fuori-area"
+        "tiro-fuori-area",
+        "passaggio-lungo"
       ]
     },
     "streak": {
       "tu": 0,
-      "cpu": 2
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
@@ -4488,10 +4488,10 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 1,
-        "contese": 6,
+        "contese": 7,
         "vinte": 6,
-        "falli": 3,
-        "ammonizioni": 1,
+        "falli": 4,
+        "ammonizioni": 2,
         "espulsioni": 0,
         "sostituzioni": 1,
         "bonusGuadagnati": 1,
@@ -4499,25 +4499,29 @@
         "marcatori": []
       },
       "cpu": {
-        "gol": 1,
-        "tiri": 1,
+        "gol": 2,
+        "tiri": 2,
         "parate": 2,
         "angoli": 0,
         "pali": 0,
         "fuori": 0,
-        "rigori": 1,
+        "rigori": 2,
         "contese": 7,
-        "vinte": 5,
+        "vinte": 6,
         "falli": 1,
         "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 1,
-        "bonusGuadagnati": 1,
+        "bonusGuadagnati": 2,
         "bonusUsati": 0,
         "marcatori": [
           {
             "nome": "Laurienté",
             "minuto": 14
+          },
+          {
+            "nome": "Esposito",
+            "minuto": 22
           }
         ]
       }
@@ -4914,6 +4918,70 @@
       {
         "msg": "🎙️ Z1 superiore: Esposito (CPU) contro Kalulu (TU).",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Esposito gioca 9🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kalulu risponde con 6🚩 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Esposito 9🏆 vs Kalulu 6🚩 → vince Esposito (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 AMMONIZIONE per Kalulu (fallo in area: 1/2)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Esposito vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 8/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Esposito va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 4 → settori 5,6,8,9.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Esposito: dado 4 (casella 4).",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Esposito batte il portiere!",
+        "classe": "goal"
+      },
+      {
+        "msg": "⚽ GOAL di Esposito al 22'!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Esposito esulta! CPU 2-0 TU.",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Calcio d'inizio! TU batte dal centro con McKennie.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie serve Conceiçao in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 superiore: Conceiçao (TU) contro Cinquegrano (CPU).",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -4932,6 +5000,6 @@
         "entrante": "Gatti"
       }
     ],
-    "secondiTrascorsi": 195
+    "secondiTrascorsi": 270
   }
 }

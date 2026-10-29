@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-29T06:38:41.785Z",
+  "data": "2026-10-29T06:39:54.279Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3376,7 +3376,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793255917783,
+    "timestamp": 1793255990276,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "napoli",
@@ -3394,17 +3394,17 @@
         "calzettoni": "#1e40af"
       }
     },
-    "tempo": 1,
-    "mano": 22,
+    "tempo": 2,
+    "mano": 3,
     "maxMani": 23,
     "punteggio": {
       "tu": 2,
       "cpu": 1
     },
-    "zonaPalla": 5,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_10",
-    "metaContesa": "inf",
+    "zonaPalla": 3,
+    "possessore": "tu",
+    "giocatorePalla": "tu_5",
+    "metaContesa": "sup",
     "mazzi": {
       "tu": [
         {
@@ -3538,36 +3538,6 @@
           "seme": "coppa",
           "valore": 9,
           "label": "9"
-        },
-        {
-          "id": "c10",
-          "seme": "palla",
-          "valore": 4,
-          "label": "4"
-        },
-        {
-          "id": "c26",
-          "seme": "guantone",
-          "valore": 14,
-          "label": "A"
-        },
-        {
-          "id": "c2",
-          "seme": "palla",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
-          "id": "c48",
-          "seme": "bandierina",
-          "valore": 5,
-          "label": "5"
-        },
-        {
-          "id": "c9",
-          "seme": "palla",
-          "valore": 5,
-          "label": "5"
         }
       ],
       "cpu": [
@@ -3702,36 +3672,6 @@
           "seme": "guantone",
           "valore": 6,
           "label": "6"
-        },
-        {
-          "id": "c46",
-          "seme": "bandierina",
-          "valore": 7,
-          "label": "7"
-        },
-        {
-          "id": "c2",
-          "seme": "palla",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
-          "id": "c21",
-          "seme": "coppa",
-          "valore": 6,
-          "label": "6"
-        },
-        {
-          "id": "c17",
-          "seme": "coppa",
-          "valore": 10,
-          "label": "10"
-        },
-        {
-          "id": "c11",
-          "seme": "palla",
-          "valore": 3,
-          "label": "3"
         }
       ]
     },
@@ -3868,6 +3808,36 @@
           "seme": "coppa",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c20",
+          "seme": "coppa",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c48",
+          "seme": "bandierina",
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c2",
+          "seme": "palla",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c10",
+          "seme": "palla",
+          "valore": 4,
+          "label": "4"
         }
       ],
       "cpu": [
@@ -4002,6 +3972,36 @@
           "seme": "palla",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c17",
+          "seme": "coppa",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c21",
+          "seme": "coppa",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c2",
+          "seme": "palla",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c11",
+          "seme": "palla",
+          "valore": 3,
+          "label": "3"
         }
       ]
     },
@@ -4025,16 +4025,16 @@
           "label": "2"
         },
         {
-          "id": "c50",
-          "seme": "bandierina",
-          "valore": 3,
-          "label": "3"
+          "id": "c9",
+          "seme": "palla",
+          "valore": 5,
+          "label": "5"
         },
         {
-          "id": "c20",
-          "seme": "coppa",
-          "valore": 7,
-          "label": "7"
+          "id": "c26",
+          "seme": "guantone",
+          "valore": 14,
+          "label": "A"
         }
       ],
       "cpu": [
@@ -4051,10 +4051,10 @@
           "label": "3"
         },
         {
-          "id": "c50",
+          "id": "c46",
           "seme": "bandierina",
-          "valore": 3,
-          "label": "3"
+          "valore": 7,
+          "label": "7"
         }
       ]
     },
@@ -4066,7 +4066,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 7,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4080,7 +4080,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4094,7 +4094,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4108,7 +4108,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 5,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4136,7 +4136,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4150,7 +4150,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4164,7 +4164,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4178,7 +4178,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4192,7 +4192,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4206,7 +4206,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4222,7 +4222,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 6,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4236,7 +4236,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 1,
@@ -4250,7 +4250,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 1,
@@ -4264,7 +4264,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 5,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 0,
@@ -4278,7 +4278,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4292,7 +4292,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4306,9 +4306,9 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 9,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4320,7 +4320,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 6,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4348,7 +4348,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4362,7 +4362,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4576,38 +4576,36 @@
     },
     "monetaVinta": "tu",
     "partitaFinita": false,
-    "direzioneAttaccoTU": -1,
-    "invertiCoppie": false,
+    "direzioneAttaccoTU": 1,
+    "invertiCoppie": true,
     "tuECasa": false,
     "bonus": {
-      "tu": [
-        "parata-super"
-      ],
+      "tu": [],
       "cpu": [
         "tiro-fuori-area"
       ]
     },
     "streak": {
-      "tu": 0,
-      "cpu": 1
+      "tu": 2,
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
         "gol": 2,
         "tiri": 4,
-        "parate": 1,
+        "parate": 2,
         "angoli": 0,
         "pali": 1,
         "fuori": 0,
         "rigori": 2,
-        "contese": 12,
-        "vinte": 12,
+        "contese": 13,
+        "vinte": 14,
         "falli": 1,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
         "bonusGuadagnati": 4,
-        "bonusUsati": 2,
+        "bonusUsati": 3,
         "marcatori": [
           {
             "nome": "Conceiçao",
@@ -4621,15 +4619,15 @@
       },
       "cpu": {
         "gol": 1,
-        "tiri": 3,
+        "tiri": 4,
         "parate": 1,
         "angoli": 0,
         "pali": 0,
         "fuori": 1,
         "rigori": 0,
-        "contese": 8,
-        "vinte": 8,
-        "falli": 5,
+        "contese": 10,
+        "vinte": 9,
+        "falli": 6,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -5387,9 +5385,133 @@
       {
         "msg": "🎙️ De Bruyne serve Lang in Z5.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Lang (CPU) contro Bremer (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Lang gioca 10🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bremer risponde con 7🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Lang 10🏆 vs Bremer 7🏆 → vince Lang (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lang vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 6/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Lang va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Lang: dado 8 (casella 8).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Lang.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: McKennie (TU) contro McTominay (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie gioca 3🚩 e impone il seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McTominay risponde con 3🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie 3🚩 vs McTominay 3🚩 → PAREGGIO (Carte di pari valore)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie gioca 5🚩",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McTominay risponde con 6🏆 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McKennie 5🚩 vs McTominay 6🏆 → vince McKennie (Attaccante col seme guida — FALLO DIFENSORE)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di McTominay (1 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McKennie vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McKennie serve Conceiçao in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "⏸️ FINE PRIMO TEMPO. Risultato: 2-1",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Calcio d'inizio! CPU batte dal centro con McTominay.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McTominay serve De Bruyne in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: De Bruyne (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ De Bruyne gioca Q⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con Q⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ De Bruyne Q⚽ vs Lucumì Q⚽ → PAREGGIO (Carte di pari valore)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ De Bruyne rigioca 3⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 4⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ De Bruyne 3⚽ vs Lucumì 4⚽ → vince Lucumì (Entrambi col seme — valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì vince il contrasto in Z2 e RUBA PALLA!",
+        "classe": "highlight"
       }
     ],
     "cambi": [],
-    "secondiTrascorsi": 377
+    "secondiTrascorsi": 450
   }
 }

@@ -2149,22 +2149,12 @@ function mostraFinestraFineTempo(cb) {
   document.getElementById('modale').classList.remove('nascosto');
   setTimeout(function() { document.getElementById('modale').classList.add('nascosto'); if (cb) cb(); }, 3000);
 }
-async function finePartita() {
+
+function finePartita() {
   stato.partitaFinita = true; eliminaSalvataggio();
   suonaFischietto('fine-partita'); fermaSottofondo(); salvaAmmonizioniInLocalStorage();
   nascondiEntrambiBanner(); chiudiBonusChoice();
   if (timerPartita) { clearInterval(timerPartita); timerPartita = null; }
-
-  // Salva su GitHub e cattura esito
-  var salvataggioOk = false;
-  if (GH.abilitato) {
-    salvataggioOk = await salvaSuGitHub();
-  }
-
-  if (TORNEO_MODE === 'seriea') {
-    salvaRisultatoTorneo();
-    return;
-  }
 
   var msg = stato.punteggio.tu > stato.punteggio.cpu ? '🏆 HAI VINTO!' : stato.punteggio.cpu > stato.punteggio.tu ? '😢 CPU vince' : '🤝 Pareggio';
   var marcatoriTU = stato.statistiche.tu.marcatori.map(function(m){ return m.nome + ' (' + m.minuto + '\')'; }).join(', ') || 'Nessuno';
@@ -2180,17 +2170,7 @@ async function finePartita() {
     cambiHTML = '<div style="color:#aaa">Nessun cambio effettuato</div>';
   }
 
-  var bannerSalvataggio = '';
-  if (GH.abilitato) {
-    bannerSalvataggio = salvataggioOk
-      ? '<div style="background:rgba(74,222,128,0.15);border:2px solid #4ade80;border-radius:12px;padding:16px;margin:20px 0;text-align:center;color:#4ade80;font-weight:bold;font-size:20px">✅ Partita Salvata!</div>'
-      : '<div style="background:rgba(239,68,68,0.15);border:2px solid #ef4444;border-radius:12px;padding:16px;margin:20px 0;text-align:center;color:#ef4444;font-weight:bold;font-size:20px">❌ Salvataggio Fallito!</div>';
-  } else {
-    bannerSalvataggio = '<div style="background:rgba(170,170,170,0.15);border:2px solid #aaa;border-radius:12px;padding:16px;margin:20px 0;text-align:center;color:#aaa;font-weight:bold;font-size:18px">☁️ GitHub non configurato</div>';
-  }
-
   var html = '<h2>FINE PARTITA</h2><p style="font-size:72px;font-weight:bold;margin:20px 0"><span style="color:#4dabf7">' + stato.punteggio.tu + '</span> - <span style="color:#ff6b6b">' + stato.punteggio.cpu + '</span></p><p style="font-size:32px;color:#ffd700;margin:24px 0">' + msg + '</p>' +
-    bannerSalvataggio +
     '<div style="background:rgba(0,0,0,0.4);border-radius:12px;padding:20px;margin:24px 0;text-align:left;font-size:16px"><h3 style="color:#ffd700;margin-bottom:14px;text-align:center">📊 Statistiche</h3><table style="width:100%;border-collapse:collapse;color:#eee"><tr style="border-bottom:1px solid #444"><th style="text-align:left;padding:6px">Stat</th><th style="text-align:center;padding:6px;color:#4dabf7">TU</th><th style="text-align:center;padding:6px;color:#ff6b6b">CPU</th></tr>' +
     '<tr><td style="padding:6px">Gol</td><td style="text-align:center">' + stato.statistiche.tu.gol + '</td><td style="text-align:center">' + stato.statistiche.cpu.gol + '</td></tr>' +
     '<tr><td style="padding:6px">Tiri in porta</td><td style="text-align:center">' + stato.statistiche.tu.tiri + '</td><td style="text-align:center">' + stato.statistiche.cpu.tiri + '</td></tr>' +
@@ -2209,10 +2189,41 @@ async function finePartita() {
       '<strong style="color:#ffd700">Cambi:</strong><br>' + cambiHTML +
     '</div>' +
     '</div>' +
-    '<button class="primario" onclick="location.reload()" style="font-size:24px;padding:20px 40px">NUOVA PARTITA</button><button onclick="mostraMenuPrincipale()" style="font-size:24px;padding:20px 40px">MENU</button>';
+    '<button class="primario" onclick="confermaFinePartita()" style="font-size:24px;padding:20px 40px">CONTINUA ▶</button>';
   document.getElementById('modale-box').innerHTML = html;
   document.getElementById('modale').classList.remove('nascosto');
 }
+
+async function confermaFinePartita() {
+  // 1) Salva su GitHub (o rileva che non è configurato)
+  var salvataggioOk = false;
+  var ghAbilitato = GH.abilitato;
+  if (ghAbilitato) {
+    try { salvataggioOk = await salvaSuGitHub(); }
+    catch(e) { salvataggioOk = false; }
+  }
+
+  // 2) Mostra banner salvataggio
+  var bannerHTML;
+  if (ghAbilitato) {
+    bannerHTML = salvataggioOk
+      ? '<div style="text-align:center;padding:40px 20px"><div style="font-size:80px;margin-bottom:20px">✅</div><h2 style="color:#4ade80;font-size:36px;letter-spacing:2px">PARTITA SALVATA!</h2><p style="color:#aaa;font-size:20px;margin-top:20px">Ritorno al menù tra 3 secondi...</p></div>'
+      : '<div style="text-align:center;padding:40px 20px"><div style="font-size:80px;margin-bottom:20px">❌</div><h2 style="color:#ef4444;font-size:36px;letter-spacing:2px">SALVATAGGIO FALLITO!</h2><p style="color:#aaa;font-size:20px;margin-top:20px">Ritorno al menù tra 3 secondi...</p></div>';
+  } else {
+    bannerHTML = '<div style="text-align:center;padding:40px 20px"><div style="font-size:80px;margin-bottom:20px">☁️</div><h2 style="color:#aaa;font-size:36px;letter-spacing:2px">GITHUB NON CONFIGURATO</h2><p style="color:#aaa;font-size:20px;margin-top:20px">Ritorno al menù tra 3 secondi...</p></div>';
+  }
+  document.getElementById('modale-box').innerHTML = bannerHTML;
+
+  // 3) Dopo 3 secondi: torneo → salva risultato e torna al campionato; normale → mostra menù principale
+  setTimeout(function() {
+    if (TORNEO_MODE === 'seriea' && PARTITA_TORNEO) {
+      salvaRisultatoTorneo();
+    } else {
+      mostraMenuPrincipale();
+    }
+  }, 3000);
+}
+
 function salvaRisultatoTorneo() {
   var casaOrig = URL_CASA || stato.squadraTU;
   var trasfOrig = URL_TRASFERTA || stato.squadraCPU;
@@ -2226,7 +2237,7 @@ function salvaRisultatoTorneo() {
     statistiche: JSON.parse(JSON.stringify(stato.statistiche))
   };
   localStorage.setItem('campionato_partita_' + PARTITA_TORNEO, JSON.stringify(r));
-  setTimeout(function() { location.href = 'seriea2027.html?risultato=' + encodeURIComponent(PARTITA_TORNEO); }, 1500);
+  location.href = 'seriea2027.html?risultato=' + encodeURIComponent(PARTITA_TORNEO);
 }
 
 /* SOSTITUZIONI MANUALI (per il giocatore TU) */

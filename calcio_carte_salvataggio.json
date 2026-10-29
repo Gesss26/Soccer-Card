@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-29T06:12:19.259Z",
+  "data": "2026-10-29T06:13:22.055Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3368,7 +3368,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793254335251,
+    "timestamp": 1793254398051,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "napoli",
@@ -3387,15 +3387,15 @@
       }
     },
     "tempo": 1,
-    "mano": 2,
+    "mano": 5,
     "maxMani": 23,
     "punteggio": {
       "tu": 0,
       "cpu": 0
     },
-    "zonaPalla": 2,
-    "possessore": "tu",
-    "giocatorePalla": "tu_7",
+    "zonaPalla": 5,
+    "possessore": "cpu",
+    "giocatorePalla": "cpu_9",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3662,24 +3662,6 @@
           "seme": "palla",
           "valore": 8,
           "label": "8"
-        },
-        {
-          "id": "c13",
-          "seme": "coppa",
-          "valore": 14,
-          "label": "A"
-        },
-        {
-          "id": "c3",
-          "seme": "palla",
-          "valore": 11,
-          "label": "J"
-        },
-        {
-          "id": "c11",
-          "seme": "palla",
-          "valore": 3,
-          "label": "3"
         }
       ],
       "cpu": [
@@ -3946,7 +3928,11 @@
           "seme": "coppa",
           "valore": 14,
           "label": "A"
-        },
+        }
+      ]
+    },
+    "scarti": {
+      "tu": [
         {
           "id": "c0",
           "seme": "palla",
@@ -3954,22 +3940,50 @@
           "label": "A"
         },
         {
-          "id": "c9",
+          "id": "c11",
           "seme": "palla",
-          "valore": 5,
-          "label": "5"
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c32",
+          "seme": "guantone",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c3",
+          "seme": "palla",
+          "valore": 11,
+          "label": "J"
+        }
+      ],
+      "cpu": [
+        {
+          "id": "c8",
+          "seme": "palla",
+          "valore": 6,
+          "label": "6"
         },
         {
           "id": "c40",
           "seme": "bandierina",
           "valore": 13,
           "label": "K"
+        },
+        {
+          "id": "c16",
+          "seme": "coppa",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c0",
+          "seme": "palla",
+          "valore": 14,
+          "label": "A"
         }
       ]
-    },
-    "scarti": {
-      "tu": [],
-      "cpu": []
     },
     "mazzoBonus": [
       "passaggio-lungo",
@@ -3997,37 +4011,25 @@
           "label": "10"
         },
         {
-          "id": "c0",
-          "seme": "palla",
-          "valore": 14,
-          "label": "A"
-        },
-        {
           "id": "c44",
           "seme": "bandierina",
           "valore": 9,
           "label": "9"
         },
         {
-          "id": "c32",
-          "seme": "guantone",
-          "valore": 8,
-          "label": "8"
-        },
-        {
           "id": "c43",
           "seme": "bandierina",
           "valore": 10,
           "label": "10"
+        },
+        {
+          "id": "c13",
+          "seme": "coppa",
+          "valore": 14,
+          "label": "A"
         }
       ],
       "cpu": [
-        {
-          "id": "c16",
-          "seme": "coppa",
-          "valore": 11,
-          "label": "J"
-        },
         {
           "id": "c36",
           "seme": "guantone",
@@ -4041,16 +4043,16 @@
           "label": "6"
         },
         {
-          "id": "c8",
-          "seme": "palla",
-          "valore": 6,
-          "label": "6"
-        },
-        {
           "id": "c29",
           "seme": "guantone",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c9",
+          "seme": "palla",
+          "valore": 5,
+          "label": "5"
         }
       ]
     },
@@ -4104,7 +4106,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4146,9 +4148,9 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4160,7 +4162,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4202,7 +4204,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4218,7 +4220,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4246,10 +4248,10 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
+          "falli": 2,
+          "falliArea": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Beukema"
@@ -4260,7 +4262,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4302,7 +4304,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4316,7 +4318,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4581,20 +4583,20 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 0
+      "cpu": 2
     },
     "statistiche": {
       "tu": {
         "gol": 0,
-        "tiri": 0,
+        "tiri": 1,
         "parate": 0,
         "angoli": 0,
         "pali": 0,
-        "fuori": 0,
-        "rigori": 0,
-        "contese": 0,
-        "vinte": 0,
-        "falli": 0,
+        "fuori": 1,
+        "rigori": 1,
+        "contese": 2,
+        "vinte": 2,
+        "falli": 1,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4610,9 +4612,9 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 0,
-        "contese": 0,
-        "vinte": 0,
-        "falli": 0,
+        "contese": 2,
+        "vinte": 2,
+        "falli": 1,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4629,9 +4631,141 @@
       {
         "msg": "🎙️ McKennie serve Conceiçao in Z2.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Conceiçao (TU) contro Di Lorenzo (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao gioca A⚽ e impone il seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Di Lorenzo risponde con 6⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao A⚽ vs Di Lorenzo 6⚽ → vince Conceiçao (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao serve Kolo Muani in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 inferiore: Kolo Muani (TU) contro Beukema (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani gioca 3⚽ e impone il seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Beukema risponde con K🚩 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kolo Muani 3⚽ vs Beukema K🚩 → vince Kolo Muani (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Beukema (2 falli totali, 1 in area)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kolo Muani vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Meret si prepara al tiro (stamina 9/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 1 → settori 1,2,4,5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 1 → settori 1,2,4,5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 6 (casella 6).",
+        "classe": ""
+      },
+      {
+        "msg": "❌ FUORI! Kolo Muani calcia a lato.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: McTominay (CPU) contro McKennie (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McTominay gioca J🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie risponde con 8🧤 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McTominay J🏆 vs McKennie 8🧤 → vince McTominay (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di McKennie (1 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McTominay vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McTominay serve De Bruyne in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 superiore: De Bruyne (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ De Bruyne gioca A⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con J⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ De Bruyne A⚽ vs Lucumì J⚽ → vince De Bruyne (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ De Bruyne vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ De Bruyne serve Højlund in Z5.",
+        "classe": ""
       }
     ],
     "cambi": [],
-    "secondiTrascorsi": 3
+    "secondiTrascorsi": 66
   }
 }

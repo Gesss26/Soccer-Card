@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-29T05:50:10.985Z",
+  "data": "2026-10-29T05:51:15.481Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3274,7 +3274,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793253006981,
+    "timestamp": 1793253071479,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "sassuolo",
@@ -3293,16 +3293,16 @@
       }
     },
     "tempo": 1,
-    "mano": 2,
+    "mano": 5,
     "maxMani": 23,
     "punteggio": {
       "tu": 0,
       "cpu": 0
     },
-    "zonaPalla": 2,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_7",
-    "metaContesa": "sup",
+    "zonaPalla": 4,
+    "possessore": "tu",
+    "giocatorePalla": "tu_8",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -3568,24 +3568,6 @@
           "seme": "coppa",
           "valore": 11,
           "label": "J"
-        },
-        {
-          "id": "c17",
-          "seme": "coppa",
-          "valore": 10,
-          "label": "10"
-        },
-        {
-          "id": "c12",
-          "seme": "palla",
-          "valore": 2,
-          "label": "2"
-        },
-        {
-          "id": "c43",
-          "seme": "bandierina",
-          "valore": 10,
-          "label": "10"
         }
       ],
       "cpu": [
@@ -3852,12 +3834,48 @@
           "seme": "guantone",
           "valore": 3,
           "label": "3"
+        }
+      ]
+    },
+    "scarti": {
+      "tu": [
+        {
+          "id": "c11",
+          "seme": "palla",
+          "valore": 3,
+          "label": "3"
         },
         {
-          "id": "c14",
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c15",
           "seme": "coppa",
-          "valore": 13,
-          "label": "K"
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c17",
+          "seme": "coppa",
+          "valore": 10,
+          "label": "10"
+        }
+      ],
+      "cpu": [
+        {
+          "id": "c3",
+          "seme": "palla",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c29",
+          "seme": "guantone",
+          "valore": 11,
+          "label": "J"
         },
         {
           "id": "c21",
@@ -3866,16 +3884,12 @@
           "label": "6"
         },
         {
-          "id": "c49",
-          "seme": "bandierina",
-          "valore": 4,
-          "label": "4"
+          "id": "c14",
+          "seme": "coppa",
+          "valore": 13,
+          "label": "K"
         }
       ]
-    },
-    "scarti": {
-      "tu": [],
-      "cpu": []
     },
     "mazzoBonus": [
       "tiro-fuori-area",
@@ -3903,28 +3917,22 @@
           "label": "7"
         },
         {
-          "id": "c15",
-          "seme": "coppa",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
-          "id": "c50",
-          "seme": "bandierina",
-          "valore": 3,
-          "label": "3"
-        },
-        {
           "id": "c49",
           "seme": "bandierina",
           "valore": 4,
           "label": "4"
         },
         {
-          "id": "c11",
+          "id": "c43",
+          "seme": "bandierina",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c12",
           "seme": "palla",
-          "valore": 3,
-          "label": "3"
+          "valore": 2,
+          "label": "2"
         }
       ],
       "cpu": [
@@ -3941,22 +3949,16 @@
           "label": "2"
         },
         {
-          "id": "c3",
-          "seme": "palla",
-          "valore": 11,
-          "label": "J"
-        },
-        {
-          "id": "c29",
-          "seme": "guantone",
-          "valore": 11,
-          "label": "J"
-        },
-        {
           "id": "c31",
           "seme": "guantone",
           "valore": 9,
           "label": "9"
+        },
+        {
+          "id": "c49",
+          "seme": "bandierina",
+          "valore": 4,
+          "label": "4"
         }
       ]
     },
@@ -3968,7 +3970,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -3982,10 +3984,10 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
+          "falli": 2,
+          "falliArea": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Kalulu"
@@ -4010,7 +4012,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4052,7 +4054,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4080,7 +4082,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4180,7 +4182,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4208,7 +4210,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4222,7 +4224,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4250,7 +4252,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4487,20 +4489,20 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 0
+      "cpu": 1
     },
     "statistiche": {
       "tu": {
         "gol": 0,
         "tiri": 0,
-        "parate": 0,
+        "parate": 1,
         "angoli": 0,
         "pali": 0,
         "fuori": 0,
         "rigori": 0,
-        "contese": 0,
-        "vinte": 0,
-        "falli": 0,
+        "contese": 2,
+        "vinte": 1,
+        "falli": 1,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4510,14 +4512,14 @@
       },
       "cpu": {
         "gol": 0,
-        "tiri": 0,
+        "tiri": 1,
         "parate": 0,
         "angoli": 0,
         "pali": 0,
         "fuori": 0,
-        "rigori": 0,
-        "contese": 0,
-        "vinte": 0,
+        "rigori": 1,
+        "contese": 2,
+        "vinte": 3,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4535,9 +4537,125 @@
       {
         "msg": "🎙️ Matic serve Thorstvedt in Z2.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Thorstvedt (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Thorstvedt gioca J⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 3⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Thorstvedt J⚽ vs Lucumì 3⚽ → vince Thorstvedt (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Thorstvedt vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Thorstvedt serve Esposito in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 superiore: Esposito (CPU) contro Kalulu (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Esposito gioca J🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kalulu risponde con 3🚩 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Esposito J🧤 vs Kalulu 3🚩 → vince Esposito (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Kalulu (2 falli totali, 1 in area)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Esposito vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 9/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Esposito va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 1 → settori 1,2,4,5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Esposito: dado 4 (casella 4).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Esposito.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: McKennie (TU) contro Matic (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie gioca Q🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Matic risponde con 6🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie Q🏆 vs Matic 6🏆 → vince McKennie (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie serve Yildiz in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 inferiore: Yildiz (TU) contro Doig (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz gioca 10🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Doig risponde con K🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz 10🏆 vs Doig K🏆 → vince Doig (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Doig vince il contrasto in Z4 e RUBA PALLA!",
+        "classe": "highlight"
       }
     ],
     "cambi": [],
-    "secondiTrascorsi": 3
+    "secondiTrascorsi": 67
   }
 }

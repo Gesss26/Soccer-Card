@@ -536,10 +536,10 @@ function creaPanchina(sq) {
   var p = []; var id = 0;
   var sqId = sq === 'tu' ? stato.squadraTU : stato.squadraCPU;
   var r = ROSE[sqId]; if (!r || !r.panchina) return p;
-  for (var i=0;i<r.panchina.por.length;i++) p.push({ id:sq+'_pan_'+(id++), squadra:sq, ruolo:'POR', portiere:true, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, entrato:false, nome:r.panchina.por[i] });
-  for (var j=0;j<r.panchina.dif.length;j++) p.push({ id:sq+'_pan_'+(id++), squadra:sq, ruolo:'DIF', portiere:false, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, entrato:false, nome:r.panchina.dif[j] });
-  for (var k=0;k<r.panchina.cen.length;k++) p.push({ id:sq+'_pan_'+(id++), squadra:sq, ruolo:'CEN', portiere:false, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, entrato:false, nome:r.panchina.cen[k] });
-  for (var m=0;m<r.panchina.att.length;m++) p.push({ id:sq+'_pan_'+(id++), squadra:sq, ruolo:'ATT', portiere:false, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, entrato:false, nome:r.panchina.att[m] });
+  for (var i=0;i<r.panchina.por.length;i++) p.push({ id:sq+'_pan_'+(id++), squadra:sq, ruolo:'POR', portiere:true, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, entrato:false, sostituito:false, nome:r.panchina.por[i] });
+  for (var j=0;j<r.panchina.dif.length;j++) p.push({ id:sq+'_pan_'+(id++), squadra:sq, ruolo:'DIF', portiere:false, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, entrato:false, sostituito:false, nome:r.panchina.dif[j] });
+  for (var k=0;k<r.panchina.cen.length;k++) p.push({ id:sq+'_pan_'+(id++), squadra:sq, ruolo:'CEN', portiere:false, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, entrato:false, sostituito:false, nome:r.panchina.cen[k] });
+  for (var m=0;m<r.panchina.att.length;m++) p.push({ id:sq+'_pan_'+(id++), squadra:sq, ruolo:'ATT', portiere:false, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, entrato:false, sostituito:false, nome:r.panchina.att[m] });
   return p;
 }
 function applicaSqualifiche(sq) {
@@ -615,7 +615,7 @@ function apriIstruzioni() {
     '<h3>⚽ Avanzamento</h3><p>Chi vince avanza di 1 zona. Se rubi palla (vinci in difesa), la squadra rubante avanza. In Z1 o Z5 si tira in porta.</p>' +
     '<h3>🥅 Tiro e Rigore</h3><p>Attaccante 1d9. Portiere 1d4 (4 settori). Se il settore copre la casella → parata. <strong>Se il difensore commette fallo in area, l\'attaccante va direttamente a tirare un rigore</strong> (salta l\'avanzamento).</p>' +
     '<h3>⚡ Stamina e Cartellini</h3><p>Ogni contrasto vinto costa 1 punto stamina. A 0 stamina o se espulso, il giocatore gioca la coppia con una carta in meno. Chi commette fallo subisce una penalità di -1 stamina. Il portiere perde 1 stamina ad ogni tiro.</p>' +
-    '<h3>🟨 Falli del difensore in area</h3><p>Nel contrasto in area (Z1/Z5), 1° fallo = 🟨 giallo, 2° fallo = 🟥 rosso.</p>' +
+    '<h3>🟨 Falli</h3><p>Un fallo fuori area vale <strong>+1</strong> fallo. Un fallo in area vale <strong>+2</strong> falli. Ogni <strong>3 falli totali</strong> → 🟨 giallo. A <strong>6 falli totali</strong> (2° giallo) → 🟥 rosso.</p>' +
     '<h3>🚀 Tiro da Fuori Area</h3><p>Bonus utilizzabile quando vinci un contrasto in Z4 (attaccando verso destra) o Z2 (attaccando verso sinistra): tira subito in porta saltando l\'avanzamento.</p>' +
     '</div><button class="primario" onclick="mostraMenuPrincipale()" style="margin-top:24px">← Chiudi</button>';
 }
@@ -678,7 +678,6 @@ function renderCampo() {
     var zonaLogicaTU = tuSin ? zonaFisica : (6 - zonaFisica);
     var zonaLogicaCPU = tuSin ? (6 - zonaFisica) : zonaFisica;
 
-    // NON filtriamo più g.espulso: lo facciamo vedere come fantasma
     var tuG = stato.giocatori.tu.filter(function(g){ return !g.portiere && g.zona === zonaLogicaTU; });
     var cpuG = stato.giocatori.cpu.filter(function(g){ return !g.portiere && g.zona === zonaLogicaCPU; });
 
@@ -1289,36 +1288,31 @@ function trovaGiocatorePerId(sq, id) { if (!id) return null; for (var i = 0; i <
 
 function applicaFallo(sq, gF, inArea) {
   if (!gF || gF.espulso) return;
-  // Assegniamo +2 ai falli (così a 3 falli totali = espulsione, ovvero dopo 2 falli in area o 3 falli normali)
-  gF.falli += 2; 
+
+  // Conteggio falli: in area vale 2, fuori area vale 1
+  gF.falli += inArea ? 2 : 1;
   stato.statistiche[sq].falli++;
-  if (inArea) gF.falliArea = (gF.falliArea || 0) + 1;
+  if (inArea) gF.falliArea = (gF.falliArea || 0) + 1; // solo contatore statistico
   gF.stamina = Math.max(0, gF.stamina - 1);
   suonaFischietto('fallo');
 
-  if (inArea) {
-    if (gF.falliArea === 1 && !gF.ammonito) {
-      gF.ammonito = true; stato.statistiche[sq].ammonizioni++;
-      log('🟨 AMMONIZIONE per ' + gF.nome + ' (fallo in area: 1/2)', 'parata');
-      var sqIdF = sq === 'tu' ? stato.squadraTU : stato.squadraCPU; aggiornaAmmonizione(sqIdF, gF.nome, 1);
-    } else if (gF.falliArea >= 2 && !gF.espulso) {
-      gF.espulso = true; stato.statistiche[sq].espulsioni++;
-      log('🟥 ESPULSIONE per ' + gF.nome + ' (2 falli in area)!', 'goal');
-      var sqIdF2 = sq === 'tu' ? stato.squadraTU : stato.squadraCPU; aggiornaAmmonizione(sqIdF2, gF.nome, 1);
-    }
-  } else {
-    log('🟨 Fallo di ' + gF.nome + ' (' + gF.falli + ')', 'parata');
-    if (gF.falli >= 3 && !gF.ammonito) {
-      gF.ammonito = true; stato.statistiche[sq].ammonizioni++;
-      log('🟨 AMMONIZIONE per ' + gF.nome, 'parata');
-      var sqIdF3 = sq === 'tu' ? stato.squadraTU : stato.squadraCPU; aggiornaAmmonizione(sqIdF3, gF.nome, 1);
-    }
-    if (gF.falli >= 6 && !gF.espulso) {
-      gF.espulso = true; stato.statistiche[sq].espulsioni++;
-      log('🟥 ' + gF.nome + ' ESPULSO!', 'goal');
-      var sqIdF4 = sq === 'tu' ? stato.squadraTU : stato.squadraCPU; aggiornaAmmonizione(sqIdF4, gF.nome, 1);
-    }
+  log('🟨 Fallo di ' + gF.nome + ' (' + gF.falli + ' falli totali' + (inArea ? ', ' + gF.falliArea + ' in area' : '') + ')', 'parata');
+
+  // Regola generale: ogni 3 falli totali = giallo, 6 falli totali = rosso (2° giallo)
+  if (gF.falli >= 6 && !gF.espulso) {
+    gF.espulso = true;
+    stato.statistiche[sq].espulsioni++;
+    log('🟥 ' + gF.nome + ' ESPULSO! (6 falli totali)', 'goal');
+    var sqIdF4 = sq === 'tu' ? stato.squadraTU : stato.squadraCPU;
+    aggiornaAmmonizione(sqIdF4, gF.nome, 1);
+  } else if (gF.falli >= 3 && !gF.ammonito) {
+    gF.ammonito = true;
+    stato.statistiche[sq].ammonizioni++;
+    log('🟨 AMMONIZIONE per ' + gF.nome + ' (3 falli totali)', 'parata');
+    var sqIdF3 = sq === 'tu' ? stato.squadraTU : stato.squadraCPU;
+    aggiornaAmmonizione(sqIdF3, gF.nome, 1);
   }
+
   salvaAmmonizioniInLocalStorage();
   salvaPartita();
 }
@@ -1336,7 +1330,7 @@ function gestisciSostituzioneCPU() {
       // Cerca in panchina
       for (var j = 0; j < stato.panchina.cpu.length; j++) {
         var pan = stato.panchina.cpu[j];
-        if (pan.entrato) continue;
+        if (pan.entrato || pan.sostituito) continue;
         // Mettiamo che la CPU cerchi un ruolo simile o lo stesso
         if (pan.ruolo === g.ruolo || (g.ruolo === 'ATT' && pan.ruolo === 'CEN') || (g.ruolo === 'DIF' && pan.ruolo === 'CEN')) {
           // Effettua il cambio
@@ -1346,6 +1340,13 @@ function gestisciSostituzioneCPU() {
           };
           stato.giocatori.cpu[i] = nuovoG;
           pan.entrato = true;
+          // Anche il giocatore uscito non è più riutilizzabile
+          g.sostituito = true;
+          stato.panchina.cpu.push({
+            id: g.id + '_usc', squadra: 'cpu', ruolo: g.ruolo, portiere: g.portiere,
+            stamina: g.stamina, staminaMax: g.staminaMax, falli: g.falli, falliArea: g.falliArea || 0,
+            ammonito: g.ammonito, espulso: g.espulso, entrato: true, sostituito: true, nome: g.nome
+          });
           stato.statistiche.cpu.sostituzioni++;
           
           stato.cambi.push({
@@ -2244,9 +2245,12 @@ function renderModaleSostituzioni() {
   for (var k=0;k<stato.panchina[sq].length;k++) { 
     var p = stato.panchina[sq][k]; 
     var sel2 = selezioneSost.panchina === p.id ? 'background:#ffd700;color:#16213e;' : 'background:#0f3460;color:#fff;'; 
-    var dis = p.entrato ? 'opacity:0.35;cursor:not-allowed;' : 'cursor:pointer;'; 
+    // Un giocatore è non riutilizzabile se entrato o sostituito
+    var disabilitato = p.entrato || p.sostituito;
+    var dis = disabilitato ? 'opacity:0.35;cursor:not-allowed;' : 'cursor:pointer;'; 
     var cartellinoPan = p.espulso ? '🟥' : (p.ammonito ? '🟨' : '');
-    h += '<div style="' + sel2 + dis + 'border:2px solid #4dabf7;border-radius:8px;padding:10px 16px" onclick="selezionaSostPanchina(\'' + p.id + '\')"><div>' + p.nome + ' (' + p.ruolo + ') ' + cartellinoPan + '</div><div>⚡' + p.stamina + '/10</div></div>'; 
+    var labelStato = p.sostituito ? ' <span style="color:#ff6b6b;font-size:11px">(sostituito)</span>' : (p.entrato ? ' <span style="color:#4ade80;font-size:11px">(entrato)</span>' : '');
+    h += '<div style="' + sel2 + dis + 'border:2px solid #4dabf7;border-radius:8px;padding:10px 16px" onclick="' + (disabilitato ? '' : 'selezionaSostPanchina(\\\'' + p.id + '\\\')') + '"><div>' + p.nome + ' (' + p.ruolo + ') ' + cartellinoPan + labelStato + '</div><div>⚡' + p.stamina + '/10</div></div>'; 
   }
   h += '</div></div><div style="margin-top:20px">';
   if (selezioneSost.campo && selezioneSost.panchina) h += '<button class="primario" onclick="confermaSostituzione()">CONFERMA</button>';
@@ -2254,16 +2258,24 @@ function renderModaleSostituzioni() {
   document.getElementById('modale-box').innerHTML = h;
 }
 function selezionaSostCampo(id) { selezioneSost.campo = id; renderModaleSostituzioni(); }
-function selezionaSostPanchina(id) { var p = null; for (var i=0;i<stato.panchina.tu.length;i++) if (stato.panchina.tu[i].id === id) { p = stato.panchina.tu[i]; break; } if (p && p.entrato) return; selezioneSost.panchina = id; renderModaleSostituzioni(); }
+function selezionaSostPanchina(id) { var p = null; for (var i=0;i<stato.panchina.tu.length;i++) if (stato.panchina.tu[i].id === id) { p = stato.panchina.tu[i]; break; } if (p && (p.entrato || p.sostituito)) return; selezioneSost.panchina = id; renderModaleSostituzioni(); }
 function confermaSostituzione() {
   var sq = 'tu'; var campo = null, pan = null;
   for (var i=0;i<stato.giocatori[sq].length;i++) if (stato.giocatori[sq][i].id === selezioneSost.campo) { campo = stato.giocatori[sq][i]; break; }
   for (var j=0;j<stato.panchina[sq].length;j++) if (stato.panchina[sq][j].id === selezioneSost.panchina) { pan = stato.panchina[sq][j]; break; }
-  if (!campo || !pan || pan.entrato) return;
+  if (!campo || !pan || pan.entrato || pan.sostituito) return;
   var n = { id:pan.id+'_sost', squadra:sq, zona:campo.zona, ruolo:pan.ruolo, portiere:pan.portiere, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, falliArea:0, ammonito:false, espulso:false, nome:pan.nome };
   var idx = stato.giocatori[sq].indexOf(campo); stato.giocatori[sq][idx] = n;
   pan.entrato = true; stato.statistiche[sq].sostituzioni++;
-  
+
+  // Il giocatore uscito va in panchina come non più riutilizzabile
+  campo.sostituito = true;
+  stato.panchina[sq].push({
+    id: campo.id + '_usc', squadra: sq, ruolo: campo.ruolo, portiere: campo.portiere,
+    stamina: campo.stamina, staminaMax: campo.staminaMax, falli: campo.falli, falliArea: campo.falliArea || 0,
+    ammonito: campo.ammonito, espulso: campo.espulso, entrato: true, sostituito: true, nome: campo.nome
+  });
+
   stato.cambi.push({
     squadra: 'tu',
     uscente: campo.nome,
@@ -2276,15 +2288,29 @@ function confermaSostituzione() {
   renderCampo(); renderModaleSostituzioni(); salvaPartita();
 }
 
-/* RIAVVIO RAPIDO */
-function mostraBannerRiavvio() { var b = document.getElementById('banner-riavvio'); if (b) b.classList.add('attivo'); }
+/* RIAVVIO RAPIDO — F9 / PrintScreen */
+function mostraBannerRiavvio() {
+  // Su F9/PrintScreen: esci subito dalla partita, annulla quella in corso e torna al menu
+  if (stato.partitaFinita) return;
+  stato.partitaFinita = true;
+  eliminaSalvataggio();
+  if (timerPartita) { clearInterval(timerPartita); timerPartita = null; }
+  fermaSottofondo();
+  chiudiBonusChoice();
+  var ov = document.getElementById('tiro-overlay'); if (ov) ov.remove();
+  var bm = document.getElementById('banner-mano'); if (bm) bm.classList.remove('attivo');
+  mostraMenuPrincipale();
+}
 function annullaRiavvio() { var b = document.getElementById('banner-riavvio'); if (b) b.classList.remove('attivo'); }
 function eseguiRiavvio() { localStorage.removeItem(CHIAVE_SALVATAGGIO); location.reload(); }
 
 window.addEventListener('keydown', function(e) {
   if (e.key === 'PrintScreen' || e.key === 'F9') {
     e.preventDefault();
-    mostraBannerRiavvio();
+    // F9 / PrintScreen: annulla la partita in corso e torna al menu principale
+    if (stato.giocatori && stato.giocatori.tu && stato.giocatori.tu.length > 0 && !stato.partitaFinita) {
+      mostraBannerRiavvio();
+    }
   }
 });
 

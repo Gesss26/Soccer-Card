@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-30T16:11:53.062Z",
+  "data": "2026-10-30T16:13:00.208Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -1093,6 +1093,10 @@
             "squalificato": false
           },
           "Galazzi": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Ziolkowski": {
             "gialli": 1,
             "squalificato": false
           }
@@ -3515,7 +3519,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793376709059,
+    "timestamp": 1793376776207,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3535,16 +3539,16 @@
       }
     },
     "tempo": 2,
-    "mano": 5,
+    "mano": 8,
     "maxMani": 23,
     "punteggio": {
       "tu": 4,
-      "cpu": 0
+      "cpu": 1
     },
-    "zonaPalla": 1,
+    "zonaPalla": 2,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_10",
-    "metaContesa": "inf",
+    "giocatorePalla": "cpu_7",
+    "metaContesa": "sup",
     "mazzi": {
       "tu": [
         {
@@ -3648,30 +3652,6 @@
           "seme": "palla",
           "valore": 10,
           "label": "10"
-        },
-        {
-          "id": "c6",
-          "seme": "palla",
-          "valore": 8,
-          "label": "8"
-        },
-        {
-          "id": "c14",
-          "seme": "coppa",
-          "valore": 13,
-          "label": "K"
-        },
-        {
-          "id": "c17",
-          "seme": "coppa",
-          "valore": 10,
-          "label": "10"
-        },
-        {
-          "id": "c27",
-          "seme": "guantone",
-          "valore": 13,
-          "label": "K"
         }
       ],
       "cpu": [
@@ -3776,30 +3756,6 @@
           "seme": "guantone",
           "valore": 13,
           "label": "K"
-        },
-        {
-          "id": "c18",
-          "seme": "coppa",
-          "valore": 9,
-          "label": "9"
-        },
-        {
-          "id": "c3",
-          "seme": "palla",
-          "valore": 11,
-          "label": "J"
-        },
-        {
-          "id": "c0",
-          "seme": "palla",
-          "valore": 14,
-          "label": "A"
-        },
-        {
-          "id": "c51",
-          "seme": "bandierina",
-          "valore": 2,
-          "label": "2"
         }
       ]
     },
@@ -3978,6 +3934,24 @@
           "seme": "palla",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c17",
+          "seme": "coppa",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c14",
+          "seme": "coppa",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c22",
+          "seme": "coppa",
+          "valore": 5,
+          "label": "5"
         }
       ],
       "cpu": [
@@ -4154,6 +4128,24 @@
           "seme": "bandierina",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c0",
+          "seme": "palla",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c3",
+          "seme": "palla",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c18",
+          "seme": "coppa",
+          "valore": 9,
+          "label": "9"
         }
       ]
     },
@@ -4178,10 +4170,16 @@
           "label": "6"
         },
         {
-          "id": "c22",
-          "seme": "coppa",
-          "valore": 5,
-          "label": "5"
+          "id": "c27",
+          "seme": "guantone",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c6",
+          "seme": "palla",
+          "valore": 8,
+          "label": "8"
         }
       ],
       "cpu": [
@@ -4196,6 +4194,12 @@
           "seme": "palla",
           "valore": 5,
           "label": "5"
+        },
+        {
+          "id": "c51",
+          "seme": "bandierina",
+          "valore": 2,
+          "label": "2"
         }
       ]
     },
@@ -4277,7 +4281,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4305,7 +4309,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4333,7 +4337,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4363,7 +4367,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4372,18 +4376,18 @@
           "nome": "Tornqvist"
         },
         {
-          "id": "cpu_1",
+          "id": "cpu_pan_1_sost",
           "squadra": "cpu",
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 10,
           "staminaMax": 10,
-          "falli": 2,
-          "falliArea": 1,
+          "falli": 0,
+          "falliArea": 0,
           "ammonito": false,
           "espulso": false,
-          "nome": "Ziolkowski"
+          "nome": "Antov"
         },
         {
           "id": "cpu_2",
@@ -4405,9 +4409,9 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 1,
+          "falli": 2,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4433,7 +4437,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 0,
@@ -4654,7 +4658,7 @@
           "falli": 0,
           "ammonito": false,
           "espulso": false,
-          "entrato": false,
+          "entrato": true,
           "sostituito": false,
           "nome": "Antov"
         },
@@ -4727,6 +4731,21 @@
           "entrato": false,
           "sostituito": false,
           "nome": "Cutrone"
+        },
+        {
+          "id": "cpu_1_usc",
+          "squadra": "cpu",
+          "ruolo": "DIF",
+          "portiere": false,
+          "stamina": 7,
+          "staminaMax": 10,
+          "falli": 4,
+          "falliArea": 2,
+          "ammonito": true,
+          "espulso": false,
+          "entrato": true,
+          "sostituito": true,
+          "nome": "Ziolkowski"
         }
       ]
     },
@@ -4741,19 +4760,19 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 2
+      "cpu": 1
     },
     "statistiche": {
       "tu": {
         "gol": 4,
-        "tiri": 5,
+        "tiri": 6,
         "parate": 3,
         "angoli": 0,
         "pali": 1,
         "fuori": 0,
-        "rigori": 2,
-        "contese": 15,
-        "vinte": 15,
+        "rigori": 3,
+        "contese": 17,
+        "vinte": 17,
         "falli": 6,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -4780,22 +4799,27 @@
         ]
       },
       "cpu": {
-        "gol": 0,
+        "gol": 1,
         "tiri": 5,
-        "parate": 0,
+        "parate": 1,
         "angoli": 1,
         "pali": 0,
         "fuori": 0,
         "rigori": 3,
-        "contese": 12,
-        "vinte": 11,
-        "falli": 7,
-        "ammonizioni": 0,
+        "contese": 13,
+        "vinte": 12,
+        "falli": 9,
+        "ammonizioni": 1,
         "espulsioni": 0,
-        "sostituzioni": 0,
+        "sostituzioni": 1,
         "bonusGuadagnati": 1,
         "bonusUsati": 1,
-        "marcatori": []
+        "marcatori": [
+          {
+            "nome": "Varela",
+            "minuto": 53
+          }
+        ]
       }
     },
     "logCompleto": [
@@ -5814,6 +5838,146 @@
       {
         "msg": "🎙️ Portiere sceglie gruppo 2 → settori 2,3,5,6.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Varela: dado 4 (casella 4).",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Varela batte il portiere!",
+        "classe": "goal"
+      },
+      {
+        "msg": "⚽ GOAL di Varela al 53'!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Varela esulta! CPU 1-4 TU.",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Calcio d'inizio! TU batte dal centro con McKennie.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie serve Conceiçao in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 superiore: Conceiçao (TU) contro Kouadio (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao gioca 10🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kouadio risponde con A⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Conceiçao 10🏆 vs Kouadio A⚽ → vince Conceiçao (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Kouadio (2 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Conceiçao vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Conceiçao serve Woltemade in Z5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 superiore: Woltemade (TU) contro Ziolkowski (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade gioca K🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ziolkowski risponde con J⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Woltemade K🏆 vs Ziolkowski J⚽ → vince Woltemade (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Ziolkowski (4 falli totali, 2 in area)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🟨 AMMONIZIONE per Ziolkowski (3 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🔄 CAMBIO CPU: Ziolkowski (st 7) lascia il campo. Entra Antov.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Woltemade vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Tornqvist si prepara al tiro (stamina 7/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 1 → settori 1,2,4,5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 1 → settori 1,2,4,5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Woltemade: dado 5 (casella 5).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Woltemade.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 superiore: Pessina (CPU) contro Douglas Luiz (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Pessina gioca 9🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz risponde con 5🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Pessina 9🏆 vs Douglas Luiz 5🏆 → vince Pessina (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Pessina vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Pessina serve Birindelli in Z2.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -5823,8 +5987,15 @@
         "staminaUscente": 6,
         "cartelliniUscente": "🟨",
         "entrante": "Gatti"
+      },
+      {
+        "squadra": "cpu",
+        "uscente": "Ziolkowski",
+        "staminaUscente": 7,
+        "cartelliniUscente": "🟨",
+        "entrante": "Antov"
       }
     ],
-    "secondiTrascorsi": 555
+    "secondiTrascorsi": 622
   }
 }

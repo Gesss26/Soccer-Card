@@ -232,15 +232,41 @@ async function ghLeggiFile() {
 }
 async function ghScriviFile(oggetto) {
   if (!GH.abilitato) return null;
-  var attuale = await ghLeggiFile().catch(function(){ return { sha: null }; });
+  
   var contenuto = JSON.stringify(oggetto, null, 2);
   var b64 = btoa(unescape(encodeURIComponent(contenuto)));
-  var body = { message: 'Salvataggio ' + new Date().toISOString(), content: b64, branch: GH.branch };
-  if (attuale.sha) body.sha = attuale.sha;
   var url = 'https://api.github.com/repos/' + GH.owner + '/' + GH.repo + '/contents/' + encodeURIComponent(GH.path);
-  var r = await fetch(url, { method: 'PUT', headers: Object.assign({ 'Content-Type': 'application/json' }, ghApiHeaders()), body: JSON.stringify(body) });
-  if (!r.ok) throw new Error('GitHub PUT ' + r.status);
-  var j = await r.json(); GH.sha = j.content.sha; return j;
+  
+  // Tentativo 1: usa lo SHA memorizzato (se esiste)
+  var body1 = { message: 'Salvataggio ' + new Date().toISOString(), content: b64, branch: GH.branch };
+  if (GH.sha) body1.sha = GH.sha;
+  
+  var r = await fetch(url, { method: 'PUT', headers: Object.assign({ 'Content-Type': 'application/json' }, ghApiHeaders()), body: JSON.stringify(body1) });
+  
+  if (r.ok) {
+    var j = await r.json();
+    GH.sha = j.content.sha;
+    return j;
+  }
+  
+  // Se 409 (conflitto) o 422 (SHA non valido), rileggi lo SHA e riprova UNA volta
+  if (r.status === 409 || r.status === 422) {
+    try {
+      var letto = await ghLeggiFile();
+      if (letto.sha) {
+        GH.sha = letto.sha;
+        var body2 = { message: 'Salvataggio (retry) ' + new Date().toISOString(), content: b64, branch: GH.branch, sha: letto.sha };
+        var r2 = await fetch(url, { method: 'PUT', headers: Object.assign({ 'Content-Type': 'application/json' }, ghApiHeaders()), body: JSON.stringify(body2) });
+        if (r2.ok) {
+          var j2 = await r2.json();
+          GH.sha = j2.content.sha;
+          return j2;
+        }
+      }
+    } catch(e) {}
+  }
+  
+  throw new Error('GitHub PUT ' + r.status);
 }
 var ghSalvataggioInCorso = false;
 async function salvaSuGitHub() {

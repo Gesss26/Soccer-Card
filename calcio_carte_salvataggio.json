@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-30T16:04:25.287Z",
+  "data": "2026-10-30T16:05:26.697Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3515,7 +3515,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793376261286,
+    "timestamp": 1793376322696,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3535,16 +3535,16 @@
       }
     },
     "tempo": 1,
-    "mano": 5,
+    "mano": 8,
     "maxMani": 23,
     "punteggio": {
-      "tu": 1,
+      "tu": 2,
       "cpu": 0
     },
-    "zonaPalla": 3,
+    "zonaPalla": 1,
     "possessore": "tu",
-    "giocatorePalla": "tu_5",
-    "metaContesa": "sup",
+    "giocatorePalla": "tu_10",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -3798,24 +3798,6 @@
           "seme": "palla",
           "valore": 13,
           "label": "K"
-        },
-        {
-          "id": "c19",
-          "seme": "coppa",
-          "valore": 8,
-          "label": "8"
-        },
-        {
-          "id": "c39",
-          "seme": "bandierina",
-          "valore": 14,
-          "label": "A"
-        },
-        {
-          "id": "c31",
-          "seme": "guantone",
-          "valore": 9,
-          "label": "9"
         }
       ],
       "cpu": [
@@ -4070,24 +4052,6 @@
           "seme": "bandierina",
           "valore": 9,
           "label": "9"
-        },
-        {
-          "id": "c11",
-          "seme": "palla",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c14",
-          "seme": "coppa",
-          "valore": 13,
-          "label": "K"
-        },
-        {
-          "id": "c6",
-          "seme": "palla",
-          "valore": 8,
-          "label": "8"
         }
       ]
     },
@@ -4116,6 +4080,24 @@
           "seme": "palla",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c31",
+          "seme": "guantone",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c39",
+          "seme": "bandierina",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c19",
+          "seme": "coppa",
+          "valore": 8,
+          "label": "8"
         }
       ],
       "cpu": [
@@ -4142,6 +4124,24 @@
           "seme": "guantone",
           "valore": 14,
           "label": "A"
+        },
+        {
+          "id": "c34",
+          "seme": "guantone",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c14",
+          "seme": "coppa",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c21",
+          "seme": "coppa",
+          "valore": 6,
+          "label": "6"
         }
       ]
     },
@@ -4159,7 +4159,6 @@
       "passaggio-lungo",
       "passaggio-lungo",
       "contrasto-sicuro",
-      "gol-super",
       "gol-super"
     ],
     "mani": {
@@ -4185,22 +4184,22 @@
       ],
       "cpu": [
         {
-          "id": "c34",
-          "seme": "guantone",
-          "valore": 6,
-          "label": "6"
-        },
-        {
           "id": "c25",
           "seme": "coppa",
           "valore": 2,
           "label": "2"
         },
         {
-          "id": "c21",
-          "seme": "coppa",
-          "valore": 6,
-          "label": "6"
+          "id": "c6",
+          "seme": "palla",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c11",
+          "seme": "palla",
+          "valore": 3,
+          "label": "3"
         }
       ]
     },
@@ -4282,7 +4281,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4324,7 +4323,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4352,7 +4351,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4368,7 +4367,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4396,7 +4395,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 1,
@@ -4424,9 +4423,9 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4438,7 +4437,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4731,29 +4730,33 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 2
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
-        "gol": 1,
-        "tiri": 1,
+        "gol": 2,
+        "tiri": 2,
         "parate": 1,
         "angoli": 0,
         "pali": 0,
         "fuori": 0,
         "rigori": 1,
-        "contese": 3,
-        "vinte": 2,
+        "contese": 6,
+        "vinte": 5,
         "falli": 1,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 0,
-        "bonusUsati": 0,
+        "bonusGuadagnati": 1,
+        "bonusUsati": 1,
         "marcatori": [
           {
             "nome": "Kolo Muani",
             "minuto": 4
+          },
+          {
+            "nome": "Kolo Muani",
+            "minuto": 14
           }
         ]
       },
@@ -4767,7 +4770,7 @@
         "rigori": 1,
         "contese": 2,
         "vinte": 2,
-        "falli": 1,
+        "falli": 2,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4952,9 +4955,101 @@
       {
         "msg": "🧤 PARATA! Il portiere ferma Varela.",
         "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 superiore: Douglas Luiz (TU) contro Pessina (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz gioca 9🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Pessina risponde con 6🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz 9🧤 vs Pessina 6🧤 → vince Douglas Luiz (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz serve Yildiz in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 inferiore: Yildiz (TU) contro Mangas (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz gioca A🚩 e impone il seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Mangas risponde con K🏆 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Yildiz A🚩 vs Mangas K🏆 → vince Yildiz (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Mangas (1 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Yildiz vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Yildiz serve Kolo Muani in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 inferiore: Kolo Muani (TU) contro Carboni (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani gioca 8🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Carboni risponde con 6🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani 8🏆 vs Carboni 6🏆 → vince Kolo Muani (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kolo Muani vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Tornqvist si prepara al tiro (stamina 8/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 5 (casella 5).",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Kolo Muani batte il portiere!",
+        "classe": "goal"
       }
     ],
     "cambi": [],
-    "secondiTrascorsi": 107
+    "secondiTrascorsi": 168
   }
 }

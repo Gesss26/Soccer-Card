@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-30T11:54:16.529Z",
+  "data": "2026-10-30T11:55:21.080Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3451,7 +3451,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793361252527,
+    "timestamp": 1793361317077,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "bologna",
@@ -3470,16 +3470,16 @@
       }
     },
     "tempo": 2,
-    "mano": 20,
+    "mano": 22,
     "maxMani": 23,
     "punteggio": {
       "tu": 2,
-      "cpu": 0
+      "cpu": 1
     },
-    "zonaPalla": 5,
+    "zonaPalla": 3,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_9",
-    "metaContesa": "sup",
+    "giocatorePalla": "cpu_6",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -3517,18 +3517,6 @@
           "seme": "guantone",
           "valore": 9,
           "label": "9"
-        },
-        {
-          "id": "c11",
-          "seme": "palla",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c42",
-          "seme": "bandierina",
-          "valore": 11,
-          "label": "J"
         }
       ],
       "cpu": [
@@ -3567,18 +3555,6 @@
           "seme": "palla",
           "valore": 2,
           "label": "2"
-        },
-        {
-          "id": "c3",
-          "seme": "palla",
-          "valore": 11,
-          "label": "J"
-        },
-        {
-          "id": "c1",
-          "seme": "palla",
-          "valore": 13,
-          "label": "K"
         }
       ]
     },
@@ -3817,6 +3793,24 @@
           "seme": "bandierina",
           "valore": 9,
           "label": "9"
+        },
+        {
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c42",
+          "seme": "bandierina",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c48",
+          "seme": "bandierina",
+          "valore": 5,
+          "label": "5"
         }
       ],
       "cpu": [
@@ -4053,6 +4047,24 @@
           "seme": "bandierina",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c16",
+          "seme": "coppa",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c1",
+          "seme": "palla",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c3",
+          "seme": "palla",
+          "valore": 11,
+          "label": "J"
         }
       ]
     },
@@ -4062,17 +4074,10 @@
       "parata-super",
       "contrasto-sicuro",
       "tiro-fuori-area",
-      "passaggio-lungo",
-      "gol-super"
+      "passaggio-lungo"
     ],
     "mani": {
       "tu": [
-        {
-          "id": "c48",
-          "seme": "bandierina",
-          "valore": 5,
-          "label": "5"
-        },
         {
           "id": "c12",
           "seme": "palla",
@@ -4092,8 +4097,8 @@
           "label": "6"
         },
         {
-          "id": "c37",
-          "seme": "guantone",
+          "id": "c11",
+          "seme": "palla",
           "valore": 3,
           "label": "3"
         }
@@ -4122,12 +4127,6 @@
           "seme": "guantone",
           "valore": 9,
           "label": "9"
-        },
-        {
-          "id": "c16",
-          "seme": "coppa",
-          "valore": 11,
-          "label": "J"
         }
       ]
     },
@@ -4139,7 +4138,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4153,10 +4152,10 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
+          "falli": 2,
+          "falliArea": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Kalulu"
@@ -4237,7 +4236,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4279,7 +4278,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4295,7 +4294,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 6,
+          "stamina": 5,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4323,10 +4322,10 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 6,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
+          "falli": 2,
+          "falliArea": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Theate"
@@ -4337,9 +4336,9 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 5,
           "staminaMax": 10,
-          "falli": 1,
+          "falli": 2,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4421,7 +4420,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4659,21 +4658,21 @@
       ]
     },
     "streak": {
-      "tu": 0,
-      "cpu": 2
+      "tu": 2,
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
         "gol": 2,
-        "tiri": 7,
+        "tiri": 8,
         "parate": 1,
         "angoli": 1,
         "pali": 0,
-        "fuori": 0,
-        "rigori": 1,
-        "contese": 21,
-        "vinte": 25,
-        "falli": 5,
+        "fuori": 1,
+        "rigori": 2,
+        "contese": 23,
+        "vinte": 27,
+        "falli": 6,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4691,22 +4690,27 @@
         ]
       },
       "cpu": {
-        "gol": 0,
-        "tiri": 2,
+        "gol": 1,
+        "tiri": 3,
         "parate": 4,
         "angoli": 0,
         "pali": 0,
         "fuori": 1,
-        "rigori": 0,
-        "contese": 18,
-        "vinte": 14,
-        "falli": 5,
+        "rigori": 1,
+        "contese": 19,
+        "vinte": 15,
+        "falli": 7,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 2,
-        "bonusUsati": 0,
-        "marcatori": []
+        "bonusGuadagnati": 3,
+        "bonusUsati": 1,
+        "marcatori": [
+          {
+            "nome": "Dovbyk",
+            "minuto": 83
+          }
+        ]
       }
     },
     "logCompleto": [
@@ -5961,9 +5965,153 @@
       {
         "msg": "🎙️ Orsolini serve Dovbyk in Z5.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 superiore: Dovbyk (CPU) contro Kalulu (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Dovbyk gioca J🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kalulu risponde con 3🧤 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Dovbyk J🏆 vs Kalulu 3🧤 → vince Dovbyk (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Kalulu (2 falli totali, 1 in area)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Dovbyk vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 8/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Dovbyk va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Dovbyk: dado 6 (casella 6).",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Dovbyk batte il portiere!",
+        "classe": "goal"
+      },
+      {
+        "msg": "⚽ GOAL di Dovbyk al 83'!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Dovbyk esulta! CPU 1-2 TU.",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Calcio d'inizio! TU batte dal centro con McKennie.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie serve Conceiçao in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Conceiçao (TU) contro Zortea (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao gioca J🚩 e impone il seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Zortea risponde con K⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Conceiçao J🚩 vs Zortea K⚽ → vince Conceiçao (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Zortea (2 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Conceiçao vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Conceiçao serve Kolo Muani in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 inferiore: Kolo Muani (TU) contro Theate (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani gioca 5🚩 e impone il seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Theate risponde con J⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kolo Muani 5🚩 vs Theate J⚽ → vince Kolo Muani (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Theate (2 falli totali, 1 in area)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kolo Muani vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Skorupski si prepara al tiro (stamina 5/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 3 → settori 4,5,7,8.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 3 → settori 4,5,7,8.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 3 (casella 3).",
+        "classe": ""
+      },
+      {
+        "msg": "❌ FUORI! Kolo Muani calcia a lato.",
+        "classe": ""
       }
     ],
     "cambi": [],
-    "secondiTrascorsi": 635
+    "secondiTrascorsi": 700
   }
 }

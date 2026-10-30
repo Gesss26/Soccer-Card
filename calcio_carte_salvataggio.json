@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-30T16:37:46.271Z",
+  "data": "2026-10-30T16:38:46.275Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -1098,6 +1098,10 @@
           },
           "Ziolkowski": {
             "gialli": 2,
+            "squalificato": false
+          },
+          "Carboni": {
+            "gialli": 1,
             "squalificato": false
           }
         },
@@ -3519,7 +3523,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793378262266,
+    "timestamp": 1793378322271,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3539,15 +3543,15 @@
       }
     },
     "tempo": 2,
-    "mano": 13,
+    "mano": 17,
     "maxMani": 23,
     "punteggio": {
-      "tu": 2,
+      "tu": 3,
       "cpu": 1
     },
-    "zonaPalla": 4,
-    "possessore": "tu",
-    "giocatorePalla": "tu_7",
+    "zonaPalla": 1,
+    "possessore": "cpu",
+    "giocatorePalla": "cpu_9",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3616,24 +3620,6 @@
           "seme": "bandierina",
           "valore": 6,
           "label": "6"
-        },
-        {
-          "id": "c48",
-          "seme": "bandierina",
-          "valore": 5,
-          "label": "5"
-        },
-        {
-          "id": "c15",
-          "seme": "coppa",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
-          "id": "c38",
-          "seme": "guantone",
-          "valore": 2,
-          "label": "2"
         }
       ],
       "cpu": [
@@ -3702,24 +3688,6 @@
           "seme": "bandierina",
           "valore": 5,
           "label": "5"
-        },
-        {
-          "id": "c42",
-          "seme": "bandierina",
-          "valore": 11,
-          "label": "J"
-        },
-        {
-          "id": "c30",
-          "seme": "guantone",
-          "valore": 10,
-          "label": "10"
-        },
-        {
-          "id": "c49",
-          "seme": "bandierina",
-          "valore": 4,
-          "label": "4"
         }
       ]
     },
@@ -3928,6 +3896,30 @@
           "seme": "guantone",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c17",
+          "seme": "coppa",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c22",
+          "seme": "coppa",
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c38",
+          "seme": "guantone",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c48",
+          "seme": "bandierina",
+          "valore": 5,
+          "label": "5"
         }
       ],
       "cpu": [
@@ -4134,6 +4126,30 @@
           "seme": "guantone",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c24",
+          "seme": "coppa",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c32",
+          "seme": "guantone",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c30",
+          "seme": "guantone",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c42",
+          "seme": "bandierina",
+          "valore": 11,
+          "label": "J"
         }
       ]
     },
@@ -4144,8 +4160,7 @@
       "tiro-fuori-area",
       "contrasto-sicuro",
       "tiro-fuori-area",
-      "gol-super",
-      "passaggio-lungo"
+      "gol-super"
     ],
     "mani": {
       "tu": [
@@ -4162,16 +4177,10 @@
           "label": "8"
         },
         {
-          "id": "c22",
+          "id": "c15",
           "seme": "coppa",
-          "valore": 5,
-          "label": "5"
-        },
-        {
-          "id": "c17",
-          "seme": "coppa",
-          "valore": 10,
-          "label": "10"
+          "valore": 12,
+          "label": "Q"
         }
       ],
       "cpu": [
@@ -4182,22 +4191,16 @@
           "label": "2"
         },
         {
-          "id": "c24",
-          "seme": "coppa",
-          "valore": 3,
-          "label": "3"
-        },
-        {
           "id": "c11",
           "seme": "palla",
           "valore": 3,
           "label": "3"
         },
         {
-          "id": "c32",
-          "seme": "guantone",
-          "valore": 8,
-          "label": "8"
+          "id": "c49",
+          "seme": "bandierina",
+          "valore": 4,
+          "label": "4"
         }
       ]
     },
@@ -4223,7 +4226,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4246,18 +4249,18 @@
           "nome": "Bremer"
         },
         {
-          "id": "tu_3",
+          "id": "tu_pan_1_sost",
           "squadra": "tu",
           "zona": 2,
-          "ruolo": "CEN",
+          "ruolo": "DIF",
           "portiere": false,
-          "stamina": 4,
+          "stamina": 10,
           "staminaMax": 10,
-          "falli": 2,
+          "falli": 0,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
-          "nome": "Lucumì"
+          "nome": "Gatti"
         },
         {
           "id": "tu_4",
@@ -4307,7 +4310,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4349,7 +4352,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4365,7 +4368,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4388,18 +4391,18 @@
           "nome": "Antov"
         },
         {
-          "id": "cpu_2",
+          "id": "cpu_pan_2_sost",
           "squadra": "cpu",
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
           "stamina": 10,
           "staminaMax": 10,
-          "falli": 2,
-          "falliArea": 1,
+          "falli": 0,
+          "falliArea": 0,
           "ammonito": false,
           "espulso": false,
-          "nome": "Carboni"
+          "nome": "Lucchesi"
         },
         {
           "id": "cpu_3",
@@ -4407,7 +4410,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4463,7 +4466,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 6,
+          "stamina": 5,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4491,7 +4494,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4541,7 +4544,7 @@
           "falli": 0,
           "ammonito": false,
           "espulso": false,
-          "entrato": false,
+          "entrato": true,
           "sostituito": false,
           "nome": "Gatti"
         },
@@ -4614,6 +4617,21 @@
           "entrato": false,
           "sostituito": false,
           "nome": "Alajbegovic"
+        },
+        {
+          "id": "tu_3_usc",
+          "squadra": "tu",
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 3,
+          "staminaMax": 10,
+          "falli": 2,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": true,
+          "sostituito": true,
+          "nome": "Lucumì"
         }
       ],
       "cpu": [
@@ -4655,7 +4673,7 @@
           "falli": 0,
           "ammonito": false,
           "espulso": false,
-          "entrato": false,
+          "entrato": true,
           "sostituito": false,
           "nome": "Lucchesi"
         },
@@ -4729,6 +4747,21 @@
           "entrato": true,
           "sostituito": true,
           "nome": "Ziolkowski"
+        },
+        {
+          "id": "cpu_2_usc",
+          "squadra": "cpu",
+          "ruolo": "DIF",
+          "portiere": false,
+          "stamina": 8,
+          "staminaMax": 10,
+          "falli": 4,
+          "falliArea": 2,
+          "ammonito": true,
+          "espulso": false,
+          "entrato": true,
+          "sostituito": true,
+          "nome": "Carboni"
         }
       ]
     },
@@ -4740,33 +4773,33 @@
     "bonus": {
       "tu": [
         "parata-super",
-        "gol-super"
+        "passaggio-lungo"
       ],
       "cpu": [
         "gol-super"
       ]
     },
     "streak": {
-      "tu": 1,
-      "cpu": 0
+      "tu": 0,
+      "cpu": 2
     },
     "statistiche": {
       "tu": {
-        "gol": 2,
-        "tiri": 5,
+        "gol": 3,
+        "tiri": 6,
         "parate": 2,
         "angoli": 0,
         "pali": 0,
         "fuori": 1,
-        "rigori": 3,
-        "contese": 18,
-        "vinte": 19,
+        "rigori": 4,
+        "contese": 19,
+        "vinte": 21,
         "falli": 4,
         "ammonizioni": 0,
         "espulsioni": 0,
-        "sostituzioni": 0,
-        "bonusGuadagnati": 4,
-        "bonusUsati": 2,
+        "sostituzioni": 1,
+        "bonusGuadagnati": 5,
+        "bonusUsati": 3,
         "marcatori": [
           {
             "nome": "Woltemade",
@@ -4775,6 +4808,10 @@
           {
             "nome": "Woltemade",
             "minuto": 63
+          },
+          {
+            "nome": "Kolo Muani",
+            "minuto": 71
           }
         ]
       },
@@ -4786,12 +4823,12 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 1,
-        "contese": 17,
-        "vinte": 15,
-        "falli": 6,
-        "ammonizioni": 1,
+        "contese": 19,
+        "vinte": 17,
+        "falli": 7,
+        "ammonizioni": 2,
         "espulsioni": 0,
-        "sostituzioni": 1,
+        "sostituzioni": 2,
         "bonusGuadagnati": 3,
         "bonusUsati": 2,
         "marcatori": [
@@ -5958,6 +5995,138 @@
       {
         "msg": "🎙️ Z4 superiore: Conceiçao (TU) contro Kouadio (CPU).",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao gioca 10🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kouadio risponde con 3🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao 10🏆 vs Kouadio 3🏆 → vince Conceiçao (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao serve Kolo Muani in Z5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Kolo Muani (TU) contro Carboni (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani gioca 5🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Carboni risponde con 8🧤 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kolo Muani 5🏆 vs Carboni 8🧤 → vince Kolo Muani (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Carboni (4 falli totali, 2 in area)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🟨 AMMONIZIONE per Carboni (3 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🔄 CAMBIO CPU: Carboni (st 8) lascia il campo. Entra Lucchesi.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kolo Muani vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Tornqvist si prepara al tiro (stamina 7/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 8 (casella 8).",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Kolo Muani batte il portiere!",
+        "classe": "goal"
+      },
+      {
+        "msg": "⚽ GOAL di Kolo Muani al 71'!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Kolo Muani esulta! TU 3-1 CPU.",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Calcio d'inizio! CPU batte dal centro con Folorunsho.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Folorunsho serve Birindelli in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Birindelli (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Birindelli gioca 10🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 2🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Birindelli 10🧤 vs Lucumì 2🧤 → vince Birindelli (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Birindelli vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Birindelli serve Robinson in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 superiore: Robinson (CPU) contro Kalulu (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Robinson gioca J🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kalulu risponde con 5🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Robinson J🚩 vs Kalulu 5🚩 → vince Robinson (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Robinson vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -5967,8 +6136,22 @@
         "staminaUscente": 8,
         "cartelliniUscente": "🟨",
         "entrante": "Antov"
+      },
+      {
+        "squadra": "cpu",
+        "uscente": "Carboni",
+        "staminaUscente": 8,
+        "cartelliniUscente": "🟨",
+        "entrante": "Lucchesi"
+      },
+      {
+        "squadra": "tu",
+        "uscente": "Lucumì",
+        "staminaUscente": 3,
+        "cartelliniUscente": "·",
+        "entrante": "Gatti"
       }
     ],
-    "secondiTrascorsi": 585
+    "secondiTrascorsi": 645
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-30T15:45:48.614Z",
+  "data": "2026-10-30T16:03:14.856Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3515,7 +3515,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793375144610,
+    "timestamp": 1793376190851,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3535,16 +3535,16 @@
       }
     },
     "tempo": 1,
-    "mano": 2,
+    "mano": 3,
     "maxMani": 23,
     "punteggio": {
       "tu": 0,
       "cpu": 0
     },
-    "zonaPalla": 2,
+    "zonaPalla": 1,
     "possessore": "tu",
-    "giocatorePalla": "tu_7",
-    "metaContesa": "sup",
+    "giocatorePalla": "tu_10",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -3828,12 +3828,6 @@
           "seme": "coppa",
           "valore": 4,
           "label": "4"
-        },
-        {
-          "id": "c5",
-          "seme": "palla",
-          "valore": 9,
-          "label": "9"
         }
       ],
       "cpu": [
@@ -4118,18 +4112,26 @@
           "seme": "guantone",
           "valore": 12,
           "label": "Q"
-        },
-        {
-          "id": "c21",
-          "seme": "coppa",
-          "valore": 6,
-          "label": "6"
         }
       ]
     },
     "scarti": {
-      "tu": [],
-      "cpu": []
+      "tu": [
+        {
+          "id": "c42",
+          "seme": "bandierina",
+          "valore": 11,
+          "label": "J"
+        }
+      ],
+      "cpu": [
+        {
+          "id": "c45",
+          "seme": "bandierina",
+          "valore": 8,
+          "label": "8"
+        }
+      ]
     },
     "mazzoBonus": [
       "tiro-fuori-area",
@@ -4157,12 +4159,6 @@
           "label": "8"
         },
         {
-          "id": "c42",
-          "seme": "bandierina",
-          "valore": 11,
-          "label": "J"
-        },
-        {
           "id": "c50",
           "seme": "bandierina",
           "valore": 3,
@@ -4171,6 +4167,12 @@
         {
           "id": "c44",
           "seme": "bandierina",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c5",
+          "seme": "palla",
           "valore": 9,
           "label": "9"
         }
@@ -4183,12 +4185,6 @@
           "label": "10"
         },
         {
-          "id": "c45",
-          "seme": "bandierina",
-          "valore": 8,
-          "label": "8"
-        },
-        {
           "id": "c34",
           "seme": "guantone",
           "valore": 6,
@@ -4199,6 +4195,12 @@
           "seme": "coppa",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c21",
+          "seme": "coppa",
+          "valore": 6,
+          "label": "6"
         }
       ]
     },
@@ -4308,7 +4310,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4408,7 +4410,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4728,7 +4730,7 @@
       "cpu": []
     },
     "streak": {
-      "tu": 0,
+      "tu": 1,
       "cpu": 0
     },
     "statistiche": {
@@ -4740,8 +4742,8 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 0,
-        "contese": 0,
-        "vinte": 0,
+        "contese": 2,
+        "vinte": 1,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4777,9 +4779,37 @@
       {
         "msg": "🎙️ McKennie serve Conceiçao in Z2.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Conceiçao (TU) contro Kouadio (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao gioca J🚩 e impone il seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kouadio risponde con 8🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao J🚩 vs Kouadio 8🚩 → vince Conceiçao (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao serve Kolo Muani in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 inferiore: Kolo Muani (TU) contro Carboni (CPU).",
+        "classe": ""
       }
     ],
     "cambi": [],
-    "secondiTrascorsi": 3
+    "secondiTrascorsi": 36
   }
 }

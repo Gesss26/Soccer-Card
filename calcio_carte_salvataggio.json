@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-30T11:43:44.231Z",
+  "data": "2026-10-30T11:44:49.862Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3451,7 +3451,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793360620228,
+    "timestamp": 1793360685858,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "bologna",
@@ -3470,15 +3470,15 @@
       }
     },
     "tempo": 1,
-    "mano": 2,
+    "mano": 5,
     "maxMani": 23,
     "punteggio": {
       "tu": 0,
       "cpu": 0
     },
-    "zonaPalla": 2,
+    "zonaPalla": 3,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_7",
+    "giocatorePalla": "cpu_5",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3751,18 +3751,6 @@
           "seme": "guantone",
           "valore": 10,
           "label": "10"
-        },
-        {
-          "id": "c38",
-          "seme": "guantone",
-          "valore": 2,
-          "label": "2"
-        },
-        {
-          "id": "c46",
-          "seme": "bandierina",
-          "valore": 7,
-          "label": "7"
         }
       ],
       "cpu": [
@@ -4035,12 +4023,22 @@
           "seme": "bandierina",
           "valore": 9,
           "label": "9"
+        }
+      ]
+    },
+    "scarti": {
+      "tu": [
+        {
+          "id": "c40",
+          "seme": "bandierina",
+          "valore": 13,
+          "label": "K"
         },
         {
-          "id": "c39",
+          "id": "c43",
           "seme": "bandierina",
-          "valore": 14,
-          "label": "A"
+          "valore": 10,
+          "label": "10"
         },
         {
           "id": "c45",
@@ -4048,11 +4046,27 @@
           "valore": 8,
           "label": "8"
         }
+      ],
+      "cpu": [
+        {
+          "id": "c41",
+          "seme": "bandierina",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c45",
+          "seme": "bandierina",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c39",
+          "seme": "bandierina",
+          "valore": 14,
+          "label": "A"
+        }
       ]
-    },
-    "scarti": {
-      "tu": [],
-      "cpu": []
     },
     "mazzoBonus": [
       "parata-super",
@@ -4080,37 +4094,25 @@
           "label": "K"
         },
         {
-          "id": "c45",
-          "seme": "bandierina",
-          "valore": 8,
-          "label": "8"
-        },
-        {
-          "id": "c40",
-          "seme": "bandierina",
-          "valore": 13,
-          "label": "K"
-        },
-        {
-          "id": "c43",
-          "seme": "bandierina",
-          "valore": 10,
-          "label": "10"
-        },
-        {
           "id": "c2",
           "seme": "palla",
           "valore": 12,
           "label": "Q"
+        },
+        {
+          "id": "c46",
+          "seme": "bandierina",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c38",
+          "seme": "guantone",
+          "valore": 2,
+          "label": "2"
         }
       ],
       "cpu": [
-        {
-          "id": "c41",
-          "seme": "bandierina",
-          "valore": 12,
-          "label": "Q"
-        },
         {
           "id": "c29",
           "seme": "guantone",
@@ -4187,7 +4189,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4229,7 +4231,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4257,7 +4259,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4357,7 +4359,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4385,7 +4387,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4399,7 +4401,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4664,7 +4666,7 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 0
+      "cpu": 1
     },
     "statistiche": {
       "tu": {
@@ -4675,8 +4677,8 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 0,
-        "contese": 0,
-        "vinte": 0,
+        "contese": 2,
+        "vinte": 2,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4693,8 +4695,8 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 0,
-        "contese": 0,
-        "vinte": 0,
+        "contese": 1,
+        "vinte": 1,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4712,9 +4714,89 @@
       {
         "msg": "🎙️ Ferguson serve Orsolini in Z2.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Orsolini (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Orsolini gioca Q🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con K🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Orsolini Q🚩 vs Lucumì K🚩 → vince Lucumì (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì vince il contrasto in Z2 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Lucumì AI DANNI DI Orsolini!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Lucumì serve McKennie in Z3.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: McKennie (TU) contro Ferguson (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie gioca 10🚩 e impone il seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ferguson risponde con 8🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie 10🚩 vs Ferguson 8🚩 → vince McKennie (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie serve Yildiz in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 inferiore: Yildiz (TU) contro Miranda (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz gioca 8🚩 e impone il seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Miranda risponde con A🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz 8🚩 vs Miranda A🚩 → vince Miranda (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Miranda vince il contrasto in Z4 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Miranda AI DANNI DI Yildiz!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Miranda serve Pobega in Z3.",
+        "classe": ""
       }
     ],
     "cambi": [],
-    "secondiTrascorsi": 3
+    "secondiTrascorsi": 69
   }
 }

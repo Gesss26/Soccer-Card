@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-30T16:08:40.472Z",
+  "data": "2026-10-30T16:09:45.689Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3515,7 +3515,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793376516472,
+    "timestamp": 1793376581686,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3535,15 +3535,15 @@
       }
     },
     "tempo": 1,
-    "mano": 19,
+    "mano": 21,
     "maxMani": 23,
     "punteggio": {
-      "tu": 3,
+      "tu": 4,
       "cpu": 0
     },
-    "zonaPalla": 2,
+    "zonaPalla": 1,
     "possessore": "tu",
-    "giocatorePalla": "tu_7",
+    "giocatorePalla": "tu_9",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3720,18 +3720,6 @@
           "seme": "guantone",
           "valore": 2,
           "label": "2"
-        },
-        {
-          "id": "c35",
-          "seme": "guantone",
-          "valore": 5,
-          "label": "5"
-        },
-        {
-          "id": "c9",
-          "seme": "palla",
-          "valore": 5,
-          "label": "5"
         }
       ],
       "cpu": [
@@ -3908,18 +3896,6 @@
           "seme": "bandierina",
           "valore": 6,
           "label": "6"
-        },
-        {
-          "id": "c41",
-          "seme": "bandierina",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
-          "id": "c13",
-          "seme": "coppa",
-          "valore": 14,
-          "label": "A"
         }
       ]
     },
@@ -4032,6 +4008,18 @@
           "seme": "guantone",
           "valore": 12,
           "label": "Q"
+        },
+        {
+          "id": "c29",
+          "seme": "guantone",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c35",
+          "seme": "guantone",
+          "valore": 5,
+          "label": "5"
         }
       ],
       "cpu": [
@@ -4142,6 +4130,18 @@
           "seme": "bandierina",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c13",
+          "seme": "coppa",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c41",
+          "seme": "bandierina",
+          "valore": 12,
+          "label": "Q"
         }
       ]
     },
@@ -4156,7 +4156,6 @@
       "contrasto-sicuro",
       "parata-super",
       "contrasto-sicuro",
-      "passaggio-lungo",
       "passaggio-lungo"
     ],
     "mani": {
@@ -4174,10 +4173,10 @@
           "label": "5"
         },
         {
-          "id": "c29",
-          "seme": "guantone",
-          "valore": 11,
-          "label": "J"
+          "id": "c9",
+          "seme": "palla",
+          "valore": 5,
+          "label": "5"
         }
       ],
       "cpu": [
@@ -4307,7 +4306,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4335,7 +4334,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4365,7 +4364,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 7,
+          "stamina": 5,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4379,10 +4378,10 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 6,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
+          "falli": 2,
+          "falliArea": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Ziolkowski"
@@ -4407,9 +4406,9 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 7,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4739,30 +4738,30 @@
     "tuECasa": false,
     "bonus": {
       "tu": [
-        "contrasto-sicuro"
+        "passaggio-lungo"
       ],
       "cpu": []
     },
     "streak": {
-      "tu": 0,
+      "tu": 1,
       "cpu": 0
     },
     "statistiche": {
       "tu": {
-        "gol": 3,
-        "tiri": 3,
+        "gol": 4,
+        "tiri": 5,
         "parate": 2,
         "angoli": 0,
-        "pali": 0,
+        "pali": 1,
         "fuori": 0,
-        "rigori": 1,
-        "contese": 11,
-        "vinte": 11,
+        "rigori": 2,
+        "contese": 14,
+        "vinte": 14,
         "falli": 3,
         "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 1,
-        "bonusGuadagnati": 3,
+        "bonusGuadagnati": 4,
         "bonusUsati": 2,
         "marcatori": [
           {
@@ -4776,6 +4775,10 @@
           {
             "nome": "Woltemade",
             "minuto": 24
+          },
+          {
+            "nome": "Woltemade",
+            "minuto": 40
           }
         ]
       },
@@ -4789,7 +4792,7 @@
         "rigori": 2,
         "contese": 7,
         "vinte": 6,
-        "falli": 4,
+        "falli": 6,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -5434,6 +5437,122 @@
       {
         "msg": "🎙️ Douglas Luiz serve Conceiçao in Z2.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Conceiçao (TU) contro Kouadio (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao gioca J🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kouadio risponde con A🏆 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Conceiçao J🧤 vs Kouadio A🏆 → vince Conceiçao (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Kouadio (1 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Conceiçao vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Conceiçao serve Woltemade in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 superiore: Woltemade (TU) contro Ziolkowski (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Tornqvist si prepara al tiro (stamina 6/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 4 → settori 5,6,8,9.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 4 → settori 5,6,8,9.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Woltemade: dado 4 (casella 4).",
+        "classe": ""
+      },
+      {
+        "msg": "🥅 PALO! Che sfortuna per Woltemade.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Z1 superiore: Woltemade (TU) contro Ziolkowski (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade gioca 5🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ziolkowski risponde con Q🚩 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Woltemade 5🧤 vs Ziolkowski Q🚩 → vince Woltemade (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Ziolkowski (2 falli totali, 1 in area)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Woltemade vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Tornqvist si prepara al tiro (stamina 5/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Woltemade va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 2 → settori 2,3,5,6.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 2 → settori 2,3,5,6.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Woltemade: dado 1 (casella 1).",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Woltemade batte il portiere!",
+        "classe": "goal"
       }
     ],
     "cambi": [
@@ -5445,6 +5564,6 @@
         "entrante": "Gatti"
       }
     ],
-    "secondiTrascorsi": 362
+    "secondiTrascorsi": 427
   }
 }

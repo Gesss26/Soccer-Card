@@ -1,10 +1,17 @@
-/* ============================================================
-   CONFIGURAZIONE
-   ============================================================ */
 var STAMINA_MAX = 10;
 var CARTE_INIZIALI = 5;
 var CARTE_MANO_MAX = 5;
 var MINUTI_PER_MANO = 2;
+
+/* ============================================================
+   DIFFICOLTÀ
+   ============================================================ */
+var DIFFICOLTA_CONFIG = {
+  facile:    { carte: 5, nome: 'Facile' },
+  normale:   { carte: 4, nome: 'Normale' },
+  difficile: { carte: 3, nome: 'Difficile' }
+};
+var difficoltaCorrente = 'normale';
 var MANI_PER_TEMPO = 23;
 var DURATA_ANIM_PALLA = 1400;
 var DURATA_SCIVOLATA = 1100;
@@ -351,7 +358,7 @@ var renderingCampoInCorso = false;
 var CHIAVE_SALVATAGGIO = 'calcio_carte_partita_in_corso_v2';
 function serializzaStato() {
   return {
-    versione: 2, timestamp: Date.now(),
+    versione: 2, timestamp: Date.now(), difficolta: difficoltaCorrente,
     tipoPartita: stato.tipoPartita, squadraTU: stato.squadraTU, squadraCPU: stato.squadraCPU, divise: stato.divise,
     tempo: stato.tempo, mano: stato.mano, maxMani: stato.maxMani, punteggio: stato.punteggio,
     zonaPalla: stato.zonaPalla, possessore: stato.possessore, giocatorePalla: stato.giocatorePalla, metaContesa: stato.metaContesa,
@@ -389,7 +396,12 @@ function caricaPartitaSalvata() {
 function eliminaSalvataggio() { try { localStorage.removeItem(CHIAVE_SALVATAGGIO); } catch(e){} }
 function ripristinaPartita(datiSalvati) {
   stato.tipoPartita = datiSalvati.tipoPartita; stato.squadraTU = datiSalvati.squadraTU; stato.squadraCPU = datiSalvati.squadraCPU;
-  stato.divise = datiSalvati.divise;
+    stato.divise = datiSalvati.divise;
+  if (datiSalvati.difficolta && DIFFICOLTA_CONFIG[datiSalvati.difficolta]) {
+    difficoltaCorrente = datiSalvati.difficolta;
+    CARTE_INIZIALI = DIFFICOLTA_CONFIG[difficoltaCorrente].carte;
+    CARTE_MANO_MAX = DIFFICOLTA_CONFIG[difficoltaCorrente].carte;
+  }
   stato.tempo = datiSalvati.tempo; stato.mano = datiSalvati.mano; stato.maxMani = datiSalvati.maxMani;
   stato.punteggio = datiSalvati.punteggio;
   stato.zonaPalla = datiSalvati.zonaPalla; stato.possessore = datiSalvati.possessore; stato.giocatorePalla = datiSalvati.giocatorePalla; stato.metaContesa = datiSalvati.metaContesa;
@@ -503,7 +515,19 @@ function giocatoriInZona(sq, zonaFisica, escludiPortiere) {
     return zonaFisicaG === zonaFisica;
   });
 }
-function getCoppiaAttiva(zonaId, meta) { var idx = meta === 'sup' ? 0 : 1; var tu = giocatoriInZona('tu', zonaId, true); var cpu = giocatoriInZona('cpu', zonaId, true); return { tu: tu[idx] || tu[0] || null, cpu: cpu[idx] || cpu[0] || null }; }
+function getCoppiaAttiva(zonaId, meta) {
+  var idx = meta === 'sup' ? 0 : 1;
+  var tu = giocatoriInZona('tu', zonaId, true);
+  var cpu = giocatoriInZona('cpu', zonaId, true);
+  var tuAttivi = tu.filter(function(g){ return !g.espulso; });
+  var cpuAttivi = cpu.filter(function(g){ return !g.espulso; });
+  return {
+    tu: tuAttivi[idx] || tuAttivi[0] || null,
+    cpu: cpuAttivi[idx] || cpuAttivi[0] || null,
+    tuInferiorita: (tu.length > 0 && tuAttivi.length < tu.length),
+    cpuInferiorita: (cpu.length > 0 && cpuAttivi.length < cpu.length)
+  };
+}
 function direzionePerSquadra(sq) { var dirTU = stato.direzioneAttaccoTU; return sq === 'tu' ? dirTU : -dirTU; }
 
 function assegnaBonus(sq) {
@@ -548,8 +572,32 @@ function applicaSqualifiche(sq) {
   for (var i=0;i<stato.giocatori[sq].length;i++) { var g = stato.giocatori[sq][i]; if (èSqualificato(sqId, g.nome)) log('⚠️ ' + g.nome + ' è squalificato ma gioca comunque.'); }
 }
 
+/* ============================================================
+   DIFFICOLTÀ — FUNZIONI
+   ============================================================ */
+function mostraSchermataDifficolta(callback) {
+  window._difficoltaCallback = callback;
+  var el = document.getElementById('difficolta-screen');
+  if (el) el.classList.add('attiva');
+}
+function selezionaDifficolta(d) {
+  var cfg = DIFFICOLTA_CONFIG[d];
+  if (!cfg) return;
+  difficoltaCorrente = d;
+  CARTE_INIZIALI = cfg.carte;
+  CARTE_MANO_MAX = cfg.carte;
+  var el = document.getElementById('difficolta-screen');
+  if (el) el.classList.remove('attiva');
+  var cb = window._difficoltaCallback;
+  window._difficoltaCallback = null;
+  if (cb) cb(d);
+}
+
 /* MENU / MODALI */
 function mostraMenuPrincipale() {
+  difficoltaCorrente = 'normale';
+  CARTE_INIZIALI = 5;
+  CARTE_MANO_MAX = 5;
   eliminaSalvataggio(); nascondiEntrambiBanner(); nascondiBannerMano(); chiudiBonusChoice(); fermaSottofondo();
   var ov = document.getElementById('tiro-overlay'); if (ov) ov.remove();
   stato.partitaFinita = true;
@@ -785,13 +833,24 @@ function avviaSetup2P() {
 }
 function selezionaTU2P(id) { stato.squadraTU = id; avviaSetup2P(); }
 function selezionaCPU2P(id) { stato.squadraCPU = id; avviaSetup2P(); }
-function avviaPartitaDaSetup() { if (stato.tipoPartita === '1P') { var d = Object.keys(SQUADRE).filter(function(id){ return id !== stato.squadraTU; }); stato.squadraCPU = d[Math.floor(Math.random()*d.length)]; } avviaPartita(stato.squadraTU, stato.squadraCPU, stato.tipoPartita); }
+function avviaPartitaDaSetup() {
+  if (stato.tipoPartita === '1P') {
+    var d = Object.keys(SQUADRE).filter(function(id){ return id !== stato.squadraTU; });
+    stato.squadraCPU = d[Math.floor(Math.random()*d.length)];
+  }
+  mostraSchermataDifficolta(function(diff) {
+    avviaPartita(stato.squadraTU, stato.squadraCPU, stato.tipoPartita);
+  });
+}
 
 function avviaPartita(sqTU, sqCPU, tipo, casaSquadra) {
   tipo = tipo || '1P';
   richiediFullscreen();
   stato.tipoPartita = tipo; stato.squadraTU = sqTU; stato.squadraCPU = sqCPU;
   stato.divise = scegliDivise(sqTU, sqCPU);
+  var cfgDiff = DIFFICOLTA_CONFIG[difficoltaCorrente] || DIFFICOLTA_CONFIG.normale;
+  CARTE_INIZIALI = cfgDiff.carte;
+  CARTE_MANO_MAX = cfgDiff.carte;
   stato.giocatori.tu = creaGiocatori('tu'); stato.giocatori.cpu = creaGiocatori('cpu');
   stato.panchina.tu = creaPanchina('tu'); stato.panchina.cpu = creaPanchina('cpu');
   inizializzaMazzi();
@@ -927,6 +986,22 @@ function eseguiCalcioIniziale(squadra) {
   }, DURATA_SPOSTAMENTO_INIZIO);
 }
 
+/* ============================================================
+   MALUS ESPULSIONE
+   ============================================================ */
+function mostraMalusEspulsione(squadra) {
+  var el = document.getElementById('malus-espulsione');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'malus-espulsione';
+    el.className = 'malus-espulsione';
+    document.body.appendChild(el);
+  }
+  el.textContent = (squadra === 'tu' ? '⚠️ TU' : '⚠️ CPU') + ' GIOCHI CON UNA CARTA IN MENO';
+  el.classList.add('attivo');
+  setTimeout(function() { el.classList.remove('attivo'); }, 2200);
+}
+
 /* COMBAT */
 function avviaContrasto() {
   if (stato.partitaFinita) return;
@@ -947,7 +1022,24 @@ function avviaContrasto() {
     log('🎙️ Z' + zona + ' ' + (meta === 'sup' ? 'superiore' : 'inferiore') + ': ' + gP.nome + ' (' + (poss === 'tu' ? 'TU' : 'CPU') + ') contro ' + gA.nome + ' (' + (dif === 'tu' ? 'TU' : 'CPU') + ').', '');
   }
 
-  riempiMano('tu'); riempiMano('cpu');
+    // Applica malus espulsione: la squadra in inferiorità gioca con una carta in meno
+  var malusPossessore = (poss === 'tu') ? c.tuInferiorita : c.cpuInferiorita;
+  var malusDifensore = (dif === 'tu') ? c.tuInferiorita : c.cpuInferiorita;
+  var malusSq = malusPossessore ? poss : (malusDifensore ? dif : null);
+  if (malusSq) setTimeout(function(){ mostraMalusEspulsione(malusSq); }, 400);
+
+  function riempiManoConMalus(sq) {
+    var limite = CARTE_MANO_MAX;
+    if (malusSq === sq) limite = Math.max(1, CARTE_MANO_MAX - 1);
+    var sicurezza = 0;
+    while (stato.mani[sq].length < limite && sicurezza < 200) {
+      sicurezza++;
+      pescaUnaCarta(sq);
+      if (stato.mazzi[sq].length === 0 && stato.scarti[sq].length === 0) break;
+    }
+  }
+  riempiManoConMalus('tu');
+  riempiManoConMalus('cpu');
   if (stato.mani.tu.length === 0 && stato.mani.cpu.length === 0) {
     stato.mano++; setTimeout(function() { if (!stato.partitaFinita) avviaContrasto(); }, 600); return;
   }
@@ -1266,7 +1358,7 @@ function renderPannelloContrasto() {
   }, 150);
 }
 
-/* Animazione pesca carte dal mazzo alla mano */
+/* Animazione pesca carte dal mazzo alla mano — con flip 3D */
 function animaPescaCarte() {
   var contMano = document.getElementById('carte-overlay-carte');
   var pilaMazzo = document.getElementById('mazzo-pila');
@@ -1284,20 +1376,57 @@ function animaPescaCarte() {
       var r = el.getBoundingClientRect();
       var dx = mazzoX - (r.left + r.width / 2);
       var dy = mazzoY - (r.top + r.height / 2);
-      // Partenza: dal mazzo, scala ridotta, ruotata, opacity 0
-      el.style.transition = 'none';
-      el.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(0.4) rotate(-25deg)';
-      el.style.opacity = '0';
-      void el.offsetWidth;
-      // Arrivo: posizione originale, scala 1, ruotata 0, opacity 1
-      el.style.transition = 'transform 0.55s cubic-bezier(0.34,1.3,0.64,1) ' + (idx * 90) + 'ms, opacity 0.35s ease ' + (idx * 90) + 'ms';
-      el.style.transform = 'translate(0,0) scale(1) rotate(0deg)';
-      el.style.opacity = '1';
+
+      // Crea il wrapper flip 3D intorno alla carta
+      var wrapper = document.createElement('div');
+      wrapper.className = 'carta-flip-wrapper coperta';
+      wrapper.style.width = r.width + 'px';
+      wrapper.style.height = r.height + 'px';
+      wrapper.style.position = 'relative';
+
+      var retro = document.createElement('div');
+      retro.className = 'carta-retro';
+
+      var faccia = document.createElement('div');
+      faccia.className = 'carta-faccia';
+
+      // Sposta la carta originale dentro la faccia
+      el.parentNode.insertBefore(wrapper, el);
+      faccia.appendChild(el);
+      wrapper.appendChild(retro);
+      wrapper.appendChild(faccia);
+
+      // Fase 1: parte dal mazzo, coperta, scala ridotta
+      wrapper.style.transition = 'none';
+      wrapper.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(0.4)';
+      wrapper.style.opacity = '0';
+      void wrapper.offsetWidth;
+
+      // Fase 2: vola in posizione (ancora coperta)
+      wrapper.style.transition =
+        'transform 0.5s cubic-bezier(0.34,1.3,0.64,1) ' + (idx * 100) + 'ms, opacity 0.25s ease ' + (idx * 100) + 'ms';
+      wrapper.style.transform = 'translate(0,0) scale(1)';
+      wrapper.style.opacity = '1';
+
+      // Fase 3: si gira mostrando la faccia (flip 3D)
       setTimeout(function() {
+        wrapper.style.transition = 'transform 0.45s cubic-bezier(0.34,1.2,0.64,1)';
+        wrapper.classList.remove('coperta');
+      }, 520 + idx * 100);
+
+      // Fase 4: pulizia finale — ripristina il DOM originale
+      setTimeout(function() {
+        wrapper.style.transition = '';
+        wrapper.style.transform = '';
+        wrapper.style.opacity = '';
+        if (wrapper.parentNode) {
+          wrapper.parentNode.insertBefore(el, wrapper);
+          wrapper.remove();
+        }
         el.style.transition = '';
         el.style.transform = '';
         el.style.opacity = '';
-      }, 600 + idx * 90);
+      }, 1150 + idx * 100);
     })(carteEl[i], i);
   }
 }
@@ -2427,9 +2556,12 @@ try {
   avviaLoopZoom(); aggiornaIconaFullscreen();
   var salvata = caricaPartitaSalvata();
   if (salvata) mostraSchermataRipristino(salvata);
-  else if (TORNEO_MODE === 'seriea' && PARTITA_TORNEO && URL_SQ_TU && URL_SQ_CPU) {
-    if (SQUADRE[URL_SQ_TU] && SQUADRE[URL_SQ_CPU]) avviaPartita(URL_SQ_TU, URL_SQ_CPU, '1P', URL_CASA);
-    else mostraMenuPrincipale();
+    else if (TORNEO_MODE === 'seriea' && PARTITA_TORNEO && URL_SQ_TU && URL_SQ_CPU) {
+    if (SQUADRE[URL_SQ_TU] && SQUADRE[URL_SQ_CPU]) {
+      mostraSchermataDifficolta(function() {
+        avviaPartita(URL_SQ_TU, URL_SQ_CPU, '1P', URL_CASA);
+      });
+    } else mostraMenuPrincipale();
   } else mostraMenuPrincipale();
 } catch(err) {
   console.error('Errore avvio:', err);

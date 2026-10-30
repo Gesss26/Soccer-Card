@@ -117,6 +117,39 @@
   </div>
 </div>
 
+<!-- ============================================================
+     SCHERMATA DIFFICOLTÀ
+     ============================================================ -->
+<div class="difficolta-screen" id="difficolta-screen">
+  <div class="difficolta-box">
+    <div class="difficolta-titolo">SCEGLI DIFFICOLTÀ</div>
+    <div class="difficolta-sottotitolo">Numero di carte in mano (vale per entrambi)</div>
+    <div class="difficolta-lista">
+      <button class="difficolta-btn" onclick="selezionaDifficolta('facile')">
+        <div class="diff-icona">🟢</div>
+        <div class="diff-testo">
+          <div class="diff-nome">FACILE</div>
+          <div class="diff-descr">5 carte in mano · più scelta, più possibilità</div>
+        </div>
+      </button>
+      <button class="difficolta-btn" onclick="selezionaDifficolta('normale')">
+        <div class="diff-icona">🟡</div>
+        <div class="diff-testo">
+          <div class="diff-nome">NORMALE</div>
+          <div class="diff-descr">4 carte in mano · equilibrio</div>
+        </div>
+      </button>
+      <button class="difficolta-btn" onclick="selezionaDifficolta('difficile')">
+        <div class="diff-icona">🔴</div>
+        <div class="diff-testo">
+          <div class="diff-nome">DIFFICILE</div>
+          <div class="diff-descr">3 carte in mano · meno scelta, più tensione</div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
   // Blocca bounce e pinch-to-zoom su iOS Safari (non blocca i tap singoli)
   document.addEventListener('touchmove', function(e) {

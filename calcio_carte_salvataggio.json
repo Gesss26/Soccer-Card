@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-30T16:10:53.057Z",
+  "data": "2026-10-30T16:11:53.062Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3515,7 +3515,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793376649052,
+    "timestamp": 1793376709059,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3535,7 +3535,7 @@
       }
     },
     "tempo": 2,
-    "mano": 3,
+    "mano": 5,
     "maxMani": 23,
     "punteggio": {
       "tu": 4,
@@ -3543,8 +3543,8 @@
     },
     "zonaPalla": 1,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_9",
-    "metaContesa": "sup",
+    "giocatorePalla": "cpu_10",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -3672,30 +3672,6 @@
           "seme": "guantone",
           "valore": 13,
           "label": "K"
-        },
-        {
-          "id": "c40",
-          "seme": "bandierina",
-          "valore": 13,
-          "label": "K"
-        },
-        {
-          "id": "c22",
-          "seme": "coppa",
-          "valore": 5,
-          "label": "5"
-        },
-        {
-          "id": "c15",
-          "seme": "coppa",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
-          "id": "c7",
-          "seme": "palla",
-          "valore": 7,
-          "label": "7"
         }
       ],
       "cpu": [
@@ -3824,30 +3800,6 @@
           "seme": "bandierina",
           "valore": 2,
           "label": "2"
-        },
-        {
-          "id": "c50",
-          "seme": "bandierina",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c40",
-          "seme": "bandierina",
-          "valore": 13,
-          "label": "K"
-        },
-        {
-          "id": "c9",
-          "seme": "palla",
-          "valore": 5,
-          "label": "5"
-        },
-        {
-          "id": "c15",
-          "seme": "coppa",
-          "valore": 12,
-          "label": "Q"
         }
       ]
     },
@@ -3996,6 +3948,36 @@
           "seme": "bandierina",
           "valore": 5,
           "label": "5"
+        },
+        {
+          "id": "c46",
+          "seme": "bandierina",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c15",
+          "seme": "coppa",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c7",
+          "seme": "palla",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c40",
+          "seme": "bandierina",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c11",
+          "seme": "palla",
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
@@ -4148,6 +4130,30 @@
           "seme": "palla",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c15",
+          "seme": "coppa",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c24",
+          "seme": "coppa",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c40",
+          "seme": "bandierina",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
         }
       ]
     },
@@ -4172,16 +4178,10 @@
           "label": "6"
         },
         {
-          "id": "c11",
-          "seme": "palla",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c46",
-          "seme": "bandierina",
-          "valore": 7,
-          "label": "7"
+          "id": "c22",
+          "seme": "coppa",
+          "valore": 5,
+          "label": "5"
         }
       ],
       "cpu": [
@@ -4192,10 +4192,10 @@
           "label": "3"
         },
         {
-          "id": "c24",
-          "seme": "coppa",
-          "valore": 3,
-          "label": "3"
+          "id": "c9",
+          "seme": "palla",
+          "valore": 5,
+          "label": "5"
         }
       ]
     },
@@ -4207,7 +4207,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4221,7 +4221,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4235,10 +4235,10 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
+          "falli": 2,
+          "falliArea": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Gatti"
@@ -4277,9 +4277,9 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4433,7 +4433,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 0,
@@ -4489,9 +4489,9 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4503,7 +4503,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4736,16 +4736,12 @@
     "invertiCoppie": true,
     "tuECasa": false,
     "bonus": {
-      "tu": [
-        "passaggio-lungo"
-      ],
-      "cpu": [
-        "passaggio-lungo"
-      ]
+      "tu": [],
+      "cpu": []
     },
     "streak": {
       "tu": 0,
-      "cpu": 0
+      "cpu": 2
     },
     "statistiche": {
       "tu": {
@@ -4756,14 +4752,14 @@
         "pali": 1,
         "fuori": 0,
         "rigori": 2,
-        "contese": 14,
-        "vinte": 14,
-        "falli": 4,
+        "contese": 15,
+        "vinte": 15,
+        "falli": 6,
         "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 1,
         "bonusGuadagnati": 4,
-        "bonusUsati": 2,
+        "bonusUsati": 3,
         "marcatori": [
           {
             "nome": "Kolo Muani",
@@ -4785,20 +4781,20 @@
       },
       "cpu": {
         "gol": 0,
-        "tiri": 4,
+        "tiri": 5,
         "parate": 0,
         "angoli": 1,
         "pali": 0,
         "fuori": 0,
-        "rigori": 2,
-        "contese": 11,
-        "vinte": 9,
-        "falli": 6,
+        "rigori": 3,
+        "contese": 12,
+        "vinte": 11,
+        "falli": 7,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
         "bonusGuadagnati": 1,
-        "bonusUsati": 0,
+        "bonusUsati": 1,
         "marcatori": []
       }
     },
@@ -5698,6 +5694,126 @@
       {
         "msg": "🎙️ Robinson rigioca 4⚽ — FALLO!",
         "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kalulu risponde con 7🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Robinson 4⚽ vs Kalulu 7🚩 → vince Kalulu (Difensore col seme guida — FALLO ATTACCANTE)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Robinson (1 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kalulu vince il contrasto in Z1 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Kalulu AI DANNI DI Robinson!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kalulu serve Douglas Luiz in Z3.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z3 superiore: Douglas Luiz (TU) contro Pessina (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz gioca Q🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Pessina risponde con Q🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz Q🏆 vs Pessina Q🏆 → PAREGGIO (Carte di pari valore)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz gioca 7⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Pessina risponde con 3🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz 7⚽ vs Pessina 3🏆 → vince Pessina (Difensore col seme guida — FALLO ATTACCANTE)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Douglas Luiz (1 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Pessina vince il contrasto in Z3 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Pessina AI DANNI DI Douglas Luiz!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Pessina serve Varela in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 inferiore: Varela (CPU) contro Gatti (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Varela gioca K🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Gatti risponde con K🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Varela K🚩 vs Gatti K🚩 → PAREGGIO (Carte di pari valore)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Varela rigioca 3🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Gatti risponde con 3⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Varela 3🚩 vs Gatti 3⚽ → vince Varela (Attaccante col seme guida — FALLO DIFENSORE)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Gatti (2 falli totali, 1 in area)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Varela vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 8/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Varela va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 2 → settori 2,3,5,6.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -5709,6 +5825,6 @@
         "entrante": "Gatti"
       }
     ],
-    "secondiTrascorsi": 495
+    "secondiTrascorsi": 555
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-30T12:13:58.469Z",
+  "data": "2026-10-30T12:14:58.479Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3515,7 +3515,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793362434469,
+    "timestamp": 1793362494474,
     "tipoPartita": "1P",
     "squadraTU": "juventus",
     "squadraCPU": "monza",
@@ -4788,6 +4788,6 @@
       }
     ],
     "cambi": [],
-    "secondiTrascorsi": 210
+    "secondiTrascorsi": 270
   }
 }

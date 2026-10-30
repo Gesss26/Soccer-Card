@@ -1380,7 +1380,7 @@ function animaPescaCarte(numNuove) {
   var tutteCarte = contMano.querySelectorAll('.carta');
   if (tutteCarte.length === 0) return;
 
-  // Prendi solo le ULTIME carte (quelle nuove), in base a quante ne sono state pescate
+  // Prendi solo le ULTIME carte (quelle nuove)
   var carteDaAnimare = [];
   for (var i = Math.max(0, tutteCarte.length - numNuove); i < tutteCarte.length; i++) {
     carteDaAnimare.push(tutteCarte[i]);
@@ -1391,56 +1391,80 @@ function animaPescaCarte(numNuove) {
   var mazzoY = boxMazzo.top + boxMazzo.height / 2;
 
   for (var j = 0; j < carteDaAnimare.length; j++) {
-    (function(el, idx) {
-      var r = el.getBoundingClientRect();
-      var dx = mazzoX - (r.left + r.width / 2);
-      var dy = mazzoY - (r.top + r.height / 2);
-
-      // Crea il wrapper flip 3D
-      var wrapper = document.createElement('div');
-      wrapper.className = 'carta-flip-wrapper coperta';
-      wrapper.style.width = r.width + 'px';
-      wrapper.style.height = r.height + 'px';
-      wrapper.style.position = 'relative';
-
+    (function(elReale, idx) {
+      var r = elReale.getBoundingClientRect();
+      
+      // Nascondi la carta reale finché l'animazione non è finita
+      elReale.style.opacity = '0';
+      
+      // Crea un CLONE per l'animazione
+      var clone = elReale.cloneNode(true);
+      clone.style.position = 'fixed';
+      clone.style.left = (mazzoX - r.width / 2) + 'px';
+      clone.style.top = (mazzoY - r.height / 2) + 'px';
+      clone.style.width = r.width + 'px';
+      clone.style.height = r.height + 'px';
+      clone.style.zIndex = '9999';
+      clone.style.pointerEvents = 'none';
+      clone.style.transition = 'none';
+      clone.style.transformStyle = 'preserve-3d';
+      clone.style.transform = 'scale(0.5) rotate(-10deg)';
+      clone.style.opacity = '1';
+      clone.style.boxShadow = '0 0 20px rgba(77, 171, 247, 0.8)';
+      
+      // Crea il retro per il flip
       var retro = document.createElement('div');
       retro.className = 'carta-retro';
-
-      var faccia = document.createElement('div');
-      faccia.className = 'carta-faccia';
-
-      el.parentNode.insertBefore(wrapper, el);
-      faccia.appendChild(el);
-      wrapper.appendChild(retro);
-      wrapper.appendChild(faccia);
-
-      // Fase 1: dal mazzo (coperta)
-      wrapper.style.transition = 'none';
-      wrapper.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(0.4)';
-      wrapper.style.opacity = '0';
-      void wrapper.offsetWidth;
-
-      // Fase 2: vola in posizione
-      wrapper.style.transition = 'transform 0.5s cubic-bezier(0.34,1.3,0.64,1) ' + (idx * 100) + 'ms, opacity 0.25s ease ' + (idx * 100) + 'ms';
-      wrapper.style.transform = 'translate(0,0) scale(1)';
-      wrapper.style.opacity = '1';
-
-      // Fase 3: si gira
+      retro.style.position = 'absolute';
+      retro.style.inset = '0';
+      retro.style.borderRadius = '12px';
+      retro.style.backfaceVisibility = 'hidden';
+      retro.style.transform = 'rotateY(180deg)';
+      retro.style.background = 'linear-gradient(135deg, #4dabf7, #2563eb)';
+      retro.style.border = '3px solid #fff';
+      retro.style.display = 'flex';
+      retro.style.alignItems = 'center';
+      retro.style.justifyContent = 'center';
+      retro.style.fontSize = '40px';
+      retro.style.color = '#fff';
+      retro.textContent = '🂠';
+      
+      // Prepara la faccia (carta reale clonata) per il flip
+      clone.style.backfaceVisibility = 'hidden';
+      clone.style.transform = 'rotateY(180deg) scale(0.5) rotate(-10deg)';
+      clone.appendChild(retro);
+      
+      document.body.appendChild(clone);
+      
+      // FASE 1: Sposta dal mazzo alla posizione (in 3D, ancora coperta)
       setTimeout(function() {
-        wrapper.style.transition = 'transform 0.45s cubic-bezier(0.34,1.2,0.64,1)';
-        wrapper.classList.remove('coperta');
-      }, 520 + idx * 100);
-
-      // Fase 4: pulizia
+        clone.style.transition = 'left 0.5s cubic-bezier(0.34,1.3,0.64,1), top 0.5s cubic-bezier(0.34,1.3,0.64,1), transform 0.5s cubic-bezier(0.34,1.3,0.64,1)';
+        clone.style.left = r.left + 'px';
+        clone.style.top = r.top + 'px';
+        clone.style.transform = 'rotateY(180deg) scale(1) rotate(0deg)';
+      }, idx * 120);
+      
+      // FASE 2: Flip per scoprire la carta
       setTimeout(function() {
-        wrapper.style.transition = '';
-        wrapper.style.transform = '';
-        wrapper.style.opacity = '';
-        if (wrapper.parentNode) {
-          wrapper.parentNode.insertBefore(el, wrapper);
-          wrapper.remove();
-        }
-      }, 1150 + idx * 100);
+        clone.style.transition = 'transform 0.4s cubic-bezier(0.34,1.2,0.64,1)';
+        clone.style.transform = 'rotateY(0deg) scale(1.05) rotate(0deg)';
+      }, 600 + idx * 120);
+      
+      // FASE 3: Si posa in mano (la carta reale riappare, il clone scompare)
+      setTimeout(function() {
+        clone.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+        clone.style.transform = 'rotateY(0deg) scale(1) rotate(0deg)';
+        elReale.style.transition = 'opacity 0.3s ease';
+        elReale.style.opacity = '1';
+        clone.style.opacity = '0';
+      }, 1050 + idx * 120);
+      
+      // Pulizia finale
+      setTimeout(function() {
+        if (clone.parentNode) clone.remove();
+        elReale.style.transition = '';
+        elReale.style.opacity = '';
+      }, 1400 + idx * 120);
     })(carteDaAnimare[j], j);
   }
 }

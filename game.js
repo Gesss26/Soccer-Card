@@ -1051,6 +1051,11 @@ function avviaContrasto() {
   animaPescaAttiva = numCartePescate > 0;
 
   if (stato.mani.tu.length === 0 && stato.mani.cpu.length === 0) {
+    stato.mano++;
+    setTimeout(function() { if (!stato.partitaFinita) avviaContrasto(); }, 600);
+    return;
+  }
+
   stato.contrasto = {
     zona: zona, attaccante: poss, difensore: dif, semeGuida: null,
     giocatorePoss: gP ? gP.id : null, giocatoreAvv: gA ? gA.id : null,

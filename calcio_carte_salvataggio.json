@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-30T16:05:26.697Z",
+  "data": "2026-10-30T16:06:30.667Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -737,8 +737,8 @@
             "squalificato": false
           },
           "Bremer": {
-            "gialli": 5,
-            "squalificato": false
+            "gialli": 6,
+            "squalificato": true
           },
           "Lucumì": {
             "gialli": 2,
@@ -3515,7 +3515,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793376322696,
+    "timestamp": 1793376386659,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3535,15 +3535,15 @@
       }
     },
     "tempo": 1,
-    "mano": 8,
+    "mano": 11,
     "maxMani": 23,
     "punteggio": {
       "tu": 2,
       "cpu": 0
     },
-    "zonaPalla": 1,
+    "zonaPalla": 2,
     "possessore": "tu",
-    "giocatorePalla": "tu_10",
+    "giocatorePalla": "tu_8",
     "metaContesa": "inf",
     "mazzi": {
       "tu": [
@@ -3780,24 +3780,6 @@
           "seme": "coppa",
           "valore": 2,
           "label": "2"
-        },
-        {
-          "id": "c36",
-          "seme": "guantone",
-          "valore": 4,
-          "label": "4"
-        },
-        {
-          "id": "c30",
-          "seme": "guantone",
-          "valore": 10,
-          "label": "10"
-        },
-        {
-          "id": "c1",
-          "seme": "palla",
-          "valore": 13,
-          "label": "K"
         }
       ],
       "cpu": [
@@ -4034,24 +4016,6 @@
           "seme": "guantone",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c2",
-          "seme": "palla",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
-          "id": "c39",
-          "seme": "bandierina",
-          "valore": 14,
-          "label": "A"
-        },
-        {
-          "id": "c44",
-          "seme": "bandierina",
-          "valore": 9,
-          "label": "9"
         }
       ]
     },
@@ -4098,6 +4062,24 @@
           "seme": "coppa",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c5",
+          "seme": "palla",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c30",
+          "seme": "guantone",
+          "valore": 10,
+          "label": "10"
         }
       ],
       "cpu": [
@@ -4142,6 +4124,24 @@
           "seme": "coppa",
           "valore": 6,
           "label": "6"
+        },
+        {
+          "id": "c44",
+          "seme": "bandierina",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c39",
+          "seme": "bandierina",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c2",
+          "seme": "palla",
+          "valore": 12,
+          "label": "Q"
         }
       ]
     },
@@ -4164,20 +4164,20 @@
     "mani": {
       "tu": [
         {
-          "id": "c50",
-          "seme": "bandierina",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c5",
-          "seme": "palla",
-          "valore": 9,
-          "label": "9"
-        },
-        {
           "id": "c23",
           "seme": "coppa",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c1",
+          "seme": "palla",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c36",
+          "seme": "guantone",
           "valore": 4,
           "label": "4"
         }
@@ -4211,7 +4211,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4234,18 +4234,18 @@
           "nome": "Kalulu"
         },
         {
-          "id": "tu_2",
+          "id": "tu_pan_1_sost",
           "squadra": "tu",
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 10,
           "staminaMax": 10,
-          "falli": 2,
-          "falliArea": 1,
+          "falli": 0,
+          "falliArea": 0,
           "ammonito": false,
           "espulso": false,
-          "nome": "Bremer"
+          "nome": "Gatti"
         },
         {
           "id": "tu_3",
@@ -4253,7 +4253,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4281,7 +4281,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4437,9 +4437,9 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 7,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4465,7 +4465,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4507,7 +4507,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4543,7 +4543,7 @@
           "falli": 0,
           "ammonito": false,
           "espulso": false,
-          "entrato": false,
+          "entrato": true,
           "sostituito": false,
           "nome": "Gatti"
         },
@@ -4616,6 +4616,21 @@
           "entrato": false,
           "sostituito": false,
           "nome": "Alajbegovic"
+        },
+        {
+          "id": "tu_2_usc",
+          "squadra": "tu",
+          "ruolo": "DIF",
+          "portiere": false,
+          "stamina": 6,
+          "staminaMax": 10,
+          "falli": 4,
+          "falliArea": 2,
+          "ammonito": true,
+          "espulso": false,
+          "entrato": true,
+          "sostituito": true,
+          "nome": "Bremer"
         }
       ],
       "cpu": [
@@ -4729,24 +4744,24 @@
       "cpu": []
     },
     "streak": {
-      "tu": 0,
+      "tu": 1,
       "cpu": 0
     },
     "statistiche": {
       "tu": {
         "gol": 2,
         "tiri": 2,
-        "parate": 1,
+        "parate": 2,
         "angoli": 0,
         "pali": 0,
         "fuori": 0,
         "rigori": 1,
-        "contese": 6,
-        "vinte": 5,
-        "falli": 1,
-        "ammonizioni": 0,
+        "contese": 7,
+        "vinte": 6,
+        "falli": 2,
+        "ammonizioni": 1,
         "espulsioni": 0,
-        "sostituzioni": 0,
+        "sostituzioni": 1,
         "bonusGuadagnati": 1,
         "bonusUsati": 1,
         "marcatori": [
@@ -4762,15 +4777,15 @@
       },
       "cpu": {
         "gol": 0,
-        "tiri": 1,
+        "tiri": 2,
         "parate": 0,
         "angoli": 0,
         "pali": 0,
         "fuori": 0,
-        "rigori": 1,
-        "contese": 2,
-        "vinte": 2,
-        "falli": 2,
+        "rigori": 2,
+        "contese": 4,
+        "vinte": 4,
+        "falli": 3,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -5047,9 +5062,141 @@
       {
         "msg": "⚽ GOOOAL! Kolo Muani batte il portiere!",
         "classe": "goal"
+      },
+      {
+        "msg": "⚽ GOAL di Kolo Muani al 14'!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Kolo Muani esulta! TU 2-0 CPU.",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Calcio d'inizio! CPU batte dal centro con Folorunsho.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Folorunsho serve Birindelli in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 superiore: Birindelli (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Birindelli gioca 9🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 3🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Birindelli 9🚩 vs Lucumì 3🚩 → vince Birindelli (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Birindelli vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Birindelli serve Varela in Z5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Varela (CPU) contro Bremer (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Varela gioca A🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bremer risponde con 9⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Varela A🚩 vs Bremer 9⚽ → vince Varela (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Bremer (4 falli totali, 2 in area)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🟨 AMMONIZIONE per Bremer (3 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Varela vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 8/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Varela va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 1 → settori 1,2,4,5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Varela: dado 1 (casella 1).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Varela.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 superiore: Douglas Luiz (TU) contro Pessina (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz gioca 10🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Pessina risponde con Q⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz 10🧤 vs Pessina Q⚽ → vince Douglas Luiz (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Pessina (1 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz serve Yildiz in Z2.",
+        "classe": ""
       }
     ],
-    "cambi": [],
-    "secondiTrascorsi": 168
+    "cambi": [
+      {
+        "squadra": "tu",
+        "uscente": "Bremer",
+        "staminaUscente": 6,
+        "cartelliniUscente": "🟨",
+        "entrante": "Gatti"
+      }
+    ],
+    "secondiTrascorsi": 232
   }
 }

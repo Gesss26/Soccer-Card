@@ -351,6 +351,8 @@ var stato = {
   logCompleto:[]
 };
 var selezioneCarta = null;
+var animaPescaAttiva = false;
+var numCartePescate = 0;
 var selezioneSost = { campo:null, panchina:null };
 var renderingCampoInCorso = false;
 
@@ -1038,11 +1040,17 @@ function avviaContrasto() {
       if (stato.mazzi[sq].length === 0 && stato.scarti[sq].length === 0) break;
     }
   }
+  // Calcola quante carte nuove pesca TU
+  var manoPrimaTU = stato.mani.tu.length;
+
   riempiManoConMalus('tu');
   riempiManoConMalus('cpu');
+  
+  // Imposta quante nuove carte animare
+  numCartePescate = stato.mani.tu.length - manoPrimaTU;
+  animaPescaAttiva = numCartePescate > 0;
+
   if (stato.mani.tu.length === 0 && stato.mani.cpu.length === 0) {
-    stato.mano++; setTimeout(function() { if (!stato.partitaFinita) avviaContrasto(); }, 600); return;
-  }
   stato.contrasto = {
     zona: zona, attaccante: poss, difensore: dif, semeGuida: null,
     giocatorePoss: gP ? gP.id : null, giocatoreAvv: gA ? gA.id : null,
@@ -1351,33 +1359,39 @@ function renderPannelloContrasto() {
   document.getElementById('azioni-container').innerHTML = avviso + azioni;
   setTimeout(function() {
     mostraCarteOverlay();
-    // Anima la pesca delle carte dal mazzo (solo se la mano è stata rifornita)
-    if (stato.contrasto && stato.contrasto.turni === 0 && stato.contrasto.fase === 'gioca-attaccante') {
-      animaPescaCarte();
+    // Anima la pesca SOLO se ci sono nuove carte pescate
+    if (animaPescaAttiva) {
+      animaPescaCarte(numCartePescate);
+      animaPescaAttiva = false;
     }
   }, 150);
 }
 
-/* Animazione pesca carte dal mazzo alla mano — con flip 3D */
-function animaPescaCarte() {
+function animaPescaCarte(numNuove) {
   var contMano = document.getElementById('carte-overlay-carte');
   var pilaMazzo = document.getElementById('mazzo-pila');
-  if (!contMano || !pilaMazzo) return;
+  if (!contMano || !pilaMazzo || !numNuove || numNuove <= 0) return;
 
-  var carteEl = contMano.querySelectorAll('.carta');
-  if (carteEl.length === 0) return;
+  var tutteCarte = contMano.querySelectorAll('.carta');
+  if (tutteCarte.length === 0) return;
+
+  // Prendi solo le ULTIME carte (quelle nuove), in base a quante ne sono state pescate
+  var carteDaAnimare = [];
+  for (var i = Math.max(0, tutteCarte.length - numNuove); i < tutteCarte.length; i++) {
+    carteDaAnimare.push(tutteCarte[i]);
+  }
 
   var boxMazzo = pilaMazzo.getBoundingClientRect();
   var mazzoX = boxMazzo.left + boxMazzo.width / 2;
   var mazzoY = boxMazzo.top + boxMazzo.height / 2;
 
-  for (var i = 0; i < carteEl.length; i++) {
+  for (var j = 0; j < carteDaAnimare.length; j++) {
     (function(el, idx) {
       var r = el.getBoundingClientRect();
       var dx = mazzoX - (r.left + r.width / 2);
       var dy = mazzoY - (r.top + r.height / 2);
 
-      // Crea il wrapper flip 3D intorno alla carta
+      // Crea il wrapper flip 3D
       var wrapper = document.createElement('div');
       wrapper.className = 'carta-flip-wrapper coperta';
       wrapper.style.width = r.width + 'px';
@@ -1390,31 +1404,29 @@ function animaPescaCarte() {
       var faccia = document.createElement('div');
       faccia.className = 'carta-faccia';
 
-      // Sposta la carta originale dentro la faccia
       el.parentNode.insertBefore(wrapper, el);
       faccia.appendChild(el);
       wrapper.appendChild(retro);
       wrapper.appendChild(faccia);
 
-      // Fase 1: parte dal mazzo, coperta, scala ridotta
+      // Fase 1: dal mazzo (coperta)
       wrapper.style.transition = 'none';
       wrapper.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(0.4)';
       wrapper.style.opacity = '0';
       void wrapper.offsetWidth;
 
-      // Fase 2: vola in posizione (ancora coperta)
-      wrapper.style.transition =
-        'transform 0.5s cubic-bezier(0.34,1.3,0.64,1) ' + (idx * 100) + 'ms, opacity 0.25s ease ' + (idx * 100) + 'ms';
+      // Fase 2: vola in posizione
+      wrapper.style.transition = 'transform 0.5s cubic-bezier(0.34,1.3,0.64,1) ' + (idx * 100) + 'ms, opacity 0.25s ease ' + (idx * 100) + 'ms';
       wrapper.style.transform = 'translate(0,0) scale(1)';
       wrapper.style.opacity = '1';
 
-      // Fase 3: si gira mostrando la faccia (flip 3D)
+      // Fase 3: si gira
       setTimeout(function() {
         wrapper.style.transition = 'transform 0.45s cubic-bezier(0.34,1.2,0.64,1)';
         wrapper.classList.remove('coperta');
       }, 520 + idx * 100);
 
-      // Fase 4: pulizia finale — ripristina il DOM originale
+      // Fase 4: pulizia
       setTimeout(function() {
         wrapper.style.transition = '';
         wrapper.style.transform = '';
@@ -1423,11 +1435,8 @@ function animaPescaCarte() {
           wrapper.parentNode.insertBefore(el, wrapper);
           wrapper.remove();
         }
-        el.style.transition = '';
-        el.style.transform = '';
-        el.style.opacity = '';
       }, 1150 + idx * 100);
-    })(carteEl[i], i);
+    })(carteDaAnimare[j], j);
   }
 }
 

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:48:09.857Z",
+  "data": "2026-11-04T15:48:23.174Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807285853,
+    "timestamp": 1793807299160,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3617,9 +3617,9 @@
       "tu": 2,
       "cpu": 1
     },
-    "zonaPalla": 5,
-    "possessore": "tu",
-    "giocatorePalla": "tu_10",
+    "zonaPalla": 3,
+    "possessore": "cpu",
+    "giocatorePalla": "cpu_6",
     "metaContesa": "inf",
     "mazzi": {
       "tu": [
@@ -4439,7 +4439,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 4,
+          "stamina": 3,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4856,7 +4856,7 @@
     "statistiche": {
       "tu": {
         "gol": 2,
-        "tiri": 6,
+        "tiri": 7,
         "parate": 1,
         "angoli": 1,
         "pali": 2,
@@ -4884,7 +4884,7 @@
       "cpu": {
         "gol": 1,
         "tiri": 2,
-        "parate": 0,
+        "parate": 1,
         "angoli": 0,
         "pali": 0,
         "fuori": 0,
@@ -5649,6 +5649,30 @@
       {
         "msg": "🎙️ Kolo Muani vince il contrasto in Z5 e avanza!",
         "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Svilar si prepara al tiro (stamina 3/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 1 → settori 1,2,4,5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 1 → settori 1,2,4,5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 4 (casella 4).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Kolo Muani.",
+        "classe": "parata"
       }
     ],
     "cambi": [
@@ -5674,6 +5698,6 @@
         "entrante": "Cambiaso"
       }
     ],
-    "secondiTrascorsi": 608
+    "secondiTrascorsi": 621
   }
 }

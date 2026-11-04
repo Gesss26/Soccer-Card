@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:43:17.688Z",
+  "data": "2026-11-04T15:43:26.560Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -1362,6 +1362,10 @@
           },
           "Koulierakis": {
             "gialli": 0,
+            "squalificato": false
+          },
+          "Balerdi": {
+            "gialli": 1,
             "squalificato": false
           }
         },
@@ -3583,7 +3587,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793806993680,
+    "timestamp": 1793807002558,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3890,12 +3894,6 @@
           "seme": "bandierina",
           "valore": 9,
           "label": "9"
-        },
-        {
-          "id": "c45",
-          "seme": "bandierina",
-          "valore": 8,
-          "label": "8"
         }
       ],
       "cpu": [
@@ -4174,12 +4172,6 @@
           "seme": "guantone",
           "valore": 11,
           "label": "J"
-        },
-        {
-          "id": "c6",
-          "seme": "palla",
-          "valore": 8,
-          "label": "8"
         }
       ]
     },
@@ -4196,6 +4188,12 @@
           "seme": "palla",
           "valore": 5,
           "label": "5"
+        },
+        {
+          "id": "c45",
+          "seme": "bandierina",
+          "valore": 8,
+          "label": "8"
         }
       ],
       "cpu": [
@@ -4210,6 +4208,12 @@
           "seme": "guantone",
           "valore": 10,
           "label": "10"
+        },
+        {
+          "id": "c31",
+          "seme": "guantone",
+          "valore": 9,
+          "label": "9"
         }
       ]
     },
@@ -4227,8 +4231,7 @@
       "parata-super",
       "passaggio-lungo",
       "parata-super",
-      "passaggio-lungo",
-      "gol-super"
+      "passaggio-lungo"
     ],
     "mani": {
       "tu": [
@@ -4259,16 +4262,16 @@
           "label": "3"
         },
         {
-          "id": "c31",
-          "seme": "guantone",
-          "valore": 9,
-          "label": "9"
-        },
-        {
           "id": "c20",
           "seme": "coppa",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c6",
+          "seme": "palla",
+          "valore": 8,
+          "label": "8"
         }
       ]
     },
@@ -4420,7 +4423,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4464,11 +4467,11 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 6,
           "staminaMax": 10,
-          "falli": 2,
-          "falliArea": 1,
-          "ammonito": false,
+          "falli": 4,
+          "falliArea": 2,
+          "ammonito": true,
           "espulso": false,
           "nome": "Balerdi"
         },
@@ -4794,11 +4797,13 @@
     "invertiCoppie": false,
     "tuECasa": true,
     "bonus": {
-      "tu": [],
+      "tu": [
+        "gol-super"
+      ],
       "cpu": []
     },
     "streak": {
-      "tu": 2,
+      "tu": 0,
       "cpu": 0
     },
     "statistiche": {
@@ -4810,13 +4815,13 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 1,
-        "contese": 2,
+        "contese": 3,
         "vinte": 2,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 0,
+        "bonusGuadagnati": 1,
         "bonusUsati": 0,
         "marcatori": []
       },
@@ -4830,8 +4835,8 @@
         "rigori": 0,
         "contese": 0,
         "vinte": 0,
-        "falli": 1,
-        "ammonizioni": 0,
+        "falli": 2,
+        "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 0,
         "bonusGuadagnati": 0,
@@ -4923,9 +4928,33 @@
       {
         "msg": "🚩 ANGOLO per TU.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Kolo Muani (TU) contro Balerdi (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani gioca 8🚩 e impone il seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Balerdi risponde con 9🧤 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kolo Muani 8🚩 vs Balerdi 9🧤 → vince Kolo Muani (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Balerdi (4 falli totali, 2 in area)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🟨 AMMONIZIONE per Balerdi (3 falli totali)",
+        "classe": "parata"
       }
     ],
     "cambi": [],
-    "secondiTrascorsi": 316
+    "secondiTrascorsi": 325
   }
 }

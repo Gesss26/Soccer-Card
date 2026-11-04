@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:52:02.199Z",
+  "data": "2026-11-04T15:52:09.940Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807518198,
+    "timestamp": 1793807525938,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3724,12 +3724,6 @@
           "seme": "coppa",
           "valore": 7,
           "label": "7"
-        },
-        {
-          "id": "c11",
-          "seme": "palla",
-          "valore": 3,
-          "label": "3"
         }
       ],
       "cpu": [
@@ -3828,12 +3822,6 @@
           "seme": "bandierina",
           "valore": 7,
           "label": "7"
-        },
-        {
-          "id": "c13",
-          "seme": "coppa",
-          "valore": 14,
-          "label": "A"
         }
       ]
     },
@@ -4024,6 +4012,12 @@
           "seme": "guantone",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c35",
+          "seme": "guantone",
+          "valore": 5,
+          "label": "5"
         }
       ],
       "cpu": [
@@ -4218,6 +4212,12 @@
           "seme": "guantone",
           "valore": 5,
           "label": "5"
+        },
+        {
+          "id": "c13",
+          "seme": "coppa",
+          "valore": 14,
+          "label": "A"
         }
       ]
     },
@@ -4227,8 +4227,7 @@
       "contrasto-sicuro",
       "contrasto-sicuro",
       "gol-super",
-      "tiro-fuori-area",
-      "passaggio-lungo"
+      "tiro-fuori-area"
     ],
     "mani": {
       "tu": [
@@ -4239,16 +4238,16 @@
           "label": "4"
         },
         {
-          "id": "c35",
-          "seme": "guantone",
-          "valore": 5,
-          "label": "5"
-        },
-        {
           "id": "c47",
           "seme": "bandierina",
           "valore": 6,
           "label": "6"
+        },
+        {
+          "id": "c11",
+          "seme": "palla",
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
@@ -4420,7 +4419,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 5,
+          "stamina": 4,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4464,10 +4463,10 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
+          "falli": 2,
+          "falliArea": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Ghilardi"
@@ -4855,14 +4854,15 @@
     "tuECasa": true,
     "bonus": {
       "tu": [
-        "parata-super"
+        "parata-super",
+        "passaggio-lungo"
       ],
       "cpu": [
         "passaggio-lungo"
       ]
     },
     "streak": {
-      "tu": 2,
+      "tu": 0,
       "cpu": 0
     },
     "statistiche": {
@@ -4874,13 +4874,13 @@
         "pali": 2,
         "fuori": 1,
         "rigori": 4,
-        "contese": 20,
+        "contese": 21,
         "vinte": 25,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 1,
-        "bonusGuadagnati": 7,
+        "bonusGuadagnati": 8,
         "bonusUsati": 5,
         "marcatori": [
           {
@@ -4907,7 +4907,7 @@
         "rigori": 2,
         "contese": 11,
         "vinte": 6,
-        "falli": 9,
+        "falli": 10,
         "ammonizioni": 2,
         "espulsioni": 0,
         "sostituzioni": 3,
@@ -6133,6 +6133,26 @@
       {
         "msg": "🎙️ Yildiz serve Kolo Muani in Z1.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 inferiore: Kolo Muani (TU) contro Ghilardi (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani gioca 5🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ghilardi risponde con A🏆 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kolo Muani 5🧤 vs Ghilardi A🏆 → vince Kolo Muani (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Ghilardi (2 falli totali, 1 in area)",
+        "classe": "parata"
       }
     ],
     "cambi": [
@@ -6165,6 +6185,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 840
+    "secondiTrascorsi": 848
   }
 }

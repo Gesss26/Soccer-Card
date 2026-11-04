@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:46:01.413Z",
+  "data": "2026-11-04T15:46:16.411Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3587,7 +3587,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807157408,
+    "timestamp": 1793807172408,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3840,12 +3840,6 @@
           "seme": "guantone",
           "valore": 4,
           "label": "4"
-        },
-        {
-          "id": "c39",
-          "seme": "bandierina",
-          "valore": 14,
-          "label": "A"
         }
       ],
       "cpu": [
@@ -4070,12 +4064,6 @@
           "seme": "coppa",
           "valore": 13,
           "label": "K"
-        },
-        {
-          "id": "c23",
-          "seme": "coppa",
-          "valore": 4,
-          "label": "4"
         }
       ]
     },
@@ -4146,6 +4134,12 @@
           "seme": "palla",
           "valore": 12,
           "label": "Q"
+        },
+        {
+          "id": "c8",
+          "seme": "palla",
+          "valore": 6,
+          "label": "6"
         }
       ],
       "cpu": [
@@ -4240,16 +4234,16 @@
           "label": "5"
         },
         {
-          "id": "c8",
-          "seme": "palla",
-          "valore": 6,
-          "label": "6"
-        },
-        {
           "id": "c10",
           "seme": "palla",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c39",
+          "seme": "bandierina",
+          "valore": 14,
+          "label": "A"
         }
       ],
       "cpu": [
@@ -4270,6 +4264,12 @@
           "seme": "bandierina",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c23",
+          "seme": "coppa",
+          "valore": 4,
+          "label": "4"
         }
       ]
     },
@@ -4825,10 +4825,10 @@
         "tiri": 5,
         "parate": 0,
         "angoli": 1,
-        "pali": 1,
+        "pali": 2,
         "fuori": 0,
         "rigori": 3,
-        "contese": 8,
+        "contese": 9,
         "vinte": 9,
         "falli": 2,
         "ammonizioni": 0,
@@ -5355,6 +5355,26 @@
       {
         "msg": "🎙️ Portiere tira 4 → settori 5,6,8,9.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 4 → settori 5,6,8,9.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 3 (casella 3).",
+        "classe": ""
+      },
+      {
+        "msg": "🥅 PALO! Che sfortuna per Kolo Muani.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Kolo Muani (TU) contro Ndicka (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani gioca 6⚽ e impone il seme guida: Palla",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -5366,6 +5386,6 @@
         "entrante": "Ndicka"
       }
     ],
-    "secondiTrascorsi": 480
+    "secondiTrascorsi": 495
   }
 }

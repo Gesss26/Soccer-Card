@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:52:55.201Z",
+  "data": "2026-11-04T15:53:06.812Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807571199,
+    "timestamp": 1793807582811,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,15 +3611,15 @@
       }
     },
     "tempo": 2,
-    "mano": 12,
+    "mano": 13,
     "maxMani": 23,
     "punteggio": {
       "tu": 4,
       "cpu": 1
     },
-    "zonaPalla": 3,
+    "zonaPalla": 2,
     "possessore": "tu",
-    "giocatorePalla": "tu_6",
+    "giocatorePalla": "tu_8",
     "metaContesa": "inf",
     "mazzi": {
       "tu": [
@@ -3706,12 +3706,6 @@
           "seme": "coppa",
           "valore": 2,
           "label": "2"
-        },
-        {
-          "id": "c24",
-          "seme": "coppa",
-          "valore": 3,
-          "label": "3"
         }
       ],
       "cpu": [
@@ -3792,12 +3786,6 @@
           "seme": "palla",
           "valore": 9,
           "label": "9"
-        },
-        {
-          "id": "c3",
-          "seme": "palla",
-          "valore": 11,
-          "label": "J"
         }
       ]
     },
@@ -4006,6 +3994,12 @@
           "seme": "coppa",
           "valore": 13,
           "label": "K"
+        },
+        {
+          "id": "c20",
+          "seme": "coppa",
+          "valore": 7,
+          "label": "7"
         }
       ],
       "cpu": [
@@ -4218,6 +4212,12 @@
           "seme": "coppa",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c3",
+          "seme": "palla",
+          "valore": 11,
+          "label": "J"
         }
       ]
     },
@@ -4244,10 +4244,10 @@
           "label": "6"
         },
         {
-          "id": "c20",
+          "id": "c24",
           "seme": "coppa",
-          "valore": 7,
-          "label": "7"
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
@@ -4363,7 +4363,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4519,9 +4519,9 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 6,
           "staminaMax": 10,
-          "falli": 1,
+          "falli": 2,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4861,7 +4861,7 @@
       ]
     },
     "streak": {
-      "tu": 1,
+      "tu": 2,
       "cpu": 0
     },
     "statistiche": {
@@ -4873,8 +4873,8 @@
         "pali": 2,
         "fuori": 1,
         "rigori": 5,
-        "contese": 21,
-        "vinte": 27,
+        "contese": 22,
+        "vinte": 28,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -4910,7 +4910,7 @@
         "rigori": 2,
         "contese": 13,
         "vinte": 7,
-        "falli": 10,
+        "falli": 11,
         "ammonizioni": 2,
         "espulsioni": 0,
         "sostituzioni": 3,
@@ -6256,6 +6256,38 @@
       {
         "msg": "🎙️ Kalulu serve McKennie in Z3.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: McKennie (TU) contro Kone (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ McKennie gioca 7🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kone risponde con J⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McKennie 7🏆 vs Kone J⚽ → vince McKennie (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Kone (2 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McKennie vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McKennie serve Yildiz in Z2.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -6288,6 +6320,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 893
+    "secondiTrascorsi": 905
   }
 }

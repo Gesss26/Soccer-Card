@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:53:50.638Z",
+  "data": "2026-11-04T15:54:04.702Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807626635,
+    "timestamp": 1793807640701,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3617,10 +3617,10 @@
       "tu": 4,
       "cpu": 1
     },
-    "zonaPalla": 5,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_10",
-    "metaContesa": "inf",
+    "zonaPalla": 3,
+    "possessore": "tu",
+    "giocatorePalla": "tu_5",
+    "metaContesa": "sup",
     "mazzi": {
       "tu": [
         {
@@ -4278,7 +4278,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4306,7 +4306,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 1,
@@ -4574,7 +4574,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4852,20 +4852,18 @@
     "invertiCoppie": true,
     "tuECasa": true,
     "bonus": {
-      "tu": [
-        "parata-super"
-      ],
+      "tu": [],
       "cpu": []
     },
     "streak": {
       "tu": 0,
-      "cpu": 1
+      "cpu": 2
     },
     "statistiche": {
       "tu": {
         "gol": 4,
         "tiri": 12,
-        "parate": 1,
+        "parate": 2,
         "angoli": 1,
         "pali": 2,
         "fuori": 1,
@@ -4877,7 +4875,7 @@
         "espulsioni": 0,
         "sostituzioni": 1,
         "bonusGuadagnati": 9,
-        "bonusUsati": 7,
+        "bonusUsati": 8,
         "marcatori": [
           {
             "nome": "Kolo Muani",
@@ -4899,14 +4897,14 @@
       },
       "cpu": {
         "gol": 1,
-        "tiri": 2,
+        "tiri": 3,
         "parate": 4,
         "angoli": 0,
         "pali": 0,
         "fuori": 0,
-        "rigori": 2,
+        "rigori": 3,
         "contese": 15,
-        "vinte": 8,
+        "vinte": 9,
         "falli": 12,
         "ammonizioni": 2,
         "espulsioni": 0,
@@ -6381,6 +6379,30 @@
       {
         "msg": "🟨 Fallo di Cambiaso (2 falli totali, 1 in area)",
         "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Malen vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 9/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Malen va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Malen: dado 7 (casella 7).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Malen.",
+        "classe": "parata"
       }
     ],
     "cambi": [
@@ -6413,6 +6435,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 949
+    "secondiTrascorsi": 963
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:54:04.702Z",
+  "data": "2026-11-04T15:54:20.268Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807640701,
+    "timestamp": 1793807656266,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,16 +3611,16 @@
       }
     },
     "tempo": 2,
-    "mano": 15,
+    "mano": 16,
     "maxMani": 23,
     "punteggio": {
       "tu": 4,
       "cpu": 1
     },
-    "zonaPalla": 3,
+    "zonaPalla": 2,
     "possessore": "tu",
-    "giocatorePalla": "tu_5",
-    "metaContesa": "sup",
+    "giocatorePalla": "tu_8",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -3682,12 +3682,6 @@
           "seme": "coppa",
           "valore": 14,
           "label": "A"
-        },
-        {
-          "id": "c17",
-          "seme": "coppa",
-          "valore": 10,
-          "label": "10"
         }
       ],
       "cpu": [
@@ -3744,12 +3738,6 @@
           "seme": "guantone",
           "valore": 13,
           "label": "K"
-        },
-        {
-          "id": "c12",
-          "seme": "palla",
-          "valore": 2,
-          "label": "2"
         }
       ]
     },
@@ -3982,6 +3970,12 @@
           "seme": "coppa",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c0",
+          "seme": "palla",
+          "valore": 14,
+          "label": "A"
         }
       ],
       "cpu": [
@@ -4218,6 +4212,12 @@
           "seme": "bandierina",
           "valore": 12,
           "label": "Q"
+        },
+        {
+          "id": "c8",
+          "seme": "palla",
+          "valore": 6,
+          "label": "6"
         }
       ]
     },
@@ -4237,16 +4237,16 @@
           "label": "4"
         },
         {
-          "id": "c0",
-          "seme": "palla",
-          "valore": 14,
-          "label": "A"
-        },
-        {
           "id": "c29",
           "seme": "guantone",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c17",
+          "seme": "coppa",
+          "valore": 10,
+          "label": "10"
         }
       ],
       "cpu": [
@@ -4257,16 +4257,16 @@
           "label": "3"
         },
         {
-          "id": "c8",
-          "seme": "palla",
-          "valore": 6,
-          "label": "6"
-        },
-        {
           "id": "c33",
           "seme": "guantone",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c12",
+          "seme": "palla",
+          "valore": 2,
+          "label": "2"
         }
       ]
     },
@@ -4348,7 +4348,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 6,
+          "stamina": 5,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4504,7 +4504,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 6,
+          "stamina": 5,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4856,8 +4856,8 @@
       "cpu": []
     },
     "streak": {
-      "tu": 0,
-      "cpu": 2
+      "tu": 1,
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
@@ -4868,8 +4868,8 @@
         "pali": 2,
         "fuori": 1,
         "rigori": 5,
-        "contese": 23,
-        "vinte": 29,
+        "contese": 24,
+        "vinte": 30,
         "falli": 6,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -6403,6 +6403,30 @@
       {
         "msg": "🧤 PARATA! Il portiere ferma Malen.",
         "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 superiore: Douglas Luiz (TU) contro Cristante (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz gioca A⚽ e impone il seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Cristante risponde con 6⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Douglas Luiz A⚽ vs Cristante 6⚽ → vince Douglas Luiz (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz vince il contrasto in Z3 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz serve Yildiz in Z2.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -6435,6 +6459,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 963
+    "secondiTrascorsi": 978
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:45:01.426Z",
+  "data": "2026-11-04T15:45:08.243Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3587,7 +3587,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807097415,
+    "timestamp": 1793807104242,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3607,7 +3607,7 @@
       }
     },
     "tempo": 1,
-    "mano": 8,
+    "mano": 9,
     "maxMani": 23,
     "punteggio": {
       "tu": 2,
@@ -4158,6 +4158,12 @@
           "seme": "guantone",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c44",
+          "seme": "bandierina",
+          "valore": 9,
+          "label": "9"
         }
       ],
       "cpu": [
@@ -4202,6 +4208,12 @@
           "seme": "coppa",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c47",
+          "seme": "bandierina",
+          "valore": 6,
+          "label": "6"
         }
       ]
     },
@@ -4218,8 +4230,7 @@
       "contrasto-sicuro",
       "parata-super",
       "passaggio-lungo",
-      "parata-super",
-      "passaggio-lungo"
+      "parata-super"
     ],
     "mani": {
       "tu": [
@@ -4228,12 +4239,6 @@
           "seme": "bandierina",
           "valore": 5,
           "label": "5"
-        },
-        {
-          "id": "c44",
-          "seme": "bandierina",
-          "valore": 9,
-          "label": "9"
         },
         {
           "id": "c8",
@@ -4260,12 +4265,6 @@
           "seme": "palla",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c47",
-          "seme": "bandierina",
-          "valore": 6,
-          "label": "6"
         },
         {
           "id": "c21",
@@ -4325,7 +4324,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4537,7 +4536,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4812,11 +4811,13 @@
     "invertiCoppie": false,
     "tuECasa": true,
     "bonus": {
-      "tu": [],
+      "tu": [
+        "passaggio-lungo"
+      ],
       "cpu": []
     },
     "streak": {
-      "tu": 2,
+      "tu": 0,
       "cpu": 0
     },
     "statistiche": {
@@ -4829,12 +4830,12 @@
         "fuori": 0,
         "rigori": 3,
         "contese": 5,
-        "vinte": 5,
+        "vinte": 6,
         "falli": 2,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
-        "bonusGuadagnati": 1,
+        "bonusGuadagnati": 2,
         "bonusUsati": 1,
         "marcatori": [
           {
@@ -5223,6 +5224,22 @@
       {
         "msg": "🎙️ Z2 superiore: Molina (CPU) contro Lucumì (TU).",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Molina gioca 6🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 9🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Molina 6🚩 vs Lucumì 9🚩 → vince Lucumì (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì vince il contrasto in Z2 e RUBA PALLA!",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -5234,6 +5251,6 @@
         "entrante": "Ndicka"
       }
     ],
-    "secondiTrascorsi": 420
+    "secondiTrascorsi": 426
   }
 }

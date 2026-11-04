@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:50:04.117Z",
+  "data": "2026-11-04T15:50:18.047Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807400113,
+    "timestamp": 1793807414046,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,15 +3611,15 @@
       }
     },
     "tempo": 2,
-    "mano": 2,
+    "mano": 3,
     "maxMani": 23,
     "punteggio": {
       "tu": 3,
       "cpu": 1
     },
-    "zonaPalla": 4,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_7",
+    "zonaPalla": 3,
+    "possessore": "tu",
+    "giocatorePalla": "tu_5",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -4206,6 +4206,12 @@
           "seme": "coppa",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c40",
+          "seme": "bandierina",
+          "valore": 13,
+          "label": "K"
         }
       ]
     },
@@ -4259,12 +4265,6 @@
           "seme": "bandierina",
           "valore": 5,
           "label": "5"
-        },
-        {
-          "id": "c40",
-          "seme": "bandierina",
-          "valore": 13,
-          "label": "K"
         },
         {
           "id": "c15",
@@ -4324,7 +4324,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 0,
@@ -4536,7 +4536,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4857,16 +4857,15 @@
     "tuECasa": true,
     "bonus": {
       "tu": [
-        "parata-super",
-        "contrasto-sicuro"
+        "parata-super"
       ],
       "cpu": [
         "passaggio-lungo"
       ]
     },
     "streak": {
-      "tu": 0,
-      "cpu": 1
+      "tu": 2,
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
@@ -4878,7 +4877,7 @@
         "fuori": 1,
         "rigori": 4,
         "contese": 16,
-        "vinte": 18,
+        "vinte": 19,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -4908,7 +4907,7 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 2,
-        "contese": 8,
+        "contese": 9,
         "vinte": 6,
         "falli": 7,
         "ammonizioni": 2,
@@ -5900,6 +5899,26 @@
       {
         "msg": "🎙️ Kone serve Molina in Z4.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 superiore: Molina (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Molina gioca K🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì vince il contrasto in Z4 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Lucumì AI DANNI DI Molina!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Lucumì serve Douglas Luiz in Z3.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -5932,6 +5951,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 722
+    "secondiTrascorsi": 736
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:48:35.479Z",
+  "data": "2026-11-04T15:48:47.591Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807311477,
+    "timestamp": 1793807323590,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,15 +3611,15 @@
       }
     },
     "tempo": 1,
-    "mano": 18,
+    "mano": 19,
     "maxMani": 23,
     "punteggio": {
       "tu": 2,
       "cpu": 1
     },
-    "zonaPalla": 4,
+    "zonaPalla": 5,
     "possessore": "tu",
-    "giocatorePalla": "tu_8",
+    "giocatorePalla": "tu_10",
     "metaContesa": "inf",
     "mazzi": {
       "tu": [
@@ -3796,12 +3796,6 @@
           "seme": "palla",
           "valore": 11,
           "label": "J"
-        },
-        {
-          "id": "c26",
-          "seme": "guantone",
-          "valore": 14,
-          "label": "A"
         }
       ],
       "cpu": [
@@ -3978,12 +3972,6 @@
           "seme": "guantone",
           "valore": 2,
           "label": "2"
-        },
-        {
-          "id": "c4",
-          "seme": "palla",
-          "valore": 10,
-          "label": "10"
         }
       ]
     },
@@ -4102,6 +4090,12 @@
           "seme": "bandierina",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c15",
+          "seme": "coppa",
+          "valore": 12,
+          "label": "Q"
         }
       ],
       "cpu": [
@@ -4218,6 +4212,12 @@
           "seme": "bandierina",
           "valore": 9,
           "label": "9"
+        },
+        {
+          "id": "c23",
+          "seme": "coppa",
+          "valore": 4,
+          "label": "4"
         }
       ]
     },
@@ -4242,16 +4242,16 @@
           "label": "4"
         },
         {
-          "id": "c15",
-          "seme": "coppa",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
           "id": "c19",
           "seme": "coppa",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c26",
+          "seme": "guantone",
+          "valore": 14,
+          "label": "A"
         }
       ],
       "cpu": [
@@ -4262,16 +4262,16 @@
           "label": "3"
         },
         {
-          "id": "c23",
-          "seme": "coppa",
-          "valore": 4,
-          "label": "4"
-        },
-        {
           "id": "c50",
           "seme": "bandierina",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c4",
+          "seme": "palla",
+          "valore": 10,
+          "label": "10"
         }
       ]
     },
@@ -4395,7 +4395,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4434,18 +4434,18 @@
       ],
       "cpu": [
         {
-          "id": "cpu_0",
+          "id": "cpu_pan_0_sost",
           "squadra": "cpu",
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 3,
+          "stamina": 10,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
-          "nome": "Svilar"
+          "nome": "Gollini"
         },
         {
           "id": "cpu_1",
@@ -4495,7 +4495,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4716,7 +4716,7 @@
           "falli": 0,
           "ammonito": false,
           "espulso": false,
-          "entrato": false,
+          "entrato": true,
           "sostituito": false,
           "nome": "Gollini"
         },
@@ -4833,6 +4833,21 @@
           "entrato": true,
           "sostituito": true,
           "nome": "Ndicka"
+        },
+        {
+          "id": "cpu_0_usc",
+          "squadra": "cpu",
+          "ruolo": "POR",
+          "portiere": true,
+          "stamina": 3,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": true,
+          "sostituito": true,
+          "nome": "Svilar"
         }
       ]
     },
@@ -4850,7 +4865,7 @@
       ]
     },
     "streak": {
-      "tu": 1,
+      "tu": 2,
       "cpu": 0
     },
     "statistiche": {
@@ -4862,8 +4877,8 @@
         "pali": 2,
         "fuori": 1,
         "rigori": 4,
-        "contese": 12,
-        "vinte": 14,
+        "contese": 13,
+        "vinte": 15,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -4894,7 +4909,7 @@
         "falli": 7,
         "ammonizioni": 2,
         "espulsioni": 0,
-        "sostituzioni": 2,
+        "sostituzioni": 3,
         "bonusGuadagnati": 1,
         "bonusUsati": 0,
         "marcatori": [
@@ -5701,6 +5716,34 @@
       {
         "msg": "🎙️ McKennie serve Yildiz in Z4.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 inferiore: Yildiz (TU) contro Wesley (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz gioca Q🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Wesley risponde con 4🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz Q🏆 vs Wesley 4🏆 → vince Yildiz (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🔄 CAMBIO CPU: Svilar (st 3) lascia il campo. Entra Gollini.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Yildiz vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Yildiz serve Kolo Muani in Z5.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -5724,8 +5767,15 @@
         "staminaUscente": 6,
         "cartelliniUscente": "🟨",
         "entrante": "Cambiaso"
+      },
+      {
+        "squadra": "cpu",
+        "uscente": "Svilar",
+        "staminaUscente": 3,
+        "cartelliniUscente": "·",
+        "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 634
+    "secondiTrascorsi": 646
   }
 }

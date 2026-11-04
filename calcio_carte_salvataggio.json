@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:51:04.662Z",
+  "data": "2026-11-04T15:51:16.425Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807460658,
+    "timestamp": 1793807472417,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,7 +3611,7 @@
       }
     },
     "tempo": 2,
-    "mano": 6,
+    "mano": 7,
     "maxMani": 23,
     "punteggio": {
       "tu": 3,
@@ -3748,12 +3748,6 @@
           "seme": "palla",
           "valore": 7,
           "label": "7"
-        },
-        {
-          "id": "c30",
-          "seme": "guantone",
-          "valore": 10,
-          "label": "10"
         }
       ],
       "cpu": [
@@ -3876,12 +3870,6 @@
           "seme": "guantone",
           "valore": 5,
           "label": "5"
-        },
-        {
-          "id": "c37",
-          "seme": "guantone",
-          "valore": 3,
-          "label": "3"
         }
       ]
     },
@@ -4048,6 +4036,12 @@
           "seme": "bandierina",
           "valore": 12,
           "label": "Q"
+        },
+        {
+          "id": "c30",
+          "seme": "guantone",
+          "valore": 10,
+          "label": "10"
         }
       ],
       "cpu": [
@@ -4218,6 +4212,12 @@
           "seme": "bandierina",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
         }
       ]
     },
@@ -4228,8 +4228,7 @@
       "contrasto-sicuro",
       "gol-super",
       "tiro-fuori-area",
-      "passaggio-lungo",
-      "tiro-fuori-area"
+      "passaggio-lungo"
     ],
     "mani": {
       "tu": [
@@ -4379,7 +4378,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4479,7 +4478,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 0,
@@ -4863,7 +4862,7 @@
       ]
     },
     "streak": {
-      "tu": 2,
+      "tu": 0,
       "cpu": 0
     },
     "statistiche": {
@@ -4875,14 +4874,14 @@
         "pali": 2,
         "fuori": 1,
         "rigori": 4,
-        "contese": 18,
-        "vinte": 22,
+        "contese": 19,
+        "vinte": 23,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 1,
-        "bonusGuadagnati": 6,
-        "bonusUsati": 4,
+        "bonusGuadagnati": 7,
+        "bonusUsati": 5,
         "marcatori": [
           {
             "nome": "Kolo Muani",
@@ -6022,6 +6021,26 @@
       {
         "msg": "🎙️ Douglas Luiz serve Conceiçao in Z2.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Conceiçao (TU) contro Hermoso (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao gioca 10🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Hermoso risponde con 3🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao 10🧤 vs Hermoso 3🧤 → vince Conceiçao (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -6054,6 +6073,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 783
+    "secondiTrascorsi": 795
   }
 }

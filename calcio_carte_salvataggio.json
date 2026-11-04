@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:52:16.413Z",
+  "data": "2026-11-04T15:52:21.702Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807532409,
+    "timestamp": 1793807537701,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3614,7 +3614,7 @@
     "mano": 9,
     "maxMani": 23,
     "punteggio": {
-      "tu": 3,
+      "tu": 4,
       "cpu": 1
     },
     "zonaPalla": 1,
@@ -4867,7 +4867,7 @@
     },
     "statistiche": {
       "tu": {
-        "gol": 3,
+        "gol": 4,
         "tiri": 11,
         "parate": 1,
         "angoli": 1,
@@ -4894,6 +4894,10 @@
           {
             "nome": "Kolo Muani",
             "minuto": 38
+          },
+          {
+            "nome": "Kolo Muani",
+            "minuto": 61
           }
         ]
       },
@@ -6177,6 +6181,14 @@
       {
         "msg": "🎙️ Portiere sceglie gruppo 3 → settori 4,5,7,8.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 2 (casella 2).",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Kolo Muani batte il portiere!",
+        "classe": "goal"
       }
     ],
     "cambi": [
@@ -6209,6 +6221,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 855
+    "secondiTrascorsi": 860
   }
 }

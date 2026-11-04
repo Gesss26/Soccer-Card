@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:45:08.243Z",
+  "data": "2026-11-04T15:45:16.418Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3587,7 +3587,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807104242,
+    "timestamp": 1793807112414,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3613,9 +3613,9 @@
       "tu": 2,
       "cpu": 1
     },
-    "zonaPalla": 2,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_7",
+    "zonaPalla": 4,
+    "possessore": "tu",
+    "giocatorePalla": "tu_7",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3858,12 +3858,6 @@
           "seme": "palla",
           "valore": 9,
           "label": "9"
-        },
-        {
-          "id": "c10",
-          "seme": "palla",
-          "valore": 4,
-          "label": "4"
         }
       ],
       "cpu": [
@@ -4106,12 +4100,6 @@
           "seme": "bandierina",
           "valore": 2,
           "label": "2"
-        },
-        {
-          "id": "c0",
-          "seme": "palla",
-          "valore": 14,
-          "label": "A"
         }
       ]
     },
@@ -4251,6 +4239,12 @@
           "seme": "guantone",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c10",
+          "seme": "palla",
+          "valore": 4,
+          "label": "4"
         }
       ],
       "cpu": [
@@ -4271,6 +4265,12 @@
           "seme": "coppa",
           "valore": 6,
           "label": "6"
+        },
+        {
+          "id": "c0",
+          "seme": "palla",
+          "valore": 14,
+          "label": "A"
         }
       ]
     },
@@ -4811,9 +4811,7 @@
     "invertiCoppie": false,
     "tuECasa": true,
     "bonus": {
-      "tu": [
-        "passaggio-lungo"
-      ],
+      "tu": [],
       "cpu": []
     },
     "streak": {
@@ -4829,14 +4827,14 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 3,
-        "contese": 5,
+        "contese": 6,
         "vinte": 6,
         "falli": 2,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
         "bonusGuadagnati": 2,
-        "bonusUsati": 1,
+        "bonusUsati": 2,
         "marcatori": [
           {
             "nome": "Kolo Muani",
@@ -5240,6 +5238,18 @@
       {
         "msg": "🎙️ Lucumì vince il contrasto in Z2 e RUBA PALLA!",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Lucumì AI DANNI DI Molina!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Lucumì serve Conceiçao in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 superiore: Conceiçao (TU) contro Hermoso (CPU).",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -5251,6 +5261,6 @@
         "entrante": "Ndicka"
       }
     ],
-    "secondiTrascorsi": 426
+    "secondiTrascorsi": 435
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:45:31.417Z",
+  "data": "2026-11-04T15:45:35.854Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3587,7 +3587,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807127412,
+    "timestamp": 1793807131851,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3607,7 +3607,7 @@
       }
     },
     "tempo": 1,
-    "mano": 10,
+    "mano": 11,
     "maxMani": 23,
     "punteggio": {
       "tu": 2,
@@ -4208,6 +4208,12 @@
           "seme": "palla",
           "valore": 14,
           "label": "A"
+        },
+        {
+          "id": "c11",
+          "seme": "palla",
+          "valore": 3,
+          "label": "3"
         }
       ]
     },
@@ -4251,12 +4257,6 @@
         {
           "id": "c24",
           "seme": "coppa",
-          "valore": 3,
-          "label": "3"
-        },
-        {
-          "id": "c11",
-          "seme": "palla",
           "valore": 3,
           "label": "3"
         },
@@ -4422,7 +4422,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4466,7 +4466,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 1,
@@ -4815,7 +4815,7 @@
       "cpu": []
     },
     "streak": {
-      "tu": 1,
+      "tu": 2,
       "cpu": 0
     },
     "statistiche": {
@@ -4828,7 +4828,7 @@
         "fuori": 0,
         "rigori": 3,
         "contese": 7,
-        "vinte": 7,
+        "vinte": 8,
         "falli": 2,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -5286,6 +5286,18 @@
       {
         "msg": "🎙️ Kolo Muani gioca 9⚽ e impone il seme guida: Palla",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ndicka risponde con 3⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani 9⚽ vs Ndicka 3⚽ → vince Kolo Muani (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kolo Muani vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -5297,6 +5309,6 @@
         "entrante": "Ndicka"
       }
     ],
-    "secondiTrascorsi": 450
+    "secondiTrascorsi": 454
   }
 }

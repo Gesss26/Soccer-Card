@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:46:49.309Z",
+  "data": "2026-11-04T15:47:02.755Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807205308,
+    "timestamp": 1793807218752,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,16 +3611,16 @@
       }
     },
     "tempo": 1,
-    "mano": 13,
+    "mano": 14,
     "maxMani": 23,
     "punteggio": {
       "tu": 2,
       "cpu": 1
     },
-    "zonaPalla": 2,
+    "zonaPalla": 1,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_7",
-    "metaContesa": "sup",
+    "giocatorePalla": "cpu_10",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -3832,12 +3832,6 @@
           "seme": "bandierina",
           "valore": 7,
           "label": "7"
-        },
-        {
-          "id": "c43",
-          "seme": "bandierina",
-          "valore": 10,
-          "label": "10"
         }
       ],
       "cpu": [
@@ -4050,12 +4044,6 @@
           "seme": "palla",
           "valore": 13,
           "label": "K"
-        },
-        {
-          "id": "c17",
-          "seme": "coppa",
-          "valore": 10,
-          "label": "10"
         }
       ]
     },
@@ -4138,6 +4126,12 @@
           "seme": "bandierina",
           "valore": 5,
           "label": "5"
+        },
+        {
+          "id": "c10",
+          "seme": "palla",
+          "valore": 4,
+          "label": "4"
         }
       ],
       "cpu": [
@@ -4218,6 +4212,12 @@
           "seme": "coppa",
           "valore": 13,
           "label": "K"
+        },
+        {
+          "id": "c17",
+          "seme": "coppa",
+          "valore": 10,
+          "label": "10"
         }
       ]
     },
@@ -4238,12 +4238,6 @@
     "mani": {
       "tu": [
         {
-          "id": "c10",
-          "seme": "palla",
-          "valore": 4,
-          "label": "4"
-        },
-        {
           "id": "c39",
           "seme": "bandierina",
           "valore": 14,
@@ -4254,6 +4248,12 @@
           "seme": "guantone",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c43",
+          "seme": "bandierina",
+          "valore": 10,
+          "label": "10"
         }
       ],
       "cpu": [
@@ -4327,9 +4327,9 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 5,
           "staminaMax": 10,
-          "falli": 1,
+          "falli": 2,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4539,7 +4539,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4836,7 +4836,7 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 1
+      "cpu": 2
     },
     "statistiche": {
       "tu": {
@@ -4849,7 +4849,7 @@
         "rigori": 4,
         "contese": 9,
         "vinte": 10,
-        "falli": 3,
+        "falli": 4,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4874,8 +4874,8 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 1,
-        "contese": 4,
-        "vinte": 3,
+        "contese": 5,
+        "vinte": 4,
         "falli": 6,
         "ammonizioni": 2,
         "espulsioni": 0,
@@ -5478,6 +5478,38 @@
       {
         "msg": "🎙️ Cristante serve Molina in Z2.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Molina (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Molina gioca 10🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 4⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Molina 10🏆 vs Lucumì 4⚽ → vince Molina (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Lucumì (2 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Molina vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Molina serve Malen in Z1.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -5496,6 +5528,6 @@
         "entrante": "Ghilardi"
       }
     ],
-    "secondiTrascorsi": 527
+    "secondiTrascorsi": 541
   }
 }

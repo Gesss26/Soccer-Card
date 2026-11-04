@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:43:26.560Z",
+  "data": "2026-11-04T15:43:31.415Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3587,7 +3587,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807002558,
+    "timestamp": 1793807007411,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -4439,7 +4439,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4462,18 +4462,18 @@
           "nome": "Mancini"
         },
         {
-          "id": "cpu_2",
+          "id": "cpu_pan_1_sost",
           "squadra": "cpu",
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 6,
+          "stamina": 10,
           "staminaMax": 10,
-          "falli": 4,
-          "falliArea": 2,
-          "ammonito": true,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
           "espulso": false,
-          "nome": "Balerdi"
+          "nome": "Ndicka"
         },
         {
           "id": "cpu_3",
@@ -4715,7 +4715,7 @@
           "falli": 0,
           "ammonito": false,
           "espulso": false,
-          "entrato": false,
+          "entrato": true,
           "sostituito": false,
           "nome": "Ndicka"
         },
@@ -4788,6 +4788,21 @@
           "entrato": false,
           "sostituito": false,
           "nome": "Baldanzi"
+        },
+        {
+          "id": "cpu_2_usc",
+          "squadra": "cpu",
+          "ruolo": "DIF",
+          "portiere": false,
+          "stamina": 6,
+          "staminaMax": 10,
+          "falli": 4,
+          "falliArea": 2,
+          "ammonito": true,
+          "espulso": false,
+          "entrato": true,
+          "sostituito": true,
+          "nome": "Balerdi"
         }
       ]
     },
@@ -4797,9 +4812,7 @@
     "invertiCoppie": false,
     "tuECasa": true,
     "bonus": {
-      "tu": [
-        "gol-super"
-      ],
+      "tu": [],
       "cpu": []
     },
     "streak": {
@@ -4809,20 +4822,20 @@
     "statistiche": {
       "tu": {
         "gol": 0,
-        "tiri": 1,
+        "tiri": 2,
         "parate": 0,
         "angoli": 1,
         "pali": 0,
         "fuori": 0,
-        "rigori": 1,
+        "rigori": 2,
         "contese": 3,
-        "vinte": 2,
+        "vinte": 3,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
         "bonusGuadagnati": 1,
-        "bonusUsati": 0,
+        "bonusUsati": 1,
         "marcatori": []
       },
       "cpu": {
@@ -4838,7 +4851,7 @@
         "falli": 2,
         "ammonizioni": 1,
         "espulsioni": 0,
-        "sostituzioni": 0,
+        "sostituzioni": 1,
         "bonusGuadagnati": 0,
         "bonusUsati": 0,
         "marcatori": []
@@ -4952,9 +4965,41 @@
       {
         "msg": "🟨 AMMONIZIONE per Balerdi (3 falli totali)",
         "classe": "parata"
+      },
+      {
+        "msg": "🔄 CAMBIO CPU: Balerdi (st 6) lascia il campo. Entra Ndicka.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kolo Muani vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Svilar si prepara al tiro (stamina 8/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 5 (casella 5).",
+        "classe": ""
       }
     ],
-    "cambi": [],
-    "secondiTrascorsi": 325
+    "cambi": [
+      {
+        "squadra": "cpu",
+        "uscente": "Balerdi",
+        "staminaUscente": 6,
+        "cartelliniUscente": "🟨",
+        "entrante": "Ndicka"
+      }
+    ],
+    "secondiTrascorsi": 330
   }
 }

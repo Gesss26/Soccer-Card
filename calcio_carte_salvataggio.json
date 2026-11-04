@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:47:16.425Z",
+  "data": "2026-11-04T15:47:24.357Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807232422,
+    "timestamp": 1793807240356,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3617,10 +3617,10 @@
       "tu": 2,
       "cpu": 1
     },
-    "zonaPalla": 1,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_10",
-    "metaContesa": "inf",
+    "zonaPalla": 3,
+    "possessore": "tu",
+    "giocatorePalla": "tu_5",
+    "metaContesa": "sup",
     "mazzi": {
       "tu": [
         {
@@ -4841,7 +4841,7 @@
       "tu": {
         "gol": 2,
         "tiri": 6,
-        "parate": 0,
+        "parate": 1,
         "angoli": 1,
         "pali": 2,
         "fuori": 1,
@@ -5553,6 +5553,10 @@
       {
         "msg": "🎙️ Tiro di Malen: dado 8 (casella 8).",
         "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Malen.",
+        "classe": "parata"
       }
     ],
     "cambi": [
@@ -5571,6 +5575,6 @@
         "entrante": "Ghilardi"
       }
     ],
-    "secondiTrascorsi": 555
+    "secondiTrascorsi": 562
   }
 }

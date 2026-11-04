@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:55:36.609Z",
+  "data": "2026-11-04T15:55:48.187Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3595,7 +3595,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807732603,
+    "timestamp": 1793807744182,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3615,15 +3615,15 @@
       }
     },
     "tempo": 2,
-    "mano": 22,
+    "mano": 23,
     "maxMani": 23,
     "punteggio": {
       "tu": 5,
       "cpu": 2
     },
-    "zonaPalla": 2,
+    "zonaPalla": 1,
     "possessore": "tu",
-    "giocatorePalla": "tu_7",
+    "giocatorePalla": "tu_9",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3656,12 +3656,6 @@
           "seme": "coppa",
           "valore": 6,
           "label": "6"
-        },
-        {
-          "id": "c38",
-          "seme": "guantone",
-          "valore": 2,
-          "label": "2"
         }
       ],
       "cpu": [
@@ -3688,12 +3682,6 @@
           "seme": "bandierina",
           "valore": 11,
           "label": "J"
-        },
-        {
-          "id": "c22",
-          "seme": "coppa",
-          "valore": 5,
-          "label": "5"
         }
       ]
     },
@@ -3956,6 +3944,12 @@
           "seme": "guantone",
           "valore": 6,
           "label": "6"
+        },
+        {
+          "id": "c17",
+          "seme": "coppa",
+          "valore": 10,
+          "label": "10"
         }
       ],
       "cpu": [
@@ -4222,6 +4216,12 @@
           "seme": "guantone",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c22",
+          "seme": "coppa",
+          "valore": 5,
+          "label": "5"
         }
       ]
     },
@@ -4234,12 +4234,6 @@
     "mani": {
       "tu": [
         {
-          "id": "c17",
-          "seme": "coppa",
-          "valore": 10,
-          "label": "10"
-        },
-        {
           "id": "c4",
           "seme": "palla",
           "valore": 10,
@@ -4250,6 +4244,12 @@
           "seme": "bandierina",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c38",
+          "seme": "guantone",
+          "valore": 2,
+          "label": "2"
         }
       ],
       "cpu": [
@@ -4379,7 +4379,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4479,7 +4479,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 0,
@@ -4874,8 +4874,8 @@
       "cpu": []
     },
     "streak": {
-      "tu": 0,
-      "cpu": 2
+      "tu": 1,
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
@@ -4886,8 +4886,8 @@
         "pali": 2,
         "fuori": 1,
         "rigori": 5,
-        "contese": 26,
-        "vinte": 32,
+        "contese": 27,
+        "vinte": 33,
         "falli": 6,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -6625,6 +6625,30 @@
       {
         "msg": "🎙️ McKennie serve Conceiçao in Z2.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Conceiçao (TU) contro Hermoso (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao gioca 10🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Hermoso risponde con 5🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao 10🏆 vs Hermoso 5🏆 → vince Conceiçao (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao serve Woltemade in Z1.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -6664,6 +6688,6 @@
         "entrante": "Lulli"
       }
     ],
-    "secondiTrascorsi": 1055
+    "secondiTrascorsi": 1066
   }
 }

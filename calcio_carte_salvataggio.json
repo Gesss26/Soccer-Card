@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:44:23.772Z",
+  "data": "2026-11-04T15:44:35.878Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3587,7 +3587,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807059768,
+    "timestamp": 1793807071875,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3607,16 +3607,16 @@
       }
     },
     "tempo": 1,
-    "mano": 6,
+    "mano": 7,
     "maxMani": 23,
     "punteggio": {
       "tu": 1,
       "cpu": 1
     },
-    "zonaPalla": 4,
+    "zonaPalla": 5,
     "possessore": "tu",
-    "giocatorePalla": "tu_7",
-    "metaContesa": "sup",
+    "giocatorePalla": "tu_10",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -3876,12 +3876,6 @@
           "seme": "palla",
           "valore": 6,
           "label": "6"
-        },
-        {
-          "id": "c37",
-          "seme": "guantone",
-          "valore": 3,
-          "label": "3"
         }
       ],
       "cpu": [
@@ -4142,12 +4136,6 @@
           "seme": "bandierina",
           "valore": 6,
           "label": "6"
-        },
-        {
-          "id": "c39",
-          "seme": "bandierina",
-          "valore": 14,
-          "label": "A"
         }
       ]
     },
@@ -4182,6 +4170,12 @@
           "seme": "bandierina",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c28",
+          "seme": "guantone",
+          "valore": 12,
+          "label": "Q"
         }
       ],
       "cpu": [
@@ -4214,6 +4208,12 @@
           "seme": "palla",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c39",
+          "seme": "bandierina",
+          "valore": 14,
+          "label": "A"
         }
       ]
     },
@@ -4248,10 +4248,10 @@
           "label": "9"
         },
         {
-          "id": "c28",
+          "id": "c37",
           "seme": "guantone",
-          "valore": 12,
-          "label": "Q"
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
@@ -4381,7 +4381,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4481,9 +4481,9 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 7,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4816,8 +4816,8 @@
       "cpu": []
     },
     "streak": {
-      "tu": 0,
-      "cpu": 2
+      "tu": 1,
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
@@ -4828,8 +4828,8 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 2,
-        "contese": 3,
-        "vinte": 3,
+        "contese": 4,
+        "vinte": 4,
         "falli": 2,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4853,7 +4853,7 @@
         "rigori": 1,
         "contese": 2,
         "vinte": 2,
-        "falli": 2,
+        "falli": 3,
         "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 1,
@@ -5115,6 +5115,38 @@
       {
         "msg": "🎙️ McKennie serve Conceiçao in Z4.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 superiore: Conceiçao (TU) contro Hermoso (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao gioca Q🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Hermoso risponde con A🚩 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Conceiçao Q🧤 vs Hermoso A🚩 → vince Conceiçao (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Hermoso (1 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Conceiçao vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Conceiçao serve Kolo Muani in Z5.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -5126,6 +5158,6 @@
         "entrante": "Ndicka"
       }
     ],
-    "secondiTrascorsi": 382
+    "secondiTrascorsi": 394
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:53:16.424Z",
+  "data": "2026-11-04T15:53:31.422Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807592418,
+    "timestamp": 1793807607416,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3617,10 +3617,10 @@
       "tu": 4,
       "cpu": 1
     },
-    "zonaPalla": 2,
-    "possessore": "tu",
-    "giocatorePalla": "tu_8",
-    "metaContesa": "inf",
+    "zonaPalla": 3,
+    "possessore": "cpu",
+    "giocatorePalla": "cpu_5",
+    "metaContesa": "sup",
     "mazzi": {
       "tu": [
         {
@@ -3694,12 +3694,6 @@
           "seme": "guantone",
           "valore": 11,
           "label": "J"
-        },
-        {
-          "id": "c0",
-          "seme": "palla",
-          "valore": 14,
-          "label": "A"
         }
       ],
       "cpu": [
@@ -3768,12 +3762,6 @@
           "seme": "bandierina",
           "valore": 12,
           "label": "Q"
-        },
-        {
-          "id": "c33",
-          "seme": "guantone",
-          "valore": 7,
-          "label": "7"
         }
       ]
     },
@@ -4218,6 +4206,12 @@
           "seme": "palla",
           "valore": 9,
           "label": "9"
+        },
+        {
+          "id": "c46",
+          "seme": "bandierina",
+          "valore": 7,
+          "label": "7"
         }
       ]
     },
@@ -4247,6 +4241,12 @@
           "seme": "coppa",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c0",
+          "seme": "palla",
+          "valore": 14,
+          "label": "A"
         }
       ],
       "cpu": [
@@ -4263,8 +4263,8 @@
           "label": "6"
         },
         {
-          "id": "c46",
-          "seme": "bandierina",
+          "id": "c33",
+          "seme": "guantone",
           "valore": 7,
           "label": "7"
         }
@@ -4434,7 +4434,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4866,7 +4866,7 @@
     "statistiche": {
       "tu": {
         "gol": 4,
-        "tiri": 11,
+        "tiri": 12,
         "parate": 1,
         "angoli": 1,
         "pali": 2,
@@ -4902,12 +4902,12 @@
       "cpu": {
         "gol": 1,
         "tiri": 2,
-        "parate": 3,
+        "parate": 4,
         "angoli": 0,
         "pali": 0,
         "fuori": 0,
         "rigori": 2,
-        "contese": 13,
+        "contese": 14,
         "vinte": 7,
         "falli": 12,
         "ammonizioni": 2,
@@ -6315,6 +6315,38 @@
       {
         "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
         "classe": "parata"
+      },
+      {
+        "msg": "🧤 Gollini si prepara al tiro (stamina 6/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 2 → settori 2,3,5,6.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 2 → settori 2,3,5,6.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Yildiz: dado 3 (casella 3).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Yildiz.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 superiore: Cristante (CPU) contro Douglas Luiz (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Cristante gioca 7🚩 → seme guida: Bandierina",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -6347,6 +6379,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 915
+    "secondiTrascorsi": 930
   }
 }

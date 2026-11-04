@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:54:20.268Z",
+  "data": "2026-11-04T15:54:31.413Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -1369,6 +1369,10 @@
             "squalificato": false
           },
           "Ndicka": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Wesley": {
             "gialli": 1,
             "squalificato": false
           }
@@ -3591,7 +3595,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807656266,
+    "timestamp": 1793807667410,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,15 +3615,15 @@
       }
     },
     "tempo": 2,
-    "mano": 16,
+    "mano": 17,
     "maxMani": 23,
     "punteggio": {
       "tu": 4,
       "cpu": 1
     },
-    "zonaPalla": 2,
+    "zonaPalla": 1,
     "possessore": "tu",
-    "giocatorePalla": "tu_8",
+    "giocatorePalla": "tu_10",
     "metaContesa": "inf",
     "mazzi": {
       "tu": [
@@ -3670,18 +3674,6 @@
           "seme": "palla",
           "valore": 10,
           "label": "10"
-        },
-        {
-          "id": "c34",
-          "seme": "guantone",
-          "valore": 6,
-          "label": "6"
-        },
-        {
-          "id": "c13",
-          "seme": "coppa",
-          "valore": 14,
-          "label": "A"
         }
       ],
       "cpu": [
@@ -3726,18 +3718,6 @@
           "seme": "guantone",
           "valore": 12,
           "label": "Q"
-        },
-        {
-          "id": "c34",
-          "seme": "guantone",
-          "valore": 6,
-          "label": "6"
-        },
-        {
-          "id": "c27",
-          "seme": "guantone",
-          "valore": 13,
-          "label": "K"
         }
       ]
     },
@@ -3976,6 +3956,12 @@
           "seme": "palla",
           "valore": 14,
           "label": "A"
+        },
+        {
+          "id": "c13",
+          "seme": "coppa",
+          "valore": 14,
+          "label": "A"
         }
       ],
       "cpu": [
@@ -4218,6 +4204,12 @@
           "seme": "palla",
           "valore": 6,
           "label": "6"
+        },
+        {
+          "id": "c27",
+          "seme": "guantone",
+          "valore": 13,
+          "label": "K"
         }
       ]
     },
@@ -4247,6 +4239,12 @@
           "seme": "coppa",
           "valore": 10,
           "label": "10"
+        },
+        {
+          "id": "c34",
+          "seme": "guantone",
+          "valore": 6,
+          "label": "6"
         }
       ],
       "cpu": [
@@ -4267,6 +4265,12 @@
           "seme": "palla",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c34",
+          "seme": "guantone",
+          "valore": 6,
+          "label": "6"
         }
       ]
     },
@@ -4390,7 +4394,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4485,18 +4489,18 @@
           "nome": "Hermoso"
         },
         {
-          "id": "cpu_4",
+          "id": "cpu_pan_3_sost",
           "squadra": "cpu",
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 5,
+          "stamina": 10,
           "staminaMax": 10,
-          "falli": 2,
+          "falli": 0,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
-          "nome": "Wesley"
+          "nome": "Lulli"
         },
         {
           "id": "cpu_5",
@@ -4753,7 +4757,7 @@
           "falli": 0,
           "ammonito": false,
           "espulso": false,
-          "entrato": false,
+          "entrato": true,
           "sostituito": false,
           "nome": "Lulli"
         },
@@ -4843,6 +4847,21 @@
           "entrato": true,
           "sostituito": true,
           "nome": "Svilar"
+        },
+        {
+          "id": "cpu_4_usc",
+          "squadra": "cpu",
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 3,
+          "staminaMax": 10,
+          "falli": 3,
+          "falliArea": 0,
+          "ammonito": true,
+          "espulso": false,
+          "entrato": true,
+          "sostituito": true,
+          "nome": "Wesley"
         }
       ]
     },
@@ -4856,7 +4875,7 @@
       "cpu": []
     },
     "streak": {
-      "tu": 1,
+      "tu": 2,
       "cpu": 0
     },
     "statistiche": {
@@ -4868,8 +4887,8 @@
         "pali": 2,
         "fuori": 1,
         "rigori": 5,
-        "contese": 24,
-        "vinte": 30,
+        "contese": 26,
+        "vinte": 31,
         "falli": 6,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -4905,10 +4924,10 @@
         "rigori": 3,
         "contese": 15,
         "vinte": 9,
-        "falli": 12,
-        "ammonizioni": 2,
+        "falli": 13,
+        "ammonizioni": 3,
         "espulsioni": 0,
-        "sostituzioni": 3,
+        "sostituzioni": 4,
         "bonusGuadagnati": 1,
         "bonusUsati": 1,
         "marcatori": [
@@ -6427,6 +6446,50 @@
       {
         "msg": "🎙️ Douglas Luiz serve Yildiz in Z2.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 inferiore: Yildiz (TU) contro Wesley (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz gioca A🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Wesley risponde con K🧤 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Yildiz A🏆 vs Wesley K🧤 → vince Yildiz (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Wesley (3 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🟨 AMMONIZIONE per Wesley (3 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🔄 CAMBIO CPU: Wesley (st 3) lascia il campo. Entra Lulli.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Yildiz vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Yildiz serve Kolo Muani in Z1.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 inferiore: Kolo Muani (TU) contro Ghilardi (CPU).",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -6457,8 +6520,15 @@
         "staminaUscente": 3,
         "cartelliniUscente": "·",
         "entrante": "Gollini"
+      },
+      {
+        "squadra": "cpu",
+        "uscente": "Wesley",
+        "staminaUscente": 3,
+        "cartelliniUscente": "🟨",
+        "entrante": "Lulli"
       }
     ],
-    "secondiTrascorsi": 978
+    "secondiTrascorsi": 990
   }
 }

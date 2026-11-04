@@ -575,7 +575,10 @@ function renderBonusCpuInfo() { for (var i = 0; i < 3; i++) { var slot = documen
 function creaGiocatori(sq) {
   var g = []; var id = 0;
   var sqId = sq === 'tu' ? stato.squadraTU : stato.squadraCPU;
-  var rosa = ROSE[sqId]; if (!rosa) return g;
+  // Controlla se è una nazionale o una squadra di club
+  var rosa = (typeof ROSE_NAZIONALI !== 'undefined' && ROSE_NAZIONALI[sqId]) ? ROSE_NAZIONALI[sqId] : (typeof ROSE !== 'undefined' ? ROSE[sqId] : null);
+  if (!rosa) return g;
+  
   function z(zonaLogica) { return zonaLogica; }
   g.push({ id:sq+'_'+(id++), squadra:sq, zona:z(0), ruolo:'POR', portiere:true, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, falliArea:0, ammonito:false, espulso:false, nome: rosa.portiere[0] });
   for (var i=0;i<2;i++) g.push({ id:sq+'_'+(id++), squadra:sq, zona:z(1), ruolo:'DIF', portiere:false, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, falliArea:0, ammonito:false, espulso:false, nome: rosa.difensori[i] || ('DIF'+(i+1)) });
@@ -587,7 +590,8 @@ function creaGiocatori(sq) {
 function creaPanchina(sq) {
   var p = []; var id = 0;
   var sqId = sq === 'tu' ? stato.squadraTU : stato.squadraCPU;
-  var r = ROSE[sqId]; if (!r || !r.panchina) return p;
+  var r = (typeof ROSE_NAZIONALI !== 'undefined' && ROSE_NAZIONALI[sqId]) ? ROSE_NAZIONALI[sqId] : (typeof ROSE !== 'undefined' ? ROSE[sqId] : null);
+  if (!r || !r.panchina) return p;
   for (var i=0;i<r.panchina.por.length;i++) p.push({ id:sq+'_pan_'+(id++), squadra:sq, ruolo:'POR', portiere:true, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, entrato:false, sostituito:false, nome:r.panchina.por[i] });
   for (var j=0;j<r.panchina.dif.length;j++) p.push({ id:sq+'_pan_'+(id++), squadra:sq, ruolo:'DIF', portiere:false, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, entrato:false, sostituito:false, nome:r.panchina.dif[j] });
   for (var k=0;k<r.panchina.cen.length;k++) p.push({ id:sq+'_pan_'+(id++), squadra:sq, ruolo:'CEN', portiere:false, stamina:STAMINA_MAX, staminaMax:STAMINA_MAX, falli:0, ammonito:false, espulso:false, entrato:false, sostituito:false, nome:r.panchina.cen[k] });
@@ -637,6 +641,7 @@ function mostraMenuPrincipale() {
       '<div class="menu-btn" onclick="avviaSetup1P()"><div class="icona">🎮</div><div class="testo"><div class="titolo">PARTITA SINGOLA</div><div class="descr">1 giocatore vs CPU</div></div></div>' +
       '<div class="menu-btn" onclick="avviaSetup2P()"><div class="icona">👥</div><div class="testo"><div class="titolo">PARTITA 2 GIOCATORI</div><div class="descr">Locale - stesso dispositivo</div></div></div>' +
       '<div class="menu-btn evidenza" onclick="location.href=\'seriea2027.html\'"><div class="icona">⚽</div><div class="testo"><div class="titolo">SERIE A 2026/2027</div><div class="descr">20 squadre · 38 giornate</div></div></div>' +
+      '<div class="menu-btn evidenza" onclick="location.href=\'nations-league.html\'"><div class="icona">🏆</div><div class="testo"><div class="titolo">NATIONS LEAGUE</div><div class="descr">UEFA Nations League 2026/27</div></div></div>' +
       '<div style="margin-top:24px"><button onclick="apriImpostazioni()">⚙️ Impostazioni</button></div>' +
     '</div>';
 }
@@ -719,8 +724,8 @@ function apriLog() {
 function renderHeader() {
   var sqCasa, sqTrasf;
   if (URL_CASA && URL_TRASFERTA) { sqCasa = URL_CASA; sqTrasf = URL_TRASFERTA; } else { sqCasa = stato.squadraTU; sqTrasf = stato.squadraCPU; }
-  var nomeCasa = SQUADRE[sqCasa] ? SQUADRE[sqCasa].nome : sqCasa;
-  var nomeTrasf = SQUADRE[sqTrasf] ? SQUADRE[sqTrasf].nome : sqTrasf;
+  var nomeCasa = (typeof SQUADRE_NAZIONALI !== 'undefined' && SQUADRE_NAZIONALI[sqCasa]) ? SQUADRE_NAZIONALI[sqCasa].nome : (SQUADRE[sqCasa] ? SQUADRE[sqCasa].nome : sqCasa);
+  var nomeTrasf = (typeof SQUADRE_NAZIONALI !== 'undefined' && SQUADRE_NAZIONALI[sqTrasf]) ? SQUADRE_NAZIONALI[sqTrasf].nome : (SQUADRE[sqTrasf] ? SQUADRE[sqTrasf].nome : sqTrasf);
   var golCasa, golTrasf;
   if (sqCasa === stato.squadraTU) { golCasa = stato.punteggio.tu; golTrasf = stato.punteggio.cpu; } else { golCasa = stato.punteggio.cpu; golTrasf = stato.punteggio.tu; }
   document.getElementById('nome-casa').textContent = nomeCasa;
@@ -830,7 +835,11 @@ function creaPedinaEl(g, anim) {
   if (g.espulso) el.classList.add('espulso');
   el.title = g.nome + ' - Stamina ' + g.stamina + '/' + g.staminaMax;
   var div;
-  if (g.portiere) { var sqId = g.squadra === 'tu' ? stato.squadraTU : stato.squadraCPU; div = SQUADRE[sqId].portiere; }
+  var sqId = g.squadra === 'tu' ? stato.squadraTU : stato.squadraCPU;
+  if (g.portiere) { 
+    var sqData = (typeof SQUADRE_NAZIONALI !== 'undefined' && SQUADRE_NAZIONALI[sqId]) ? SQUADRE_NAZIONALI[sqId] : SQUADRE[sqId];
+    div = sqData.portiere; 
+  }
   else { div = g.squadra === 'tu' ? stato.divise.tu : stato.divise.cpu; }
   el.innerHTML = creaGiocatoreSVG(div, anim, g.nome);
   return el;
@@ -2025,7 +2034,8 @@ function apriOverlayTiro(att, dif, isRigore) {
   var settoriOverlay = document.createElement('div'); settoriOverlay.className = 'tiro-settori-overlay'; settoriOverlay.id = 'tiro-settori-overlay'; pw.appendChild(settoriOverlay);
   var pt = document.createElement('div'); pt.className = 'tiro-portiere'; pt.id = 'tiro-portiere';
   var sqP = dif === 'tu' ? stato.squadraTU : stato.squadraCPU;
-  pt.innerHTML = creaGiocatoreSVG(SQUADRE[sqP].portiere, 'fermo', '');
+  var sqData = (typeof SQUADRE_NAZIONALI !== 'undefined' && SQUADRE_NAZIONALI[sqP]) ? SQUADRE_NAZIONALI[sqP] : SQUADRE[sqP];
+  pt.innerHTML = creaGiocatoreSVG(sqData.portiere, 'fermo', '');
   pw.appendChild(pt);
 
   var pa = document.createElement('div'); pa.className = 'tiro-palla iniziale' + (isRigore ? ' rigore' : ''); pa.id = 'tiro-palla';
@@ -2504,6 +2514,8 @@ async function confermaFinePartita() {
   setTimeout(function() {
     if (TORNEO_MODE === 'seriea' && PARTITA_TORNEO) {
       salvaRisultatoTorneo();
+    } else if (TORNEO_MODE === 'nations' && PARTITA_TORNEO) {
+      salvaRisultatoTorneoNations();
     } else {
       mostraMenuPrincipale();
     }
@@ -2524,6 +2536,18 @@ function salvaRisultatoTorneo() {
   };
   localStorage.setItem('campionato_partita_' + PARTITA_TORNEO, JSON.stringify(r));
   location.href = 'seriea2027.html?risultato=' + encodeURIComponent(PARTITA_TORNEO);
+}
+
+function salvaRisultatoTorneoNations() {
+  var r = {
+    golTU: stato.punteggio.tu,
+    golCPU: stato.punteggio.cpu,
+    sqTU: stato.squadraTU,
+    sqCPU: stato.squadraCPU,
+    statistiche: JSON.parse(JSON.stringify(stato.statistiche))
+  };
+  localStorage.setItem('campionato_partita_' + PARTITA_TORNEO, JSON.stringify(r));
+  location.href = 'nations-league.html?risultato=' + encodeURIComponent(PARTITA_TORNEO);
 }
 
 /* SOSTITUZIONI MANUALI (per il giocatore TU) */
@@ -2622,6 +2646,12 @@ try {
   if (salvata) mostraSchermataRipristino(salvata);
     else if (TORNEO_MODE === 'seriea' && PARTITA_TORNEO && URL_SQ_TU && URL_SQ_CPU) {
     if (SQUADRE[URL_SQ_TU] && SQUADRE[URL_SQ_CPU]) {
+      mostraSchermataDifficolta(function() {
+        avviaPartita(URL_SQ_TU, URL_SQ_CPU, '1P', URL_CASA);
+      });
+    } else mostraMenuPrincipale();
+  } else if (TORNEO_MODE === 'nations' && PARTITA_TORNEO && URL_SQ_TU && URL_SQ_CPU) {
+    if ((typeof SQUADRE_NAZIONALI !== 'undefined' && SQUADRE_NAZIONALI[URL_SQ_TU] && SQUADRE_NAZIONALI[URL_SQ_CPU])) {
       mostraSchermataDifficolta(function() {
         avviaPartita(URL_SQ_TU, URL_SQ_CPU, '1P', URL_CASA);
       });

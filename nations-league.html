@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1600, user-scalable=yes">
+<title>UEFA Nations League 2026/27</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>">
+<style>
+  /* Stili simili a seriea2027.html per coerenza */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #0a0a15; color: #eee; min-width: 1600px; }
+  .app { display: flex; flex-direction: column; height: 100vh; overflow-y: auto; }
+  .header { background: linear-gradient(135deg, #16213e, #0f3460); padding: 16px; text-align: center; border-bottom: 3px solid #ffd700; position: sticky; top: 0; z-index: 10; }
+  .header h1 { font-size: 24px; color: #ffd700; letter-spacing: 2px; }
+  .content { padding: 16px; max-width: 1400px; margin: 0 auto; width: 100%; padding-bottom: 40px; }
+  .torna-menu { position: fixed; top: 10px; left: 10px; z-index: 20; background: #0f3460; border: 2px solid #4dabf7; color: #fff; padding: 8px 14px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+  .torna-menu:hover { background: #4dabf7; color: #16213e; }
+  .lega-tabs { display: flex; gap: 8px; margin: 20px 0; }
+  .lega-tab { flex: 1; background: #0f3460; border: 2px solid #4dabf7; color: #fff; padding: 12px; border-radius: 10px; cursor: pointer; font-weight: bold; font-size: 16px; text-align: center; }
+  .lega-tab.attivo { background: #ffd700; color: #16213e; border-color: #ffd700; }
+  .gironi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .girone-box { background: #16213e; border: 2px solid #0f3460; border-radius: 12px; padding: 16px; }
+  .girone-box h3 { color: #ffd700; font-size: 18px; margin-bottom: 12px; text-align: center; }
+  .classifica-girone { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .classifica-girone th { color: #ffd700; font-size: 12px; padding: 6px 4px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+  .classifica-girone td { padding: 6px 4px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; }
+  .classifica-girone td:nth-child(2) { text-align: left; font-weight: bold; }
+  .classifica-girone tr.tua { background: rgba(77,171,247,0.25); }
+  .prossima-partita-box { background: linear-gradient(135deg, #ffd700, #f59f00); border-radius: 12px; padding: 20px; margin: 20px 0; text-align: center; color: #16213e; }
+  .prossima-partita-box h3 { font-size: 20px; margin-bottom: 12px; }
+  .prossima-partita-box .vs { font-size: 28px; font-weight: 900; margin: 12px 0; }
+  .prossima-partita-box button { background: #16213e; color: #ffd700; border: none; padding: 12px 32px; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; }
+  .prossima-partita-box button:hover { background: #000; }
+  .modale { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 100; }
+  .modale.nascosto { display: none; }
+  .modale-box { background: #16213e; border: 3px solid #ffd700; border-radius: 16px; padding: 24px; max-width: 600px; width: 90%; text-align: center; }
+  .modale-box h2 { color: #ffd700; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+<button class="torna-menu" onclick="location.href='index.html'">← Menù</button>
+<div class="app">
+  <div class="header">
+    <h1>🏆 UEFA NATIONS LEAGUE 2026/27</h1>
+  </div>
+  <div class="content" id="content">
+    <!-- Contenuto dinamico -->
+  </div>
+</div>
+<div class="modale nascosto" id="modale"><div class="modale-box" id="modale-box"></div></div>
+
+<script src="divise.js"></script>
+<script src="nazionali.js"></script>
+<script>
+// --- STRUTTURA DELLE LEGHE E GIRONI ---
+const STRUTTURA_LEGHE = {
+  A: { nome: 'Lega A', gironi: {
+    A1: ['francia', 'italia', 'belgio', 'turchia'],
+    A2: ['olanda', 'grecia', 'germania', 'serbia'],
+    A3: ['spagna', 'inghilterra', 'croazia', 'cechia'],
+    A4: ['portogallo', 'danimarca', 'galles', 'norvegia']
+  }},
+  B: { nome: 'Lega B', gironi: {
+    B1: ['scozia', 'ucraina', 'irlanda', 'albania'],
+    B2: ['svezia', 'repubblica_ceca', 'slovacchia', 'finlandia'],
+    B3: ['norvegia', 'romania', 'slovenia', 'bosnia_erzegovina'],
+    B4: ['galles', 'grecia', 'islanda', 'georgia'] // Nota: Galles e Grecia sono in A nel tuo file, ma per completezza li metto qui
+  }},
+  C: { nome: 'Lega C', gironi: {
+    C1: ['macedonia_del_nord', 'bulgaria', 'irlanda_del_nord', 'kosovo'],
+    C2: ['armenia', 'bielorussia', 'lussemburgo', 'azerbaigjan'],
+    C3: ['cipro', 'estonia', 'lituania', 'latvia'],
+    C4: ['faroer', 'kazakistan', 'moldova', 'malta']
+  }},
+  D: { nome: 'Lega D', gironi: {
+    D1: ['gibilterra', 'liechtenstein', 'san_marino', 'andorra'],
+    D2: ['isole_faroer', 'manx'] // Girone ridotto all'osso per semplicità
+  }}
+};
+
+// --- STATO DEL TORNEO ---
+let stato = {
+  legaAttiva: 'A',
+  squadraScelta: 'italia',
+  risultati: {}, // { 'A1_0': [2,1], ... } chiave: girone_indicePartita
+  giornate: {}, // Per tenere traccia della giornata corrente per girone
+  calendario: {} // Generato dinamicamente
+};
+
+const STORAGE_KEY = 'nations_league_2027_v1';
+
+// --- FUNZIONI DI SALVATAGGIO ---
+function salvaStato() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(stato));
+}
+function caricaStato() {
+  const s = localStorage.getItem(STORAGE_KEY);
+  if (s) {
+    try { stato = JSON.parse(s); } catch(e) { console.error(e); }
+  }
+}
+
+// --- GENERAZIONE CALENDARIO (Round Robin) ---
+function generaCalendario(squadre) {
+  const n = squadre.length;
+  if (n < 2) return [];
+  const giornate = [];
+  const squadreCopia = [...squadre];
+  if (n % 2 !== 0) squadreCopia.push(null); // BYE
+  const numGiornate = squadreCopia.length - 1;
+  const meta = squadreCopia.length / 2;
+  for (let g = 0; g < numGiornate; g++) {
+    const giornata = [];
+    for (let i = 0; i < meta; i++) {
+      const casa = squadreCopia[i];
+      const trasferta = squadreCopia[squadreCopia.length - 1 - i];
+      if (casa && trasferta) {
+        // Alterna casa/trasferta per il ritorno
+        if (g % 2 === 0) giornata.push({ casa, trasferta });
+        else giornata.push({ casa: trasferta, trasferta: casa });
+      }
+    }
+    giornate.push(giornata);
+    // Rotazione
+    squadreCopia.splice(1, 0, squadreCopia.pop());
+  }
+  // Ritorno
+  const ritorno = giornate.map(g => g.map(p => ({ casa: p.trasferta, trasferta: p.casa })));
+  return [...giornate, ...ritorno];
+}
+
+// Inizializza il calendario per tutti i gironi
+function inizializzaCalendario() {
+  for (const lega in STRUTTURA_LEGHE) {
+    for (const girone in STRUTTURA_LEGHE[lega].gironi) {
+      const squadre = STRUTTURA_LEGHE[lega].gironi[girone];
+      stato.calendario[girone] = generaCalendario(squadre);
+    }
+  }
+}
+
+// --- FUNZIONI PER LA CLASSIFICA ---
+function calcolaClassifica(gironeId) {
+  const squadre = STRUTTURA_LEGHE[stato.legaAttiva].gironi[gironeId];
+  const tab = {};
+  squadre.forEach(sq => tab[sq] = { squadra: sq, punti: 0, giocate: 0, vinte: 0, pareggi: 0, perse: 0, gf: 0, gs: 0, dr: 0 });
+  
+  const calendario = stato.calendario[gironeId];
+  if (!calendario) return Object.values(tab);
+  
+  calendario.forEach((giornata, gIdx) => {
+    giornata.forEach((partita, pIdx) => {
+      const key = `${gironeId}_${gIdx}_${pIdx}`;
+      const res = stato.risultati[key];
+      if (!res) return;
+      
+      const casa = partita.casa;
+      const trasferta = partita.trasferta;
+      const gc = res[0], gt = res[1];
+      
+      const c = tab[casa], t = tab[trasferta];
+      if (!c || !t) return;
+      
+      c.giocate++; t.giocate++;
+      c.gf += gc; c.gs += gt;
+      t.gf += gt; t.gs += gc;
+      
+      if (gc > gt) { c.punti += 3; c.vinte++; t.perse++; }
+      else if (gc < gt) { t.punti += 3; t.vinte++; c.perse++; }
+      else { c.punti++; t.punti++; c.pareggi++; t.pareggi++; }
+      
+      c.dr = c.gf - c.gs;
+      t.dr = t.gf - t.gs;
+    });
+  });
+  
+  return Object.values(tab).sort((a,b) => b.punti - a.punti || b.dr - a.dr || b.gf - a.gf);
+}
+
+// --- RENDER ---
+function render() {
+  const content = document.getElementById('content');
+  let html = '';
+  
+  // Tabs per le leghe
+  html += '<div class="lega-tabs">';
+  for (const lega in STRUTTURA_LEGHE) {
+    html += `<div class="lega-tab ${stato.legaAttiva === lega ? 'attivo' : ''}" onclick="cambiaLega('${lega}')">${STRUTTURA_LEGHE[lega].nome}</div>`;
+  }
+  html += '</div>';
+  
+  // Prossima partita della squadra scelta
+  const prossima = trovaProssimaPartita(stato.squadraScelta, stato.legaAttiva);
+  if (prossima) {
+    const nomeCasa = SQUADRE_NAZIONALI[prossima.casa]?.nome || prossima.casa;
+    const nomeTrasf = SQUADRE_NAZIONALI[prossima.trasferta]?.nome || prossima.trasferta;
+    html += `<div class="prossima-partita-box">
+      <h3>PROSSIMA PARTITA - ${prossima.girone}</h3>
+      <div class="vs">${nomeCasa} vs ${nomeTrasf}</div>
+      <button onclick="giocaPartita('${prossima.girone}', ${prossima.gIdx}, ${prossima.pIdx})">▶ GIOCA</button>
+    </div>`;
+  } else {
+    html += `<div class="prossima-partita-box" style="background:#16213e;color:#ffd700">
+      <h3>Nessuna partita in programma per ${SQUADRE_NAZIONALI[stato.squadraScelta]?.nome || stato.squadraScelta} in ${STRUTTURA_LEGHE[stato.legaAttiva].nome}</h3>
+    </div>`;
+  }
+  
+  // Gironi
+  html += '<div class="gironi-grid">';
+  for (const gironeId in STRUTTURA_LEGHE[stato.legaAttiva].gironi) {
+    const classifica = calcolaClassifica(gironeId);
+    html += `<div class="girone-box">
+      <h3>${gironeId}</h3>
+      <table class="classifica-girone">
+        <tr><th>#</th><th>Squadra</th><th>Pt</th><th>G</th><th>V</th><th>N</th><th>P</th><th>GF</th><th>GS</th><th>DR</th></tr>`;
+    classifica.forEach((t, idx) => {
+      const nome = SQUADRE_NAZIONALI[t.squadra]?.nome || t.squadra;
+      const isTua = t.squadra === stato.squadraScelta ? 'tua' : '';
+      html += `<tr class="${isTua}">
+        <td>${idx+1}</td>
+        <td>${nome}</td>
+        <td>${t.punti}</td>
+        <td>${t.giocate}</td>
+        <td>${t.vinte}</td>
+        <td>${t.pareggi}</td>
+        <td>${t.perse}</td>
+        <td>${t.gf}</td>
+        <td>${t.gs}</td>
+        <td>${t.dr > 0 ? '+' : ''}${t.dr}</td>
+      </tr>`;
+    });
+    html += `</table></div>`;
+  }
+  html += '</div>';
+  
+  // Selettore squadra (per debug / scelta)
+  html += `<div style="margin-top:30px; text-align:center;">
+    <h3 style="color:#ffd700; margin-bottom:10px;">Scegli la tua squadra (Lega ${stato.legaAttiva})</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">`;
+  for (const gironeId in STRUTTURA_LEGHE[stato.legaAttiva].gironi) {
+    STRUTTURA_LEGHE[stato.legaAttiva].gironi[gironeId].forEach(sqId => {
+      const nome = SQUADRE_NAZIONALI[sqId]?.nome || sqId;
+      const sel = sqId === stato.squadraScelta ? 'background:#ffd700;color:#16213e;border-color:#ffd700;' : 'background:#0f3460;color:#fff;border:2px solid #4dabf7;';
+      html += `<button style="${sel} padding:10px 16px; border-radius:8px; cursor:pointer; font-weight:bold;" onclick="selezionaSquadra('${sqId}')">${nome}</button>`;
+    });
+  }
+  html += `</div></div>`;
+  
+  content.innerHTML = html;
+}
+
+function cambiaLega(lega) {
+  stato.legaAttiva = lega;
+  salvaStato();
+  render();
+}
+
+function selezionaSquadra(sqId) {
+  stato.squadraScelta = sqId;
+  salvaStato();
+  render();
+}
+
+function trovaProssimaPartita(sqId, lega) {
+  for (const gironeId in STRUTTURA_LEGHE[lega].gironi) {
+    const calendario = stato.calendario[gironeId];
+    if (!calendario) continue;
+    for (let gIdx = 0; gIdx < calendario.length; gIdx++) {
+      const giornata = calendario[gIdx];
+      for (let pIdx = 0; pIdx < giornata.length; pIdx++) {
+        const p = giornata[pIdx];
+        if (p.casa !== sqId && p.trasferta !== sqId) continue;
+        const key = `${gironeId}_${gIdx}_${pIdx}`;
+        if (!stato.risultati[key]) {
+          return { girone: gironeId, gIdx, pIdx, casa: p.casa, trasferta: p.trasferta };
+        }
+      }
+    }
+  }
+  return null;
+}
+
+function giocaPartita(gironeId, gIdx, pIdx) {
+  const calendario = stato.calendario[gironeId];
+  const partita = calendario[gIdx][pIdx];
+  const sqTU = partita.casa === stato.squadraScelta ? partita.casa : partita.trasferta;
+  const sqCPU = partita.casa === stato.squadraScelta ? partita.trasferta : partita.casa;
+  
+  const params = new URLSearchParams({
+    torneo: 'nations',
+    partita: `${gironeId}_${gIdx}_${pIdx}`,
+    sqTU: sqTU,
+    sqCPU: sqCPU,
+    casa: partita.casa,
+    trasferta: partita.trasferta
+  });
+  location.href = 'index.html?' + params.toString();
+}
+
+// --- RICEZIONE RISULTATO ---
+function riceviRisultato() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const idPartita = urlParams.get('risultato');
+  if (!idPartita) return false;
+  
+  const json = localStorage.getItem('campionato_partita_' + idPartita);
+  if (!json) return false;
+  
+  try {
+    const risultato = JSON.parse(json);
+    localStorage.removeItem('campionato_partita_' + idPartita);
+    
+    // Parsing dell'ID: girone_gIdx_pIdx
+    const parti = idPartita.split('_');
+    const gironeId = parti[0];
+    const gIdx = parseInt(parti[1]);
+    const pIdx = parseInt(parti[2]);
+    
+    const calendario = stato.calendario[gironeId];
+    if (!calendario) return false;
+    const partita = calendario[gIdx]?.[pIdx];
+    if (!partita) return false;
+    
+    const sqTU = risultato.sqTU;
+    const sqCPU = risultato.sqCPU;
+    const golTU = risultato.golTU;
+    const golCPU = risultato.golCPU;
+    
+    const casa = partita.casa;
+    const trasferta = partita.trasferta;
+    
+    let golCasa, golTrasferta;
+    if (casa === sqTU) { golCasa = golTU; golTrasferta = golCPU; }
+    else { golCasa = golCPU; golTrasferta = golTU; }
+    
+    stato.risultati[idPartita] = [golCasa, golTrasferta];
+    salvaStato();
+    
+    window.history.replaceState({}, document.title, 'nations-league.html');
+    return true;
+  } catch(e) {
+    console.error('Errore ricezione risultato:', e);
+    return false;
+  }
+}
+
+// --- AVVIO ---
+caricaStato();
+if (!stato.calendario || Object.keys(stato.calendario).length === 0) {
+  inizializzaCalendario();
+  salvaStato();
+}
+riceviRisultato();
+render();
+</script>
+</body>
+</html>

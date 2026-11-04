@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:53:06.812Z",
+  "data": "2026-11-04T15:53:16.424Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807582811,
+    "timestamp": 1793807592418,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,7 +3611,7 @@
       }
     },
     "tempo": 2,
-    "mano": 13,
+    "mano": 14,
     "maxMani": 23,
     "punteggio": {
       "tu": 4,
@@ -3700,12 +3700,6 @@
           "seme": "palla",
           "valore": 14,
           "label": "A"
-        },
-        {
-          "id": "c25",
-          "seme": "coppa",
-          "valore": 2,
-          "label": "2"
         }
       ],
       "cpu": [
@@ -3780,12 +3774,6 @@
           "seme": "guantone",
           "valore": 7,
           "label": "7"
-        },
-        {
-          "id": "c5",
-          "seme": "palla",
-          "valore": 9,
-          "label": "9"
         }
       ]
     },
@@ -4000,6 +3988,12 @@
           "seme": "coppa",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c24",
+          "seme": "coppa",
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
@@ -4218,6 +4212,12 @@
           "seme": "palla",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c5",
+          "seme": "palla",
+          "valore": 9,
+          "label": "9"
         }
       ]
     },
@@ -4226,8 +4226,7 @@
       "gol-super",
       "contrasto-sicuro",
       "contrasto-sicuro",
-      "gol-super",
-      "tiro-fuori-area"
+      "gol-super"
     ],
     "mani": {
       "tu": [
@@ -4244,10 +4243,10 @@
           "label": "6"
         },
         {
-          "id": "c24",
+          "id": "c25",
           "seme": "coppa",
-          "valore": 3,
-          "label": "3"
+          "valore": 2,
+          "label": "2"
         }
       ],
       "cpu": [
@@ -4391,7 +4390,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4491,9 +4490,9 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 5,
           "staminaMax": 10,
-          "falli": 1,
+          "falli": 2,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4861,7 +4860,7 @@
       ]
     },
     "streak": {
-      "tu": 2,
+      "tu": 0,
       "cpu": 0
     },
     "statistiche": {
@@ -4873,14 +4872,14 @@
         "pali": 2,
         "fuori": 1,
         "rigori": 5,
-        "contese": 22,
-        "vinte": 28,
+        "contese": 23,
+        "vinte": 29,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 1,
-        "bonusGuadagnati": 8,
-        "bonusUsati": 6,
+        "bonusGuadagnati": 9,
+        "bonusUsati": 7,
         "marcatori": [
           {
             "nome": "Kolo Muani",
@@ -4910,7 +4909,7 @@
         "rigori": 2,
         "contese": 13,
         "vinte": 7,
-        "falli": 11,
+        "falli": 12,
         "ammonizioni": 2,
         "espulsioni": 0,
         "sostituzioni": 3,
@@ -6288,6 +6287,34 @@
       {
         "msg": "🎙️ McKennie serve Yildiz in Z2.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 inferiore: Yildiz (TU) contro Wesley (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz gioca 3🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Wesley risponde con 9⚽ — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Yildiz 3🏆 vs Wesley 9⚽ → vince Yildiz (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Wesley (2 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Yildiz vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
       }
     ],
     "cambi": [
@@ -6320,6 +6347,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 905
+    "secondiTrascorsi": 915
   }
 }

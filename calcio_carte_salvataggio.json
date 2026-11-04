@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:44:03.613Z",
+  "data": "2026-11-04T15:44:17.062Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3587,7 +3587,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807039609,
+    "timestamp": 1793807053061,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,7 +3611,7 @@
     "maxMani": 23,
     "punteggio": {
       "tu": 1,
-      "cpu": 0
+      "cpu": 1
     },
     "zonaPalla": 1,
     "possessore": "cpu",
@@ -4283,7 +4283,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4311,7 +4311,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 1,
@@ -4579,7 +4579,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4817,7 +4817,7 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 1
+      "cpu": 2
     },
     "statistiche": {
       "tu": {
@@ -4844,22 +4844,27 @@
         ]
       },
       "cpu": {
-        "gol": 0,
-        "tiri": 0,
+        "gol": 1,
+        "tiri": 1,
         "parate": 0,
         "angoli": 0,
         "pali": 0,
         "fuori": 0,
-        "rigori": 0,
+        "rigori": 1,
         "contese": 2,
-        "vinte": 1,
+        "vinte": 2,
         "falli": 2,
         "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 1,
         "bonusGuadagnati": 0,
         "bonusUsati": 0,
-        "marcatori": []
+        "marcatori": [
+          {
+            "nome": "Malen",
+            "minuto": 8
+          }
+        ]
       }
     },
     "logCompleto": [
@@ -5066,6 +5071,34 @@
       {
         "msg": "🟨 Fallo di Bremer (2 falli totali, 1 in area)",
         "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Malen vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 9/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Malen va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 1 → settori 1,2,4,5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Malen: dado 9 (casella 9).",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Malen batte il portiere!",
+        "classe": "goal"
       }
     ],
     "cambi": [
@@ -5077,6 +5110,6 @@
         "entrante": "Ndicka"
       }
     ],
-    "secondiTrascorsi": 362
+    "secondiTrascorsi": 375
   }
 }

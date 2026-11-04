@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:52:39.490Z",
+  "data": "2026-11-04T15:52:46.443Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807555487,
+    "timestamp": 1793807562439,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,7 +3611,7 @@
       }
     },
     "tempo": 2,
-    "mano": 11,
+    "mano": 12,
     "maxMani": 23,
     "punteggio": {
       "tu": 4,
@@ -3712,12 +3712,6 @@
           "seme": "coppa",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c14",
-          "seme": "coppa",
-          "valore": 13,
-          "label": "K"
         }
       ],
       "cpu": [
@@ -3804,12 +3798,6 @@
           "seme": "palla",
           "valore": 11,
           "label": "J"
-        },
-        {
-          "id": "c19",
-          "seme": "coppa",
-          "valore": 8,
-          "label": "8"
         }
       ]
     },
@@ -4012,6 +4000,12 @@
           "seme": "palla",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c14",
+          "seme": "coppa",
+          "valore": 13,
+          "label": "K"
         }
       ],
       "cpu": [
@@ -4218,6 +4212,12 @@
           "seme": "palla",
           "valore": 12,
           "label": "Q"
+        },
+        {
+          "id": "c19",
+          "seme": "coppa",
+          "valore": 8,
+          "label": "8"
         }
       ]
     },
@@ -4293,7 +4293,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4561,7 +4561,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4862,8 +4862,8 @@
       ]
     },
     "streak": {
-      "tu": 0,
-      "cpu": 1
+      "tu": 1,
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
@@ -4875,7 +4875,7 @@
         "fuori": 1,
         "rigori": 5,
         "contese": 21,
-        "vinte": 26,
+        "vinte": 27,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -4909,7 +4909,7 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 2,
-        "contese": 12,
+        "contese": 13,
         "vinte": 7,
         "falli": 10,
         "ammonizioni": 2,
@@ -6229,6 +6229,26 @@
       {
         "msg": "🎙️ Molina serve Dybala in Z5.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 superiore: Dybala (CPU) contro Kalulu (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Dybala gioca 8🏆 → seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kalulu risponde con K🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Dybala 8🏆 vs Kalulu K🏆 → vince Kalulu (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kalulu vince il contrasto in Z5 e RUBA PALLA!",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -6261,6 +6281,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 878
+    "secondiTrascorsi": 885
   }
 }

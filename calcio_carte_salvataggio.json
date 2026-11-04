@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:43:55.960Z",
+  "data": "2026-11-04T15:44:03.613Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3587,7 +3587,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807031957,
+    "timestamp": 1793807039609,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3882,12 +3882,6 @@
           "seme": "guantone",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c28",
-          "seme": "guantone",
-          "valore": 12,
-          "label": "Q"
         }
       ],
       "cpu": [
@@ -4154,12 +4148,6 @@
           "seme": "bandierina",
           "valore": 14,
           "label": "A"
-        },
-        {
-          "id": "c11",
-          "seme": "palla",
-          "valore": 3,
-          "label": "3"
         }
       ]
     },
@@ -4188,6 +4176,12 @@
           "seme": "bandierina",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c49",
+          "seme": "bandierina",
+          "valore": 4,
+          "label": "4"
         }
       ],
       "cpu": [
@@ -4214,6 +4208,12 @@
           "seme": "guantone",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c6",
+          "seme": "palla",
+          "valore": 8,
+          "label": "8"
         }
       ]
     },
@@ -4236,12 +4236,6 @@
     "mani": {
       "tu": [
         {
-          "id": "c49",
-          "seme": "bandierina",
-          "valore": 4,
-          "label": "4"
-        },
-        {
           "id": "c48",
           "seme": "bandierina",
           "valore": 5,
@@ -4252,6 +4246,12 @@
           "seme": "bandierina",
           "valore": 9,
           "label": "9"
+        },
+        {
+          "id": "c28",
+          "seme": "guantone",
+          "valore": 12,
+          "label": "Q"
         }
       ],
       "cpu": [
@@ -4268,10 +4268,10 @@
           "label": "7"
         },
         {
-          "id": "c6",
+          "id": "c11",
           "seme": "palla",
-          "valore": 8,
-          "label": "8"
+          "valore": 3,
+          "label": "3"
         }
       ]
     },
@@ -4311,10 +4311,10 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
+          "falli": 2,
+          "falliArea": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Bremer"
@@ -4830,7 +4830,7 @@
         "rigori": 2,
         "contese": 3,
         "vinte": 3,
-        "falli": 1,
+        "falli": 2,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4851,7 +4851,7 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 0,
-        "contese": 1,
+        "contese": 2,
         "vinte": 1,
         "falli": 2,
         "ammonizioni": 1,
@@ -5046,6 +5046,26 @@
       {
         "msg": "🎙️ Molina serve Malen in Z1.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 inferiore: Malen (CPU) contro Bremer (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Malen gioca 8⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bremer risponde con 4🚩 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Malen 8⚽ vs Bremer 4🚩 → vince Malen (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Bremer (2 falli totali, 1 in area)",
+        "classe": "parata"
       }
     ],
     "cambi": [
@@ -5057,6 +5077,6 @@
         "entrante": "Ndicka"
       }
     ],
-    "secondiTrascorsi": 354
+    "secondiTrascorsi": 362
   }
 }

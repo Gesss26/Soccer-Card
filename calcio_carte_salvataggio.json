@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:50:31.414Z",
+  "data": "2026-11-04T15:50:38.267Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807427409,
+    "timestamp": 1793807434265,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,7 +3611,7 @@
       }
     },
     "tempo": 2,
-    "mano": 4,
+    "mano": 5,
     "maxMani": 23,
     "punteggio": {
       "tu": 3,
@@ -4048,6 +4048,12 @@
           "seme": "palla",
           "valore": 13,
           "label": "K"
+        },
+        {
+          "id": "c16",
+          "seme": "coppa",
+          "valore": 11,
+          "label": "J"
         }
       ],
       "cpu": [
@@ -4206,6 +4212,12 @@
           "seme": "coppa",
           "valore": 12,
           "label": "Q"
+        },
+        {
+          "id": "c18",
+          "seme": "coppa",
+          "valore": 9,
+          "label": "9"
         }
       ]
     },
@@ -4238,12 +4250,6 @@
           "seme": "guantone",
           "valore": 5,
           "label": "5"
-        },
-        {
-          "id": "c16",
-          "seme": "coppa",
-          "valore": 11,
-          "label": "J"
         }
       ],
       "cpu": [
@@ -4258,12 +4264,6 @@
           "seme": "bandierina",
           "valore": 5,
           "label": "5"
-        },
-        {
-          "id": "c18",
-          "seme": "coppa",
-          "valore": 9,
-          "label": "9"
         },
         {
           "id": "c7",
@@ -4393,7 +4393,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4493,7 +4493,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4864,7 +4864,7 @@
       ]
     },
     "streak": {
-      "tu": 0,
+      "tu": 1,
       "cpu": 0
     },
     "statistiche": {
@@ -4877,7 +4877,7 @@
         "fuori": 1,
         "rigori": 4,
         "contese": 18,
-        "vinte": 20,
+        "vinte": 21,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -5955,6 +5955,22 @@
       {
         "msg": "🎙️ Z2 inferiore: Yildiz (TU) contro Wesley (CPU).",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz gioca J🏆 e impone il seme guida: Coppa",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Wesley risponde con 9🏆",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Yildiz J🏆 vs Wesley 9🏆 → vince Yildiz (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Yildiz vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -5987,6 +6003,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 750
+    "secondiTrascorsi": 756
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:55:31.425Z",
+  "data": "2026-11-04T15:55:36.609Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3595,7 +3595,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807727416,
+    "timestamp": 1793807732603,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3615,16 +3615,16 @@
       }
     },
     "tempo": 2,
-    "mano": 21,
+    "mano": 22,
     "maxMani": 23,
     "punteggio": {
       "tu": 5,
       "cpu": 2
     },
-    "zonaPalla": 5,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_10",
-    "metaContesa": "inf",
+    "zonaPalla": 2,
+    "possessore": "tu",
+    "giocatorePalla": "tu_7",
+    "metaContesa": "sup",
     "mazzi": {
       "tu": [
         {
@@ -6617,6 +6617,14 @@
       {
         "msg": "🎙️ Malen esulta! CPU 2-5 TU.",
         "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Calcio d'inizio! TU batte dal centro con McKennie.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie serve Conceiçao in Z2.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -6656,6 +6664,6 @@
         "entrante": "Lulli"
       }
     ],
-    "secondiTrascorsi": 1050
+    "secondiTrascorsi": 1055
   }
 }

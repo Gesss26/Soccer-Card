@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:47:02.755Z",
+  "data": "2026-11-04T15:47:10.246Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -737,7 +737,7 @@
             "squalificato": false
           },
           "Bremer": {
-            "gialli": 0,
+            "gialli": 1,
             "squalificato": false
           },
           "Lucumì": {
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807218752,
+    "timestamp": 1793807226244,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3826,12 +3826,6 @@
           "seme": "guantone",
           "valore": 13,
           "label": "K"
-        },
-        {
-          "id": "c46",
-          "seme": "bandierina",
-          "valore": 7,
-          "label": "7"
         }
       ],
       "cpu": [
@@ -4038,12 +4032,6 @@
           "seme": "guantone",
           "valore": 14,
           "label": "A"
-        },
-        {
-          "id": "c1",
-          "seme": "palla",
-          "valore": 13,
-          "label": "K"
         }
       ]
     },
@@ -4132,6 +4120,12 @@
           "seme": "palla",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c46",
+          "seme": "bandierina",
+          "valore": 7,
+          "label": "7"
         }
       ],
       "cpu": [
@@ -4218,6 +4212,12 @@
           "seme": "coppa",
           "valore": 10,
           "label": "10"
+        },
+        {
+          "id": "c1",
+          "seme": "palla",
+          "valore": 13,
+          "label": "K"
         }
       ]
     },
@@ -4232,8 +4232,7 @@
       "tiro-fuori-area",
       "tiro-fuori-area",
       "contrasto-sicuro",
-      "parata-super",
-      "passaggio-lungo"
+      "parata-super"
     ],
     "mani": {
       "tu": [
@@ -4313,11 +4312,11 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 6,
           "staminaMax": 10,
-          "falli": 2,
-          "falliArea": 1,
-          "ammonito": false,
+          "falli": 4,
+          "falliArea": 2,
+          "ammonito": true,
           "espulso": false,
           "nome": "Bremer"
         },
@@ -4581,7 +4580,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4832,11 +4831,13 @@
       "tu": [
         "parata-super"
       ],
-      "cpu": []
+      "cpu": [
+        "passaggio-lungo"
+      ]
     },
     "streak": {
       "tu": 0,
-      "cpu": 2
+      "cpu": 0
     },
     "statistiche": {
       "tu": {
@@ -4849,8 +4850,8 @@
         "rigori": 4,
         "contese": 9,
         "vinte": 10,
-        "falli": 4,
-        "ammonizioni": 0,
+        "falli": 5,
+        "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 0,
         "bonusGuadagnati": 3,
@@ -4874,13 +4875,13 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 1,
-        "contese": 5,
+        "contese": 6,
         "vinte": 4,
         "falli": 6,
         "ammonizioni": 2,
         "espulsioni": 0,
         "sostituzioni": 2,
-        "bonusGuadagnati": 0,
+        "bonusGuadagnati": 1,
         "bonusUsati": 0,
         "marcatori": [
           {
@@ -5510,6 +5511,30 @@
       {
         "msg": "🎙️ Molina serve Malen in Z1.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z1 inferiore: Malen (CPU) contro Bremer (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Malen gioca K⚽ → seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Bremer risponde con 7🚩 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Malen K⚽ vs Bremer 7🚩 → vince Malen (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Bremer (4 falli totali, 2 in area)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🟨 AMMONIZIONE per Bremer (3 falli totali)",
+        "classe": "parata"
       }
     ],
     "cambi": [
@@ -5528,6 +5553,6 @@
         "entrante": "Ghilardi"
       }
     ],
-    "secondiTrascorsi": 541
+    "secondiTrascorsi": 548
   }
 }

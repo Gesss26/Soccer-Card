@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:43:03.791Z",
+  "data": "2026-11-04T15:43:17.688Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3583,7 +3583,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793806979786,
+    "timestamp": 1793806993680,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -4420,7 +4420,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4436,7 +4436,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4464,7 +4464,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 1,
@@ -4798,20 +4798,20 @@
       "cpu": []
     },
     "streak": {
-      "tu": 1,
+      "tu": 2,
       "cpu": 0
     },
     "statistiche": {
       "tu": {
         "gol": 0,
-        "tiri": 0,
+        "tiri": 1,
         "parate": 0,
-        "angoli": 0,
+        "angoli": 1,
         "pali": 0,
         "fuori": 0,
-        "rigori": 0,
+        "rigori": 1,
         "contese": 2,
-        "vinte": 1,
+        "vinte": 2,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4891,9 +4891,41 @@
       {
         "msg": "🟨 Fallo di Balerdi (2 falli totali, 1 in area)",
         "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kolo Muani vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Svilar si prepara al tiro (stamina 9/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 1 → settori 1,2,4,5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 1 → settori 1,2,4,5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 6 (casella 6).",
+        "classe": ""
+      },
+      {
+        "msg": "🚩 ANGOLO per TU.",
+        "classe": ""
       }
     ],
     "cambi": [],
-    "secondiTrascorsi": 302
+    "secondiTrascorsi": 316
   }
 }

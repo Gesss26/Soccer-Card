@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:43:46.415Z",
+  "data": "2026-11-04T15:43:55.960Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3587,7 +3587,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807022409,
+    "timestamp": 1793807031957,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3607,16 +3607,16 @@
       }
     },
     "tempo": 1,
-    "mano": 4,
+    "mano": 5,
     "maxMani": 23,
     "punteggio": {
       "tu": 1,
       "cpu": 0
     },
-    "zonaPalla": 2,
+    "zonaPalla": 1,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_7",
-    "metaContesa": "sup",
+    "giocatorePalla": "cpu_10",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -4182,6 +4182,12 @@
           "seme": "bandierina",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c51",
+          "seme": "bandierina",
+          "valore": 2,
+          "label": "2"
         }
       ],
       "cpu": [
@@ -4240,12 +4246,6 @@
           "seme": "bandierina",
           "valore": 5,
           "label": "5"
-        },
-        {
-          "id": "c51",
-          "seme": "bandierina",
-          "valore": 2,
-          "label": "2"
         },
         {
           "id": "c44",
@@ -4325,9 +4325,9 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4537,7 +4537,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4817,7 +4817,7 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 0
+      "cpu": 1
     },
     "statistiche": {
       "tu": {
@@ -4830,7 +4830,7 @@
         "rigori": 2,
         "contese": 3,
         "vinte": 3,
-        "falli": 0,
+        "falli": 1,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4852,7 +4852,7 @@
         "fuori": 0,
         "rigori": 0,
         "contese": 1,
-        "vinte": 0,
+        "vinte": 1,
         "falli": 2,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -5022,6 +5022,30 @@
       {
         "msg": "🎙️ Molina gioca J🧤 → seme guida: Guantone",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 2🚩 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Molina J🧤 vs Lucumì 2🚩 → vince Molina (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Lucumì (1 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Molina vince il contrasto in Z2 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo del difensore fuori area — punizione (nessun rigore).",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Molina serve Malen in Z1.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -5033,6 +5057,6 @@
         "entrante": "Ndicka"
       }
     ],
-    "secondiTrascorsi": 345
+    "secondiTrascorsi": 354
   }
 }

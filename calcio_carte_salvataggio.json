@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:56:01.417Z",
+  "data": "2026-11-04T15:56:07.056Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3595,7 +3595,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807757413,
+    "timestamp": 1793807763056,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3618,7 +3618,7 @@
     "mano": 24,
     "maxMani": 23,
     "punteggio": {
-      "tu": 5,
+      "tu": 6,
       "cpu": 2
     },
     "zonaPalla": 1,
@@ -4879,7 +4879,7 @@
     },
     "statistiche": {
       "tu": {
-        "gol": 5,
+        "gol": 6,
         "tiri": 14,
         "parate": 2,
         "angoli": 1,
@@ -4914,6 +4914,10 @@
           {
             "nome": "Kolo Muani",
             "minuto": 79
+          },
+          {
+            "nome": "Woltemade",
+            "minuto": 90
           }
         ]
       },
@@ -6685,6 +6689,14 @@
       {
         "msg": "🎙️ Portiere sceglie gruppo 2 → settori 2,3,5,6.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Woltemade: dado 8 (casella 8).",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Woltemade batte il portiere!",
+        "classe": "goal"
       }
     ],
     "cambi": [
@@ -6724,6 +6736,6 @@
         "entrante": "Lulli"
       }
     ],
-    "secondiTrascorsi": 1080
+    "secondiTrascorsi": 1085
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:55:08.405Z",
+  "data": "2026-11-04T15:55:16.411Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3595,7 +3595,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807704400,
+    "timestamp": 1793807712408,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3615,7 +3615,7 @@
       }
     },
     "tempo": 2,
-    "mano": 20,
+    "mano": 21,
     "maxMani": 23,
     "punteggio": {
       "tu": 5,
@@ -3662,12 +3662,6 @@
           "seme": "guantone",
           "valore": 2,
           "label": "2"
-        },
-        {
-          "id": "c50",
-          "seme": "bandierina",
-          "valore": 3,
-          "label": "3"
         }
       ],
       "cpu": [
@@ -3700,12 +3694,6 @@
           "seme": "coppa",
           "valore": 5,
           "label": "5"
-        },
-        {
-          "id": "c32",
-          "seme": "guantone",
-          "valore": 8,
-          "label": "8"
         }
       ]
     },
@@ -3962,6 +3950,12 @@
           "seme": "guantone",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c34",
+          "seme": "guantone",
+          "valore": 6,
+          "label": "6"
         }
       ],
       "cpu": [
@@ -4222,6 +4216,12 @@
           "seme": "guantone",
           "valore": 12,
           "label": "Q"
+        },
+        {
+          "id": "c32",
+          "seme": "guantone",
+          "valore": 8,
+          "label": "8"
         }
       ]
     },
@@ -4240,16 +4240,16 @@
           "label": "10"
         },
         {
-          "id": "c34",
-          "seme": "guantone",
-          "valore": 6,
-          "label": "6"
-        },
-        {
           "id": "c4",
           "seme": "palla",
           "valore": 10,
           "label": "10"
+        },
+        {
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
@@ -4309,7 +4309,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 1,
@@ -4577,7 +4577,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4875,7 +4875,7 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 1
+      "cpu": 2
     },
     "statistiche": {
       "tu": {
@@ -4925,8 +4925,8 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 3,
-        "contese": 16,
-        "vinte": 10,
+        "contese": 17,
+        "vinte": 11,
         "falli": 13,
         "ammonizioni": 3,
         "espulsioni": 0,
@@ -6565,6 +6565,26 @@
       {
         "msg": "🎙️ Molina serve Malen in Z5.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Malen (CPU) contro Cambiaso (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Malen gioca 8🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Cambiaso risponde con 6🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Malen 8🧤 vs Cambiaso 6🧤 → vince Malen (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Malen vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -6604,6 +6624,6 @@
         "entrante": "Lulli"
       }
     ],
-    "secondiTrascorsi": 1026
+    "secondiTrascorsi": 1035
   }
 }

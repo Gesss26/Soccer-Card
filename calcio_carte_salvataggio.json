@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:44:46.422Z",
+  "data": "2026-11-04T15:44:54.496Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3587,7 +3587,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807082418,
+    "timestamp": 1793807090496,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3610,7 +3610,7 @@
     "mano": 7,
     "maxMani": 23,
     "punteggio": {
-      "tu": 1,
+      "tu": 2,
       "cpu": 1
     },
     "zonaPalla": 5,
@@ -4821,7 +4821,7 @@
     },
     "statistiche": {
       "tu": {
-        "gol": 1,
+        "gol": 2,
         "tiri": 3,
         "parate": 0,
         "angoli": 1,
@@ -4840,6 +4840,10 @@
           {
             "nome": "Kolo Muani",
             "minuto": 4
+          },
+          {
+            "nome": "Kolo Muani",
+            "minuto": 12
           }
         ]
       },
@@ -5187,6 +5191,18 @@
       {
         "msg": "🎙️ Portiere tira 3 → settori 4,5,7,8.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 3 → settori 4,5,7,8.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 6 (casella 6).",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Kolo Muani batte il portiere!",
+        "classe": "goal"
       }
     ],
     "cambi": [
@@ -5198,6 +5214,6 @@
         "entrante": "Ndicka"
       }
     ],
-    "secondiTrascorsi": 405
+    "secondiTrascorsi": 413
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:48:01.413Z",
+  "data": "2026-11-04T15:48:09.857Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807277409,
+    "timestamp": 1793807285853,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,7 +3611,7 @@
       }
     },
     "tempo": 1,
-    "mano": 16,
+    "mano": 17,
     "maxMani": 23,
     "punteggio": {
       "tu": 2,
@@ -4102,6 +4102,12 @@
           "seme": "bandierina",
           "valore": 10,
           "label": "10"
+        },
+        {
+          "id": "c27",
+          "seme": "guantone",
+          "valore": 13,
+          "label": "K"
         }
       ],
       "cpu": [
@@ -4206,6 +4212,12 @@
           "seme": "guantone",
           "valore": 14,
           "label": "A"
+        },
+        {
+          "id": "c36",
+          "seme": "guantone",
+          "valore": 4,
+          "label": "4"
         }
       ]
     },
@@ -4219,8 +4231,7 @@
       "passaggio-lungo",
       "tiro-fuori-area",
       "tiro-fuori-area",
-      "contrasto-sicuro",
-      "parata-super"
+      "contrasto-sicuro"
     ],
     "mani": {
       "tu": [
@@ -4229,12 +4240,6 @@
           "seme": "guantone",
           "valore": 4,
           "label": "4"
-        },
-        {
-          "id": "c27",
-          "seme": "guantone",
-          "valore": 13,
-          "label": "K"
         },
         {
           "id": "c15",
@@ -4259,12 +4264,6 @@
         {
           "id": "c23",
           "seme": "coppa",
-          "valore": 4,
-          "label": "4"
-        },
-        {
-          "id": "c36",
-          "seme": "guantone",
           "valore": 4,
           "label": "4"
         },
@@ -4424,7 +4423,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 4,
+          "stamina": 3,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4468,7 +4467,7 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4843,13 +4842,15 @@
     "invertiCoppie": false,
     "tuECasa": true,
     "bonus": {
-      "tu": [],
+      "tu": [
+        "parata-super"
+      ],
       "cpu": [
         "passaggio-lungo"
       ]
     },
     "streak": {
-      "tu": 2,
+      "tu": 0,
       "cpu": 0
     },
     "statistiche": {
@@ -4862,12 +4863,12 @@
         "fuori": 1,
         "rigori": 4,
         "contese": 12,
-        "vinte": 12,
+        "vinte": 13,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 1,
-        "bonusGuadagnati": 3,
+        "bonusGuadagnati": 4,
         "bonusUsati": 3,
         "marcatori": [
           {
@@ -5632,6 +5633,22 @@
       {
         "msg": "🎙️ Z5 inferiore: Kolo Muani (TU) contro Ghilardi (CPU).",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani gioca K🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ghilardi risponde con 4🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani K🧤 vs Ghilardi 4🧤 → vince Kolo Muani (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kolo Muani vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -5657,6 +5674,6 @@
         "entrante": "Cambiaso"
       }
     ],
-    "secondiTrascorsi": 600
+    "secondiTrascorsi": 608
   }
 }

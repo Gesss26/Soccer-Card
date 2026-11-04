@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-10-30T16:40:48.702Z",
+  "data": "2026-11-04T15:38:07.318Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -81,7 +81,7 @@
             "squalificato": false
           },
           "Scamacca": {
-            "gialli": 0,
+            "gialli": 1,
             "squalificato": false
           },
           "Lookman": {
@@ -645,7 +645,7 @@
             "squalificato": false
           },
           "Zielinski": {
-            "gialli": 0,
+            "gialli": 1,
             "squalificato": false
           },
           "Frattesi": {
@@ -737,8 +737,8 @@
             "squalificato": false
           },
           "Bremer": {
-            "gialli": 6,
-            "squalificato": true
+            "gialli": 0,
+            "squalificato": false
           },
           "Lucumì": {
             "gialli": 3,
@@ -897,7 +897,7 @@
         },
         "centrocampisti": {
           "Coulibaly": {
-            "gialli": 1,
+            "gialli": 0,
             "squalificato": false
           },
           "Maleh": {
@@ -1045,7 +1045,7 @@
             "squalificato": false
           },
           "Ramos": {
-            "gialli": 0,
+            "gialli": 1,
             "squalificato": false
           },
           "Leão": {
@@ -1169,7 +1169,7 @@
             "squalificato": false
           },
           "McTominay": {
-            "gialli": 0,
+            "gialli": 1,
             "squalificato": false
           },
           "Lobotka": {
@@ -1241,7 +1241,7 @@
       "parma": {
         "portiere": {
           "Corvi": {
-            "gialli": 0,
+            "gialli": 1,
             "squalificato": false
           }
         },
@@ -1287,7 +1287,7 @@
             "squalificato": false
           },
           "Valeri": {
-            "gialli": 0,
+            "gialli": 1,
             "squalificato": false
           }
         },
@@ -1341,7 +1341,7 @@
         },
         "centrocampisti": {
           "Cristante": {
-            "gialli": 0,
+            "gialli": 1,
             "squalificato": false
           },
           "Koné": {
@@ -1725,7 +1725,7 @@
             "squalificato": false
           },
           "Schingtienne": {
-            "gialli": 0,
+            "gialli": 1,
             "squalificato": false
           },
           "Moreno": {
@@ -2756,6 +2756,46 @@
       "g25_9": [
         0,
         1
+      ],
+      "g26_9": [
+        1,
+        3
+      ],
+      "g26_0": [
+        1,
+        2
+      ],
+      "g26_1": [
+        1,
+        1
+      ],
+      "g26_2": [
+        0,
+        1
+      ],
+      "g26_3": [
+        3,
+        0
+      ],
+      "g26_4": [
+        3,
+        0
+      ],
+      "g26_5": [
+        0,
+        1
+      ],
+      "g26_6": [
+        1,
+        0
+      ],
+      "g26_7": [
+        0,
+        1
+      ],
+      "g26_8": [
+        0,
+        3
       ]
     },
     "marcatori": {
@@ -2767,7 +2807,7 @@
       "Woltemade|juventus": {
         "nome": "Woltemade",
         "squadra": "juventus",
-        "gol": 2
+        "gol": 3
       },
       "Conceiçao|juventus": {
         "nome": "Conceiçao",
@@ -2852,7 +2892,7 @@
       "Kolo Muani|juventus": {
         "nome": "Kolo Muani",
         "squadra": "juventus",
-        "gol": 3
+        "gol": 4
       },
       "Schingtienne|venezia": {
         "nome": "Schingtienne",
@@ -2887,7 +2927,7 @@
       "Maldini|cagliari": {
         "nome": "Maldini",
         "squadra": "cagliari",
-        "gol": 2
+        "gol": 3
       },
       "Keita|parma": {
         "nome": "Keita",
@@ -2932,7 +2972,7 @@
       "Ramos|milan": {
         "nome": "Ramos",
         "squadra": "milan",
-        "gol": 6
+        "gol": 7
       },
       "Ferguson|bologna": {
         "nome": "Ferguson",
@@ -2977,7 +3017,7 @@
       "Kamara|udinese": {
         "nome": "Kamara",
         "squadra": "udinese",
-        "gol": 2
+        "gol": 4
       },
       "Fagioli|fiorentina": {
         "nome": "Fagioli",
@@ -2987,7 +3027,7 @@
       "Varela|monza": {
         "nome": "Varela",
         "squadra": "monza",
-        "gol": 1
+        "gol": 2
       },
       "Osmajic|genoa": {
         "nome": "Osmajic",
@@ -3032,7 +3072,7 @@
       "Ederson|atalanta": {
         "nome": "Ederson",
         "squadra": "atalanta",
-        "gol": 2
+        "gol": 3
       },
       "Hien|atalanta": {
         "nome": "Hien",
@@ -3127,7 +3167,7 @@
       "Correia|venezia": {
         "nome": "Correia",
         "squadra": "venezia",
-        "gol": 2
+        "gol": 3
       },
       "Masini|frosinone": {
         "nome": "Masini",
@@ -3187,7 +3227,7 @@
       "Celik|juventus": {
         "nome": "Celik",
         "squadra": "juventus",
-        "gol": 4
+        "gol": 5
       },
       "Kabasele|udinese": {
         "nome": "Kabasele",
@@ -3212,7 +3252,7 @@
       "Cacciamani|torino": {
         "nome": "Cacciamani",
         "squadra": "torino",
-        "gol": 2
+        "gol": 4
       },
       "Basic|venezia": {
         "nome": "Basic",
@@ -3252,7 +3292,7 @@
       "Braganca|torino": {
         "nome": "Braganca",
         "squadra": "torino",
-        "gol": 1
+        "gol": 2
       },
       "Belghali|torino": {
         "nome": "Belghali",
@@ -3432,7 +3472,7 @@
       "Vasquez|genoa": {
         "nome": "Vasquez",
         "squadra": "genoa",
-        "gol": 2
+        "gol": 3
       },
       "Marcandalli|genoa": {
         "nome": "Marcandalli",
@@ -3477,7 +3517,7 @@
       "Cambiaghi|bologna": {
         "nome": "Cambiaghi",
         "squadra": "bologna",
-        "gol": 2
+        "gol": 3
       },
       "Valle|como": {
         "nome": "Valle",
@@ -3492,7 +3532,7 @@
       "Schmid|frosinone": {
         "nome": "Schmid",
         "squadra": "frosinone",
-        "gol": 1
+        "gol": 2
       },
       "Calvani|frosinone": {
         "nome": "Calvani",
@@ -3502,12 +3542,12 @@
       "Moreira|milan": {
         "nome": "Moreira",
         "squadra": "milan",
-        "gol": 1
+        "gol": 2
       },
       "Cissé|milan": {
         "nome": "Cissé",
         "squadra": "milan",
-        "gol": 1
+        "gol": 2
       },
       "Diego Carlos|parma": {
         "nome": "Diego Carlos",
@@ -3518,7 +3558,1300 @@
         "nome": "Bracaglia",
         "squadra": "frosinone",
         "gol": 1
+      },
+      "Marusic|lazio": {
+        "nome": "Marusic",
+        "squadra": "lazio",
+        "gol": 1
+      },
+      "Orsolini|bologna": {
+        "nome": "Orsolini",
+        "squadra": "bologna",
+        "gol": 1
+      },
+      "Pobega|bologna": {
+        "nome": "Pobega",
+        "squadra": "bologna",
+        "gol": 1
+      },
+      "Matic|sassuolo": {
+        "nome": "Matic",
+        "squadra": "sassuolo",
+        "gol": 1
       }
     }
+  },
+  "partitaInCorso": {
+    "versione": 2,
+    "timestamp": 1793806683315,
+    "difficolta": "normale",
+    "tipoPartita": "1P",
+    "squadraTU": "juventus",
+    "squadraCPU": "roma",
+    "divise": {
+      "tu": {
+        "maglia": "#000000",
+        "pantaloncini": "#ffffff",
+        "calzettoni": "#000000",
+        "righe": true,
+        "colore2": "#ffffff"
+      },
+      "cpu": {
+        "maglia": "#991b1b",
+        "pantaloncini": "#ffffff",
+        "calzettoni": "#991b1b"
+      }
+    },
+    "tempo": 1,
+    "mano": 2,
+    "maxMani": 23,
+    "punteggio": {
+      "tu": 0,
+      "cpu": 0
+    },
+    "zonaPalla": 4,
+    "possessore": "tu",
+    "giocatorePalla": "tu_7",
+    "metaContesa": "sup",
+    "mazzi": {
+      "tu": [
+        {
+          "id": "c23",
+          "seme": "coppa",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c40",
+          "seme": "bandierina",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c22",
+          "seme": "coppa",
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c31",
+          "seme": "guantone",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c21",
+          "seme": "coppa",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c38",
+          "seme": "guantone",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c4",
+          "seme": "palla",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c34",
+          "seme": "guantone",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c13",
+          "seme": "coppa",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c17",
+          "seme": "coppa",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c29",
+          "seme": "guantone",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c0",
+          "seme": "palla",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c25",
+          "seme": "coppa",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c24",
+          "seme": "coppa",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c14",
+          "seme": "coppa",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c20",
+          "seme": "coppa",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c11",
+          "seme": "palla",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c47",
+          "seme": "bandierina",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c33",
+          "seme": "guantone",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c7",
+          "seme": "palla",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c30",
+          "seme": "guantone",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c12",
+          "seme": "palla",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c16",
+          "seme": "coppa",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c35",
+          "seme": "guantone",
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c41",
+          "seme": "bandierina",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c1",
+          "seme": "palla",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c18",
+          "seme": "coppa",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c3",
+          "seme": "palla",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c26",
+          "seme": "guantone",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c42",
+          "seme": "bandierina",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c19",
+          "seme": "coppa",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c15",
+          "seme": "coppa",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c27",
+          "seme": "guantone",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c46",
+          "seme": "bandierina",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c43",
+          "seme": "bandierina",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c36",
+          "seme": "guantone",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c39",
+          "seme": "bandierina",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c2",
+          "seme": "palla",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c5",
+          "seme": "palla",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c10",
+          "seme": "palla",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c32",
+          "seme": "guantone",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c8",
+          "seme": "palla",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c28",
+          "seme": "guantone",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c44",
+          "seme": "bandierina",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c45",
+          "seme": "bandierina",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c51",
+          "seme": "bandierina",
+          "valore": 2,
+          "label": "2"
+        }
+      ],
+      "cpu": [
+        {
+          "id": "c43",
+          "seme": "bandierina",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c49",
+          "seme": "bandierina",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c25",
+          "seme": "coppa",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c42",
+          "seme": "bandierina",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c22",
+          "seme": "coppa",
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c32",
+          "seme": "guantone",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c28",
+          "seme": "guantone",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c34",
+          "seme": "guantone",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c27",
+          "seme": "guantone",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c12",
+          "seme": "palla",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c41",
+          "seme": "bandierina",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c33",
+          "seme": "guantone",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c5",
+          "seme": "palla",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c3",
+          "seme": "palla",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c19",
+          "seme": "coppa",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c46",
+          "seme": "bandierina",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c13",
+          "seme": "coppa",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c8",
+          "seme": "palla",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c2",
+          "seme": "palla",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c35",
+          "seme": "guantone",
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c45",
+          "seme": "bandierina",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c7",
+          "seme": "palla",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c18",
+          "seme": "coppa",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c15",
+          "seme": "coppa",
+          "valore": 12,
+          "label": "Q"
+        },
+        {
+          "id": "c16",
+          "seme": "coppa",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c40",
+          "seme": "bandierina",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c48",
+          "seme": "bandierina",
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c38",
+          "seme": "guantone",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c4",
+          "seme": "palla",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c44",
+          "seme": "bandierina",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c50",
+          "seme": "bandierina",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c36",
+          "seme": "guantone",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c26",
+          "seme": "guantone",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c1",
+          "seme": "palla",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c17",
+          "seme": "coppa",
+          "valore": 10,
+          "label": "10"
+        },
+        {
+          "id": "c14",
+          "seme": "coppa",
+          "valore": 13,
+          "label": "K"
+        },
+        {
+          "id": "c23",
+          "seme": "coppa",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c10",
+          "seme": "palla",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c51",
+          "seme": "bandierina",
+          "valore": 2,
+          "label": "2"
+        },
+        {
+          "id": "c0",
+          "seme": "palla",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c21",
+          "seme": "coppa",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c47",
+          "seme": "bandierina",
+          "valore": 6,
+          "label": "6"
+        },
+        {
+          "id": "c39",
+          "seme": "bandierina",
+          "valore": 14,
+          "label": "A"
+        },
+        {
+          "id": "c11",
+          "seme": "palla",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c29",
+          "seme": "guantone",
+          "valore": 11,
+          "label": "J"
+        },
+        {
+          "id": "c6",
+          "seme": "palla",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c20",
+          "seme": "coppa",
+          "valore": 7,
+          "label": "7"
+        }
+      ]
+    },
+    "scarti": {
+      "tu": [],
+      "cpu": []
+    },
+    "mazzoBonus": [
+      "parata-super",
+      "gol-super",
+      "contrasto-sicuro",
+      "contrasto-sicuro",
+      "gol-super",
+      "tiro-fuori-area",
+      "passaggio-lungo",
+      "tiro-fuori-area",
+      "tiro-fuori-area",
+      "contrasto-sicuro",
+      "parata-super",
+      "passaggio-lungo",
+      "parata-super",
+      "passaggio-lungo",
+      "gol-super"
+    ],
+    "mani": {
+      "tu": [
+        {
+          "id": "c9",
+          "seme": "palla",
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c6",
+          "seme": "palla",
+          "valore": 8,
+          "label": "8"
+        },
+        {
+          "id": "c49",
+          "seme": "bandierina",
+          "valore": 4,
+          "label": "4"
+        },
+        {
+          "id": "c48",
+          "seme": "bandierina",
+          "valore": 5,
+          "label": "5"
+        }
+      ],
+      "cpu": [
+        {
+          "id": "c24",
+          "seme": "coppa",
+          "valore": 3,
+          "label": "3"
+        },
+        {
+          "id": "c9",
+          "seme": "palla",
+          "valore": 5,
+          "label": "5"
+        },
+        {
+          "id": "c31",
+          "seme": "guantone",
+          "valore": 9,
+          "label": "9"
+        },
+        {
+          "id": "c30",
+          "seme": "guantone",
+          "valore": 10,
+          "label": "10"
+        }
+      ]
+    },
+    "giocatori": {
+      "tu": [
+        {
+          "id": "tu_0",
+          "squadra": "tu",
+          "zona": 0,
+          "ruolo": "POR",
+          "portiere": true,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Vicario"
+        },
+        {
+          "id": "tu_1",
+          "squadra": "tu",
+          "zona": 1,
+          "ruolo": "DIF",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Kalulu"
+        },
+        {
+          "id": "tu_2",
+          "squadra": "tu",
+          "zona": 1,
+          "ruolo": "DIF",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Bremer"
+        },
+        {
+          "id": "tu_3",
+          "squadra": "tu",
+          "zona": 2,
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Lucumì"
+        },
+        {
+          "id": "tu_4",
+          "squadra": "tu",
+          "zona": 2,
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Celik"
+        },
+        {
+          "id": "tu_5",
+          "squadra": "tu",
+          "zona": 3,
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Douglas Luiz"
+        },
+        {
+          "id": "tu_6",
+          "squadra": "tu",
+          "zona": 3,
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "McKennie"
+        },
+        {
+          "id": "tu_7",
+          "squadra": "tu",
+          "zona": 4,
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Conceiçao"
+        },
+        {
+          "id": "tu_8",
+          "squadra": "tu",
+          "zona": 4,
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Yildiz"
+        },
+        {
+          "id": "tu_9",
+          "squadra": "tu",
+          "zona": 5,
+          "ruolo": "ATT",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Woltemade"
+        },
+        {
+          "id": "tu_10",
+          "squadra": "tu",
+          "zona": 5,
+          "ruolo": "ATT",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Kolo Muani"
+        }
+      ],
+      "cpu": [
+        {
+          "id": "cpu_0",
+          "squadra": "cpu",
+          "zona": 0,
+          "ruolo": "POR",
+          "portiere": true,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Svilar"
+        },
+        {
+          "id": "cpu_1",
+          "squadra": "cpu",
+          "zona": 1,
+          "ruolo": "DIF",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Mancini"
+        },
+        {
+          "id": "cpu_2",
+          "squadra": "cpu",
+          "zona": 1,
+          "ruolo": "DIF",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Balerdi"
+        },
+        {
+          "id": "cpu_3",
+          "squadra": "cpu",
+          "zona": 2,
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Hermoso"
+        },
+        {
+          "id": "cpu_4",
+          "squadra": "cpu",
+          "zona": 2,
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Wesley"
+        },
+        {
+          "id": "cpu_5",
+          "squadra": "cpu",
+          "zona": 3,
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Cristante"
+        },
+        {
+          "id": "cpu_6",
+          "squadra": "cpu",
+          "zona": 3,
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Kone"
+        },
+        {
+          "id": "cpu_7",
+          "squadra": "cpu",
+          "zona": 4,
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Molina"
+        },
+        {
+          "id": "cpu_8",
+          "squadra": "cpu",
+          "zona": 4,
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Soulé"
+        },
+        {
+          "id": "cpu_9",
+          "squadra": "cpu",
+          "zona": 5,
+          "ruolo": "ATT",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Dybala"
+        },
+        {
+          "id": "cpu_10",
+          "squadra": "cpu",
+          "zona": 5,
+          "ruolo": "ATT",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
+          "espulso": false,
+          "nome": "Malen"
+        }
+      ]
+    },
+    "panchina": {
+      "tu": [
+        {
+          "id": "tu_pan_0",
+          "squadra": "tu",
+          "ruolo": "POR",
+          "portiere": true,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": false,
+          "sostituito": false,
+          "nome": "Grabara"
+        },
+        {
+          "id": "tu_pan_1",
+          "squadra": "tu",
+          "ruolo": "DIF",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": false,
+          "sostituito": false,
+          "nome": "Gatti"
+        },
+        {
+          "id": "tu_pan_2",
+          "squadra": "tu",
+          "ruolo": "DIF",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": false,
+          "sostituito": false,
+          "nome": "Cambiaso"
+        },
+        {
+          "id": "tu_pan_3",
+          "squadra": "tu",
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": false,
+          "sostituito": false,
+          "nome": "Sarr"
+        },
+        {
+          "id": "tu_pan_4",
+          "squadra": "tu",
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": false,
+          "sostituito": false,
+          "nome": "Koopmeiners"
+        },
+        {
+          "id": "tu_pan_5",
+          "squadra": "tu",
+          "ruolo": "ATT",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": false,
+          "sostituito": false,
+          "nome": "Nico Gonzalez"
+        },
+        {
+          "id": "tu_pan_6",
+          "squadra": "tu",
+          "ruolo": "ATT",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": false,
+          "sostituito": false,
+          "nome": "Alajbegovic"
+        }
+      ],
+      "cpu": [
+        {
+          "id": "cpu_pan_0",
+          "squadra": "cpu",
+          "ruolo": "POR",
+          "portiere": true,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": false,
+          "sostituito": false,
+          "nome": "Gollini"
+        },
+        {
+          "id": "cpu_pan_1",
+          "squadra": "cpu",
+          "ruolo": "DIF",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": false,
+          "sostituito": false,
+          "nome": "Ndicka"
+        },
+        {
+          "id": "cpu_pan_2",
+          "squadra": "cpu",
+          "ruolo": "DIF",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": false,
+          "sostituito": false,
+          "nome": "Ghilardi"
+        },
+        {
+          "id": "cpu_pan_3",
+          "squadra": "cpu",
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": false,
+          "sostituito": false,
+          "nome": "Lulli"
+        },
+        {
+          "id": "cpu_pan_4",
+          "squadra": "cpu",
+          "ruolo": "CEN",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": false,
+          "sostituito": false,
+          "nome": "Mora"
+        },
+        {
+          "id": "cpu_pan_5",
+          "squadra": "cpu",
+          "ruolo": "ATT",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": false,
+          "sostituito": false,
+          "nome": "El Aynaoui"
+        },
+        {
+          "id": "cpu_pan_6",
+          "squadra": "cpu",
+          "ruolo": "ATT",
+          "portiere": false,
+          "stamina": 10,
+          "staminaMax": 10,
+          "falli": 0,
+          "ammonito": false,
+          "espulso": false,
+          "entrato": false,
+          "sostituito": false,
+          "nome": "Baldanzi"
+        }
+      ]
+    },
+    "monetaVinta": "tu",
+    "partitaFinita": false,
+    "direzioneAttaccoTU": 1,
+    "invertiCoppie": false,
+    "tuECasa": true,
+    "bonus": {
+      "tu": [],
+      "cpu": []
+    },
+    "streak": {
+      "tu": 0,
+      "cpu": 0
+    },
+    "statistiche": {
+      "tu": {
+        "gol": 0,
+        "tiri": 0,
+        "parate": 0,
+        "angoli": 0,
+        "pali": 0,
+        "fuori": 0,
+        "rigori": 0,
+        "contese": 1,
+        "vinte": 0,
+        "falli": 0,
+        "ammonizioni": 0,
+        "espulsioni": 0,
+        "sostituzioni": 0,
+        "bonusGuadagnati": 0,
+        "bonusUsati": 0,
+        "marcatori": []
+      },
+      "cpu": {
+        "gol": 0,
+        "tiri": 0,
+        "parate": 0,
+        "angoli": 0,
+        "pali": 0,
+        "fuori": 0,
+        "rigori": 0,
+        "contese": 0,
+        "vinte": 0,
+        "falli": 0,
+        "ammonizioni": 0,
+        "espulsioni": 0,
+        "sostituzioni": 0,
+        "bonusGuadagnati": 0,
+        "bonusUsati": 0,
+        "marcatori": []
+      }
+    },
+    "logCompleto": [
+      {
+        "msg": "🎙️ Calcio d'inizio! TU batte dal centro con McKennie.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie serve Conceiçao in Z4.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 superiore: Conceiçao (TU) contro Hermoso (CPU).",
+        "classe": ""
+      }
+    ],
+    "cambi": [],
+    "secondiTrascorsi": 5
   }
 }

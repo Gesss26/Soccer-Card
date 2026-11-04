@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:45:35.854Z",
+  "data": "2026-11-04T15:45:50.034Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3587,7 +3587,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807131851,
+    "timestamp": 1793807146033,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -4438,7 +4438,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4821,10 +4821,10 @@
     "statistiche": {
       "tu": {
         "gol": 2,
-        "tiri": 3,
+        "tiri": 4,
         "parate": 0,
         "angoli": 1,
-        "pali": 0,
+        "pali": 1,
         "fuori": 0,
         "rigori": 3,
         "contese": 7,
@@ -5298,6 +5298,30 @@
       {
         "msg": "🎙️ Kolo Muani vince il contrasto in Z5 e avanza!",
         "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Svilar si prepara al tiro (stamina 6/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 1 → settori 1,2,4,5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 1 → settori 1,2,4,5.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 6 (casella 6).",
+        "classe": ""
+      },
+      {
+        "msg": "🥅 PALO! Che sfortuna per Kolo Muani.",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -5309,6 +5333,6 @@
         "entrante": "Ndicka"
       }
     ],
-    "secondiTrascorsi": 454
+    "secondiTrascorsi": 468
   }
 }

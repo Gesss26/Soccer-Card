@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:52:09.940Z",
+  "data": "2026-11-04T15:52:16.413Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807525938,
+    "timestamp": 1793807532409,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -4435,7 +4435,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4868,14 +4868,14 @@
     "statistiche": {
       "tu": {
         "gol": 3,
-        "tiri": 10,
+        "tiri": 11,
         "parate": 1,
         "angoli": 1,
         "pali": 2,
         "fuori": 1,
-        "rigori": 4,
+        "rigori": 5,
         "contese": 21,
-        "vinte": 25,
+        "vinte": 26,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -6153,6 +6153,30 @@
       {
         "msg": "🟨 Fallo di Ghilardi (2 falli totali, 1 in area)",
         "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kolo Muani vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Gollini si prepara al tiro (stamina 7/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 3 → settori 4,5,7,8.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 3 → settori 4,5,7,8.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -6185,6 +6209,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 848
+    "secondiTrascorsi": 855
   }
 }

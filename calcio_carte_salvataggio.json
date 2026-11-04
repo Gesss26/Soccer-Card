@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:52:46.443Z",
+  "data": "2026-11-04T15:52:55.201Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807562439,
+    "timestamp": 1793807571199,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3617,10 +3617,10 @@
       "tu": 4,
       "cpu": 1
     },
-    "zonaPalla": 5,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_9",
-    "metaContesa": "sup",
+    "zonaPalla": 3,
+    "possessore": "tu",
+    "giocatorePalla": "tu_6",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -4854,8 +4854,7 @@
     "tuECasa": true,
     "bonus": {
       "tu": [
-        "parata-super",
-        "passaggio-lungo"
+        "parata-super"
       ],
       "cpu": [
         "passaggio-lungo"
@@ -4881,7 +4880,7 @@
         "espulsioni": 0,
         "sostituzioni": 1,
         "bonusGuadagnati": 8,
-        "bonusUsati": 5,
+        "bonusUsati": 6,
         "marcatori": [
           {
             "nome": "Kolo Muani",
@@ -6249,6 +6248,14 @@
       {
         "msg": "🎙️ Kalulu vince il contrasto in Z5 e RUBA PALLA!",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Kalulu AI DANNI DI Dybala!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kalulu serve McKennie in Z3.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -6281,6 +6288,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 885
+    "secondiTrascorsi": 893
   }
 }

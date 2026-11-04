@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:38:16.423Z",
+  "data": "2026-11-04T15:38:25.560Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3583,7 +3583,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793806692417,
+    "timestamp": 1793806701549,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -4852,6 +4852,6 @@
       }
     ],
     "cambi": [],
-    "secondiTrascorsi": 15
+    "secondiTrascorsi": 24
   }
 }

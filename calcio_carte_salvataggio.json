@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:47:24.357Z",
+  "data": "2026-11-04T15:47:31.417Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807240356,
+    "timestamp": 1793807247415,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3820,12 +3820,6 @@
           "seme": "coppa",
           "valore": 12,
           "label": "Q"
-        },
-        {
-          "id": "c27",
-          "seme": "guantone",
-          "valore": 13,
-          "label": "K"
         }
       ],
       "cpu": [
@@ -4026,12 +4020,6 @@
           "seme": "guantone",
           "valore": 4,
           "label": "4"
-        },
-        {
-          "id": "c26",
-          "seme": "guantone",
-          "valore": 14,
-          "label": "A"
         }
       ]
     },
@@ -4253,6 +4241,12 @@
           "seme": "bandierina",
           "valore": 10,
           "label": "10"
+        },
+        {
+          "id": "c27",
+          "seme": "guantone",
+          "valore": 13,
+          "label": "K"
         }
       ],
       "cpu": [
@@ -4273,6 +4267,12 @@
           "seme": "coppa",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c26",
+          "seme": "guantone",
+          "valore": 14,
+          "label": "A"
         }
       ]
     },
@@ -4307,18 +4307,18 @@
           "nome": "Kalulu"
         },
         {
-          "id": "tu_2",
+          "id": "tu_pan_2_sost",
           "squadra": "tu",
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 6,
+          "stamina": 10,
           "staminaMax": 10,
-          "falli": 4,
-          "falliArea": 2,
-          "ammonito": true,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
           "espulso": false,
-          "nome": "Bremer"
+          "nome": "Cambiaso"
         },
         {
           "id": "tu_3",
@@ -4630,7 +4630,7 @@
           "falli": 0,
           "ammonito": false,
           "espulso": false,
-          "entrato": false,
+          "entrato": true,
           "sostituito": false,
           "nome": "Cambiaso"
         },
@@ -4689,6 +4689,21 @@
           "entrato": false,
           "sostituito": false,
           "nome": "Alajbegovic"
+        },
+        {
+          "id": "tu_2_usc",
+          "squadra": "tu",
+          "ruolo": "DIF",
+          "portiere": false,
+          "stamina": 6,
+          "staminaMax": 10,
+          "falli": 4,
+          "falliArea": 2,
+          "ammonito": true,
+          "espulso": false,
+          "entrato": true,
+          "sostituito": true,
+          "nome": "Bremer"
         }
       ],
       "cpu": [
@@ -4846,12 +4861,12 @@
         "pali": 2,
         "fuori": 1,
         "rigori": 4,
-        "contese": 9,
+        "contese": 10,
         "vinte": 10,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
-        "sostituzioni": 0,
+        "sostituzioni": 1,
         "bonusGuadagnati": 3,
         "bonusUsati": 3,
         "marcatori": [
@@ -5557,6 +5572,10 @@
       {
         "msg": "🧤 PARATA! Il portiere ferma Malen.",
         "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 superiore: Douglas Luiz (TU) contro Cristante (CPU).",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -5573,8 +5592,15 @@
         "staminaUscente": 4,
         "cartelliniUscente": "🟨",
         "entrante": "Ghilardi"
+      },
+      {
+        "squadra": "tu",
+        "uscente": "Bremer",
+        "staminaUscente": 6,
+        "cartelliniUscente": "🟨",
+        "entrante": "Cambiaso"
       }
     ],
-    "secondiTrascorsi": 562
+    "secondiTrascorsi": 570
   }
 }

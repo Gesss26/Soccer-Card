@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:51:31.425Z",
+  "data": "2026-11-04T15:51:49.287Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807487415,
+    "timestamp": 1793807505283,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,15 +3611,15 @@
       }
     },
     "tempo": 2,
-    "mano": 7,
+    "mano": 8,
     "maxMani": 23,
     "punteggio": {
       "tu": 3,
       "cpu": 1
     },
-    "zonaPalla": 3,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_6",
+    "zonaPalla": 2,
+    "possessore": "tu",
+    "giocatorePalla": "tu_8",
     "metaContesa": "inf",
     "mazzi": {
       "tu": [
@@ -4030,6 +4030,18 @@
           "seme": "guantone",
           "valore": 10,
           "label": "10"
+        },
+        {
+          "id": "c7",
+          "seme": "palla",
+          "valore": 7,
+          "label": "7"
+        },
+        {
+          "id": "c12",
+          "seme": "palla",
+          "valore": 2,
+          "label": "2"
         }
       ],
       "cpu": [
@@ -4212,6 +4224,12 @@
           "seme": "palla",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c48",
+          "seme": "bandierina",
+          "valore": 5,
+          "label": "5"
         }
       ]
     },
@@ -4237,18 +4255,6 @@
           "seme": "guantone",
           "valore": 5,
           "label": "5"
-        },
-        {
-          "id": "c12",
-          "seme": "palla",
-          "valore": 2,
-          "label": "2"
-        },
-        {
-          "id": "c7",
-          "seme": "palla",
-          "valore": 7,
-          "label": "7"
         }
       ],
       "cpu": [
@@ -4257,12 +4263,6 @@
           "seme": "bandierina",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c48",
-          "seme": "bandierina",
-          "valore": 5,
-          "label": "5"
         },
         {
           "id": "c35",
@@ -4364,7 +4364,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4520,9 +4520,9 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
+          "falli": 1,
           "falliArea": 0,
           "ammonito": false,
           "espulso": false,
@@ -4862,7 +4862,7 @@
       ]
     },
     "streak": {
-      "tu": 0,
+      "tu": 1,
       "cpu": 0
     },
     "statistiche": {
@@ -4875,7 +4875,7 @@
         "fuori": 1,
         "rigori": 4,
         "contese": 19,
-        "vinte": 23,
+        "vinte": 24,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -4907,7 +4907,7 @@
         "rigori": 2,
         "contese": 11,
         "vinte": 6,
-        "falli": 8,
+        "falli": 9,
         "ammonizioni": 2,
         "espulsioni": 0,
         "sostituzioni": 3,
@@ -6073,6 +6073,42 @@
       {
         "msg": "🎙️ Kone gioca 7⚽ → seme guida: Palla",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie risponde con 7⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kone 7⚽ vs McKennie 7⚽ → PAREGGIO (Carte di pari valore)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kone rigioca 5🚩 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McKennie risponde con 2⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kone 5🚩 vs McKennie 2⚽ → vince McKennie (Difensore col seme guida — FALLO ATTACCANTE)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Kone (1 falli totali)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McKennie vince il contrasto in Z3 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI McKennie AI DANNI DI Kone!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ McKennie serve Yildiz in Z2.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -6105,6 +6141,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 810
+    "secondiTrascorsi": 827
   }
 }

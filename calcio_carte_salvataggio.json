@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:46:20.764Z",
+  "data": "2026-11-04T15:46:35.695Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807176762,
+    "timestamp": 1793807191692,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3617,10 +3617,10 @@
       "tu": 2,
       "cpu": 1
     },
-    "zonaPalla": 5,
-    "possessore": "tu",
-    "giocatorePalla": "tu_10",
-    "metaContesa": "inf",
+    "zonaPalla": 3,
+    "possessore": "cpu",
+    "giocatorePalla": "cpu_5",
+    "metaContesa": "sup",
     "mazzi": {
       "tu": [
         {
@@ -4425,7 +4425,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 5,
+          "stamina": 4,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4441,7 +4441,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 5,
+          "stamina": 4,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4464,18 +4464,18 @@
           "nome": "Mancini"
         },
         {
-          "id": "cpu_pan_1_sost",
+          "id": "cpu_pan_2_sost",
           "squadra": "cpu",
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 5,
+          "stamina": 10,
           "staminaMax": 10,
-          "falli": 4,
-          "falliArea": 2,
-          "ammonito": true,
+          "falli": 0,
+          "falliArea": 0,
+          "ammonito": false,
           "espulso": false,
-          "nome": "Ndicka"
+          "nome": "Ghilardi"
         },
         {
           "id": "cpu_3",
@@ -4731,7 +4731,7 @@
           "falli": 0,
           "ammonito": false,
           "espulso": false,
-          "entrato": false,
+          "entrato": true,
           "sostituito": false,
           "nome": "Ghilardi"
         },
@@ -4805,6 +4805,21 @@
           "entrato": true,
           "sostituito": true,
           "nome": "Balerdi"
+        },
+        {
+          "id": "cpu_pan_1_sost_usc",
+          "squadra": "cpu",
+          "ruolo": "DIF",
+          "portiere": false,
+          "stamina": 4,
+          "staminaMax": 10,
+          "falli": 4,
+          "falliArea": 2,
+          "ammonito": true,
+          "espulso": false,
+          "entrato": true,
+          "sostituito": true,
+          "nome": "Ndicka"
         }
       ]
     },
@@ -4820,20 +4835,20 @@
       "cpu": []
     },
     "streak": {
-      "tu": 0,
+      "tu": 1,
       "cpu": 0
     },
     "statistiche": {
       "tu": {
         "gol": 2,
-        "tiri": 5,
+        "tiri": 6,
         "parate": 0,
         "angoli": 1,
         "pali": 2,
-        "fuori": 0,
-        "rigori": 3,
+        "fuori": 1,
+        "rigori": 4,
         "contese": 9,
-        "vinte": 9,
+        "vinte": 10,
         "falli": 2,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4864,7 +4879,7 @@
         "falli": 6,
         "ammonizioni": 2,
         "espulsioni": 0,
-        "sostituzioni": 1,
+        "sostituzioni": 2,
         "bonusGuadagnati": 0,
         "bonusUsati": 0,
         "marcatori": [
@@ -5395,6 +5410,42 @@
       {
         "msg": "🟨 AMMONIZIONE per Ndicka (3 falli totali)",
         "classe": "parata"
+      },
+      {
+        "msg": "🔄 CAMBIO CPU: Ndicka (st 4) lascia il campo. Entra Ghilardi.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kolo Muani vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Svilar si prepara al tiro (stamina 4/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 4 → settori 5,6,8,9.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 4 → settori 5,6,8,9.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 7 (casella 7).",
+        "classe": ""
+      },
+      {
+        "msg": "❌ FUORI! Kolo Muani calcia a lato.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -5404,8 +5455,15 @@
         "staminaUscente": 6,
         "cartelliniUscente": "🟨",
         "entrante": "Ndicka"
+      },
+      {
+        "squadra": "cpu",
+        "uscente": "Ndicka",
+        "staminaUscente": 4,
+        "cartelliniUscente": "🟨",
+        "entrante": "Ghilardi"
       }
     ],
-    "secondiTrascorsi": 499
+    "secondiTrascorsi": 514
   }
 }

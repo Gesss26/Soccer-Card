@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:44:17.062Z",
+  "data": "2026-11-04T15:44:23.772Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3587,7 +3587,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807053061,
+    "timestamp": 1793807059768,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3607,16 +3607,16 @@
       }
     },
     "tempo": 1,
-    "mano": 5,
+    "mano": 6,
     "maxMani": 23,
     "punteggio": {
       "tu": 1,
       "cpu": 1
     },
-    "zonaPalla": 1,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_10",
-    "metaContesa": "inf",
+    "zonaPalla": 4,
+    "possessore": "tu",
+    "giocatorePalla": "tu_7",
+    "metaContesa": "sup",
     "mazzi": {
       "tu": [
         {
@@ -5099,6 +5099,22 @@
       {
         "msg": "⚽ GOOOAL! Malen batte il portiere!",
         "classe": "goal"
+      },
+      {
+        "msg": "⚽ GOAL di Malen al 8'!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Malen esulta! CPU 1-1 TU.",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Calcio d'inizio! TU batte dal centro con McKennie.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ McKennie serve Conceiçao in Z4.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -5110,6 +5126,6 @@
         "entrante": "Ndicka"
       }
     ],
-    "secondiTrascorsi": 375
+    "secondiTrascorsi": 382
   }
 }

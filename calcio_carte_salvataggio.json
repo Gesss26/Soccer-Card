@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:44:35.878Z",
+  "data": "2026-11-04T15:44:46.422Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3587,7 +3587,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807071875,
+    "timestamp": 1793807082418,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3870,12 +3870,6 @@
           "seme": "guantone",
           "valore": 8,
           "label": "8"
-        },
-        {
-          "id": "c8",
-          "seme": "palla",
-          "valore": 6,
-          "label": "6"
         }
       ],
       "cpu": [
@@ -4130,12 +4124,6 @@
           "seme": "coppa",
           "valore": 6,
           "label": "6"
-        },
-        {
-          "id": "c47",
-          "seme": "bandierina",
-          "valore": 6,
-          "label": "6"
         }
       ]
     },
@@ -4176,6 +4164,12 @@
           "seme": "guantone",
           "valore": 12,
           "label": "Q"
+        },
+        {
+          "id": "c37",
+          "seme": "guantone",
+          "valore": 3,
+          "label": "3"
         }
       ],
       "cpu": [
@@ -4214,6 +4208,12 @@
           "seme": "bandierina",
           "valore": 14,
           "label": "A"
+        },
+        {
+          "id": "c20",
+          "seme": "coppa",
+          "valore": 7,
+          "label": "7"
         }
       ]
     },
@@ -4248,10 +4248,10 @@
           "label": "9"
         },
         {
-          "id": "c37",
-          "seme": "guantone",
-          "valore": 3,
-          "label": "3"
+          "id": "c8",
+          "seme": "palla",
+          "valore": 6,
+          "label": "6"
         }
       ],
       "cpu": [
@@ -4262,16 +4262,16 @@
           "label": "3"
         },
         {
-          "id": "c20",
-          "seme": "coppa",
-          "valore": 7,
-          "label": "7"
-        },
-        {
           "id": "c11",
           "seme": "palla",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c47",
+          "seme": "bandierina",
+          "valore": 6,
+          "label": "6"
         }
       ]
     },
@@ -4423,7 +4423,7 @@
           "zona": 5,
           "ruolo": "ATT",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4439,7 +4439,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4467,10 +4467,10 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 8,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
+          "falli": 2,
+          "falliArea": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Ndicka"
@@ -4816,20 +4816,20 @@
       "cpu": []
     },
     "streak": {
-      "tu": 1,
+      "tu": 2,
       "cpu": 0
     },
     "statistiche": {
       "tu": {
         "gol": 1,
-        "tiri": 2,
+        "tiri": 3,
         "parate": 0,
         "angoli": 1,
         "pali": 0,
         "fuori": 0,
-        "rigori": 2,
-        "contese": 4,
-        "vinte": 4,
+        "rigori": 3,
+        "contese": 5,
+        "vinte": 5,
         "falli": 2,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4853,7 +4853,7 @@
         "rigori": 1,
         "contese": 2,
         "vinte": 2,
-        "falli": 3,
+        "falli": 4,
         "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 1,
@@ -5147,6 +5147,46 @@
       {
         "msg": "🎙️ Conceiçao serve Kolo Muani in Z5.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Kolo Muani (TU) contro Ndicka (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani gioca 3🧤 e impone il seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ndicka risponde con 7🏆 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kolo Muani 3🧤 vs Ndicka 7🏆 → vince Kolo Muani (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Ndicka (2 falli totali, 1 in area)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kolo Muani vince il contrasto in Z5 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Svilar si prepara al tiro (stamina 7/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 3 → settori 4,5,7,8.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -5158,6 +5198,6 @@
         "entrante": "Ndicka"
       }
     ],
-    "secondiTrascorsi": 394
+    "secondiTrascorsi": 405
   }
 }

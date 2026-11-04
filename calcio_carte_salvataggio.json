@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:46:16.411Z",
+  "data": "2026-11-04T15:46:20.764Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -1365,6 +1365,10 @@
             "squalificato": false
           },
           "Balerdi": {
+            "gialli": 1,
+            "squalificato": false
+          },
+          "Ndicka": {
             "gialli": 1,
             "squalificato": false
           }
@@ -3587,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807172408,
+    "timestamp": 1793807176762,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -4208,6 +4212,12 @@
           "seme": "palla",
           "valore": 4,
           "label": "4"
+        },
+        {
+          "id": "c21",
+          "seme": "coppa",
+          "valore": 6,
+          "label": "6"
         }
       ]
     },
@@ -4252,12 +4262,6 @@
           "seme": "coppa",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c21",
-          "seme": "coppa",
-          "valore": 6,
-          "label": "6"
         },
         {
           "id": "c51",
@@ -4465,11 +4469,11 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 6,
+          "stamina": 5,
           "staminaMax": 10,
-          "falli": 2,
-          "falliArea": 1,
-          "ammonito": false,
+          "falli": 4,
+          "falliArea": 2,
+          "ammonito": true,
           "espulso": false,
           "nome": "Ndicka"
         },
@@ -4857,8 +4861,8 @@
         "rigori": 1,
         "contese": 3,
         "vinte": 2,
-        "falli": 5,
-        "ammonizioni": 1,
+        "falli": 6,
+        "ammonizioni": 2,
         "espulsioni": 0,
         "sostituzioni": 1,
         "bonusGuadagnati": 0,
@@ -5375,6 +5379,22 @@
       {
         "msg": "🎙️ Kolo Muani gioca 6⚽ e impone il seme guida: Palla",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Ndicka risponde con 6🏆 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kolo Muani 6⚽ vs Ndicka 6🏆 → vince Kolo Muani (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Ndicka (4 falli totali, 2 in area)",
+        "classe": "parata"
+      },
+      {
+        "msg": "🟨 AMMONIZIONE per Ndicka (3 falli totali)",
+        "classe": "parata"
       }
     ],
     "cambi": [
@@ -5386,6 +5406,6 @@
         "entrante": "Ndicka"
       }
     ],
-    "secondiTrascorsi": 495
+    "secondiTrascorsi": 499
   }
 }

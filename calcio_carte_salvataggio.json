@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:50:52.881Z",
+  "data": "2026-11-04T15:51:04.662Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807448877,
+    "timestamp": 1793807460658,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,15 +3611,15 @@
       }
     },
     "tempo": 2,
-    "mano": 5,
+    "mano": 6,
     "maxMani": 23,
     "punteggio": {
       "tu": 3,
       "cpu": 1
     },
-    "zonaPalla": 3,
-    "possessore": "cpu",
-    "giocatorePalla": "cpu_5",
+    "zonaPalla": 2,
+    "possessore": "tu",
+    "giocatorePalla": "tu_7",
     "metaContesa": "sup",
     "mazzi": {
       "tu": [
@@ -3754,12 +3754,6 @@
           "seme": "guantone",
           "valore": 10,
           "label": "10"
-        },
-        {
-          "id": "c12",
-          "seme": "palla",
-          "valore": 2,
-          "label": "2"
         }
       ],
       "cpu": [
@@ -3888,12 +3882,6 @@
           "seme": "guantone",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c45",
-          "seme": "bandierina",
-          "valore": 8,
-          "label": "8"
         }
       ]
     },
@@ -4054,6 +4042,12 @@
           "seme": "coppa",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c41",
+          "seme": "bandierina",
+          "valore": 12,
+          "label": "Q"
         }
       ],
       "cpu": [
@@ -4218,6 +4212,12 @@
           "seme": "coppa",
           "valore": 9,
           "label": "9"
+        },
+        {
+          "id": "c45",
+          "seme": "bandierina",
+          "valore": 8,
+          "label": "8"
         }
       ]
     },
@@ -4240,16 +4240,16 @@
           "label": "4"
         },
         {
-          "id": "c41",
-          "seme": "bandierina",
-          "valore": 12,
-          "label": "Q"
-        },
-        {
           "id": "c35",
           "seme": "guantone",
           "valore": 5,
           "label": "5"
+        },
+        {
+          "id": "c12",
+          "seme": "palla",
+          "valore": 2,
+          "label": "2"
         }
       ],
       "cpu": [
@@ -4351,7 +4351,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4507,7 +4507,7 @@
           "zona": 3,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 8,
+          "stamina": 7,
           "staminaMax": 10,
           "falli": 1,
           "falliArea": 0,
@@ -4863,7 +4863,7 @@
       ]
     },
     "streak": {
-      "tu": 1,
+      "tu": 2,
       "cpu": 0
     },
     "statistiche": {
@@ -4876,7 +4876,7 @@
         "fuori": 1,
         "rigori": 4,
         "contese": 18,
-        "vinte": 21,
+        "vinte": 22,
         "falli": 5,
         "ammonizioni": 1,
         "espulsioni": 0,
@@ -4906,7 +4906,7 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 2,
-        "contese": 9,
+        "contese": 10,
         "vinte": 6,
         "falli": 8,
         "ammonizioni": 2,
@@ -5994,6 +5994,34 @@
       {
         "msg": "🧤 PARATA! Il portiere ferma Yildiz.",
         "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 superiore: Cristante (CPU) contro Douglas Luiz (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Cristante gioca 8🚩 → seme guida: Bandierina",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz risponde con Q🚩",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Cristante 8🚩 vs Douglas Luiz Q🚩 → vince Douglas Luiz (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz vince il contrasto in Z3 e RUBA PALLA!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ SCIVOLATA DI Douglas Luiz AI DANNI DI Cristante!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Douglas Luiz serve Conceiçao in Z2.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -6026,6 +6054,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 771
+    "secondiTrascorsi": 783
   }
 }

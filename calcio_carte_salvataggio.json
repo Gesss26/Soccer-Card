@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:42:46.410Z",
+  "data": "2026-11-04T15:42:54.929Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3583,7 +3583,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793806962408,
+    "timestamp": 1793806970928,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3603,16 +3603,16 @@
       }
     },
     "tempo": 1,
-    "mano": 2,
+    "mano": 3,
     "maxMani": 23,
     "punteggio": {
       "tu": 0,
       "cpu": 0
     },
-    "zonaPalla": 4,
+    "zonaPalla": 5,
     "possessore": "tu",
-    "giocatorePalla": "tu_7",
-    "metaContesa": "sup",
+    "giocatorePalla": "tu_10",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -4196,8 +4196,22 @@
       ]
     },
     "scarti": {
-      "tu": [],
-      "cpu": []
+      "tu": [
+        {
+          "id": "c6",
+          "seme": "palla",
+          "valore": 8,
+          "label": "8"
+        }
+      ],
+      "cpu": [
+        {
+          "id": "c9",
+          "seme": "palla",
+          "valore": 5,
+          "label": "5"
+        }
+      ]
     },
     "mazzoBonus": [
       "parata-super",
@@ -4225,12 +4239,6 @@
           "label": "5"
         },
         {
-          "id": "c6",
-          "seme": "palla",
-          "valore": 8,
-          "label": "8"
-        },
-        {
           "id": "c49",
           "seme": "bandierina",
           "valore": 4,
@@ -4249,12 +4257,6 @@
           "seme": "coppa",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c9",
-          "seme": "palla",
-          "valore": 5,
-          "label": "5"
         },
         {
           "id": "c31",
@@ -4376,7 +4378,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4476,7 +4478,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4796,7 +4798,7 @@
       "cpu": []
     },
     "streak": {
-      "tu": 0,
+      "tu": 1,
       "cpu": 0
     },
     "statistiche": {
@@ -4809,7 +4811,7 @@
         "fuori": 0,
         "rigori": 0,
         "contese": 1,
-        "vinte": 0,
+        "vinte": 1,
         "falli": 0,
         "ammonizioni": 0,
         "espulsioni": 0,
@@ -4849,9 +4851,29 @@
       {
         "msg": "🎙️ Z4 superiore: Conceiçao (TU) contro Hermoso (CPU).",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao gioca 8⚽ e impone il seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Hermoso risponde con 5⚽",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao 8⚽ vs Hermoso 5⚽ → vince Conceiçao (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Conceiçao serve Kolo Muani in Z5.",
+        "classe": ""
       }
     ],
     "cambi": [],
-    "secondiTrascorsi": 285
+    "secondiTrascorsi": 293
   }
 }

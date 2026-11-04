@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:51:16.425Z",
+  "data": "2026-11-04T15:51:31.425Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807472417,
+    "timestamp": 1793807487415,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3617,10 +3617,10 @@
       "tu": 3,
       "cpu": 1
     },
-    "zonaPalla": 2,
-    "possessore": "tu",
-    "giocatorePalla": "tu_7",
-    "metaContesa": "sup",
+    "zonaPalla": 3,
+    "possessore": "cpu",
+    "giocatorePalla": "cpu_6",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -3742,12 +3742,6 @@
           "seme": "guantone",
           "valore": 7,
           "label": "7"
-        },
-        {
-          "id": "c7",
-          "seme": "palla",
-          "valore": 7,
-          "label": "7"
         }
       ],
       "cpu": [
@@ -3864,12 +3858,6 @@
           "seme": "palla",
           "valore": 12,
           "label": "Q"
-        },
-        {
-          "id": "c35",
-          "seme": "guantone",
-          "valore": 5,
-          "label": "5"
         }
       ]
     },
@@ -4218,6 +4206,12 @@
           "seme": "guantone",
           "valore": 3,
           "label": "3"
+        },
+        {
+          "id": "c7",
+          "seme": "palla",
+          "valore": 7,
+          "label": "7"
         }
       ]
     },
@@ -4249,6 +4243,12 @@
           "seme": "palla",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c7",
+          "seme": "palla",
+          "valore": 7,
+          "label": "7"
         }
       ],
       "cpu": [
@@ -4265,10 +4265,10 @@
           "label": "5"
         },
         {
-          "id": "c7",
-          "seme": "palla",
-          "valore": 7,
-          "label": "7"
+          "id": "c35",
+          "seme": "guantone",
+          "valore": 5,
+          "label": "5"
         }
       ]
     },
@@ -4436,7 +4436,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4868,7 +4868,7 @@
     "statistiche": {
       "tu": {
         "gol": 3,
-        "tiri": 9,
+        "tiri": 10,
         "parate": 1,
         "angoli": 1,
         "pali": 2,
@@ -4900,12 +4900,12 @@
       "cpu": {
         "gol": 1,
         "tiri": 2,
-        "parate": 2,
+        "parate": 3,
         "angoli": 0,
         "pali": 0,
         "fuori": 0,
         "rigori": 2,
-        "contese": 10,
+        "contese": 11,
         "vinte": 6,
         "falli": 8,
         "ammonizioni": 2,
@@ -6041,6 +6041,38 @@
       {
         "msg": "🎙️ Conceiçao vince il contrasto in Z2 e avanza!",
         "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Gollini si prepara al tiro (stamina 8/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Conceiçao va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Portiere tira 2 → settori 2,3,5,6.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Portiere sceglie gruppo 2 → settori 2,3,5,6.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Tiro di Conceiçao: dado 3 (casella 3).",
+        "classe": ""
+      },
+      {
+        "msg": "🧤 PARATA! Il portiere ferma Conceiçao.",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Z3 inferiore: Kone (CPU) contro McKennie (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kone gioca 7⚽ → seme guida: Palla",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -6073,6 +6105,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 795
+    "secondiTrascorsi": 810
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:49:07.065Z",
+  "data": "2026-11-04T15:49:16.421Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807343060,
+    "timestamp": 1793807352417,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3611,16 +3611,16 @@
       }
     },
     "tempo": 1,
-    "mano": 20,
+    "mano": 21,
     "maxMani": 23,
     "punteggio": {
       "tu": 3,
       "cpu": 1
     },
-    "zonaPalla": 5,
-    "possessore": "tu",
-    "giocatorePalla": "tu_10",
-    "metaContesa": "inf",
+    "zonaPalla": 2,
+    "possessore": "cpu",
+    "giocatorePalla": "cpu_7",
+    "metaContesa": "sup",
     "mazzi": {
       "tu": [
         {
@@ -3784,12 +3784,6 @@
           "seme": "palla",
           "valore": 13,
           "label": "K"
-        },
-        {
-          "id": "c18",
-          "seme": "coppa",
-          "valore": 9,
-          "label": "9"
         }
       ],
       "cpu": [
@@ -3954,12 +3948,6 @@
           "seme": "bandierina",
           "valore": 13,
           "label": "K"
-        },
-        {
-          "id": "c48",
-          "seme": "bandierina",
-          "valore": 5,
-          "label": "5"
         }
       ]
     },
@@ -4218,6 +4206,12 @@
           "seme": "guantone",
           "valore": 2,
           "label": "2"
+        },
+        {
+          "id": "c4",
+          "seme": "palla",
+          "valore": 10,
+          "label": "10"
         }
       ]
     },
@@ -4251,6 +4245,12 @@
           "seme": "palla",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c18",
+          "seme": "coppa",
+          "valore": 9,
+          "label": "9"
         }
       ],
       "cpu": [
@@ -4267,10 +4267,10 @@
           "label": "3"
         },
         {
-          "id": "c4",
-          "seme": "palla",
-          "valore": 10,
-          "label": "10"
+          "id": "c48",
+          "seme": "bandierina",
+          "valore": 5,
+          "label": "5"
         }
       ]
     },
@@ -4908,7 +4908,7 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 2,
-        "contese": 7,
+        "contese": 8,
         "vinte": 5,
         "falli": 7,
         "ammonizioni": 2,
@@ -5792,6 +5792,30 @@
       {
         "msg": "⚽ GOOOAL! Kolo Muani batte il portiere!",
         "classe": "goal"
+      },
+      {
+        "msg": "⚽ GOAL di Kolo Muani al 38'!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Kolo Muani esulta! TU 3-1 CPU.",
+        "classe": "goal"
+      },
+      {
+        "msg": "🎙️ Calcio d'inizio! CPU batte dal centro con Kone.",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Kone serve Molina in Z2.",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Z2 superiore: Molina (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Molina gioca 10⚽ → seme guida: Palla",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -5824,6 +5848,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 665
+    "secondiTrascorsi": 675
   }
 }

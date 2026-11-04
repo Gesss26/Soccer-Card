@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:54:56.275Z",
+  "data": "2026-11-04T15:55:08.405Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3595,7 +3595,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807692270,
+    "timestamp": 1793807704400,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3615,16 +3615,16 @@
       }
     },
     "tempo": 2,
-    "mano": 19,
+    "mano": 20,
     "maxMani": 23,
     "punteggio": {
       "tu": 5,
       "cpu": 1
     },
-    "zonaPalla": 4,
+    "zonaPalla": 5,
     "possessore": "cpu",
-    "giocatorePalla": "cpu_7",
-    "metaContesa": "sup",
+    "giocatorePalla": "cpu_10",
+    "metaContesa": "inf",
     "mazzi": {
       "tu": [
         {
@@ -3668,12 +3668,6 @@
           "seme": "bandierina",
           "valore": 3,
           "label": "3"
-        },
-        {
-          "id": "c4",
-          "seme": "palla",
-          "valore": 10,
-          "label": "10"
         }
       ],
       "cpu": [
@@ -3712,12 +3706,6 @@
           "seme": "guantone",
           "valore": 8,
           "label": "8"
-        },
-        {
-          "id": "c28",
-          "seme": "guantone",
-          "valore": 12,
-          "label": "Q"
         }
       ]
     },
@@ -3968,6 +3956,12 @@
           "seme": "guantone",
           "valore": 11,
           "label": "J"
+        },
+        {
+          "id": "c36",
+          "seme": "guantone",
+          "valore": 4,
+          "label": "4"
         }
       ],
       "cpu": [
@@ -4222,6 +4216,12 @@
           "seme": "guantone",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c28",
+          "seme": "guantone",
+          "valore": 12,
+          "label": "Q"
         }
       ]
     },
@@ -4234,12 +4234,6 @@
     "mani": {
       "tu": [
         {
-          "id": "c36",
-          "seme": "guantone",
-          "valore": 4,
-          "label": "4"
-        },
-        {
           "id": "c17",
           "seme": "coppa",
           "valore": 10,
@@ -4250,6 +4244,12 @@
           "seme": "guantone",
           "valore": 6,
           "label": "6"
+        },
+        {
+          "id": "c4",
+          "seme": "palla",
+          "valore": 10,
+          "label": "10"
         }
       ],
       "cpu": [
@@ -4323,7 +4323,7 @@
           "zona": 2,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 5,
+          "stamina": 4,
           "staminaMax": 10,
           "falli": 2,
           "falliArea": 0,
@@ -4535,7 +4535,7 @@
           "zona": 4,
           "ruolo": "CEN",
           "portiere": false,
-          "stamina": 7,
+          "stamina": 6,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4875,7 +4875,7 @@
     },
     "streak": {
       "tu": 0,
-      "cpu": 0
+      "cpu": 1
     },
     "statistiche": {
       "tu": {
@@ -4925,8 +4925,8 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 3,
-        "contese": 15,
-        "vinte": 9,
+        "contese": 16,
+        "vinte": 10,
         "falli": 13,
         "ammonizioni": 3,
         "espulsioni": 0,
@@ -6541,6 +6541,30 @@
       {
         "msg": "🎙️ Kone serve Molina in Z4.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z4 superiore: Molina (CPU) contro Lucumì (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Molina gioca Q🧤 → seme guida: Guantone",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Lucumì risponde con 4🧤",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Molina Q🧤 vs Lucumì 4🧤 → vince Molina (Valore più alto)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Molina vince il contrasto in Z4 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Molina serve Malen in Z5.",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -6580,6 +6604,6 @@
         "entrante": "Lulli"
       }
     ],
-    "secondiTrascorsi": 1014
+    "secondiTrascorsi": 1026
   }
 }

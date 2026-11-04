@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:53:41.346Z",
+  "data": "2026-11-04T15:53:46.418Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807617343,
+    "timestamp": 1793807622415,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3688,12 +3688,6 @@
           "seme": "coppa",
           "valore": 10,
           "label": "10"
-        },
-        {
-          "id": "c29",
-          "seme": "guantone",
-          "valore": 11,
-          "label": "J"
         }
       ],
       "cpu": [
@@ -3756,12 +3750,6 @@
           "seme": "palla",
           "valore": 2,
           "label": "2"
-        },
-        {
-          "id": "c41",
-          "seme": "bandierina",
-          "valore": 12,
-          "label": "Q"
         }
       ]
     },
@@ -4218,6 +4206,12 @@
           "seme": "bandierina",
           "valore": 7,
           "label": "7"
+        },
+        {
+          "id": "c41",
+          "seme": "bandierina",
+          "valore": 12,
+          "label": "Q"
         }
       ]
     },
@@ -4247,6 +4241,12 @@
           "seme": "palla",
           "valore": 14,
           "label": "A"
+        },
+        {
+          "id": "c29",
+          "seme": "guantone",
+          "valore": 11,
+          "label": "J"
         }
       ],
       "cpu": [
@@ -4905,7 +4905,7 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 2,
-        "contese": 14,
+        "contese": 15,
         "vinte": 8,
         "falli": 12,
         "ammonizioni": 2,
@@ -6361,6 +6361,14 @@
       {
         "msg": "🎙️ Cristante serve Malen in Z5.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Malen (CPU) contro Cambiaso (TU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Malen gioca Q🚩 → seme guida: Bandierina",
+        "classe": "highlight"
       }
     ],
     "cambi": [
@@ -6393,6 +6401,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 939
+    "secondiTrascorsi": 945
   }
 }

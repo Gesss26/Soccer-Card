@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:42:54.929Z",
+  "data": "2026-11-04T15:43:03.791Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3583,7 +3583,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793806970928,
+    "timestamp": 1793806979786,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3896,12 +3896,6 @@
           "seme": "bandierina",
           "valore": 8,
           "label": "8"
-        },
-        {
-          "id": "c51",
-          "seme": "bandierina",
-          "valore": 2,
-          "label": "2"
         }
       ],
       "cpu": [
@@ -4186,12 +4180,6 @@
           "seme": "palla",
           "valore": 8,
           "label": "8"
-        },
-        {
-          "id": "c20",
-          "seme": "coppa",
-          "valore": 7,
-          "label": "7"
         }
       ]
     },
@@ -4202,6 +4190,12 @@
           "seme": "palla",
           "valore": 8,
           "label": "8"
+        },
+        {
+          "id": "c9",
+          "seme": "palla",
+          "valore": 5,
+          "label": "5"
         }
       ],
       "cpu": [
@@ -4210,6 +4204,12 @@
           "seme": "palla",
           "valore": 5,
           "label": "5"
+        },
+        {
+          "id": "c30",
+          "seme": "guantone",
+          "valore": 10,
+          "label": "10"
         }
       ]
     },
@@ -4233,12 +4233,6 @@
     "mani": {
       "tu": [
         {
-          "id": "c9",
-          "seme": "palla",
-          "valore": 5,
-          "label": "5"
-        },
-        {
           "id": "c49",
           "seme": "bandierina",
           "valore": 4,
@@ -4249,6 +4243,12 @@
           "seme": "bandierina",
           "valore": 5,
           "label": "5"
+        },
+        {
+          "id": "c51",
+          "seme": "bandierina",
+          "valore": 2,
+          "label": "2"
         }
       ],
       "cpu": [
@@ -4265,10 +4265,10 @@
           "label": "9"
         },
         {
-          "id": "c30",
-          "seme": "guantone",
-          "valore": 10,
-          "label": "10"
+          "id": "c20",
+          "seme": "coppa",
+          "valore": 7,
+          "label": "7"
         }
       ]
     },
@@ -4464,10 +4464,10 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
+          "falli": 2,
+          "falliArea": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Balerdi"
@@ -4810,7 +4810,7 @@
         "pali": 0,
         "fuori": 0,
         "rigori": 0,
-        "contese": 1,
+        "contese": 2,
         "vinte": 1,
         "falli": 0,
         "ammonizioni": 0,
@@ -4830,7 +4830,7 @@
         "rigori": 0,
         "contese": 0,
         "vinte": 0,
-        "falli": 0,
+        "falli": 1,
         "ammonizioni": 0,
         "espulsioni": 0,
         "sostituzioni": 0,
@@ -4871,9 +4871,29 @@
       {
         "msg": "🎙️ Conceiçao serve Kolo Muani in Z5.",
         "classe": ""
+      },
+      {
+        "msg": "🎙️ Z5 inferiore: Kolo Muani (TU) contro Balerdi (CPU).",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani gioca 5⚽ e impone il seme guida: Palla",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Balerdi risponde con 10🧤 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Kolo Muani 5⚽ vs Balerdi 10🧤 → vince Kolo Muani (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Balerdi (2 falli totali, 1 in area)",
+        "classe": "parata"
       }
     ],
     "cambi": [],
-    "secondiTrascorsi": 293
+    "secondiTrascorsi": 302
   }
 }

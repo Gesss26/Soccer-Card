@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:47:10.246Z",
+  "data": "2026-11-04T15:47:16.425Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807226244,
+    "timestamp": 1793807232422,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -4284,7 +4284,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 9,
+          "stamina": 8,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4828,9 +4828,7 @@
     "invertiCoppie": false,
     "tuECasa": true,
     "bonus": {
-      "tu": [
-        "parata-super"
-      ],
+      "tu": [],
       "cpu": [
         "passaggio-lungo"
       ]
@@ -4855,7 +4853,7 @@
         "espulsioni": 0,
         "sostituzioni": 0,
         "bonusGuadagnati": 3,
-        "bonusUsati": 2,
+        "bonusUsati": 3,
         "marcatori": [
           {
             "nome": "Kolo Muani",
@@ -4869,14 +4867,14 @@
       },
       "cpu": {
         "gol": 1,
-        "tiri": 1,
+        "tiri": 2,
         "parate": 0,
         "angoli": 0,
         "pali": 0,
         "fuori": 0,
-        "rigori": 1,
+        "rigori": 2,
         "contese": 6,
-        "vinte": 4,
+        "vinte": 5,
         "falli": 6,
         "ammonizioni": 2,
         "espulsioni": 0,
@@ -5535,6 +5533,26 @@
       {
         "msg": "🟨 AMMONIZIONE per Bremer (3 falli totali)",
         "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Malen vince il contrasto in Z1 e avanza!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "⚽ RIGORE per fallo del difensore in area!",
+        "classe": "goal"
+      },
+      {
+        "msg": "🧤 Vicario si prepara al tiro (stamina 8/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Malen va al tiro SU RIGORE!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Malen: dado 8 (casella 8).",
+        "classe": ""
       }
     ],
     "cambi": [
@@ -5553,6 +5571,6 @@
         "entrante": "Ghilardi"
       }
     ],
-    "secondiTrascorsi": 548
+    "secondiTrascorsi": 555
   }
 }

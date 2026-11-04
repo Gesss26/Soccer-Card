@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:54:39.036Z",
+  "data": "2026-11-04T15:54:49.547Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3595,7 +3595,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807675035,
+    "timestamp": 1793807685546,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3618,7 +3618,7 @@
     "mano": 18,
     "maxMani": 23,
     "punteggio": {
-      "tu": 4,
+      "tu": 5,
       "cpu": 1
     },
     "zonaPalla": 1,
@@ -4437,7 +4437,7 @@
           "zona": 0,
           "ruolo": "POR",
           "portiere": true,
-          "stamina": 6,
+          "stamina": 5,
           "staminaMax": 10,
           "falli": 0,
           "falliArea": 0,
@@ -4870,9 +4870,7 @@
     "invertiCoppie": true,
     "tuECasa": true,
     "bonus": {
-      "tu": [
-        "gol-super"
-      ],
+      "tu": [],
       "cpu": []
     },
     "streak": {
@@ -4881,8 +4879,8 @@
     },
     "statistiche": {
       "tu": {
-        "gol": 4,
-        "tiri": 12,
+        "gol": 5,
+        "tiri": 13,
         "parate": 2,
         "angoli": 1,
         "pali": 2,
@@ -4895,7 +4893,7 @@
         "espulsioni": 0,
         "sostituzioni": 1,
         "bonusGuadagnati": 10,
-        "bonusUsati": 8,
+        "bonusUsati": 9,
         "marcatori": [
           {
             "nome": "Kolo Muani",
@@ -4912,6 +4910,10 @@
           {
             "nome": "Kolo Muani",
             "minuto": 61
+          },
+          {
+            "nome": "Kolo Muani",
+            "minuto": 79
           }
         ]
       },
@@ -6507,6 +6509,22 @@
       {
         "msg": "🎙️ Kolo Muani vince il contrasto in Z1 e avanza!",
         "classe": "highlight"
+      },
+      {
+        "msg": "🧤 Gollini si prepara al tiro (stamina 5/10)",
+        "classe": ""
+      },
+      {
+        "msg": "🎙️ Kolo Muani va al tiro!",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Tiro di Kolo Muani: dado 7 (casella 7).",
+        "classe": ""
+      },
+      {
+        "msg": "⚽ GOOOAL! Kolo Muani batte il portiere!",
+        "classe": "goal"
       }
     ],
     "cambi": [
@@ -6546,6 +6564,6 @@
         "entrante": "Lulli"
       }
     ],
-    "secondiTrascorsi": 997
+    "secondiTrascorsi": 1008
   }
 }

@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:53:46.418Z",
+  "data": "2026-11-04T15:53:50.638Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -3591,7 +3591,7 @@
   },
   "partitaInCorso": {
     "versione": 2,
-    "timestamp": 1793807622415,
+    "timestamp": 1793807626635,
     "difficolta": "normale",
     "tipoPartita": "1P",
     "squadraTU": "juventus",
@@ -3976,6 +3976,12 @@
           "seme": "bandierina",
           "valore": 6,
           "label": "6"
+        },
+        {
+          "id": "c25",
+          "seme": "coppa",
+          "valore": 2,
+          "label": "2"
         }
       ],
       "cpu": [
@@ -4231,12 +4237,6 @@
           "label": "4"
         },
         {
-          "id": "c25",
-          "seme": "coppa",
-          "valore": 2,
-          "label": "2"
-        },
-        {
           "id": "c0",
           "seme": "palla",
           "valore": 14,
@@ -4306,10 +4306,10 @@
           "zona": 1,
           "ruolo": "DIF",
           "portiere": false,
-          "stamina": 10,
+          "stamina": 9,
           "staminaMax": 10,
-          "falli": 0,
-          "falliArea": 0,
+          "falli": 2,
+          "falliArea": 1,
           "ammonito": false,
           "espulso": false,
           "nome": "Cambiaso"
@@ -4872,7 +4872,7 @@
         "rigori": 5,
         "contese": 23,
         "vinte": 29,
-        "falli": 5,
+        "falli": 6,
         "ammonizioni": 1,
         "espulsioni": 0,
         "sostituzioni": 1,
@@ -6369,6 +6369,18 @@
       {
         "msg": "🎙️ Malen gioca Q🚩 → seme guida: Bandierina",
         "classe": "highlight"
+      },
+      {
+        "msg": "🎙️ Cambiaso risponde con 2🏆 — FALLO!",
+        "classe": "parata"
+      },
+      {
+        "msg": "🎙️ Malen Q🚩 vs Cambiaso 2🏆 → vince Malen (Attaccante col seme guida)",
+        "classe": "highlight"
+      },
+      {
+        "msg": "🟨 Fallo di Cambiaso (2 falli totali, 1 in area)",
+        "classe": "parata"
       }
     ],
     "cambi": [
@@ -6401,6 +6413,6 @@
         "entrante": "Gollini"
       }
     ],
-    "secondiTrascorsi": 945
+    "secondiTrascorsi": 949
   }
 }

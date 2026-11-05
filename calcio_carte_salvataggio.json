@@ -1,6 +1,6 @@
 {
   "versione": 1,
-  "data": "2026-11-04T15:56:42.373Z",
+  "data": "2026-11-05T17:18:39.801Z",
   "ammonizioni": {
     "versione": 1,
     "stagione": "2026/27",
@@ -685,7 +685,7 @@
             "squalificato": false
           },
           "Thuram": {
-            "gialli": 0,
+            "gialli": 1,
             "squalificato": false
           },
           "Esposito": {
@@ -737,7 +737,7 @@
             "squalificato": false
           },
           "Bremer": {
-            "gialli": 1,
+            "gialli": 2,
             "squalificato": false
           },
           "Lucumì": {
@@ -813,7 +813,7 @@
         },
         "centrocampisti": {
           "Rovella": {
-            "gialli": 1,
+            "gialli": 2,
             "squalificato": false
           },
           "Cataldi": {
@@ -834,6 +834,10 @@
           },
           "Belahyane": {
             "gialli": 0,
+            "squalificato": false
+          },
+          "Doekhi": {
+            "gialli": 1,
             "squalificato": false
           }
         },
@@ -1133,7 +1137,7 @@
             "squalificato": false
           },
           "Varela": {
-            "gialli": 1,
+            "gialli": 0,
             "squalificato": false
           },
           "Cutrone": {
@@ -1325,7 +1329,7 @@
       "roma": {
         "portiere": {
           "Svilar": {
-            "gialli": 0,
+            "gialli": 1,
             "squalificato": false
           }
         },
@@ -1687,7 +1691,7 @@
         },
         "difensori": {
           "Bella-Kotchap": {
-            "gialli": 1,
+            "gialli": 0,
             "squalificato": false
           },
           "Sverko": {
@@ -2808,6 +2812,86 @@
       "g26_8": [
         0,
         3
+      ],
+      "g27_5": [
+        6,
+        2
+      ],
+      "g27_0": [
+        2,
+        0
+      ],
+      "g27_1": [
+        1,
+        0
+      ],
+      "g27_2": [
+        2,
+        3
+      ],
+      "g27_3": [
+        2,
+        3
+      ],
+      "g27_4": [
+        0,
+        1
+      ],
+      "g27_6": [
+        0,
+        3
+      ],
+      "g27_7": [
+        0,
+        0
+      ],
+      "g27_8": [
+        3,
+        0
+      ],
+      "g27_9": [
+        1,
+        1
+      ],
+      "g28_0": [
+        3,
+        4
+      ],
+      "g28_1": [
+        0,
+        0
+      ],
+      "g28_2": [
+        1,
+        0
+      ],
+      "g28_3": [
+        2,
+        1
+      ],
+      "g28_4": [
+        0,
+        2
+      ],
+      "g28_5": [
+        1,
+        0
+      ],
+      "g28_6": [
+        0,
+        0
+      ],
+      "g28_7": [
+        1,
+        1
+      ],
+      "g28_8": [
+        1,
+        0
+      ],
+      "g28_9": [
+        3,
+        3
       ]
     },
     "marcatori": {
@@ -2834,7 +2918,7 @@
       "Vojvoda|udinese": {
         "nome": "Vojvoda",
         "squadra": "udinese",
-        "gol": 2
+        "gol": 3
       },
       "Monterisi|frosinone": {
         "nome": "Monterisi",
@@ -2844,7 +2928,7 @@
       "Ngom|lecce": {
         "nome": "Ngom",
         "squadra": "lecce",
-        "gol": 4
+        "gol": 5
       },
       "Heggem|bologna": {
         "nome": "Heggem",
@@ -2854,12 +2938,12 @@
       "Kone|roma": {
         "nome": "Kone",
         "squadra": "roma",
-        "gol": 1
+        "gol": 2
       },
       "Mancini|roma": {
         "nome": "Mancini",
         "squadra": "roma",
-        "gol": 5
+        "gol": 6
       },
       "Idzes|sassuolo": {
         "nome": "Idzes",
@@ -2874,7 +2958,7 @@
       "Lang|napoli": {
         "nome": "Lang",
         "squadra": "napoli",
-        "gol": 4
+        "gol": 5
       },
       "Di Lorenzo|napoli": {
         "nome": "Di Lorenzo",
@@ -2884,32 +2968,32 @@
       "Zaccagni|lazio": {
         "nome": "Zaccagni",
         "squadra": "lazio",
-        "gol": 2
+        "gol": 3
       },
       "Ostigard|genoa": {
         "nome": "Ostigard",
         "squadra": "genoa",
-        "gol": 1
+        "gol": 2
       },
       "Chalobah|como": {
         "nome": "Chalobah",
         "squadra": "como",
-        "gol": 2
+        "gol": 4
       },
       "Yildiz|juventus": {
         "nome": "Yildiz",
         "squadra": "juventus",
-        "gol": 4
+        "gol": 6
       },
       "Kolo Muani|juventus": {
         "nome": "Kolo Muani",
         "squadra": "juventus",
-        "gol": 4
+        "gol": 5
       },
       "Schingtienne|venezia": {
         "nome": "Schingtienne",
         "squadra": "venezia",
-        "gol": 3
+        "gol": 4
       },
       "Juan Jesus|venezia": {
         "nome": "Juan Jesus",
@@ -2919,7 +3003,7 @@
       "Provstgaard|lazio": {
         "nome": "Provstgaard",
         "squadra": "lazio",
-        "gol": 2
+        "gol": 3
       },
       "Monteiro|lecce": {
         "nome": "Monteiro",
@@ -2934,7 +3018,7 @@
       "Baturina|como": {
         "nome": "Baturina",
         "squadra": "como",
-        "gol": 3
+        "gol": 4
       },
       "Maldini|cagliari": {
         "nome": "Maldini",
@@ -2979,7 +3063,7 @@
       "De Winter|milan": {
         "nome": "De Winter",
         "squadra": "milan",
-        "gol": 4
+        "gol": 5
       },
       "Ramos|milan": {
         "nome": "Ramos",
@@ -3029,7 +3113,7 @@
       "Kamara|udinese": {
         "nome": "Kamara",
         "squadra": "udinese",
-        "gol": 4
+        "gol": 5
       },
       "Fagioli|fiorentina": {
         "nome": "Fagioli",
@@ -3049,7 +3133,7 @@
       "Troilo|parma": {
         "nome": "Troilo",
         "squadra": "parma",
-        "gol": 4
+        "gol": 5
       },
       "Holm|bologna": {
         "nome": "Holm",
@@ -3074,7 +3158,7 @@
       "Bremer|juventus": {
         "nome": "Bremer",
         "squadra": "juventus",
-        "gol": 3
+        "gol": 4
       },
       "Frattesi|lazio": {
         "nome": "Frattesi",
@@ -3084,7 +3168,7 @@
       "Ederson|atalanta": {
         "nome": "Ederson",
         "squadra": "atalanta",
-        "gol": 3
+        "gol": 4
       },
       "Hien|atalanta": {
         "nome": "Hien",
@@ -3104,7 +3188,7 @@
       "Spinazzola|napoli": {
         "nome": "Spinazzola",
         "squadra": "napoli",
-        "gol": 1
+        "gol": 2
       },
       "Ilic|lecce": {
         "nome": "Ilic",
@@ -3119,7 +3203,7 @@
       "Wesley|roma": {
         "nome": "Wesley",
         "squadra": "roma",
-        "gol": 2
+        "gol": 3
       },
       "Pedro Goncalves|fiorentina": {
         "nome": "Pedro Goncalves",
@@ -3129,7 +3213,7 @@
       "Mina|cagliari": {
         "nome": "Mina",
         "squadra": "cagliari",
-        "gol": 3
+        "gol": 4
       },
       "Mendy|cagliari": {
         "nome": "Mendy",
@@ -3164,12 +3248,12 @@
       "Rovella|lazio": {
         "nome": "Rovella",
         "squadra": "lazio",
-        "gol": 2
+        "gol": 3
       },
       "Noslin|lazio": {
         "nome": "Noslin",
         "squadra": "lazio",
-        "gol": 1
+        "gol": 2
       },
       "Hainaut|venezia": {
         "nome": "Hainaut",
@@ -3199,7 +3283,7 @@
       "Comuzzo|torino": {
         "nome": "Comuzzo",
         "squadra": "torino",
-        "gol": 2
+        "gol": 3
       },
       "Valeri|parma": {
         "nome": "Valeri",
@@ -3229,7 +3313,7 @@
       "Adopo|cagliari": {
         "nome": "Adopo",
         "squadra": "cagliari",
-        "gol": 3
+        "gol": 5
       },
       "Zeballos|monza": {
         "nome": "Zeballos",
@@ -3239,7 +3323,7 @@
       "Celik|juventus": {
         "nome": "Celik",
         "squadra": "juventus",
-        "gol": 5
+        "gol": 6
       },
       "Kabasele|udinese": {
         "nome": "Kabasele",
@@ -3289,7 +3373,7 @@
       "Geubbels|lecce": {
         "nome": "Geubbels",
         "squadra": "lecce",
-        "gol": 1
+        "gol": 2
       },
       "Carboni|monza": {
         "nome": "Carboni",
@@ -3334,7 +3418,7 @@
       "Rrahmani|napoli": {
         "nome": "Rrahmani",
         "squadra": "napoli",
-        "gol": 2
+        "gol": 3
       },
       "Birindelli|monza": {
         "nome": "Birindelli",
@@ -3374,17 +3458,17 @@
       "Kalulu|juventus": {
         "nome": "Kalulu",
         "squadra": "juventus",
-        "gol": 6
+        "gol": 7
       },
       "Douglas Luiz|juventus": {
         "nome": "Douglas Luiz",
         "squadra": "juventus",
-        "gol": 5
+        "gol": 9
       },
       "Karlstrom|udinese": {
         "nome": "Karlstrom",
         "squadra": "udinese",
-        "gol": 2
+        "gol": 3
       },
       "Mandragora|torino": {
         "nome": "Mandragora",
@@ -3394,7 +3478,7 @@
       "Bernabé|parma": {
         "nome": "Bernabé",
         "squadra": "parma",
-        "gol": 3
+        "gol": 4
       },
       "Cancellieri|lazio": {
         "nome": "Cancellieri",
@@ -3414,7 +3498,7 @@
       "Coco|torino": {
         "nome": "Coco",
         "squadra": "torino",
-        "gol": 2
+        "gol": 4
       },
       "De Bruyne|napoli": {
         "nome": "De Bruyne",
@@ -3434,12 +3518,12 @@
       "Thuram|inter": {
         "nome": "Thuram",
         "squadra": "inter",
-        "gol": 1
+        "gol": 2
       },
       "Fazzini|cagliari": {
         "nome": "Fazzini",
         "squadra": "cagliari",
-        "gol": 1
+        "gol": 2
       },
       "Douvikas|como": {
         "nome": "Douvikas",
@@ -3474,7 +3558,7 @@
       "Vlasic|torino": {
         "nome": "Vlasic",
         "squadra": "torino",
-        "gol": 1
+        "gol": 2
       },
       "Gaetano|atalanta": {
         "nome": "Gaetano",
@@ -3489,7 +3573,7 @@
       "Marcandalli|genoa": {
         "nome": "Marcandalli",
         "squadra": "genoa",
-        "gol": 1
+        "gol": 2
       },
       "Ehizibue|genoa": {
         "nome": "Ehizibue",
@@ -3514,7 +3598,7 @@
       "Robinson|monza": {
         "nome": "Robinson",
         "squadra": "monza",
-        "gol": 2
+        "gol": 3
       },
       "Busio|venezia": {
         "nome": "Busio",
@@ -3559,7 +3643,7 @@
       "Cissé|milan": {
         "nome": "Cissé",
         "squadra": "milan",
-        "gol": 2
+        "gol": 3
       },
       "Diego Carlos|parma": {
         "nome": "Diego Carlos",
@@ -3574,7 +3658,7 @@
       "Marusic|lazio": {
         "nome": "Marusic",
         "squadra": "lazio",
-        "gol": 1
+        "gol": 2
       },
       "Orsolini|bologna": {
         "nome": "Orsolini",
@@ -3589,6 +3673,31 @@
       "Matic|sassuolo": {
         "nome": "Matic",
         "squadra": "sassuolo",
+        "gol": 1
+      },
+      "Thorstvedt|sassuolo": {
+        "nome": "Thorstvedt",
+        "squadra": "sassuolo",
+        "gol": 1
+      },
+      "McTominay|napoli": {
+        "nome": "McTominay",
+        "squadra": "napoli",
+        "gol": 1
+      },
+      "Britschgi|parma": {
+        "nome": "Britschgi",
+        "squadra": "parma",
+        "gol": 2
+      },
+      "Tiago Gabriel|lecce": {
+        "nome": "Tiago Gabriel",
+        "squadra": "lecce",
+        "gol": 1
+      },
+      "Frendrup|genoa": {
+        "nome": "Frendrup",
+        "squadra": "genoa",
         "gol": 1
       }
     }
